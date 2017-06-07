@@ -49,6 +49,7 @@ class UserController extends Controller {
         $usuario->sucursal = $request->get('sucursal');
         $usuario->fecha_ingreso = $request->get('fecha_ingreso');
         $usuario->fecha_finalizacion_contrato = $request->get('fecha_finalizacion_contrato');
+        $usuario->password = bcrypt($request['cedula']);
         $usuario->activo = 1;
         $usuario->save();
         return Redirect::to('usuario');
