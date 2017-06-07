@@ -51,6 +51,11 @@ class UserController extends Controller {
         $usuario->fecha_finalizacion_contrato = $request->get('fecha_finalizacion_contrato');
         $usuario->password = bcrypt($request['cedula']);
         $usuario->activo = 1;
+
+        //separa el correo corporativo para sacar el username
+        $splitName = explode('@', Str::lower($request->get('correo_corporativo')), 2); // 
+        $username = $splitName[0];
+        $usuario->username = $username;
         $usuario->save();
         return Redirect::to('usuario');
     }
@@ -90,9 +95,11 @@ class UserController extends Controller {
         $usuario->update();
         return Redirect::to('usuario');
     }
-    public function destroy(UsuarioFormRequest $requerido){
-        $usuario=$requerido->get('fecha_finalizacion_contrato');
+
+    public function destroy(UsuarioFormRequest $requerido) {
+        $usuario = $requerido->get('fecha_finalizacion_contrato');
         print_r($usuario);
         die;
     }
+
 }
