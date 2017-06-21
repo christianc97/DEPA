@@ -4,16 +4,23 @@ namespace reportes\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Auth;
 use DB;
 
 class reporteAdminController extends Controller {
     
+    protected $id=2;
+    
     public function __construct() {
         $this->middleware('auth');
+        
     }
 
     public function index() {
-        $admin = DB::select('SELECT  u.id, u.username, u.superuser, u.create_at, pr.nombre, pr.telefono, IFNULL(GROUP_CONCAT(p.itemname), "Basico") "Permisos", u.email, u.lastvisit_at
+        $user=Auth::user()->id;
+        $tienePermiso=$this->validarPermisos($this->id,$user);
+        if ($tienePermiso) {
+           $admin = DB::select('SELECT  u.id, u.username, u.superuser, u.create_at, pr.nombre, pr.telefono, IFNULL(GROUP_CONCAT(p.itemname), "Basico") "Permisos", u.email, u.lastvisit_at
           FROM tbl_users u
           LEFT JOIN tbl_profiles pr ON u.id = pr.user_id
           LEFT JOIN AuthAssignment p ON u.id = p.userid
@@ -22,6 +29,10 @@ class reporteAdminController extends Controller {
           ORDER BY username ASC
           ');
         return view('reportes/reportesAdmin',["admin" => $admin]);
+        }else{
+            return view('home');
+        }
+        
     }
 
     public function exportarAdmin() {

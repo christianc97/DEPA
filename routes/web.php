@@ -31,6 +31,8 @@ Route::resource('reportes/reportesTotalServiciosChia', 'reportesTotalServiciosCh
 Route::resource('reportes/reportesListadoMensajeros', 'reportesListadoMensajerosController');
 Route::resource('reportes/reportesAppVersiones', 'reportesAppVersionesController');
 Route::resource('reportes/trackMensajero','trackMensajeroController');
+Route::resource('permisos','PermisosController');
+Route::resource('reportes/reportesTotalServiciosPersonas', 'reportesTotalServiciosPersonaController');
 
 /* Route::get('reportes/reportesAdmin','reporteAdminController@exportarAdmin'); */
 Route::post('reportes/reportesServiciosFinalizados', 'reporteServiciosFinalizadosController@exportarServiciosFinalizados');
@@ -43,9 +45,14 @@ Route::post('reportes/reportesTotalServicios', 'reportesTotalServiciosController
 Route::post('reportes/reportesTotalServiciosChia', 'reportesTotalServiciosChiaController@exportarTotalServiciosChia');
 Route::post('reportes/reportesListadoMensajeros', 'reportesListadoMensajerosController@exportarListadoMensajeros');
 Route::post('reportes/trackMensajero', 'trackMensajeroController@track');
+Route::post('reportes/reportesTotalServiciosPersonas', 'reportesTotalServiciosPersonaController@exportarTotalServiciosPersonas');
 
 Route::Auth();
 
 Route::get('/home', 'HomeController@index');
 
 Auth::routes();
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

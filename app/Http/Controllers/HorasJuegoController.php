@@ -11,12 +11,20 @@ use DB;
 
 class HorasJuegoController extends Controller {
 
+    protected $id=3;
     public function __construct() {
         $this->middleware('auth');
     }
 
     public function index() {
-        return view('reportes/reportesHoraJuego');
+        $user=Auth::user()->id;
+        $tienePermiso=$this->validarPermisos($this->id,$user);
+        if ($tienePermiso) {
+           return view('reportes/reportesHoraJuego');
+        }else{
+            return view('home');
+        }
+        
     }
 
     public function reporteTiemposHJ(ReportesFormRequest $request) {

@@ -11,9 +11,12 @@ use DB;
 
 class reporteServiciosFinalizadosController extends Controller {
     //
-
+    protected $id=1;
+    
     public function __construct() {
         $this->middleware('auth');
+        
+        
     }
     /**
      * Display a listing of the resource.
@@ -21,7 +24,14 @@ class reporteServiciosFinalizadosController extends Controller {
      * @return Response
      */
     public function index() {
-        return view('reportes/reportesServiciosFinalizados');
+        $user=Auth::user()->id;
+        $tienePermiso=$this->validarPermisos($this->id,$user);
+        if ($tienePermiso) {
+            return view('reportes/reportesServiciosFinalizados');
+        }else{
+            return view('home');
+        }
+        
     }
 
     public function exportarServiciosFinalizados(ReportesFormRequest $request) {

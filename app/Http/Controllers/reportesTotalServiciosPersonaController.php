@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use reportes\Reportes;
 use DB;
 
-class reportesTotalServiciosController extends Controller {
-
-    protected $id=5;
+class reportesTotalServiciosPersonaController extends Controller
+{
+    protected $id=16;
     public function __construct() {
         $this->middleware('auth');
     }
@@ -20,29 +20,28 @@ class reportesTotalServiciosController extends Controller {
         $user=Auth::user()->id;
         $tienePermiso=$this->validarPermisos($this->id,$user);
         if ($tienePermiso) {
-           return view('reportes.reportesTotalServicios');
+           return view('reportes.reportesTotalServiciosPersonas');
         }else{
             return view('home');
         }
         
     }
 
-    public function exportarTotalServicios(ReportesFormRequest $request) {
+    public function exportarTotalServiciosPersonas(ReportesFormRequest $request) {
         $fecha_inicio = $request->get('fecha_inicio');
         $fecha_fin = $request->get('fecha_fin');
-        $id_empresa = $request->get('id_empresa');
+        $id_persona = $request->get('id_persona');
         $ciudad = $request->get('ciudad');
         $estado_servicio = $request->get('estado_servicio');
-        $movimientos_clientes = $request->get('movimientos_cliente');
         
         $reporte = new Reportes();
         $reporte->fecha_inicio= $request->get('fecha_inicio');
         $reporte->fecha_fin = $request->get('fecha_fin');
-        $reporte->id_empresa= $request->get('id_empresa');
+        $reporte->id_persona= $request->get('id_persona');
         $reporte->ciudad=$request->get('ciudad');
         $reporte->estado_servicio=$request->get('estado_servicio');
         $reporte->user_id= Auth::user()->id;
-        $reporte->tipo_reporte_id=6;
+        $reporte->tipo_reporte_id=9;
         $reporte->tipo_log='Descargado';
         $reporte->save();
 
@@ -85,20 +84,16 @@ LEFT JOIN tbl_users rec ON rec.id = t.id_resource
 LEFT JOIN ciudad c ON c.id = t.ciudad_id
 left join type_caracteristica_recursos scr on scr.id = t.tipo_segmentacion_id
 WHERE ' . $estadoServicio . '
-    t.solicitante IN ( SELECT id FROM tbl_users WHERE empresas_id = :idEmpresa) 
+    t.solicitante IN (:idPersona) 
 AND fecha_inicio BETWEEN :between AND :and 
-' . $Ciudad . '', ["between" => $fecha_inicio, "and" => $fecha_fin, "idEmpresa" => $id_empresa]);
+' . $Ciudad . '', ["between" => $fecha_inicio, "and" => $fecha_fin, "idPersona" => $id_persona]);
 
-        $movimientos = DB::select('SELECT t.uuid, m.fecha, m.monto, m.acumulado, IF(m.task_id > 1, REPLACE(m.descripcion, m.task_id, " - "),m.descripcion) "descripcion", m.usuario, m.empresas_id, m.factura FROM movimientos m
-LEFT JOIN task t ON m.task_id = t.id
-WHERE m.empresas_id = :id
-AND fecha BETWEEN  :between  AND :and', ["between" => $fecha_inicio, "and" => $fecha_fin, "id" => $id_empresa]);
 
 
         if (count($total_servicios) > 2000) {
             return view('reportes.reportesTotalServicios');
         } else {
-            Excel::create('reporte total servicios empresa ' . $id_empresa . ' desde '.$fecha_inicio.' hasta '.$fecha_fin.'', function($excel)use($total_servicios, $movimientos_clientes, $movimientos) {
+            Excel::create('reporte total servicios empresa ' . $id_persona . ' desde '.$fecha_inicio.' hasta '.$fecha_fin.'', function($excel)use($total_servicios) {
                 $excel->sheet('reporte total de servicios', function($sheet)use($total_servicios) {
                     $resultado = $total_servicios;
 
@@ -107,18 +102,7 @@ AND fecha BETWEEN  :between  AND :and', ["between" => $fecha_inicio, "and" => $f
                     }
                     $sheet->fromArray($resultado);
                 });
-                if ($movimientos_clientes == true) {
-                    $excel->sheet('movimientos cliente', function($sheet)use($movimientos) {
-                        $resultado = $movimientos;
-
-                        foreach ($resultado as &$sf) {
-                            $sf = (array) $sf;
-                        }
-                        $sheet->fromArray($resultado);
-                    });
-                }
             })->export('xls');
         }
     }
-
 }

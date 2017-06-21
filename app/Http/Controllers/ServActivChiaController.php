@@ -11,12 +11,20 @@ use DB;
 
 class ServActivChiaController extends Controller {
     
+    protected $id=9;
     public function __construct() {
         $this->middleware('auth');
     }
 
     public function index() {
-        return view('reportes.reportesChia');
+        $user=Auth::user()->id;
+        $tienePermiso=$this->validarPermisos($this->id, $user);
+        if ($tienePermiso) {
+            return view('reportes.reportesChia');
+        }else{
+            return view('home');
+        }
+        
     }
 
     public function activacionChia(ReportesFormRequest $request) {

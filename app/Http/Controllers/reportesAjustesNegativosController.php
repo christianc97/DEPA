@@ -11,12 +11,19 @@ use DB;
 
 class reportesAjustesNegativosController extends Controller
 {
+    protected $id=10;
     public function __construct() {
         $this->middleware('auth');
     }
     
    public function index(){
-       return view('reportes.reportesAjustesNegativos');
+       $user=Auth::user()->id;
+       $tienePermiso=$this->validarPermisos($this->id, $user);
+       if ($tienePermiso) {
+           return view('reportes.reportesAjustesNegativos');
+         }else{
+           return view('home');
+       }
    }
    public function exportarAjustesNegativos(ReportesFormRequest $request){
        $fecha_inicio = $request->get('fecha_inicio');

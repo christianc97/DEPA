@@ -11,12 +11,20 @@ use DB;
 
 class reportesTotalServiciosChiaController extends Controller {
 
+    protected $id=11;
     public function __construct() {
         $this->middleware('auth');
     }
     
     public function index() {
-        return view('reportes.reportesTotalServiciosChia');
+        $user=Auth::user()->id;
+        $tienePermiso=$this->validarPermisos($this->id, $user);
+        if ($tienePermiso) {
+            return view('reportes.reportesTotalServiciosChia');
+        }else{
+            return view('home');
+        }
+        
     }
 
     public function exportarTotalServiciosChia(ReportesFormRequest $request) {

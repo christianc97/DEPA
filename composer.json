@@ -25,7 +25,10 @@
         ],
         "psr-4": {
             "reportes\\": "app/"
-        }
+        },
+        "files": [
+        "app/Helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

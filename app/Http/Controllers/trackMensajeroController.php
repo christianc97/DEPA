@@ -11,8 +11,16 @@ use DB;
 
 class trackMensajeroController extends Controller {
 
+    protected $id=8;
     public function index() {
-        return view('reportes.trackMensajero');
+        $user=Auth::user()->id;
+        $tienePermiso=$this->validarPermisos($this->id, $user);
+        if ($tienePermiso) {
+            return view('reportes.trackMensajero');
+        }else{
+            return view('home');
+        }
+        
     }
 
     public function track(ReportesFormRequest $request) {

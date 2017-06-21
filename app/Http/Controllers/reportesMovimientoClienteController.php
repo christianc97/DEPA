@@ -11,12 +11,20 @@ use DB;
 
 class reportesMovimientoClienteController extends Controller {
 
+    protected $id=4;
     public function __construct() {
         $this->middleware('auth');
     }
     
     public function index() {
-        return view('reportes.reportesMovimientosCliente');
+        $user=Auth::user()->id;
+        $tienePermiso=$this->validarPermisos($this->id,$user);
+        if ($tienePermiso) {
+           return view('reportes.reportesMovimientosCliente');
+        }else{
+            return view('home');
+        }
+        
     }
 
     public function store(ReportesFormRequest $request) {

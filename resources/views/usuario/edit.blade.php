@@ -4,6 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<link rel="stylesheet" href="{{asset('css/bootstrap-toggle.min.css')}}">
 @extends('layouts.admin')
 @section('titulo')
 <h3 class="box-title">Editar usuario {{$usuario->nombre1}} {{$usuario->nombre2}} {{$usuario->apellido1}} {{$usuario->apellido2}}</h3>
@@ -75,7 +76,7 @@ and open the template in the editor.
                 <option value="f">Femenino</option>
             </select>
         </div>
-        
+
     </div>
 </div>
 <div class='row1 align-right'>
@@ -131,5 +132,40 @@ and open the template in the editor.
         {{Form::close()}}
     </div>
 </div>
+<div class='row1 align-right'>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <div class="table-responsive">
+            <table id="tablausuarios" class="table table-condensed table-hover display">
+                <thead>
+                <th>#</th>
+                <th>Nombre permiso</th>
+                <th></th>
 
+                </thead>
+                <input type="hidden" value="{{$var=0}}"/>
+                @foreach ($permisos as $p)
+                <tbody>
+                    <tr>
+                        <td>{{++$var}}</td>
+                        <td>{{$p->nombre_permiso}}</td>
+                        <td>
+                            @if($p->permisos_id)
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                        </td>
+                        @else
+
+                        @endif
+                    </tr>
+                </tbody>
+                @endforeach
+            </table>
+        </div>
+    </div>
+</div>
+<div class='row1 align-right'>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <a href="{{URL::action('PermisosController@edit',$usuario->id)}}"><button  class="btn btn-info" type="submit">Permisos</button></a>
+    </div>
+</div>
+<script src="{{asset('js/bootstrap-toggle.min.js')}}"></script>
 @endsection
