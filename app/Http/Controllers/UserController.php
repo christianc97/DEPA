@@ -102,7 +102,6 @@ class UserController extends Controller {
         $usuario->sucursal = $request->get('sucursal');
         $usuario->fecha_ingreso = $request->get('fecha_ingreso');
         $usuario->activo = 1;
-        DB::connection('reportesmensajeros')->insert("insert into users_permisos(users_id,permisos_id)values ($id,1)");
         $usuario->update();
         return Redirect::to('usuario');
     }

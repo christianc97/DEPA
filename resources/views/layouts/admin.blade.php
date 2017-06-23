@@ -53,7 +53,9 @@
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
-
+                                        <a href="{{asset('perfil')}}" >
+                                            perfil
+                                        </a>
                                     </li>
 
                                     <!-- Menu Footer-->
@@ -96,60 +98,66 @@
                         @if(! empty($p->permisos_id ==1))
                         <li id="reportes-reportesServiciosFinalizados"><a href="{{asset('reportes/reportesServiciosFinalizados')}}"><i class="fa fa-long-arrow-right"></i>Servicios finalizados mensajero</a></li>
                         @endif
-                        
+
                         @if(! empty($p->permisos_id ==2))
                         <li id="reportes-reportesAdmin"><a href="{{asset('reportes/reportesAdmin')}}"><i class="fa fa-long-arrow-right"></i> Reporte admin</a></li>
                         @endif
-                        
+
                         @if(! empty($p->permisos_id ==12))
                         <li id="usuario"><a href="{{asset('/usuario')}}"><i class="fa fa-long-arrow-right"></i> Personal</a></li>
                         @endif
-                        
+
                         @if(! empty($p->permisos_id ==3))
                         <li id="reportes-reportesHoraJuego"><a href="{{asset('reportes/reportesHoraJuego')}}"><i class="fa fa-long-arrow-right"></i>Horas de juego</a></li>
                         @endif
-                        
+
                         @if(! empty($p->permisos_id ==4))
                         <li id="reportes-reportesMovimientosCliente"><a href="{{asset('reportes/reportesMovimientosCliente')}}"><i class="fa fa-long-arrow-right"></i>Movimientos cliente</a></li>
                         @endif
-                        
+
                         @if(! empty($p->permisos_id ==5))
                         <li id="reportes-reportesTotalServicios"><a href="{{asset('reportes/reportesTotalServicios')}}"><i class="fa fa-long-arrow-right"></i>Reportes servicios Empresa</a></li>
                         @endif
-                        
+
                         @if(! empty($p->permisos_id ==16))
                         <li id="reportes-reportesTotalServiciosPersonas"><a href="{{asset('reportes/reportesTotalServiciosPersonas')}}"><i class="fa fa-long-arrow-right"></i>Reportes servicios Persona</a></li>
                         @endif 
-                        
+
                         @if(! empty($p->permisos_id ==6))
                         <li id="reportes-reportesListadoMensajeros"><a href="{{asset('reportes/reportesListadoMensajeros')}}"><i class="fa fa-long-arrow-right"></i>Listado de mensajeros</a></li>
                         @endif
-                        
+
                         @if(! empty($p->permisos_id ==7))
                         <li id="reportes-reportesAppVersiones"><a href="{{asset('reportes/reportesAppVersiones')}}"><i class="fa fa-long-arrow-right"></i>App versiones</a></li>
                         @endif
-                        
+
                         @if(! empty($p->permisos_id ==8))
                         <li id='reportes-trackMensajero'><a href="{{asset('reportes/trackMensajero')}}"><i class="fa fa-long-arrow-right"></i>Track mensajero</a></li>
                         @endif
+                        
+                        @if(! empty($p->permisos_id ==17))
+                        <li><a href="{{asset('reportes/reportesVistasTask')}}"><i class="fa fa-long-arrow-right"></i>Vistas Task</a></li>
+                        @endif
                         @endforeach
                         
+                        
+
                         @foreach(Permisos() as $p)
                         @if(! empty($p->permisos_id ==9))
                         <li class="header"><i class="fa fa-laptop"></i>
                             <span>REPORTES CHIA</span></li>
                         <li id="reportes-reportesChia"><a href="{{asset('reportes/reportesChia')}}"><i class="fa fa-long-arrow-right"></i>Reportes activación</a></li>
                         @endif 
-                        
+
                         @if(! empty($p->permisos_id ==10))
                         <li id='reportes-reportesAjustesNegativos'><a href="{{asset('reportes/reportesAjustesNegativos')}}"><i class="fa fa-long-arrow-right"></i>Ajuste Negativos</a></li>
                         @endif
-                        
+
                         @if(! empty($p->permisos_id ==11))
                         <li id='reportes-reportesTotalServiciosChia'><a href="{{asset('reportes/reportesTotalServiciosChia')}}"><i class="fa fa-long-arrow-right"></i>Total servicios chía </a></li>
                         @endif
                         @endforeach
-                        
+
                     </ul>
                 </section>
                 <!-- /.sidebar -->

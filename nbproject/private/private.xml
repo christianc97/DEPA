@@ -3,23 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/xampp/htdocs/Reportes/resources/views/permisos/index.blade.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/public/css/estilos.css</file>
-            <file>file:/C:/xampp/htdocs/Reportes/resources/views/layouts/admin.blade.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/app/Http/Controllers/Controller.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/app/Http/Controllers/reportesTotalServiciosPersonaController.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/resources/views/usuario/edit.blade.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/routes/web.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/resources/views/permisos/edit.blade.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/app/Http/Controllers/HorasJuegoController.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/resources/views/reportes/reportesTotalServiciosPersonas.blade.php</file>
-=======
+            <file>file:/C:/xampp/htdocs/Reportes/app/Http/Controllers/mostrarHorasJuegoController.php</file>
+            <file>file:/C:/xampp/htdocs/Reportes/resources/views/reportes/reportesVistasTask.blade.php</file>
             <file>file:/C:/xampp/htdocs/Reportes/app/Http/Controllers/Auth/LoginController.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/resources/views/reportes/trackMensajero.blade.php</file>
->>>>>>> 42a896f54337b0e08cae73f3f3f808b6d36af6c3
-            <file>file:/C:/xampp/htdocs/Reportes/resources/views/usuario/index.blade.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/app/Http/Controllers/UserController.php</file>
+            <file>file:/C:/xampp/htdocs/Reportes/routes/web.php</file>
+            <file>file:/C:/xampp/htdocs/Reportes/resources/views/reportes/vistasTask.blade.php</file>
+            <file>file:/C:/xampp/htdocs/Reportes/resources/views/layouts/app.blade.php</file>
+            <file>file:/C:/xampp/htdocs/Reportes/app/Http/Controllers/VistasTaskController.php</file>
+            <file>file:/C:/xampp/htdocs/Reportes/resources/views/reportes/reportesHoraJuego.blade.php</file>
         </group>
     </open-files>
 </project-private>

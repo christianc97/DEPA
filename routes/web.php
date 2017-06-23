@@ -33,6 +33,10 @@ Route::resource('reportes/reportesAppVersiones', 'reportesAppVersionesController
 Route::resource('reportes/trackMensajero','trackMensajeroController');
 Route::resource('permisos','PermisosController');
 Route::resource('reportes/reportesTotalServiciosPersonas', 'reportesTotalServiciosPersonaController');
+Route::resource('perfil','PerfilController');
+Route::resource('reportes/reportesVistasTask','VistasTaskController');
+Route::resource('reportes/vistasTask','VistasTaskController');
+
 
 /* Route::get('reportes/reportesAdmin','reporteAdminController@exportarAdmin'); */
 Route::post('reportes/reportesServiciosFinalizados', 'reporteServiciosFinalizadosController@exportarServiciosFinalizados');
