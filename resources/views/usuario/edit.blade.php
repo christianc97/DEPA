@@ -125,6 +125,10 @@ and open the template in the editor.
             <label for='fecha_ingreso'>Fecha ingreso</label>
             <input type="date" name="fecha_ingreso" class="form-control" value="{{$usuario->fecha_ingreso}}" placeholder="fecha ingreso">
         </div>
+        <div class='form-group'>
+            <label for='fecha_ingreso'>Fecha retiro</label>
+            <input type="date" name="fecha_finalizacion_contrato" class="form-control" value="{{$usuario->fecha_finalizacion_contrato}}" placeholder="fecha retiro">
+        </div>
         <div class="form-group">
             <a href=""><button  class="btn btn-primary" type="submit">Guardar</button></a>
             <a href="{{asset('usuario')}}"><button class="btn btn-danger" type="button">Cancelar</button></a>

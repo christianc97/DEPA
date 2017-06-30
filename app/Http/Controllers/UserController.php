@@ -13,22 +13,22 @@ use DB;
 
 class UserController extends Controller {
 
-     protected $id=12;
+    protected $id = 12;
+
     public function __construct() {
         $this->middleware('auth');
     }
 
     public function index() {
-        $user=Auth::user()->id;
-        $tienePermiso=$this->validarPermisos($this->id,$user);
+        $user = Auth::user()->id;
+        $tienePermiso = $this->validarPermisos($this->id, $user);
         if ($tienePermiso) {
-           $usuarios = DB::connection('reportesmensajeros')->select('select * from users where activo=1 order by fecha_ingreso asc');
-        /* $consulta = DB::connection('reportesmensajeros')->select(' select * from users'); */
-        return view('usuario.index', ["usuarios" => $usuarios]);
-        }else{
+            $usuarios = DB::connection('reportesmensajeros')->select('select * from users where activo=1 order by fecha_ingreso asc');
+            /* $consulta = DB::connection('reportesmensajeros')->select(' select * from users'); */
+            return view('usuario.index', ["usuarios" => $usuarios]);
+        } else {
             return view('home');
         }
-        
     }
 
     public function create() {
@@ -75,7 +75,7 @@ class UserController extends Controller {
     public function edit($id) {
         $permisos = DB::connection('reportesmensajeros')->select("select * from permisos p
         left join users_permisos up on p.idPermisos=up.permisos_id and users_id=$id");
-        return view("usuario.edit", ["usuario" => User::findOrFail($id),"permisos" => $permisos]);
+        return view("usuario.edit", ["usuario" => User::findOrFail($id), "permisos" => $permisos]);
         /* $usuario = DB::connection('reportesmensajeros')->select(' select * from users where id=:id', ["id" => $id]);
           return view("usuario.edit", ["usuario" => $usuario]); */
     }
@@ -101,27 +101,22 @@ class UserController extends Controller {
         $usuario->correo_corporativo = Str::lower($request->get('correo_corporativo'));
         $usuario->sucursal = $request->get('sucursal');
         $usuario->fecha_ingreso = $request->get('fecha_ingreso');
+        $usuario->fecha_finalizacion_contrato = null;
         $usuario->activo = 1;
+        if ($request->get('fecha_finalizacion_contrato') != null) {
+            $usuario->fecha_finalizacion_contrato = $request->get('fecha_finalizacion_contrato');
+            $usuario->activo = 0;
+        }
         $usuario->update();
         return Redirect::to('usuario');
     }
 
-    public function destroy(UsuarioFormRequest $requerido) {
-        $usuario = $requerido->get('fecha_finalizacion_contrato');
-        print_r($usuario);
-        die;
-    }
-
-    public function asignarPermisos($id) {
-        DB::table('users_permisos')->insert([
-                    'users_id' => $id,
-                    'permisos_id' =>11 ,
-                ]);
-//        DB::connection('reportesmensajeros')->insert("insert into users_permisos(users_id,permisos_id)values ($id,1)");
-    }
-    public function eliminarPermisos($id){
-        DB::connection('reportesmensajeros')->delete("delete from users_permisos where users_id=$id and permisos_id=11");
+    public function destroy($id) {
+        $usuario = User::findOrFail($id);
+        $usuario->fecha_finalizacion_contrato= date('Y-m-d H:i:s');
+        $usuario->activo = 0;
+        $usuario->update();
+        return Redirect::to('usuario');
     }
 
 }
- 

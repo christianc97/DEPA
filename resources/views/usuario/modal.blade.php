@@ -15,8 +15,7 @@ and open the template in the editor.
                 <h4 class="modal-title">Desea eliminar al usuario {{$u->nombre1}} {{$u->nombre2}} {{$u->apellido1}} {{$u->apellido2}}</h4>
             </div>
             <div class="modal-body">
-                <p>Ingrese fecha de retiro</p>
-                <input type="date" class="form-control" name="fecha_finalizacion_contrato">
+                <p>¿Esta Seguro que desea eliminar al usuario {{$u->nombre1}} {{$u->nombre2}} {{$u->apellido1}} {{$u->apellido2}}?</p>
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Aceptar</button>

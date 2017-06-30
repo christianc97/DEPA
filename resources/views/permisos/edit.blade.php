@@ -40,7 +40,7 @@ and open the template in the editor.
                         <td>
                             {!!Form::model($usuario,['method'=>'PATCH','route'=>['permisos.update',$usuario->id]])!!}
                             {{Form::token()}}
-                            <a href=""><input type="hidden" name='idPermiso' value="{{$p->idPermisos}}"><button  class="btn btn-info" type="submit"><i class="fa fa-check-circle" aria-hidden="true"></i></button></a>
+                            <a href=""><input type="hidden" name='idPermiso' value="{{$p->idPermisos}}"><button  class="btn btn-success" type="submit"><i class="fa fa-check-circle" aria-hidden="true"></i></button></a>
                             {{Form::close()}}
                         </td>
 
