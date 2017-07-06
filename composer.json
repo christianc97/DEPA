@@ -9,8 +9,9 @@
         "fzaninotto/faker": "^1.6",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
+        "laravelcollective/html": "^5.4",
         "maatwebsite/excel": "~2.0",
-        "laravelcollective/html": "^5.4"
+        "vlucas/phpdotenv": "^2.4"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",

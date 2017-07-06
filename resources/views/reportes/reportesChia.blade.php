@@ -82,7 +82,7 @@ $(document).ready(function () {
             };
             $.ajax({
                 data: parametros,
-                url: 'http://10.10.100.100/reportes/recibir',
+                url: '/reportes/recibir',
                 type: 'post',
                 beforeSend: function () {
                     $("#resultado").html("Procesando, espere por favor...");

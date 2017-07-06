@@ -125,7 +125,7 @@ and open the template in the editor.
                             };
                             $.ajax({
                                 data: parametros,
-                                url: 'http://10.10.100.100/reportes/horasJuego',
+                                url: '/reportes/horasJuego',
                                 type: 'post',
                                 beforeSend: function () {
                                     $("#resultado").html("Procesando, espere por favor...");

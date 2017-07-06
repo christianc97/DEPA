@@ -221,6 +221,5 @@
                                                    var liId = splitted[1] + '-' + splitted[2];
                                                    $('#' + liId).addClass('active');
 </script>
-
 </body>
 </html>
