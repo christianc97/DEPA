@@ -48,7 +48,7 @@
                             @else 
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <span class="hidden-xs">{{Auth::user()->nombre1}} {{Auth::user()->apellido1}}</span>
+                                    <i class="fa fa-male" aria-hidden="true"></i> <span class="hidden-xs">{{Auth::user()->nombre1}} {{Auth::user()->apellido1}}</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
@@ -62,7 +62,7 @@
                                     <li class="user-footer">
 
                                         <div class="pull-right">
-                                            <a href="{{ route('logout') }}"
+                                            <a href="{{ route('logout') }}" class="btn btn-default btn-flat"
                                                onclick="event.preventDefault();
                                                        document.getElementById('logout-form').submit();">
                                                 Logout
@@ -134,13 +134,13 @@
                         @if(! empty($p->permisos_id ==8))
                         <li id='reportes-trackMensajero'><a href="{{asset('reportes/trackMensajero')}}"><i class="fa fa-long-arrow-right"></i>Track mensajero</a></li>
                         @endif
-                        
+
                         @if(! empty($p->permisos_id ==17))
                         <li><a href="{{asset('reportes/reportesVistasTask')}}"><i class="fa fa-long-arrow-right"></i>Vistas Task</a></li>
                         @endif
                         @endforeach
-                        
-                        
+
+
 
                         @foreach(Permisos() as $p)
                         @if(! empty($p->permisos_id ==9))

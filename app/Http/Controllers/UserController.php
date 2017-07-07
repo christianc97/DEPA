@@ -24,8 +24,9 @@ class UserController extends Controller {
         $tienePermiso = $this->validarPermisos($this->id, $user);
         if ($tienePermiso) {
             $usuarios = DB::connection('reportesmensajeros')->select('select * from users where activo=1 order by fecha_ingreso asc');
+            $usuarios_todos = DB::connection('reportesmensajeros')->select('select * from users order by fecha_ingreso asc');
             /* $consulta = DB::connection('reportesmensajeros')->select(' select * from users'); */
-            return view('usuario.index', ["usuarios" => $usuarios]);
+            return view('usuario.index', ["usuarios" => $usuarios], ["usuarios_todos" => $usuarios_todos]);
         } else {
             return view('home');
         }
@@ -113,7 +114,7 @@ class UserController extends Controller {
 
     public function destroy($id) {
         $usuario = User::findOrFail($id);
-        $usuario->fecha_finalizacion_contrato= date('Y-m-d H:i:s');
+        $usuario->fecha_finalizacion_contrato = date('Y-m-d H:i:s');
         $usuario->activo = 0;
         $usuario->update();
         return Redirect::to('usuario');
