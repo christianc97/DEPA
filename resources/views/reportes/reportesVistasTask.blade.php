@@ -41,7 +41,7 @@ $(document).ready(function () {
             };
             $.ajax({
                 data: parametros,
-                url: 'http://10.10.100.100/reportes/vistasTask',
+                url: '/reportes/vistasTask',
                 type: 'post',
                 beforeSend: function () {
                     $("#resultado").html("Procesando, espere por favor...");
