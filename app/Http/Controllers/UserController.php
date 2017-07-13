@@ -7,7 +7,6 @@ use reportes\User;
 use Illuminate\Support\Facades\Redirect;
 use reportes\Http\Requests\UsuarioFormRequest;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use DB;
 

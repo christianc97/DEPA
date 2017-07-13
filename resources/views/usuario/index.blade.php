@@ -89,7 +89,7 @@ and open the template in the editor.
                         <td>{{$u->cargo}}</td>
                         <td>{{$u->sucursal}}</td>
                         <td>{{$u->genero}}</td>
-                        <td>{{$u->celular}}</td>
+                        <td><a href="SIP:03{{$u->celular}}">{{$u->celular}}</a></td>
                         <td>{{$u->correo_corporativo}}</td>
                         <td>{{$u->fecha_ingreso}}</td>
                         <td>{{$u->fecha_finalizacion_contrato}}</td>
@@ -171,6 +171,7 @@ and open the template in the editor.
     </div>
 </div>
 @endsection
+<script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
 <script>
     function personal(evt, personal) {
         var i, tabcontent, tablinks;

@@ -36,6 +36,7 @@ Route::resource('reportes/reportesTotalServiciosPersonas', 'reportesTotalServici
 Route::resource('perfil','PerfilController');
 Route::resource('reportes/reportesVistasTask','VistasTaskController');
 Route::resource('reportes/vistasTask','VistasTaskController');
+Route::resource('equipos','EquiposController');
 
 
 /* Route::get('reportes/reportesAdmin','reporteAdminController@exportarAdmin'); */

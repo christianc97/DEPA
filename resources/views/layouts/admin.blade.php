@@ -136,10 +136,13 @@
                         @endif
 
                         @if(! empty($p->permisos_id ==17))
-                        <li><a href="{{asset('reportes/reportesVistasTask')}}"><i class="fa fa-long-arrow-right"></i>Vistas Task</a></li>
+                        <li id='reportes-reportesVistasTask'><a href="{{asset('reportes/reportesVistasTask')}}"><i class="fa fa-long-arrow-right"></i>Vistas Task</a></li>
                         @endif
-                        @endforeach
 
+                        @if(! empty($p->permisos_id ==18))
+                        <li id='equipos'><a href="{{asset('/equipos')}}"><i class="fa fa-long-arrow-right"></i>Equipos</a></li>
+                        @endif
+                        @endforeach    
 
 
                         @foreach(Permisos() as $p)
