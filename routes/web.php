@@ -37,9 +37,10 @@ Route::resource('perfil','PerfilController');
 Route::resource('reportes/reportesVistasTask','VistasTaskController');
 Route::resource('reportes/vistasTask','VistasTaskController');
 Route::resource('equipos','EquiposController');
+Route::resource('asignarEquipos','asignarEquiposController');
+Route::resource('asignarEquipos/equipos', 'asignarEquiposController');
 
 
-/* Route::get('reportes/reportesAdmin','reporteAdminController@exportarAdmin'); */
 Route::post('reportes/reportesServiciosFinalizados', 'reporteServiciosFinalizadosController@exportarServiciosFinalizados');
 Route::post('reportes/reportesAdmin', 'reporteAdminController@exportarAdmin');
 Route::post('reportes/reportesChia', 'ServActivChiaController@activacionChia');
@@ -60,10 +61,3 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

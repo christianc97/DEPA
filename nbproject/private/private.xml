@@ -3,19 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Reportes/resources/views/layouts/admin.blade.php</file>
+            <file>file:/C:/xampp/htdocs/Reportes/app/Http/Controllers/asignarEquiposController.php</file>
             <file>file:/C:/xampp/htdocs/Reportes/resources/views/usuario/edit.blade.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/app/Http/Controllers/UserController.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/resources/views/reportes/reportesVistasTask.blade.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/resources/views/home.blade.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/resources/views/equipos/edit.blade.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/app/Reportes.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/resources/views/equipos/create.blade.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/app/User.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/app/Http/Controllers/VistasTaskController.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/app/Http/Controllers/EquiposController.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/app/Equipos.php</file>
-            <file>file:/C:/xampp/htdocs/Reportes/resources/views/equipos/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/Reportes/routes/web.php</file>
+            <file>file:/C:/xampp/htdocs/Reportes/app/Http/Controllers/PermisosController.php</file>
+            <file>file:/C:/xampp/htdocs/Reportes/resources/views/permisos/edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/Reportes/resources/views/asignarEquipos/edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/Reportes/resources/views/usuario/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/Reportes/resources/views/asignarEquipos/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/Reportes/resources/views/asignarEquipos/equipos.blade.php</file>
         </group>
     </open-files>
 </project-private>

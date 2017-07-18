@@ -169,6 +169,7 @@ and open the template in the editor.
 <div class='row1 align-right'>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <a href="{{URL::action('PermisosController@edit',$usuario->id)}}"><button  class="btn btn-info" type="submit">Permisos</button></a>
+        <a href="{{URL::action('asignarEquiposController@edit',$usuario->id)}}"><button class="btn btn-info">Asignar Equipo</button></a>
     </div>
 </div>
 @endsection

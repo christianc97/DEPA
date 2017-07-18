@@ -17,3 +17,6 @@ li.active{
     color:#666666;
     display: inline-block;
 }
+.mensaje{
+    color:red;
+}

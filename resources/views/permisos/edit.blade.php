@@ -13,6 +13,12 @@ and open the template in the editor.
 <div class='row1 align-right'>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <div class="table-responsive">
+            @if(session('permiso_asignado'))
+                <h5 style='color:#179b2b'>{{session('permiso_asignado')}}</h5>
+            @endif
+            @if(session('permiso_desasignado'))
+                <h5 style='color:red'>{{session('permiso_desasignado')}}</h5>
+            @endif
             <table id="tablausuarios" class="table table-condensed table-hover display">
                 <thead>
                 <th>#</th>
@@ -33,14 +39,14 @@ and open the template in the editor.
                         </td>
                         <td>
                             {{Form::Open(array('action'=>array('PermisosController@destroy',$p->users_id),'method'=>'delete'))}}
-                            <a href=""><input type="hidden" name='idPermiso' value="{{$p->idPermisos}}"><button  class="btn btn-danger" type="submit"><i class="fa fa-times" aria-hidden="true"></i></button></a>
+                            <a href=""><input type="hidden" onclick="myFunction()" name='idPermiso' value="{{$p->idPermisos}}"><button  class="btn btn-danger" type="submit"><i class="fa fa-times" aria-hidden="true"></i></button></a>
                             {{Form::Close()}}
                         </td>
                         @else
                         <td>
                             {!!Form::model($usuario,['method'=>'PATCH','route'=>['permisos.update',$usuario->id]])!!}
                             {{Form::token()}}
-                            <a href=""><input type="hidden" name='idPermiso' value="{{$p->idPermisos}}"><button  class="btn btn-success" type="submit"><i class="fa fa-check-circle" aria-hidden="true"></i></button></a>
+                            <a href=""><input type="hidden" onclick="myFunction()" name='idPermiso' value="{{$p->idPermisos}}"><button  class="btn btn-success" type="submit"><i class="fa fa-check-circle" aria-hidden="true"></i></button></a>
                             {{Form::close()}}
                         </td>
 
@@ -53,4 +59,10 @@ and open the template in the editor.
         </div>
     </div>
 </div>
+<script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
+<script>
+function myFunction() {
+    location.reload();
+}
+</script>
 @endsection

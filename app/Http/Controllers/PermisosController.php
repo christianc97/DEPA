@@ -41,17 +41,13 @@ class PermisosController extends Controller {
 
         $permiso = $request->get('idPermiso');
         DB::connection('reportesmensajeros')->insert("insert into users_permisos(users_id,permisos_id)values ($id,$permiso)");
-        $permisos = DB::connection('reportesmensajeros')->select("select * from permisos p
-        left join users_permisos up on p.idPermisos=up.permisos_id and users_id=$id");
-        return view("usuario.edit", ["usuario" => User::findOrFail($id), "permisos" => $permisos]);
+        return redirect()->back()->with('permiso_asignado', 'Permiso asignado');
     }
 
     public function destroy(PermisosFormRequest $request, $id) {
         $permiso = $request->get('idPermiso');
         DB::connection('reportesmensajeros')->delete("DELETE FROM users_permisos WHERE users_id=$id  and permisos_id=$permiso");
-        $permisos = DB::connection('reportesmensajeros')->select("select * from permisos p
-        left join users_permisos up on p.idPermisos=up.permisos_id and users_id=$id");
-        return view("usuario.edit", ["usuario" => User::findOrFail($id), "permisos" => $permisos]);
+        return redirect()->back()->with('permiso_desasignado', 'Permiso desasignado');
     }
 
 }

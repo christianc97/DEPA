@@ -35,8 +35,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('DEPA', 'DEPA') }}
+                    <a class="navbar-brand" href="{{ url('/login') }}">
+                        {{ config('DP', 'DP') }}
                     </a>
                 </div>
 

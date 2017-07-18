@@ -16,7 +16,7 @@ and open the template in the editor.
             <table id="tablausuarios" class="table table-condensed table-hover display">
                 <thead>
                 <th>#</th>
-                <th>Nombre permiso</th>
+                <th>Nombre permisossssssss</th>
                 <th></th>
                 <th colspan="2">Opciones</th>
 

@@ -5,6 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <style>
+
     /* Style the tab */
     div.tab {
         overflow: hidden;
@@ -54,7 +55,7 @@ and open the template in the editor.
     </div>
 </div>
 <div class="tab">
-    <button class="tablinks" onclick="personal(event, 'personal_activo')">Personal activo</button>
+    <button class="tablinks" onclick="personal(event, 'personal_activo')" id="personal">Personal activo</button>
     <button class="tablinks" onclick="personal(event, 'personal_completo')">Personal</button>
 </div>
 <div class="row1">
@@ -74,7 +75,7 @@ and open the template in the editor.
                 <th>correo corporativo</th>
                 <th>fecha inicio</th>
                 <th>fecha retiro</th>
-                <th colspan="2">Opciones</th>
+                <th colspan="4"><center>Opciones</center></th>
 
                 </thead>
                 <input type="hidden" value="{{$var=0}}"/>
@@ -95,10 +96,16 @@ and open the template in the editor.
                         <td>{{$u->fecha_finalizacion_contrato}}</td>
 
                         <td>
-                            <a href="{{URL::action('UserController@edit',$u->id)}}"><button class="btn btn-info"><i class="fa fa-pencil"></i> Editar</button></a>
+                            <a href="{{URL::action('UserController@edit',$u->id)}}"><button class="btn btn-info">Editar</button></a>
                         </td>
                         <td>
-                            <a href="" data-target="#modal-delete-{{$u->id}}" data-toggle="modal"><button class="btn btn-danger"><span class="fa fa-trash-o"></span> Eliminar</button></a>
+                            <a href="{{URL::action('PermisosController@edit',$u->id)}}"><button  class="btn btn-primary" type="submit">Permisos</button></a>
+                        </td>
+                        <td>
+                            <a href="{{URL::action('asignarEquiposController@edit',$u->id)}}"><button class="btn btn-primary">Asignar Equipo</button></a>
+                        </td>
+                        <td>
+                            <a href="" data-target="#modal-delete-{{$u->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
                         </td>
                     </tr>
                 </tbody>
@@ -173,17 +180,23 @@ and open the template in the editor.
 @endsection
 <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
 <script>
-    function personal(evt, personal) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
+        $(document).ready(function () {
+            document.getElementById("personal").click();
+        });
+        function personal(evt, personal) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(personal).style.display = "block";
+            evt.currentTarget.className += " active";
+
         }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(personal).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
+
+
 </script>

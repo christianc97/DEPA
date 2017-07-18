@@ -263,6 +263,7 @@ and open the template in the editor.
             <b>Task places</b>
         </div>
     </div>
+    @if (count($task_places)>0)
     <table id="mitabla" class="table table-condensed table-hover table-bordered table-striped">
         <tr>
             <td>id</td>
@@ -295,7 +296,7 @@ and open the template in the editor.
             <td>Type</td>
             <td>OGR FID</td>
         </tr>
-        @if (count($task_places)>0)
+        
         @foreach($task_places as $tp)
         <tr>
             <td>{{$tp->id}}</td>
@@ -340,6 +341,7 @@ and open the template in the editor.
             <b>Task history</b>
         </div>
     </div>
+    @if (count($task_history)>0)
     <table id="mitabla" class="table table-condensed table-hover table-bordered table-striped">
         <tr>
             <td>id</td>
@@ -361,7 +363,7 @@ and open the template in the editor.
             <td>status code verification</td>
             <td>is fake location</td>
         </tr>
-        @if (count($task_history)>0)
+        
         @foreach($task_history as $th)
         <tr>
             <td>{{$th->id}}</td>

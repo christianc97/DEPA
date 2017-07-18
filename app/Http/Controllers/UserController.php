@@ -22,10 +22,11 @@ class UserController extends Controller {
         $user = Auth::user()->id;
         $tienePermiso = $this->validarPermisos($this->id, $user);
         if ($tienePermiso) {
+            $searchText='hola';
             $usuarios = DB::connection('reportesmensajeros')->select('select * from users where activo=1 order by fecha_ingreso asc');
             $usuarios_todos = DB::connection('reportesmensajeros')->select('select * from users order by fecha_ingreso asc');
             /* $consulta = DB::connection('reportesmensajeros')->select(' select * from users'); */
-            return view('usuario.index', ["usuarios" => $usuarios], ["usuarios_todos" => $usuarios_todos]);
+            return view('usuario.index', ["usuarios" => $usuarios, "usuarios_todos" => $usuarios_todos, "searchText" => $searchText]);
         } else {
             return view('home');
         }
