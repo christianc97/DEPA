@@ -22,11 +22,19 @@ class UserController extends Controller {
         $user = Auth::user()->id;
         $tienePermiso = $this->validarPermisos($this->id, $user);
         if ($tienePermiso) {
-            $searchText='hola';
-            $usuarios = DB::connection('reportesmensajeros')->select('select * from users where activo=1 order by fecha_ingreso asc');
+            $usuarios = DB::connection('reportesmensajeros')->select('select u.id,u.cedula, u.nombre1, u.nombre2, u.apellido1, u.apellido2, u.area, u.cargo, u.sucursal, u.genero, u.celular, u.correo_corporativo, u.fecha_ingreso, u.fecha_finalizacion_contrato,GROUP_CONCAT(e.id_equipos) as id_equipos, GROUP_CONCAT(e.codigo) as codigo from users u
+            left join users_equipos ue on u.id= ue.users_id
+            left join equipos e on ue.equipos_id= e.id_equipos
+            where activo=1 and ue.fecha_desasignacion is null
+            group by u.id
+             order by u.fecha_ingreso asc');
+            foreach ($usuarios as $user) {
+                $user->id_equipos = explode(',', $user->id_equipos);
+                $user->codigo= explode(',', $user->codigo);
+            }
             $usuarios_todos = DB::connection('reportesmensajeros')->select('select * from users order by fecha_ingreso asc');
             /* $consulta = DB::connection('reportesmensajeros')->select(' select * from users'); */
-            return view('usuario.index', ["usuarios" => $usuarios, "usuarios_todos" => $usuarios_todos, "searchText" => $searchText]);
+            return view('usuario.index', ["usuarios" => $usuarios, "usuarios_todos" => $usuarios_todos]);
         } else {
             return view('home');
         }

@@ -70,7 +70,13 @@ class EquiposController extends Controller {
     }
 
     public function show($id) {
-        return view("equipos.show", ["equipos" => Equipos::findOrFail($id)]);
+        $equipos_asignados = DB::connection('reportesmensajeros')->select("select nombre1, nombre2, apellido1, apellido2, area, codigo,tipo, modelo,serial,os_instalado, fecha_asignacion, fecha_desasignacion from users_equipos ue
+            inner join users u on ue.users_id=u.id
+            inner join equipos e on ue.equipos_id=e.id_equipos
+            where id_equipos = $id and fecha_asignacion is not null and fecha_desasignacion is null");
+        $historial= DB::connection('reportesmensajeros')->select("select he.id_historial_equipos, he.descripcion, he.created_at, u.nombre1, u.apellido1 from historial_equipos he
+inner join users u on he.users_id=u.id  where equipos_id=$id order by created_at desc");
+        return view("equipos.show", ["equipos" => Equipos::findOrFail($id), "equipos_asignados" =>$equipos_asignados,"historial"=>$historial]);
     }
 
     public function edit($id) {
@@ -119,6 +125,15 @@ class EquiposController extends Controller {
         }
         DB::connection('reportesmensajeros')->delete("DELETE FROM equipos WHERE id_equipos=$ide");
         return Redirect::to('equipos');
+        
+    }
+    
+    public function agregarDescripcion(Request $request){
+        $id= Auth::user()->id;
+        $id_equipos= $request->get('id_equipos');
+        $descripcion = $request->get('descripcion');
+        DB::connection('reportesmensajeros')->insert("insert into historial_equipos(descripcion,users_id,equipos_id)values ('$descripcion',$id,$id_equipos)");
+        return redirect()->back();
         
     }
 

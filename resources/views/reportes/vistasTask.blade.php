@@ -15,239 +15,239 @@ and open the template in the editor.
             @if (count($task)>0)
             @foreach($task as $t)
             <tr>
-                <td>id</td>
+                <td class="info">id</td>
                 <td>{{$t->id}}</td>
             </tr>
             <tr>
-                <td>uuid</td>
+                <td class="info">uuid</td>
                 <td>{{$t->uuid}}</td>
             </tr>
             <tr>
-                <td>descripcion</td>
+                <td class="info">descripcion</td>
                 <td>{{$t->descripcion}}</td>
             </tr>
             <tr>
-                <td>type_task_id</td>
+                <td class="info">type_task_id</td>
                 <td>{{$t->type_task_id}}</td>
             </tr>
             <tr>
-                <td>fecha inicio</td>
+                <td class="info">fecha inicio</td>
                 <td>{{$t->fecha_inicio}}</td>
             </tr>
             <tr>
-                <td>hora inicio</td>
+                <td class="info">hora inicio</td>
                 <td>{{$t->hora_inicio}}</td>
             </tr>
             <tr>
-                <td>fecha final</td>
+                <td class="info">fecha final</td>
                 <td>{{$t->fecha_final}}</td>
             </tr>
             <tr>
-                <td>hora final</td>
+                <td class="info">hora final</td>
                 <td>{{$t->hora_final}}</td>
             </tr>
             <tr>
-                <td>valor declarado</td>
+                <td class="info">valor declarado</td>
                 <td>{{$t->valor_declarado}}</td>
             </tr>
             <tr>
-                <td>valor descuento</td>
+                <td class="info">valor descuento</td>
                 <td>{{$t->valor_descuento}}</td>
             </tr>
             <tr>
-                <td>recargo distancia</td>
+                <td class="info">recargo distancia</td>
                 <td>{{$t->recargo_distancia}}</td>
             </tr>
             <tr>
-                <td>recargo ida y vuelta</td>
+                <td class="info">recargo ida y vuelta</td>
                 <td>{{$t->recargo_ida_vuelta}}</td>
             </tr>
             <tr>
-                <td>recargo seguro</td>
+                <td class="info">recargo seguro</td>
                 <td>{{$t->recargo_seguro}}</td>
             </tr>
             <tr>
-                <td>recargo tiempo</td>
+                <td class="info">recargo tiempo</td>
                 <td>{{$t->recargo_tiempo}}</td>
             </tr>
             <tr>
-                <td>Tiempo adicional</td>
+                <td class="info">Tiempo adicional</td>
                 <td>{{$t->tiempo_adicional}}</td>
             </tr>
             <tr>
-                <td>Valor total</td>
+                <td class="info">Valor total</td>
                 <td>{{$t->valor_total}}</td>
             </tr>
             <tr>
-                <td>Comision</td>
+                <td class="info">Comision</td>
                 <td>{{$t->comision}}</td>
             </tr>
             <tr>
-                <td>Total otro</td>
+                <td class="info">Total otro</td>
                 <td>{{$t->total_otro}}</td>
             </tr>
             <tr>
-                <td>Estado</td>
+                <td class="info">Estado</td>
                 <td>{{$t->estado}}</td>
             </tr>
             <tr>
-                <td>Solicitante</td>
+                <td class="info">Solicitante</td>
                 <td>{{$t->solicitante}}</td>
             </tr>
             <tr>
-                <td>Estado pago</td>
+                <td class="info">Estado pago</td>
                 <td>{{$t->estado_pago}}</td>
             </tr>
             <tr>
-                <td>type task carga id</td>
+                <td class="info">type task carga id</td>
                 <td>{{$t->type_task_carga_id}}</td>
             </tr>
             <tr>
-                <td>Code prom</td>
+                <td class="info">Code prom</td>
                 <td>{{$t->code_prom }}</td>
             </tr>
             <tr>
-                <td>Ciudad id</td>
+                <td class="info">Ciudad id</td>
                 <td>{{$t->ciudad_id}}</td>
             </tr>
             <tr>
-                <td>Date created</td>
+                <td class="info">Date created</td>
                 <td>{{$t->date_created}}</td>
             </tr>
             <tr>
-                <td>Date_modify</td>
+                <td class="info">Date_modify</td>
                 <td>{{$t->date_modify}}</td>
             </tr>
             <tr>
-                <td>User modify</td>
+                <td class="info">User modify</td>
                 <td>{{$t->user_modify}}</td>
             </tr>
             <tr>
-                <td>User create</td>
+                <td class="info">User create</td>
                 <td>{{$t->usercreate}}</td>
             </tr>
             <tr>
-                <td>Distancia</td>
+                <td class="info">Distancia</td>
                 <td>{{$t->distancia}}</td>
             </tr>
             <tr>
-                <td>Paradas</td>
+                <td class="info">Paradas</td>
                 <td>{{$t->paradas}}</td>
             </tr>
             <tr>
-                <td>Recargo paradas</td>
+                <td class="info">Recargo paradas</td>
                 <td>{{$t->recargo_paradas}}</td>
             </tr>
             <tr>
-                <td>Night surcharge</td>
+                <td class="info">Night surcharge</td>
                 <td>{{$t->night_surcharge}}</td>
             </tr>
             <tr>
-                <td>Parking surcharge</td>
+                <td class="info">Parking surcharge</td>
                 <td>{{$t->parking_surcharge}}</td>
             </tr>
             <tr>
-                <td>Ida y vuelta</td>
+                <td class="info">Ida y vuelta</td>
                 <td>{{$t->ida_vuelta}}</td>
             </tr>
             <tr>
-                <td>Term</td>
+                <td class="info">Term</td>
                 <td>{{$t->term}}</td>
             </tr>
             <tr>
-                <td>Cc</td>
+                <td class="info">Cc</td>
                 <td>{{$t->cc}}</td>
             </tr>
             <tr>
-                <td>Factura</td>
+                <td class="info">Factura</td>
                 <td>{{$t->factura}}</td>
             </tr>
             <tr>
-                <td>Mix</td>
+                <td class="info">Mix</td>
                 <td>{{$t->mix}}</td>
             </tr>
             <tr>
-                <td>Fuente</td>
+                <td class="info">Fuente</td>
                 <td>{{$t->fuente}}</td>
             </tr>
             <tr>
-                <td>Os</td>
+                <td class="info">Os</td>
                 <td>{{$t->os}}</td>
             </tr>
             <tr>
-                <td>Tipo pago terceros</td>
+                <td class="info">Tipo pago terceros</td>
                 <td>{{$t->tipo_pago_terceros}}</td>
             </tr>
             <tr>
-                <td>Tipo segmentacion id</td>
+                <td class="info">Tipo segmentacion id</td>
                 <td>{{$t->tipo_segmentacion_id}}</td>
             </tr>
             <tr>
-                <td>Tipo recurso</td>
+                <td class="info">Tipo recurso</td>
                 <td>{{$t->tipo_recurso}}</td>
             </tr>
             <tr>
-                <td>Id resource</td>
+                <td class="info">Id resource</td>
                 <td>{{$t->id_resource}}</td>
             </tr>
             <tr>
-                <td>Resource name</td>
+                <td class="info">Resource name</td>
                 <td>{{$t->resource_name}}</td>
             </tr>
             <tr>
-                <td>Id company</td>
+                <td class="info">Id company</td>
                 <td>{{$t->id_company}}</td>
             </tr>
             <tr>
-                <td>Name_company</td>
+                <td class="info">Name_company</td>
                 <td>{{$t->name_company}}</td>
             </tr>
             <tr>
-                <td>Phone company</td>
+                <td class="info">Phone company</td>
                 <td>{{$t->phone_company}}</td>
             </tr>
             <tr>
-                <td>Customer name</td>
+                <td class="info">Customer name</td>
                 <td>{{$t->customer_name}}</td>
             </tr>
             <tr>
-                <td>Customer email</td>
+                <td class="info">Customer email</td>
                 <td>{{$t->customer_email}}</td>
             </tr>
             <tr>
-                <td>Customer phone</td>
+                <td class="info">Customer phone</td>
                 <td>{{$t->customer_phone}}</td>
             </tr>
             <tr>
-                <td>Status date</td>
+                <td class="info">Status date</td>
                 <td>{{$t->status_date}}</td>
             </tr>
             <tr>
-                <td>activacion</td>
+                <td class="info">activacion</td>
                 <td>{{$t->activation}}</td>
             </tr>
             <tr>
-                <td>tags_edit</td>
+                <td class="info">tags_edit</td>
                 <td>{{$t->tags_edit}}</td>
             </tr>
             <tr>
-                <td>Rating</td>
+                <td class="info">Rating</td>
                 <td>{{$t->rating}}</td>
             </tr>
             <tr>
-                <td>rating distace</td>
+                <td class="info">rating distace</td>
                 <td>{{$t->rating_distance}}</td>
             </tr>
             <tr>
-                <td>Rating time</td>
+                <td class="info">Rating time</td>
                 <td>{{$t->rating_time}}</td>
             </tr>
             <tr>
-                <td>Rating client</td>
+                <td class="info">Rating client</td>
                 <td>{{$t->rating_client}}</td>
             </tr>
             <tr>
-                <td>Resolved</td>
+                <td class="info">Resolved</td>
                 <td>{{$t->resolved}}</td>
             </tr>
             @endforeach
@@ -265,7 +265,7 @@ and open the template in the editor.
     </div>
     @if (count($task_places)>0)
     <table id="mitabla" class="table table-condensed table-hover table-bordered table-striped">
-        <tr>
+        <tr class="info">
             <td>id</td>
             <td>tipo task places</td>
             <td>latitud</td>
@@ -343,7 +343,7 @@ and open the template in the editor.
     </div>
     @if (count($task_history)>0)
     <table id="mitabla" class="table table-condensed table-hover table-bordered table-striped">
-        <tr>
+        <tr class="info">
             <td>id</td>
             <td>task id</td>
             <td>type task status id</td>

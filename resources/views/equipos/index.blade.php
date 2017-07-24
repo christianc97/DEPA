@@ -89,6 +89,7 @@ and open the template in the editor.
                         <td>{{$e->microfono}}</td>
                         <td>{{$e->unidad_cd}}</td>
                         <td>{{$e->password}}</td>
+                        <td><a href="{{URL::action('EquiposController@show',$e->id_equipos)}}"><button class="btn btn-info"> Ver</button></a></td>
                         <td>
                             <a href="{{URL::action('EquiposController@edit',$e->id_equipos)}}"><button class="btn btn-info"><i class="fa fa-pencil"></i> Editar</button></a>
                         </td>

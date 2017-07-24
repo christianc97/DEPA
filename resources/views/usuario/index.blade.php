@@ -75,6 +75,7 @@ and open the template in the editor.
                 <th>correo corporativo</th>
                 <th>fecha inicio</th>
                 <th>fecha retiro</th>
+                <th>Pc asignado</th>
                 <th colspan="4"><center>Opciones</center></th>
 
                 </thead>
@@ -94,7 +95,10 @@ and open the template in the editor.
                         <td>{{$u->correo_corporativo}}</td>
                         <td>{{$u->fecha_ingreso}}</td>
                         <td>{{$u->fecha_finalizacion_contrato}}</td>
-
+                        <td>@foreach(array_combine($u->id_equipos, $u->codigo) as $ide=> $codigoe)
+                            <a href="{{URL::action('EquiposController@show',$ide)}}">{{$codigoe}}</a>
+                            @endforeach
+                        </td>
                         <td>
                             <a href="{{URL::action('UserController@edit',$u->id)}}"><button class="btn btn-info">Editar</button></a>
                         </td>

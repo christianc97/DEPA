@@ -52,6 +52,7 @@ Route::post('reportes/reportesTotalServiciosChia', 'reportesTotalServiciosChiaCo
 Route::post('reportes/reportesListadoMensajeros', 'reportesListadoMensajerosController@exportarListadoMensajeros');
 Route::post('reportes/trackMensajero', 'trackMensajeroController@track');
 Route::post('reportes/reportesTotalServiciosPersonas', 'reportesTotalServiciosPersonaController@exportarTotalServiciosPersonas');
+Route::post('equipos/show','EquiposController@agregarDescripcion');
 
 Route::Auth();
 
