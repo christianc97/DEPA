@@ -58,7 +58,7 @@ and open the template in the editor.
             <select class="form-control" name="os_original" value="">
                 <option value="os x">OS X</option>
                 <option value="windows 8 pro">Windows 8 PRO</option>
-                <option value="windows 8.1">Windows 8.1 HOME</option>
+                <option value="windows 8.1 home">Windows 8.1 HOME</option>
                 <option value="windows 10 pro">Windows 10 PRO</option>
                 <option value="windows 10 home">Windows 10 HOME</option>
                 <option value="linux mint">Linux mint</option>
@@ -69,7 +69,7 @@ and open the template in the editor.
             <select class="form-control" name="os_instalado" value="">
                 <option value="os x">OS X</option>
                 <option value="windows 8 pro">Windows 8 PRO</option>
-                <option value="windows 8.1">Windows 8.1 HOME</option>
+                <option value="windows 8.1 home">Windows 8.1 HOME</option>
                 <option value="windows 10 pro">Windows 10 PRO</option>
                 <option value="windows 10 home">Windows 10 HOME</option>
                 <option value="linux mint">Linux mint</option>
@@ -81,7 +81,7 @@ and open the template in the editor.
             <select class="form-control" name="os_licenciado" value="">
                 <option value="os x">OS X</option>
                 <option value="windows 8 pro">Windows 8 PRO</option>
-                <option value="windows 8.1">Windows 8.1 HOME</option>
+                <option value="windows 8.1 home">Windows 8.1 HOME</option>
                 <option value="windows 10 pro">Windows 10 PRO</option>
                 <option value="windows 10 home">Windows 10 HOME</option>
                 <option value="linux mint">Linux mint</option>

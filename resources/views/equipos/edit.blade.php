@@ -59,7 +59,7 @@ and open the template in the editor.
                 <option selected="disabled" value="{{$equipos->os_original}}">{{$equipos->os_original}}</option>
                 <option value="os x">OS X</option>
                 <option value="windows 8 pro">Windows 8 PRO</option>
-                <option value="windows 8.1">Windows 8.1 HOME</option>
+                <option value="windows 8.1 home">Windows 8.1 HOME</option>
                 <option value="windows 10 pro">Windows 10 PRO</option>
                 <option value="windows 10 home">Windows 10 HOME</option>
                 <option value="linux mint">Linux mint</option>
@@ -71,7 +71,7 @@ and open the template in the editor.
                 <option selected="disabled" value="{{$equipos->os_instalado}}">{{$equipos->os_instalado}}</option>
                 <option value="os x">OS X</option>
                 <option value="windows 8 pro">Windows 8 PRO</option>
-                <option value="windows 8.1">Windows 8.1 HOME</option>
+                <option value="windows 8.1 home">Windows 8.1 HOME</option>
                 <option value="windows 10 pro">Windows 10 PRO</option>
                 <option value="windows 10 home">Windows 10 HOME</option>
                 <option value="linux mint">Linux mint</option>
@@ -84,7 +84,7 @@ and open the template in the editor.
                 <option selected="disabled" value="{{$equipos->os_licenciado}}">{{$equipos->os_licenciado}}</option>
                 <option value="os x">OS X</option>
                 <option value="windows 8 pro">Windows 8 PRO</option>
-                <option value="windows 8.1">Windows 8.1 HOME</option>
+                <option value="windows 8.1 home">Windows 8.1 HOME</option>
                 <option value="windows 10 pro">Windows 10 PRO</option>
                 <option value="windows 10 home">Windows 10 HOME</option>
                 <option value="linux mint">Linux mint</option>
