@@ -36,9 +36,10 @@ Route::resource('reportes/reportesTotalServiciosPersonas', 'reportesTotalServici
 Route::resource('perfil','PerfilController');
 Route::resource('reportes/reportesVistasTask','VistasTaskController');
 Route::resource('reportes/vistasTask','VistasTaskController');
-Route::resource('equipos','EquiposController');
 Route::resource('asignarEquipos','asignarEquiposController');
 Route::resource('asignarEquipos/equipos', 'asignarEquiposController');
+Route::resource('equipos','EquiposController');
+
 
 
 Route::post('reportes/reportesServiciosFinalizados', 'reporteServiciosFinalizadosController@exportarServiciosFinalizados');
