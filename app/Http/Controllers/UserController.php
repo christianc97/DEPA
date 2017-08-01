@@ -1,7 +1,5 @@
 <?php
-
 namespace reportes\Http\Controllers;
-
 use Illuminate\Http\Request;
 use reportes\User;
 use Illuminate\Support\Facades\Redirect;
@@ -9,15 +7,11 @@ use reportes\Http\Requests\UsuarioFormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use DB;
-
 class UserController extends Controller {
-
     protected $id = 12;
-
     public function __construct() {
         $this->middleware('auth');
     }
-
     public function index() {
         $user = Auth::user()->id;
         $tienePermiso = $this->validarPermisos($this->id, $user);
@@ -25,7 +19,7 @@ class UserController extends Controller {
             $usuarios = DB::connection('reportesmensajeros')->select('select u.id,u.cedula, u.nombre1, u.nombre2, u.apellido1, u.apellido2, u.area, u.cargo, u.sucursal, u.genero, u.celular, u.correo_corporativo, u.fecha_ingreso, u.fecha_finalizacion_contrato,GROUP_CONCAT(e.id_equipos) as id_equipos, GROUP_CONCAT(e.codigo) as codigo from users u
             left join users_equipos ue on u.id= ue.users_id
             left join equipos e on ue.equipos_id= e.id_equipos
-            where activo=1 and ue.fecha_desasignacion is null
+            where u.activo=1 and ue.fecha_desasignacion is null
             group by u.id
              order by u.fecha_ingreso asc');
             foreach ($usuarios as $user) {
@@ -39,11 +33,9 @@ class UserController extends Controller {
             return view('home');
         }
     }
-
     public function create() {
         return view('usuario.create');
     }
-
     public function store(UsuarioFormRequest $request) {
         $usuario = new User();
         $usuario->tipo_documento = 'cc';
@@ -68,7 +60,6 @@ class UserController extends Controller {
         $usuario->fecha_finalizacion_contrato = $request->get('fecha_finalizacion_contrato');
         $usuario->password = bcrypt($request['cedula']);
         $usuario->activo = 1;
-
         //separa el correo corporativo para sacar el username
         $splitName = explode('@', Str::lower($request->get('correo_corporativo')), 2); // 
         $username = $splitName[0];
@@ -76,11 +67,9 @@ class UserController extends Controller {
         $usuario->save();
         return Redirect::to('usuario');
     }
-
     public function show($id) {
         return view("usuario.show", ["usuario" => User::findOrFail($id)]);
     }
-
     public function edit($id) {
         $permisos = DB::connection('reportesmensajeros')->select("select * from permisos p
         left join users_permisos up on p.idPermisos=up.permisos_id and users_id=$id");
@@ -88,9 +77,7 @@ class UserController extends Controller {
         /* $usuario = DB::connection('reportesmensajeros')->select(' select * from users where id=:id', ["id" => $id]);
           return view("usuario.edit", ["usuario" => $usuario]); */
     }
-
     public function update(UsuarioFormRequest $request, $id) {
-
         $usuario = User::findOrFail($id);
         $usuario->cedula = $request->get('cedula');
         $usuario->nombre1 = Str::lower($request->get('nombre1'));
@@ -119,7 +106,6 @@ class UserController extends Controller {
         $usuario->update();
         return Redirect::to('usuario');
     }
-
     public function destroy($id) {
         $usuario = User::findOrFail($id);
         $usuario->fecha_finalizacion_contrato = date('Y-m-d H:i:s');
@@ -127,5 +113,4 @@ class UserController extends Controller {
         $usuario->update();
         return Redirect::to('usuario');
     }
-
 }

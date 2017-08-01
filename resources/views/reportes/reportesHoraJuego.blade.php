@@ -28,7 +28,7 @@ and open the template in the editor.
         <tr>
             <td><b>Fecha inicio</b></td>
             <td><input class="form-control" value="" id="fecha_inicio" name="fecha_inicio" type="date" onchange="agregar();"></td>
-            <td><input class="form-control" value="" id="hora_inicio" name="hora_inicio" type="time"</td>
+            <td><input class="form-control" value="" id="hora_inicio" name="hora_inicio" type="time"></td>
         </tr>
         <tr>
             <td><b>Fecha final</b></td>

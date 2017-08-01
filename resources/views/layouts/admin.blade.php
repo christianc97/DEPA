@@ -142,7 +142,11 @@
                         @if(! empty($p->permisos_id ==18))
                         <li id='equipos'><a href="{{asset('/equipos')}}"><i class="fa fa-long-arrow-right"></i>Equipos</a></li>
                         @endif
-                        @endforeach    
+                        
+                        @if(! empty($p->permisos_id ==19))
+                        <li id='domicilios'><a href="{{asset('/domicilios')}}"><i class="fa fa-long-arrow-right"></i>Domicilios</a></li>
+                        @endif
+                        @endforeach 
 
 
                         @foreach(Permisos() as $p)

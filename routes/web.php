@@ -39,6 +39,8 @@ Route::resource('reportes/vistasTask','VistasTaskController');
 Route::resource('asignarEquipos','asignarEquiposController');
 Route::resource('asignarEquipos/equipos', 'asignarEquiposController');
 Route::resource('equipos','EquiposController');
+Route::resource('domicilios','DomiciliosUrbanosController');
+Route::resource('domicilios/empresa','verEmpresasController');
 
 
 
@@ -54,6 +56,9 @@ Route::post('reportes/reportesListadoMensajeros', 'reportesListadoMensajerosCont
 Route::post('reportes/trackMensajero', 'trackMensajeroController@track');
 Route::post('reportes/reportesTotalServiciosPersonas', 'reportesTotalServiciosPersonaController@exportarTotalServiciosPersonas');
 Route::post('equipos/show','EquiposController@agregarDescripcion');
+Route::post('domicilios/show','DomiciliosUrbanosController@usersDomicilios');
+
+Route::match(array('GET','POST'),'reportes/trackMensajero/{id_mensajero?}', array('uses'=>'trackMensajeroController@track'));
 
 Route::Auth();
 

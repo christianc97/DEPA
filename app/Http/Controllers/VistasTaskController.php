@@ -34,7 +34,8 @@ class VistasTaskController extends Controller {
         $task = DB::select("select * from task t where t.id = $id_task");
         $task_places = DB::select("select * from task_places p where p.task_id = $id_task");
         $task_history = DB::select("select * from task_history h where h.task_id = $id_task");
-        return view('reportes.vistasTask', ["task" => $task, "task_places"=>$task_places, "task_history"=>$task_history]);
+        $log_task = DB::select ("select * FROM log_task t where t.task_id =$id_task");
+        return view('reportes.vistasTask', ["task" => $task, "task_places"=>$task_places, "task_history"=>$task_history, "log_task"=>$log_task]);
     }
 
 }

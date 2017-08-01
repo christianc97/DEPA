@@ -29,7 +29,11 @@ and open the template in the editor.
     <table class="tabledata">
         <tr>
             <td>
-                <b>Id servicio</b>
+                <b>Id servicio 
+                    @if(!empty($id_m))
+                    {{$id_m}}
+                    @endif
+                </b>
             </td>
             <td>
                 <input type="number" id="id_mensajero" name="id_mensajero" class="form-control"/>
@@ -39,7 +43,7 @@ and open the template in the editor.
         <tr>
             <td></td>
             <td colspan="2"> 
-                <a href=""><button id="miboton"  class="btn btn-primary"><i class="fa fa-motorcycle" hidden="true"></i> Mostrar ruta</button></a>
+                <a href=""><button id="miboton" class="btn btn-primary"><i class="fa fa-motorcycle" hidden="true"></i> Mostrar ruta</button></a>
             </td>
         </tr>
     </table>

@@ -391,3 +391,74 @@ and open the template in the editor.
         @endif
     </table>
 </div>
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 table-responsive ">
+    <div class="panel">
+        <div class="panel-body">
+            <b>Log task</b>
+        </div>
+    </div>
+    @if (count($log_task)>0)
+    <table id="mitabla" class="table table-condensed table-hover table-bordered table-striped">
+        <tr class="info">
+            <td>Id</td>
+            <td>Task id</td>
+            <td>Uu id</td>
+            <td>Type task id</td>
+            <td>Fecha inicio</td>
+            <td>Hora inicio</td>
+            <td>Valor_declarado</td>
+            <td>Valor_descuento</td>
+            <td>Recargo distancia</td>
+            <td>Recargo ida y vuelta</td>
+            <td>Recargo seguro</td>
+            <td>Valor total</td>
+            <td>Comision</td>
+            <td>Total otro</td>
+            <td>Estado</td>
+            <td>Solicitante</td>
+            <td>Code prom</td>
+            <td>Ciudad id</td>
+            <td>Date created</td>
+            <td>User modify</td>
+            <td>Paradas</td>
+            <td>Ida y vuelta</td>
+            <td>Type</td>
+            <td>Estado pago</td>
+            <td>tags edit</td>
+        </tr>
+        
+        @foreach($log_task as $lt)
+        <tr>
+            <td>{{$lt->id}}</td>
+            <td>{{$lt->task_id}}</td>
+            <td>{{$lt->uuid}}</td>
+            <td>{{$lt->type_task_id}}</td>
+            <td>{{$lt->fecha_inicio}}</td>
+            <td>{{$lt->hora_inicio}}</td>
+            <td>{{$lt->valor_declarado}}</td>
+            <td>{{$lt->valor_descuento}}</td>
+            <td>{{$lt->recargo_distancia}}</td>
+            <td>{{$lt->recargo_ida_vuelta}}</td>
+            <td>{{$lt->recargo_seguro}}</td>
+            <td>{{$lt->valor_total}}</td>
+            <td>{{$lt->comision}}</td>
+            <td>{{$lt->total_otro}}</td>
+            <td>{{$lt->estado}}</td>
+            <td>{{$lt->solicitante}}</td>
+            <td>{{$lt->code_prom}}</td>
+            <td>{{$lt->ciudad_id}}</td>
+            <td>{{$lt->date_created}}</td>
+            <td>{{$lt->user_modify}}</td>
+            <td>{{$lt->paradas}}</td>
+            <td>{{$lt->ida_vuelta}}</td>
+            <td>{{$lt->type}}</td>
+            <td>{{$lt->estado_pago}}</td>
+            <td>{{$lt->tags_edit}}</td>
+            
+        </tr>
+        @endforeach
+        @else
+        No hay datos
+        @endif
+    </table>
+</div>
