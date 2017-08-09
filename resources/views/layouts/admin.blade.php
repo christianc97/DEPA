@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
         <title>DP</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -144,9 +145,20 @@
                         @endif
                         
                         @if(! empty($p->permisos_id ==19))
-                        <li id='domicilios'><a href="{{asset('/domicilios')}}"><i class="fa fa-long-arrow-right"></i>Domicilios</a></li>
+                        <li class="header"><i class="fa fa-laptop"></i>
+                            <span>DOMICILIOS</span></li>
+                        <li id='domicilios'><a href="{{asset('/domicilios')}}"><i class="fa fa-long-arrow-right"></i>Empresas</a></li>
                         @endif
-                        @endforeach 
+                        
+                        @if(! empty($p->permisos_id ==20))
+                        <li id='domiciliosUsuarios'><a href="{{asset('/domiciliosUsuarios')}}"><i class="fa fa-long-arrow-right"></i>Usuarios</a></li>
+                        @endif
+                        
+                        @if(! empty($p->permisos_id ==21))
+                        <li id='domiciliosPuntos'><a href="{{asset('/domiciliosPuntos/')}}"><i class="fa fa-long-arrow-right"></i>Puntos</a></li>
+                        @endif
+                        @endforeach
+                                                
 
 
                         @foreach(Permisos() as $p)
@@ -223,10 +235,12 @@
 <!-- AdminLTE App -->
 <script src="{{asset('js/app.min.js')}}"></script>
 <script>
-                                                   var r = location.pathname;
-                                                   var splitted = r.split('/');
-                                                   var liId = splitted[1] + '-' + splitted[2];
-                                                   $('#' + liId).addClass('active');
+       var r = location.pathname;
+       var splitted = r.split('/');
+       var liId = splitted[1] + '-' + splitted[2];
+       var liId2= splitted[1];
+       $('#' + liId).addClass('active');
+       $('#' + liId2).addClass('active');
 </script>
 </body>
 </html>

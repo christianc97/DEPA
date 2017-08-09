@@ -30,17 +30,19 @@ Route::resource('usuario', 'UserController');
 Route::resource('reportes/reportesTotalServiciosChia', 'reportesTotalServiciosChiaController');
 Route::resource('reportes/reportesListadoMensajeros', 'reportesListadoMensajerosController');
 Route::resource('reportes/reportesAppVersiones', 'reportesAppVersionesController');
-Route::resource('reportes/trackMensajero','trackMensajeroController');
-Route::resource('permisos','PermisosController');
+Route::resource('reportes/trackMensajero', 'trackMensajeroController');
+Route::resource('permisos', 'PermisosController');
 Route::resource('reportes/reportesTotalServiciosPersonas', 'reportesTotalServiciosPersonaController');
-Route::resource('perfil','PerfilController');
-Route::resource('reportes/reportesVistasTask','VistasTaskController');
-Route::resource('reportes/vistasTask','VistasTaskController');
-Route::resource('asignarEquipos','asignarEquiposController');
+Route::resource('perfil', 'PerfilController');
+Route::resource('reportes/reportesVistasTask', 'VistasTaskController');
+Route::resource('reportes/vistasTask', 'VistasTaskController');
+Route::resource('asignarEquipos', 'asignarEquiposController');
 Route::resource('asignarEquipos/equipos', 'asignarEquiposController');
-Route::resource('equipos','EquiposController');
-Route::resource('domicilios','DomiciliosUrbanosController');
-Route::resource('domicilios/empresa','verEmpresasController');
+Route::resource('equipos', 'EquiposController');
+Route::resource('domicilios', 'DomiciliosUrbanosController');
+Route::resource('domicilios/empresa', 'verEmpresasController');
+Route::resource('domiciliosUsuarios', 'DomiciliosUsuariosController');
+Route::resource('domiciliosPuntos', 'DomiciliosPuntosController');
 
 
 
@@ -55,10 +57,15 @@ Route::post('reportes/reportesTotalServiciosChia', 'reportesTotalServiciosChiaCo
 Route::post('reportes/reportesListadoMensajeros', 'reportesListadoMensajerosController@exportarListadoMensajeros');
 Route::post('reportes/trackMensajero', 'trackMensajeroController@track');
 Route::post('reportes/reportesTotalServiciosPersonas', 'reportesTotalServiciosPersonaController@exportarTotalServiciosPersonas');
-Route::post('equipos/show','EquiposController@agregarDescripcion');
-Route::post('domicilios/show','DomiciliosUrbanosController@usersDomicilios');
+Route::post('equipos/show', 'EquiposController@agregarDescripcion');
+Route::post('domicilios/show', 'DomiciliosUrbanosController@usersDomicilios');
+Route::post('domicilios/crearPuntos', 'DomiciliosUrbanosController@crearPuntos');
+Route::post('domicilios/show', 'DomiciliosUrbanosController@buscarDireccion');
 
-Route::match(array('GET','POST'),'reportes/trackMensajero/{id_mensajero?}', array('uses'=>'trackMensajeroController@track'));
+
+
+Route::match(array('GET', 'POST'), 'reportes/trackMensajero/{id_mensajero?}', array('uses' => 'trackMensajeroController@track'));
+
 
 Route::Auth();
 

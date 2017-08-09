@@ -62,39 +62,45 @@ and open the template in the editor.
         <hr/>
     </div>
     <div class="col-lg-10 col-md-6 col-sm-6 col-xs-12">
-        <div class="table-responsive">
-            <h3 class="box-title">Crear nuevo usuario</h3>
-            <table id="tablausuarios" class="table table-condensed table-hover display">
-                <thead>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Usuario en mensajeros urbanos</th>
-                <th></th>
+        <h3 class="box-title">Crear nuevo usuario <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" onclick="abre();"><i class="fa fa-minus"></i></button>
+            </div></h3>
+    </div>
+    <div id="desaparece" style="display:none">
+        <div class="col-lg-10 col-md-6 col-sm-6 col-xs-12">
+            <div class="table-responsive">
+                <table id="tablausuarios" class="table table-condensed table-hover display">
+                    <thead>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Usuario en mensajeros urbanos</th>
+                    <th></th>
 
-                </thead>
-                <tbody>
-                    <tr>
-                        {!! Form::open(array('url' => 'domicilios/show','method'=>'POST','autocomplete'=>'off') ) !!}
-                        {{Form::token()}}
-                        <td><input class="form-control" type="text" id='username' name='username'></td>
-                        <td><input class="form-control" type="password" id='password' name='password'>
-                            <input type="hidden" id="empresa_id" name="empresa_id" value="{{$empresa->id}}">
-                        </td>
-                        <td>
-                            <select class="form-control" name="mu_ref" value="">
-                                @foreach($users_empresa as $ue)
-                                <option value="{{$ue->id}}">{{$ue->id}} - {{$ue->email}}</option>
-                                @endforeach
-                            </select>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {!! Form::open(array('url' => 'domicilios/show','method'=>'POST','autocomplete'=>'off') ) !!}
+                            {{Form::token()}}
+                            <td><input class="form-control" type="text" id='username' name='username'></td>
+                            <td><input class="form-control" type="password" id='password' name='password'>
+                                <input type="hidden" id="empresa_id" name="empresa_id" value="{{$empresa->id}}">
+                            </td>
+                            <td>
+                                <select class="form-control" name="mu_ref" value="">
+                                    @foreach($users_empresa as $ue)
+                                    <option value="{{$ue->id}}">{{$ue->id}} - {{$ue->email}}</option>
+                                    @endforeach
+                                </select>
 
-                        </td>
-                        <td><button id="miboton" class="btn btn-info" type="submit">Crear usuario</button></td>
-                        {!! Form::close() !!}
-                    </tr>
-                </tbody>
-            </table>
+                            </td>
+                            <td><button id="miboton" class="btn btn-info" type="submit">Crear usuario</button></td>
+                            {!! Form::close() !!}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr/>
         </div>
-        <hr/>
     </div>
     <div class="col-lg-10 col-md-6 col-sm-6 col-xs-12">
         <div class="table-responsive">
@@ -122,120 +128,223 @@ and open the template in the editor.
         </div>
         <hr/>
     </div>
+
+
+    <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
+        <div class="table-responsive"><h3 class="box-title">Crear nuevo punto</h3>
+
+            <table id="tablausuarios" class="table table-condensed table-hover display">
+                <tr>
+                    <th>Ciudad</th>
+                    <td>
+                        <select class="form-control" id="ciudad" name="ciudad"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Direccion</th>
+                    <td><input class="form-control" type="text" id='direccion' name='direccion'>
+                        <div class="demo-container">
+                            <div class="demo-box" style="color: red"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button id="search" class="btn btn-info" type="button">Buscar</button></td>
+                    <td><span id="resultado"></span></td>
+                </tr>
+                <tbody>
+                    <tr>
+                        <th>Nombre punto</th>
+                        <td><input class="form-control" type="text" id='nombre_punto' name='nombre_punto'></td>
+                    </tr>
+                    <tr>
+                        <th>Parking</th>
+                        <td><input class="form-control" type="number" id='parking' name='parking'></td>
+
+                    </tr>
+                    <tr>
+                        <td><button id="crear_punto" class="btn btn-info" type="button">Crear punto</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
+        <div class="table-responsive">
+            <div id="map"></div>
+        </div>
+    </div>
     <div class="col-lg-10 col-md-6 col-sm-6 col-xs-12">
         <div class="table-responsive">
-            <h3 class="box-title">Nuevo punto</h3>
+            <h3 class="box-title">Puntos en domicilios</h3>
             <table id="tablausuarios" class="table table-condensed table-hover display">
                 <thead>
-                <th>Ciudad</th>
+                <th>Nombre punto</th>
                 <th>Direccion</th>
+                <th>Ciudad</th>
+                <th>Parking</th>
                 <th></th>
 
                 </thead>
                 <tbody>
+                    @foreach($puntos_domicilios as $pd)
                     <tr>
-                        <td>
-                            <select class="form-control" id="ciudad">
-                            </select>
-                        </td>
-                        <td><input class="form-control" type="text" id='direccion' name='direccion'></td>
-                        
-                        <td><button id="mibotons" class="btn btn-info" type="button">Buscar</button></td>
-
+                        <td>{{$pd->nombre}}</td>
+                        <td>{{$pd->direccion}}</td>
+                        <td>{{$pd->ciudad}}</td>
+                        <td>{{$pd->parking}}</td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
-            <div id="map"></div>
         </div>
+        <hr/>
     </div>
 </div>
+
 @endsection
 <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 <script>
-$(document).ready(function () {
-    $.ajax({
-        url: 'http://dev.api.mensajerosurbanos.com/cities?status=1',
-        type: 'GET',
-        beforeSend: function () {
-        },
-        success: function (response) {
-            $("#resultado").html(response);
-            for (var i = 0; i < response.data.length; i++) {
-                var ciudad = response.data[i];
-                $('#ciudad').append(new Option(ciudad.name, ciudad.id, true, true));
-            }
-        }
-    });
-    $('#miboton').click(function () {
-        var username = $("#username").val();
-        var password = $("#password").val();
-        var espacios = false;
-        var cont = 0;
-        if (!username == '' || !password == '') {
-            while (!espacios && (cont < username.length)) {
-                if (username.charAt(cont) == " ")
-                    espacios = true;
-                cont++;
-            }
+                    var lat;
+                    var long;
+                    $(document).ready(function () {
+                        $('#crear_punto').css('display', 'none');
+                        $.ajax({
+                            url: 'http://dev.api.mensajerosurbanos.com/cities?status=1',
+                            type: 'GET',
+                            beforeSend: function () {
+                            },
+                            success: function (response) {
+                                $("#resultado").html(response);
+                                for (var i = 0; i < response.data.length; i++) {
+                                    var ciudad = response.data[i];
+                                    $('#ciudad').append(new Option(ciudad.name, ciudad.name_geoapps, true, true));
+                                }
+                            }
+                        });
+                        $('#miboton').click(function () {
+                            var username = $("#username").val();
+                            var password = $("#password").val();
+                            var espacios = false;
+                            var cont = 0;
+                            if (!username == '' || !password == '') {
+                                while (!espacios && (cont < username.length)) {
+                                    if (username.charAt(cont) == " ")
+                                        espacios = true;
+                                    cont++;
+                                }
 
-            if (espacios) {
-                alert("El username no puede tener espacios");
-                return false;
-            }
+                                if (espacios) {
+                                    alert("El username no puede tener espacios");
+                                    return false;
+                                }
 
-            if (password.length < 6) {
-                alert("El password debe tener mas de seis caracteres");
-                return false;
-            }
-        } else {
-            alert('Llene los campos');
-            return false;
-        }
+                                if (password.length < 6) {
+                                    alert("El password debe tener mas de seis caracteres");
+                                    return false;
+                                }
+                            } else {
+                                alert('Llene los campos');
+                                return false;
+                            }
 
-    });
-});
-function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 11,
-            center: {lat: 4.710988599999999, lng: - 74.072092},
-            mapTypeId: 'terrain'
-    });
-        var flightPlanCoordinates = [
-        ];
-    @if (isset($track))
-    @foreach($track as $t)
-            flightPlanCoordinates.push({
-            lat: {{$t -> lat}},
-            lng: {{$t -> long}}
-            });
-        var marker = new google.maps.Marker({
-        position: {
-            lat: {{$t -> lat}},
-            lng: {{$t -> long}}
-            },
-            map: map,
-            title: '{{$t->time}}'
-        });
-    @endforeach
-    @endif
-        var flightPath = new google.maps.Polyline({
-            path: flightPlanCoordinates,
-            geodesic: true,
-            strokeColor: '#FF0000',
-            strokeOpacity: 1.0,
-            strokeWeight: 2
-        });
-    @if (isset($track))
-            var bounds = new google.maps.LatLngBounds();
-            for (var i = 0; i < flightPlanCoordinates.length; i++) {
-            bounds.extend(flightPlanCoordinates[i]);
-            };
-    @endif
-            
-    flightPath.setMap(map);
-    map.fitBounds(bounds);
-    }
+                        });
+                    });
+                    function initMap() {
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 11,
+                            center: {lat: 4.710988599999999, lng: -74.072092},
+                            mapTypeId: 'terrain'
+                        });
+                        $('#search').click(function () {
+                            var data = {
+                                address: $('#direccion').val(),
+                                city: $('#ciudad').val()};
+                            $.ajax({
+                                url: '/domicilios/show',
+                                data: {data1: data},
+                                type: 'post', //en este caso
+                                dataType: 'html',
+                                beforeSend: function () {
+                                    $("#resultado").html("Buscando, espere por favor...");
+                                },
+                                success: function (response) {
+                                    $("#resultado").html("");
+                                    response = JSON.parse(response);
+                                    lat = (response.data.coordinates[1]);
+                                    long = response.data.coordinates[0];
+                                    map.setCenter({lat: lat, lng: long});
+                                    map.setZoom(18);
+                                    var marker = new google.maps.Marker({
+                                        position: {lat: lat, lng: long},
+                                        map: map
+                                    });
+                                    for (var i = 0; i < markers.length; i++) {
+                                        markers[i].setMap(null);
+                                    }
+                                    markers = [];
+                                    markers.push(marker);
+                                    $("div.demo-container").html('');
+                                    jQuery("#direccion").css("border", "");
+                                    $('#crear_punto').css('display', 'block');
+                                },
+                                error: function (error) {
+                                    $("#resultado").html("");
+                                    for (var i = 0; i < markers.length; i++) {
+                                        markers[i].setMap(null);
+                                    }
+                                    markers = [];
+                                    jQuery("#direccion").css("border", "1px solid red");
+                                    $("div.demo-container").html('Direccion no valida');
+                                    $("#crear_punto").css('display', 'none');
+                                }
+                            });
+                        });
+                        var markers = [];
+                        $('#crear_punto').click(function () {
+                            crearPunto();
+                        });
+                    }
+                    function crearPunto() {
+                        if ($('#nombre_punto').val()=='') {
+                            jQuery("#nombre_punto").css("border", "1px solid red");
+                            jQuery("#parking").css("border", "");
+                        } else {
+                        var data = {
+                            nombre: $('#nombre_punto').val(),
+                            address: $('#direccion').val(),
+                            lat: lat,
+                            long: long,
+                            empresa_id: {{$empresa->id}},
+                            user_create: 1,
+                            user_modify: 1,
+                            city: $('#ciudad').val(),
+                            parking: $('#parking').val()};
+                        $.ajax({
+                            url: '/domicilios/crearPuntos',
+                            data: {puntos: data},
+                            type: 'post',
+                            dataType: 'html',
+                            success: function (response) {
+                                location.reload();
+                            },
+                            error: function (error) {
+                                $("#resultado").html("No se pudo crear el punto, intentelo nuevamente");
+                            }
+                        });
+                    }
+                    }
+
+
+                    function abre() {
+                        comprueba = document.getElementById("desaparece").style.display;
+                        if (comprueba == 'none')
+                            document.getElementById("desaparece").style.display = "block";
+                        else
+                            document.getElementById("desaparece").style.display = "none";
+                    }
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDONz_SC-y9biqWqhtxpLvzmChJnDobm5E&callback=initMap">

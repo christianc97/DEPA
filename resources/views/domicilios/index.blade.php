@@ -7,7 +7,7 @@ and open the template in the editor.
 @extends('layouts.admin')
 
 @section('titulo')
-<h3 class="box-title">Domicilios urbanos</h3>
+<h3 class="box-title">Domicilios urbanos empresas</h3>
 @endsection
 
 @section('content')
