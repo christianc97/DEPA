@@ -263,7 +263,7 @@ and open the template in the editor.
                                 address: $('#direccion').val(),
                                 city: $('#ciudad').val()};
                             $.ajax({
-                                url: 'domicilios/buscarDireccion',
+                                url: '/domicilios/buscarDireccion',
                                 data: {data1: data},
                                 type: 'post', //en este caso
                                 dataType: 'html',

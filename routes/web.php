@@ -60,7 +60,7 @@ Route::post('reportes/reportesTotalServiciosPersonas', 'reportesTotalServiciosPe
 Route::post('equipos/show', 'EquiposController@agregarDescripcion');
 Route::post('domicilios/crearUsuario', 'DomiciliosUrbanosController@usersDomicilios');
 Route::post('domicilios/crearPuntos', 'DomiciliosUrbanosController@crearPuntos');
-Route::post('domicilios/buscarDireccion', 'DomiciliosUrbanosController@buscarDireccion');
+Route::post('/domicilios/buscarDireccion', 'DomiciliosUrbanosController@buscarDireccion');
 
 
 
