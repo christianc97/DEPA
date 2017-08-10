@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use GuzzleHttp\Client;
-use Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory;
-use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Psr7;
 use DB;
 
 class DomiciliosUrbanosController extends Controller {

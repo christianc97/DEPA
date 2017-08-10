@@ -144,21 +144,23 @@
                         <li id='equipos'><a href="{{asset('/equipos')}}"><i class="fa fa-long-arrow-right"></i>Equipos</a></li>
                         @endif
                         
+                        
+                        
                         @if(! empty($p->permisos_id ==19))
                         <li class="header"><i class="fa fa-laptop"></i>
                             <span>DOMICILIOS</span></li>
                         <li id='domicilios'><a href="{{asset('/domicilios')}}"><i class="fa fa-long-arrow-right"></i>Empresas</a></li>
                         @endif
-                        
+
                         @if(! empty($p->permisos_id ==20))
                         <li id='domiciliosUsuarios'><a href="{{asset('/domiciliosUsuarios')}}"><i class="fa fa-long-arrow-right"></i>Usuarios</a></li>
                         @endif
-                        
+
                         @if(! empty($p->permisos_id ==21))
                         <li id='domiciliosPuntos'><a href="{{asset('/domiciliosPuntos/')}}"><i class="fa fa-long-arrow-right"></i>Puntos</a></li>
                         @endif
                         @endforeach
-                                                
+
 
 
                         @foreach(Permisos() as $p)
@@ -181,11 +183,6 @@
                 </section>
                 <!-- /.sidebar -->
             </aside>
-
-
-
-
-
             <!--Contenido-->
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
@@ -235,12 +232,12 @@
 <!-- AdminLTE App -->
 <script src="{{asset('js/app.min.js')}}"></script>
 <script>
-       var r = location.pathname;
-       var splitted = r.split('/');
-       var liId = splitted[1] + '-' + splitted[2];
-       var liId2= splitted[1];
-       $('#' + liId).addClass('active');
-       $('#' + liId2).addClass('active');
+           var r = location.pathname;
+           var splitted = r.split('/');
+           var liId = splitted[1] + '-' + splitted[2];
+           var liId2 = splitted[1];
+           $('#' + liId).addClass('active');
+           $('#' + liId2).addClass('active');
 </script>
 </body>
 </html>

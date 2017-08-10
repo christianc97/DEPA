@@ -79,7 +79,7 @@ and open the template in the editor.
                     </thead>
                     <tbody>
                         <tr>
-                            {!! Form::open(array('url' => 'domicilios/show','method'=>'POST','autocomplete'=>'off') ) !!}
+                            {!! Form::open(array('url' => 'domicilios/crearUsuario','method'=>'POST','autocomplete'=>'off') ) !!}
                             {{Form::token()}}
                             <td><input class="form-control" type="text" id='username' name='username'></td>
                             <td><input class="form-control" type="password" id='password' name='password'>
@@ -93,7 +93,7 @@ and open the template in the editor.
                                 </select>
 
                             </td>
-                            <td><button id="miboton" class="btn btn-info" type="submit">Crear usuario</button></td>
+                            <td><button class="btn btn-info" type="submit">Crear usuario</button></td>
                             {!! Form::close() !!}
                         </tr>
                     </tbody>

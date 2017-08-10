@@ -58,7 +58,7 @@ Route::post('reportes/reportesListadoMensajeros', 'reportesListadoMensajerosCont
 Route::post('reportes/trackMensajero', 'trackMensajeroController@track');
 Route::post('reportes/reportesTotalServiciosPersonas', 'reportesTotalServiciosPersonaController@exportarTotalServiciosPersonas');
 Route::post('equipos/show', 'EquiposController@agregarDescripcion');
-Route::post('domicilios/show', 'DomiciliosUrbanosController@usersDomicilios');
+Route::post('domicilios/crearUsuario', 'DomiciliosUrbanosController@usersDomicilios');
 Route::post('domicilios/crearPuntos', 'DomiciliosUrbanosController@crearPuntos');
 Route::post('domicilios/show', 'DomiciliosUrbanosController@buscarDireccion');
 
