@@ -210,6 +210,10 @@ and open the template in the editor.
                     var lat;
                     var long;
                     $(document).ready(function () {
+                        $('#nombre_punto').val('');
+                        $('#direccion').val('');
+                        $('#parking').val('');
+                        $('#ciudad').val('');
                         $('#crear_punto').css('display', 'none');
                         $.ajax({
                             url: 'http://dev.api.mensajerosurbanos.com/cities?status=1',
@@ -220,7 +224,7 @@ and open the template in the editor.
                                 $("#resultado").html(response);
                                 for (var i = 0; i < response.data.length; i++) {
                                     var ciudad = response.data[i];
-                                    $('#ciudad').append(new Option(ciudad.name, ciudad.name_geoapps, true, true));
+                                    $('#ciudad').append(new Option(ciudad.name, ciudad.name_geoapps, true, false));
                                 }
                             }
                         });
@@ -305,6 +309,7 @@ and open the template in the editor.
                         var markers = [];
                         $('#crear_punto').click(function () {
                             crearPunto();
+                            
                         });
                     }
                     function crearPunto() {

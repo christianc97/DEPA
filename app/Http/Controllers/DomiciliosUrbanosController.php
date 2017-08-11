@@ -71,8 +71,6 @@ class DomiciliosUrbanosController extends Controller {
     public function buscarDireccion() {
         $data = Input::get('data1');
         $client = new Client();
-
-
         $response = $client->post('http://beta.api.mensajerosurbanos.com/address', [
             'json' => $data
         ]);
