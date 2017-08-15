@@ -179,6 +179,13 @@
                         @endif
                         @endforeach
 
+                        <!-- descargar jitsi-->
+                         @foreach(Permisos() as $p)
+                        @if(! empty($p->permisos_id ==22))
+                        <li id="reportes-reportesChia"><a href="{{asset('reportes/descargarjitsi')}}"><i class="fa fa-long-arrow-right"></i>Descargar Jitsi</a></li>
+                        @endif 
+                        @endforeach
+
                     </ul>
                 </section>
                 <!-- /.sidebar -->

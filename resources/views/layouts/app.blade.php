@@ -11,6 +11,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
     <!-- Scripts -->
     <script>
@@ -37,21 +39,29 @@
                     <a class="navbar-brand" href="{{ url('/login') }}">
                         {{ config('DP', 'DP') }}
                     </a>
+                   
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right" >
                         <!-- Authentication Links -->
-                        
+                         <a class="navbar-brand" href="{{ url('/d') }}">
+                        {{ config('Programas', 'Programas') }} <i style="font-size:20px" class="fa">&#xf0ab;</i> 
+                    </a>
+
                     </ul>
+
                 </div>
+
             </div>
+
         </nav>
 
         @yield('content')

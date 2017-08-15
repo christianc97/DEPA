@@ -43,6 +43,9 @@ Route::resource('domicilios', 'DomiciliosUrbanosController');
 Route::resource('domicilios/empresa', 'verEmpresasController');
 Route::resource('domiciliosUsuarios', 'DomiciliosUsuariosController');
 Route::resource('domiciliosPuntos', 'DomiciliosPuntosController');
+Route::resource('/d', 'DescargarJitsiController');
+
+
 
 
 
@@ -61,7 +64,7 @@ Route::post('equipos/show', 'EquiposController@agregarDescripcion');
 Route::post('domicilios/crearUsuario', 'DomiciliosUrbanosController@usersDomicilios');
 Route::post('domicilios/crearPuntos', 'DomiciliosUrbanosController@crearPuntos');
 Route::post('/domicilios/buscarDireccion', 'DomiciliosUrbanosController@buscarDireccion');
-
+Route::post('storage/create', 'StorageController@save');
 
 
 Route::match(array('GET', 'POST'), 'reportes/trackMensajero/{id_mensajero?}', array('uses' => 'trackMensajeroController@track'));
@@ -74,4 +77,21 @@ Route::get('/home', 'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('formulario', 'StorageController@index');
+
+
+
+Route::get('storage/{archivo}', function ($archivo) {
+     $public_path = public_path();
+     $url = $public_path.'/storage/'.$archivo;
+     //verificamos si el archivo existe y lo retornamos
+     if (Storage::exists($archivo))
+     {
+       return response()->download($url);
+     }
+     //si no se encuentra lanzamos un error 404.
+     abort(404);
+
+});
 
