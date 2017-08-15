@@ -93,7 +93,7 @@ and open the template in the editor.
                                 </select>
 
                             </td>
-                            <td><button class="btn btn-info" type="submit">Crear usuario</button></td>
+                            <td><button id="miboton" class="btn btn-info" type="submit">Crear usuario</button></td>
                             {!! Form::close() !!}
                         </tr>
                     </tbody>

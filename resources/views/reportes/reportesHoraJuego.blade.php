@@ -50,7 +50,6 @@ and open the template in the editor.
         <tr>
             <td><b>Ciudad</b></td>
             <td><select id="ciudad" name="ciudad" class="form-control btn btn-primary">
-
                 </select></td>
         </tr>
         <tr>

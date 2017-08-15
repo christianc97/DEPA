@@ -144,20 +144,21 @@
                         <li id='equipos'><a href="{{asset('/equipos')}}"><i class="fa fa-long-arrow-right"></i>Equipos</a></li>
                         @endif
                         
-                        
-                        
                         @if(! empty($p->permisos_id ==19))
                         <li class="header"><i class="fa fa-laptop"></i>
                             <span>DOMICILIOS</span></li>
-                        <li id='domicilios'><a href="{{asset('/domicilios')}}"><i class="fa fa-long-arrow-right"></i>Empresas</a></li>
+                        @endif 
+                        
+                        @if(! empty($p->permisos_id ==19))                        
+                        <li id='domicilios'><a href="{{asset('/domicilios')}}"><i class="fa fa-long-arrow-right"></i>Empresas domicilios</a></li>
+                        @endif   
+                        
+                        @if(! empty($p->permisos_id ==20))                        
+                        <li id='domiciliosUsuarios'><a href="{{asset('/domiciliosUsuarios')}}"><i class="fa fa-long-arrow-right"></i>Usuarios domicilios</a></li>
                         @endif
-
-                        @if(! empty($p->permisos_id ==20))
-                        <li id='domiciliosUsuarios'><a href="{{asset('/domiciliosUsuarios')}}"><i class="fa fa-long-arrow-right"></i>Usuarios</a></li>
-                        @endif
-
+                        
                         @if(! empty($p->permisos_id ==21))
-                        <li id='domiciliosPuntos'><a href="{{asset('/domiciliosPuntos/')}}"><i class="fa fa-long-arrow-right"></i>Puntos</a></li>
+                        <li id='domiciliosPuntos'><a href="{{asset('/domiciliosPuntos/')}}"><i class="fa fa-long-arrow-right"></i>Puntos domicilios</a></li>
                         @endif
                         @endforeach
 
