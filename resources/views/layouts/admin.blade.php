@@ -30,7 +30,10 @@
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini"><b>R</b>ep</span>
                     <!-- logo for regular state and mobile devices -->
+                    @if (!(empty(Auth::user()->fecha_finalizacion_contrato)))
+                            @else
                     <span class="logo-lg"><b>DP </b><h5 class="beta"><b>(beta)</b></h5> </span>
+                    @endif
                 </a>
 
                 <!-- Header Navbar: style can be found in header.less -->
@@ -48,9 +51,13 @@
                             @if (Auth::guest())
                             @else 
                             <li class="dropdown user user-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            @if (!(empty(Auth::user()->fecha_finalizacion_contrato)))
+                            @else
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-male" aria-hidden="true"></i> <span class="hidden-xs">{{Auth::user()->nombre1}} {{Auth::user()->apellido1}}</span>
                                 </a>
+                            @endif
+                                
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
@@ -92,9 +99,12 @@
 
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-
+ @if (!(empty(Auth::user()->fecha_finalizacion_contrato)))
+                            @else
                         <li class="header"><i class="fa fa-laptop"></i>
+                       
                             <span>REPORTES</span></li>
+                            @endif
                         @foreach(Permisos() as $p)
                         @if(! empty($p->permisos_id ==1))
                         <li id="reportes-reportesServiciosFinalizados"><a href="{{asset('reportes/reportesServiciosFinalizados')}}"><i class="fa fa-long-arrow-right"></i>Servicios finalizados mensajero</a></li>
