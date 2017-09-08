@@ -69,7 +69,7 @@ and open the template in the editor.
                 <b>Incluir movimientos</b>
             </td>
             <td>
-                <input type="checkbox" name="movimientos_cliente"/>
+                <input type="checkbox" name="movimientos_cliente">
             </td>
         </tr>
         </tr>
@@ -77,6 +77,7 @@ and open the template in the editor.
         <tr>
             <td></td>
             <td colspan="2"> 
+            
                 <a href=""><button id="miboton"  class="btn btn-success fa fa-file-excel-o"> Exportar a Excel</button></a>
             </td>
         </tr>

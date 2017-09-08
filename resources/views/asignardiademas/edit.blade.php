@@ -7,7 +7,7 @@ and open the template in the editor.
 @extends('layouts.admin')
 
 @section('titulo')
-<h3 class="box-title">Asignar equipo a <b>{{$usuario->nombre1}} {{$usuario->nombre2}} {{$usuario->apellido1}} {{$usuario->apellido2}}</b></h3>
+<h3 class="box-title">Asignar equipo a <b>{{$diadema->nombre1}} {{$diadema->nombre2}} {{$diadema->apellido1}} {{$diadema->apellido2}}</b></h3>
 @endsection
 
 @section('content')
@@ -16,7 +16,7 @@ and open the template in the editor.
     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
         <div class="table-responsive">
             <table id="tablausuarios" class="table table-condensed table-hover display">
-                @if (count($equipos)>0)
+                @if (count($diademas)>0)
                 <thead>
                 <th>#</th>
                 <th>Codigo</th>
@@ -28,7 +28,7 @@ and open the template in the editor.
 
                 </thead>
                 <input type="hidden" value="{{$var=0}}"/>
-                @foreach ($equipos as $e)
+                @foreach ($diademas as $e)
                 <tbody>
                     <tr>
                         <td>{{++$var}}</td>
@@ -39,8 +39,8 @@ and open the template in the editor.
                         <td>{{$e->os_instalado}}</td>
                         <td>{{$e->fecha_asignacion}}</td>
                         <td>
-                            {{Form::Open(array('action'=>array('asignarEquiposController@destroy',$usuario->id),'method'=>'delete'))}}
-                            <a href=""><input type="hidden" name='id_equipos' value="{{$e->id_equipos}}"><button  class="btn btn-danger" type="submit"><i class="fa fa-times" aria-hidden="true"></i> Desasignar</button></a>
+                            {{Form::Open(array('action'=>array('AsignarDiademasController@destroy',$diadema->id),'method'=>'delete'))}}
+                            <a href=""><input type="hidden" name='id_equipos' value="{{$d->id_equipos}}"><button  class="btn btn-danger" type="submit"><i class="fa fa-times" aria-hidden="true"></i> Desasignar</button></a>
                             {{Form::Close()}}
                         </td>
                     </tr>
@@ -67,7 +67,7 @@ and open the template in the editor.
                 <span class="input-group-btn">
                     <button type="button" id='miboton' class='btn btn-primary'>Buscar</button>
                 </span>
-                <input type="hidden" id='id' name='id' value="{{$usuario->id}}"/>
+                <input type="hidden" id='id' name='id' value="{{$diadema->id_diadema}}"/>
             </div>
         </div>
         {!! Form::close() !!}
@@ -111,7 +111,7 @@ $(document).ready(function () {
             };
             $.ajax({
                 data: parametros,
-                url: '/asignarEquipos/equipos',
+                url: '/asignardiademas/diademas',
                 type: 'post',
                 beforeSend: function () {
                     $("#resultado").html("Procesando, espere por favor...");

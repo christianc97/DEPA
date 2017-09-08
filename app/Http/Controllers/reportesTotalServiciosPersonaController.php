@@ -47,7 +47,7 @@ class reportesTotalServiciosPersonaController extends Controller
 
 
         $estadoServicio = ($estado_servicio != "") ? "t.estado IN ($estado_servicio) AND" : "";
-        $Ciudad = ($ciudad != "") ? "AND t.ciudad_id = '$ciudad'" : "";
+        $Ciudad = ($ciudad != "") ? "sAND t.ciudad_id = '$ciudad'" : "";
 
         $total_servicios = DB::select('SELECT 
     t.uuid,t.date_created,t.fecha_inicio,t.hora_inicio,t.ida_vuelta,t.solicitante AS id_solicitante,p.nombre AS nombre_solicitante,

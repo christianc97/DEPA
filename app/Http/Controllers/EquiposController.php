@@ -23,7 +23,9 @@ class EquiposController extends Controller {
         $user = Auth::user()->id;
         $tienePermiso = $this->validarPermisos($this->id, $user);
         if ($tienePermiso) {
-            $equipos = DB::connection('reportesmensajeros')->select('select * from equipos');
+            $equipos = DB::connection('reportesmensajeros')
+            ->select('select * from equipos');
+
             return view('equipos.index', ["equipos" => $equipos]);
         } else {
             return view('home');
@@ -36,7 +38,7 @@ class EquiposController extends Controller {
 
     public function store(EquiposFormRequest $request) {
         $equipo = new Equipos();
-        $equipo->codigo = Str::lower($request->get('codigo'));
+        $equipo->codigo = Str::lower($request->get('codigo')); 
         $equipo->tipo = $request->get('tipo');
         $equipo->marca = Str::lower($request->get('marca'));
         $equipo->modelo = Str::lower($request->get('modelo'));
@@ -70,10 +72,12 @@ class EquiposController extends Controller {
     }
 
     public function show($id) {
-        $equipos_asignados = DB::connection('reportesmensajeros')->select("select nombre1, nombre2, apellido1, apellido2, area, codigo,tipo, modelo,serial,os_instalado, fecha_asignacion, fecha_desasignacion from users_equipos ue
+        $equipos_asignados = DB::connection('reportesmensajeros')
+        ->select("select nombre1, nombre2, apellido1, apellido2, area, codigo,tipo, modelo,serial,os_instalado, fecha_asignacion, fecha_desasignacion from users_equipos ue
             inner join users u on ue.users_id=u.id
             inner join equipos e on ue.equipos_id=e.id_equipos
             where id_equipos = $id and fecha_asignacion is not null and fecha_desasignacion is null");
+        
         $historial= DB::connection('reportesmensajeros')->select("select he.id_historial_equipos, he.descripcion, he.created_at, u.nombre1, u.apellido1 from historial_equipos he
 inner join users u on he.users_id=u.id  where equipos_id=$id order by created_at desc");
         return view("equipos.show", ["equipos" => Equipos::findOrFail($id), "equipos_asignados" =>$equipos_asignados,"historial"=>$historial]);

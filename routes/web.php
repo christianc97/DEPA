@@ -44,13 +44,18 @@ Route::resource('domicilios/empresa', 'verEmpresasController');
 Route::resource('domiciliosUsuarios', 'DomiciliosUsuariosController');
 Route::resource('domiciliosPuntos', 'DomiciliosPuntosController');
 Route::resource('/d', 'DescargarJitsiController');
-
+/*diademas*/
+Route::resource('diademas', 'DiademasController');
+Route::resource('asignardiademas', 'AsignarDiademasController');
+Route::resource('asignardiademas/diademas', 'AsignarDiademasController');
 
 
 
 
 Route::post('reportes/reportesServiciosFinalizados', 'reporteServiciosFinalizadosController@exportarServiciosFinalizados');
 Route::post('reportes/reportesAdmin', 'reporteAdminController@exportarAdmin');
+
+
 Route::post('reportes/reportesChia', 'ServActivChiaController@activacionChia');
 Route::post('reportes/reportesHoraJuego', 'HorasJuegoController@reporteTiemposHJ');
 Route::post('reportes/reportesMovimientosClientes', 'reportesMovimientoClienteController@exportarMovimientosCliente');
@@ -66,6 +71,9 @@ Route::post('domicilios/crearPuntos', 'DomiciliosUrbanosController@crearPuntos')
 Route::post('/domicilios/buscarDireccion', 'DomiciliosUrbanosController@buscarDireccion');
 Route::post('storage/create', 'StorageController@save');
 
+/*export excel track*/
+Route::post('reportes/trackMensajeroExport', 'ExcelController@exportarTrackMensajero');
+/**/
 
 Route::match(array('GET', 'POST'), 'reportes/trackMensajero/{id_mensajero?}', array('uses' => 'trackMensajeroController@track'));
 
@@ -79,7 +87,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('formulario', 'StorageController@index');
-
 
 
 Route::get('storage/{archivo}', function ($archivo) {

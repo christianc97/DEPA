@@ -37,6 +37,7 @@ and open the template in the editor.
             </td>
             <td>
                 <input type="number" id="id_mensajero" name="id_mensajero" class="form-control"/>
+               
             </td>
         </tr>
         {!! Form::close() !!}
@@ -44,6 +45,7 @@ and open the template in the editor.
             <td></td>
             <td colspan="2"> 
                 <a href=""><button id="miboton" class="btn btn-primary"><i class="fa fa-motorcycle" hidden="true"></i> Mostrar ruta</button></a>
+                
             </td>
         </tr>
     </table>
@@ -64,8 +66,10 @@ and open the template in the editor.
         </table>
     </div>
 </div>
+
 <div class='row1 align-right'>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
         <table id="mitabla" class="table table-condensed table-hover table-bordered table-striped">
             <thead>
                 <td>Parada</td>
@@ -76,12 +80,33 @@ and open the template in the editor.
             <tr>
                 <td>{{$p->tipo_task_places}}</td>
                 <td>{{$p->direccion}}</td>
+
             </tr>
-            @endforeach
+            <br>
+            
+         @endforeach
+            @if(isset($track))
+            {!! Form::open(array('url' => 'reportes/trackMensajeroExport','method'=>'POST','autocomplete'=>'off') ) !!}
+                {{Form::token()}}
+
+                <td class="text text-success"><input type="hidden" name="id_mensajero" id="id_mensajero" value="{{$id_m}}"></td>
+
+            <td><a href="{{asset('trackMensajero')}}"><button id="export"  class="btn btn-success fa fa-file-excel-o"> Exportar a Excel</button></a></td>
+            {!! Form::close() !!}
+            
             @endif
+            @endif
+           
+            
         </table>
+        
     </div>
+    @yield('error')
+<div class="table-responsive ">
+    <span id="resultado"></span>
 </div>
+</div>
+
 <script>
     function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -104,10 +129,11 @@ and open the template in the editor.
             var marker = new google.maps.Marker({
                 position: {
                 lat: {{$t -> lat}},
-                lng: {{$t -> long}}
+                lng: {{$t -> long}},
+                
             },
                 map: map,
-                title: '{{$t->time}}'
+                title: '{{$p->tipo_task_places}} {{$p->direccion}} {{$t->time}}'
 
             });
             @endforeach
@@ -170,4 +196,7 @@ and open the template in the editor.
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDONz_SC-y9biqWqhtxpLvzmChJnDobm5E&callback=initMap">
 </script>
+
+
+
 @endsection

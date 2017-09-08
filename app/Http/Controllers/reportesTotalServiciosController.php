@@ -54,7 +54,7 @@ class reportesTotalServiciosController extends Controller {
     t.uuid,t.date_created,t.fecha_inicio,t.hora_inicio,t.ida_vuelta,t.solicitante AS id_solicitante,p.nombre AS nombre_solicitante,
     sol.user_type AS tipo_usuario,em.did AS nit,em.nombre_empresa,tt.nombre AS tipo_servicio,re.nombre AS nombre_recurso,
      re.did AS documento_recurso,rec.user_type tipo_recurso,t.valor_total,
-     t.recargo_distancia,t.recargo_ida_vuelta,t.recargo_tiempo,  t.night_surcharge "recargo_nocturno",
+     t.recargo_distancia,t.recargo_ida_vuelta,t.recargo_tiempo, t.recargo_paradas , t.night_surcharge "recargo_nocturno",
      (IF(t.ida_vuelta = 1,(SELECT COUNT(p.id) FROM task_places p WHERE p.task_id = t.id)-3,(SELECT COUNT(p.id) FROM task_places p WHERE p.task_id = t.id)-2))*3900 AS recargo_por_paradas,
      pa.nombre AS estado_pago,t.factura,
     ts.nombre AS estado,t.descripcion,t.cc AS cuenta_contable,

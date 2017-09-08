@@ -48,11 +48,11 @@ and open the template in the editor.
                 <b>id Empresa</b>
             </td>
             <td>
-                <input type="number" name='idCliente' id='idCliente' class="form-control"/>
+                <input type="number" name='idEmpresa' id='idEmpresa' class="form-control"/>
             </td>
         </tr>
         <tr>
-            <td></td>
+             <td></td>
             <td colspan="2"> 
                 <a href="{{asset('reportesMovimientoCliente')}}"><button id="miboton"  class="btn btn-success fa fa-file-excel-o"> Exportar a Excel</button></a>
             </td>
@@ -65,11 +65,12 @@ and open the template in the editor.
 <script>
 $(document).ready(function () {
     $('#miboton').click(function () {
-        if ($("#fecha_inicio").val() == '' || $("#fecha_fin").val() == '' || $("#idCliente").val() == '') {
+        if ($("#fecha_inicio").val() == '' || $("#fecha_fin").val() == '' || $("#idEmpresa").val() == '') {
             event.preventDefault();
             alert('Llene todos los campos');
         }
     });
 });
 </script>
+
 @endsection

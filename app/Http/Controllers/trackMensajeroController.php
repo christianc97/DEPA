@@ -48,7 +48,7 @@ class trackMensajeroController extends Controller {
         $id_mensajero = $request->get('id_mensajero');
 
         if ($id_mensajero != '') {
-            $paradas = DB::select('select t.tipo_task_places,t.lat,t.long, t.direccion from task_places t where t.task_id = '.$id_mensajero.'');
+            $paradas = DB::select('select t.tipo_task_places, t.lat,t.long, t.direccion, t.address from task_places t where t.task_id = '.$id_mensajero.'');
             
             $id_resource = DB::select('select t.id_resource from task t where t.id = ' . $id_mensajero . '');
             $id_resource = $id_resource[0]->id_resource;
@@ -69,5 +69,9 @@ class trackMensajeroController extends Controller {
             return redirect()->back();
         }
     }
+    /*exportar a excel*/
+     
+
+     
 
 }

@@ -46,7 +46,7 @@ class asignarEquiposController extends Controller {
         if(count($validacion)>0){
             return redirect()->back()->with('computador_ya_asignado', 'El usuario ya tiene el equipo asignado');
         }else{
-            DB::connection('reportesmensajeros')->insert("insert into users_equipos(users_id,equipos_id, fecha_asignacion,asignador)values ($id,$equipo,'$fecha_asignacion',$asignador)");
+            DB::connection('reportesmensajeros')->insert("insert into users_equipos(users_id,equipos_id, fecha_asignacion, asignador)values ($id,$equipo,'$fecha_asignacion',$asignador)");
             return redirect()->back()->with('computador_asignado', 'Equipo asignado');
         }
     }

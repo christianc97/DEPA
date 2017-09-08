@@ -30,24 +30,21 @@ class reportesMovimientoClienteController extends Controller {
     public function store(ReportesFormRequest $request) {
         $fecha_inicio = $request->get('fecha_inicio');
         $fecha_fin = $request->get('fecha_fin');
-        $idCliente = $request->get('idCliente');
+        $idEmpresa = $request->get('idEmpresa');
         
         $reporte = new Reportes();
         $reporte->fecha_inicio= $request->get('fecha_inicio');
         $reporte->fecha_fin = $request->get('fecha_fin');
-        $reporte->id_empresa= $request->get('idCliente');
+        $reporte->id_empresa= $request->get('idEmpresa');
         $reporte->user_id= Auth::user()->id;
         $reporte->tipo_reporte_id=3;
         $reporte->tipo_log='Descargado';
         $reporte->save();
 
 
-        $movimientos = DB::select('SELECT t.uuid, m.fecha, m.monto, m.acumulado, IF(m.task_id > 1, REPLACE(m.descripcion, m.task_id, " - "),m.descripcion) "descripcion", m.usuario, m.empresas_id, m.factura FROM movimientos m
-LEFT JOIN task t ON m.task_id = t.id
-WHERE m.empresas_id = :id
-AND fecha BETWEEN  :between  AND :and', ["between" => $fecha_inicio, "and" => $fecha_fin, "id" => $idCliente]);
+        $movimientos = DB::select('SELECT t.uuid, m.fecha, m.monto, m.acumulado, IF(m.task_id > 1, REPLACE(m.descripcion, m.task_id, " - "),m.descripcion) "descripcion", m.usuario, m.empresas_id, m.factura FROM movimientos m LEFT JOIN task t ON m.task_id = t.id WHERE m.empresas_id = :id AND fecha BETWEEN  :between  AND :and', ["between" => $fecha_inicio, "and" => $fecha_fin, "id" => $idEmpresa]);
 
-        Excel::create('reporte movimientos empresa ' . $idCliente . '', function($excel)use($movimientos) {
+        Excel::create('reporte movimientos empresa ' . $idEmpresa . '', function($excel)use($movimientos) {
             $excel->sheet('reporte movimientos', function($sheet)use($movimientos) {
 
 

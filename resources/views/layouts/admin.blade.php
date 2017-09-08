@@ -31,7 +31,7 @@
                     <span class="logo-mini"><b>R</b>ep</span>
                     <!-- logo for regular state and mobile devices -->
                     @if (!(empty(Auth::user()->fecha_finalizacion_contrato)))
-                            @else
+                    @else
                     <span class="logo-lg"><b>DP </b><h5 class="beta"><b>(beta)</b></h5> </span>
                     @endif
                 </a>
@@ -99,14 +99,17 @@
 
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
- @if (!(empty(Auth::user()->fecha_finalizacion_contrato)))
-                            @else
+                        @if (!(empty(Auth::user()->fecha_finalizacion_contrato)))
+                        @else
                         <li class="header"><i class="fa fa-laptop"></i>
                        
-                            <span>REPORTES</span></li>
-                            @endif
+                            <span>REPORTES</span>
+                            </li>
+                        @endif
                         @foreach(Permisos() as $p)
-                        @if(! empty($p->permisos_id ==1))
+                        
+                        
+                            @if(! empty($p->permisos_id ==1))
                         <li id="reportes-reportesServiciosFinalizados"><a href="{{asset('reportes/reportesServiciosFinalizados')}}"><i class="fa fa-long-arrow-right"></i>Servicios finalizados mensajero</a></li>
                         @endif
 
@@ -118,6 +121,7 @@
                         <li id="usuario"><a href="{{asset('/usuario')}}"><i class="fa fa-long-arrow-right"></i> Personal</a></li>
                         @endif
 
+                      
                         @if(! empty($p->permisos_id ==3))
                         <li id="reportes-reportesHoraJuego"><a href="{{asset('reportes/reportesHoraJuego')}}"><i class="fa fa-long-arrow-right"></i>Horas de juego</a></li>
                         @endif
@@ -153,7 +157,12 @@
                         @if(! empty($p->permisos_id ==18))
                         <li id='equipos'><a href="{{asset('/equipos')}}"><i class="fa fa-long-arrow-right"></i>Equipos</a></li>
                         @endif
+                        @if(! empty($p->permisos_id ==24))
+                        <li id='diademas'><a href="{{asset('/diademas')}}"><i class="fa fa-long-arrow-right"></i>Diademas</a></li>
+                        @endif
+
                         
+                         
                         @if(! empty($p->permisos_id ==19))
                         <li class="header"><i class="fa fa-laptop"></i>
                             <span>DOMICILIOS</span></li>
@@ -169,7 +178,9 @@
                         
                         @if(! empty($p->permisos_id ==21))
                         <li id='domiciliosPuntos'><a href="{{asset('/domiciliosPuntos/')}}"><i class="fa fa-long-arrow-right"></i>Puntos domicilios</a></li>
+
                         @endif
+
                         @endforeach
 
 
@@ -190,12 +201,7 @@
                         @endif
                         @endforeach
 
-                        <!-- descargar jitsi-->
-                         @foreach(Permisos() as $p)
-                        @if(! empty($p->permisos_id ==22))
-                        <li id="reportes-reportesChia"><a href="{{asset('reportes/descargarjitsi')}}"><i class="fa fa-long-arrow-right"></i>Descargar Jitsi</a></li>
-                        @endif 
-                        @endforeach
+                         
 
                     </ul>
                 </section>
