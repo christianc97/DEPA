@@ -40,9 +40,9 @@ and open the template in the editor.
                         <td>{{$e->os_instalado}}</td>
                         <td>{{$e->fecha_asignacion}}</td>
                         <td>
-                            {{Form::Open(array('action'=>array('AsignarDiademasController@destroy',$diadema->id_diadema),'method'=>'delete'))}}
-                            <input type="hidden" value="" name="id_eq" id="id_eq">
-                            <a href=""><input type="" name='id_equipos' value="{{$e->id_equipos}}"><button  class="btn btn-danger" type="submit"><i class="fa fa-times" aria-hidden="true"></i> Desasignar</button></a>
+                            <!-- {{Form::Open(array('action'=>array('AsignarDiademasController@destroy',$diadema->id_diadema),'method'=>'delete'))}}-->
+                            {{Form::Open(Array('action'=>array('AsignarDiademasController@destroy', $e->id_equipos),'method'=>'delete'))}}
+                            <a href=""><input type="hidden" name='id_equipos' value="{{$e->id_equipos}}"><button  class="btn btn-danger" type="submit"><i class="fa fa-times" aria-hidden="true"></i> Desasignar</button></a>
                             {{Form::Close()}}
                         </td>
                     </tr>

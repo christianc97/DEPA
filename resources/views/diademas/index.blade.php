@@ -43,7 +43,13 @@ and open the template in the editor.
                         <td>{{++$var}}</td>
                         <td>{{$d->codigo_d}}</td>
                         <td>{{$d->fecha_compra}}</td>
-                        <td><a href="{{URL::action('EquiposController@show',$d->id_equipos)}}">{{$d->codigoe}}</a></td>
+                        <td>
+                        @if($d->codigoe)
+                        <a href="{{URL::action('EquiposController@show',$d->id_equipos)}}">{{$d->codigoe}}</a>
+                        @else
+                        <p class="text-danger">sin asignar</p>
+                        @endif
+                        </td>
                         <td></td>
                         <td>
                         <a href="{{URL::action('DiademasController@show',$d->id_diadema)}}"></a><button class="btn btn-info" data-toggle="tooltip"><span class="glyphicon glyphicon-eye-open"></span> </button>

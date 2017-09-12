@@ -48,12 +48,12 @@ class AsignarDiademasController extends Controller
             return redirect()->back()->with('computador_asignado', 'Equipo asignado');
         }
     }    
-    public function destroy(DiademasFormRequest $request, $id_diadema) {
-        $equipo = $request->get('id_equipos');
-        $fecha_desasignacion = date('Y-m-d H:i:s');
-        DB::connection('reportesmensajeros')->delete("UPDATE equipos_diademas
-        SET fecha_desasignacion = '$fecha_desasignacion'
-        WHERE diademas_id=$id_diadema and equipos_id=$equipo");
+    public function destroy($id_equipos) {
+        $id_equipos = DB::connection('reportesmensajeros')->select("select equipos_id from equipos_diademas where equipos_id=$id_equipos");
+        foreach ($id_equipos as $ie){
+            $ide= $ie->equipos_id;
+        }
+        DB::connection('reportesmensajeros')->delete("DELETE FROM equipos_diademas WHERE equipos_id= $ide");
         return redirect()->back()->with('computador_desasignado', 'Se desasigno el equipo');
     }
 }
