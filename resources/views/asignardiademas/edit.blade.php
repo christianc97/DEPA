@@ -7,7 +7,7 @@ and open the template in the editor.
 @extends('layouts.admin')
 
 @section('titulo')
-<h3 class="box-title">Asignar equipo a <b>{{$diadema->nombre1}} {{$diadema->nombre2}} {{$diadema->apellido1}} {{$diadema->apellido2}}</b></h3>
+<h3 class="box-title">Asignar Diadema <b>{{$diadema->codigo_d}} </b></h3>
 @endsection
 
 @section('content')
@@ -16,7 +16,8 @@ and open the template in the editor.
     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
         <div class="table-responsive">
             <table id="tablausuarios" class="table table-condensed table-hover display">
-                @if (count($diademas)>0)
+             @if (count($equipos)>0)
+             <caption>Diadema asignada a: <b>@foreach ($equipos as $e) {{$e->codigo}} @endforeach</b></caption>
                 <thead>
                 <th>#</th>
                 <th>Codigo</th>
@@ -28,7 +29,7 @@ and open the template in the editor.
 
                 </thead>
                 <input type="hidden" value="{{$var=0}}"/>
-                @foreach ($diademas as $e)
+                @foreach ($equipos as $e)
                 <tbody>
                     <tr>
                         <td>{{++$var}}</td>
@@ -39,8 +40,9 @@ and open the template in the editor.
                         <td>{{$e->os_instalado}}</td>
                         <td>{{$e->fecha_asignacion}}</td>
                         <td>
-                            {{Form::Open(array('action'=>array('AsignarDiademasController@destroy',$diadema->id),'method'=>'delete'))}}
-                            <a href=""><input type="hidden" name='id_equipos' value="{{$d->id_equipos}}"><button  class="btn btn-danger" type="submit"><i class="fa fa-times" aria-hidden="true"></i> Desasignar</button></a>
+                            {{Form::Open(array('action'=>array('AsignarDiademasController@destroy',$diadema->id_diadema),'method'=>'delete'))}}
+                            <input type="hidden" value="" name="id_eq" id="id_eq">
+                            <a href=""><input type="" name='id_equipos' value="{{$e->id_equipos}}"><button  class="btn btn-danger" type="submit"><i class="fa fa-times" aria-hidden="true"></i> Desasignar</button></a>
                             {{Form::Close()}}
                         </td>
                     </tr>
@@ -49,7 +51,7 @@ and open the template in the editor.
                 @else
                 <tr>
                     <div class="alert alert-info">
-                        <strong>Informacion!</strong> No tiene equipos asignados
+                        <strong>Informacion!</strong> Aun no esta asignada a ningun equipo.
                     </div>
                 </tr>
                 @endif
@@ -59,11 +61,11 @@ and open the template in the editor.
 </div>
 <div class='row1 align-right'>
     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-        {!! Form::open(array('url' => 'asignarEquipos/store','method'=>'POST','autocomplete'=>'off') ) !!}
+        {!! Form::open(array('url' => 'asignardiademas/store','method'=>'POST','autocomplete'=>'off') ) !!}
         {{Form::token()}}
         <div class="form-group">
             <div class="input-group">
-                <input type='text'  class="form-control" id="codigo" name='codigo' placeholder="Buscar..." value="">
+                <input type='text'  class="form-control" id="codigo" name='codigo' placeholder="Buscar..." value="" autofocus="">
                 <span class="input-group-btn">
                     <button type="button" id='miboton' class='btn btn-primary'>Buscar</button>
                 </span>
@@ -91,7 +93,8 @@ and open the template in the editor.
                 @endif
 
             </span>
-            <a href="{{asset('usuario')}}"><button  class="btn btn-danger" type="submit">volver</button></a>
+            <p></p>
+            <a href="{{asset('diademas')}}"><button  class="btn btn-danger" type="submit">volver</button></a>
         </div>
     </div>
 </div>

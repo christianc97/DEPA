@@ -20,7 +20,7 @@ class asignarEquiposController extends Controller {
         $id = $request->get('id');
         $equipos = DB::connection('reportesmensajeros')->select("select id_equipos, codigo,tipo, marca, modelo,serial, os_instalado from equipos "
                 . "where codigo = '$codigo'");
-        $equipos_asignados = DB::connection('reportesmensajeros')->select("select nombre1, nombre2, apellido1, apellido2, area, codigo,tipo, modelo,serial,os_instalado, fecha_asignacion, fecha_desasignacion from users_equipos ue
+        $equipos_asignados = DB::connection('reportesmensajeros')->select("select nombre1, nombre2, apellido1, apellido2, area, fecha_asignacion, fecha_desasignacion from users_equipos ue
             inner join users u on ue.users_id=u.id
             inner join equipos e on ue.equipos_id=e.id_equipos
             where codigo = '$codigo' and fecha_asignacion is not null and fecha_desasignacion is null");

@@ -8,10 +8,10 @@ class Diademas extends Model
 {
     protected $connection = 'reportesmensajeros';
     protected $table = 'diademas';
-    protected $primaryKey = 'id_diademas';
+    protected $primaryKey = 'id_diadema';
     public $timesstamps = false;
     protected $fillable = [
-        'codigo',
+        'codigo_d',
         'fecha_compra',
     ];
 }

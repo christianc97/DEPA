@@ -6,19 +6,26 @@ and open the template in the editor.
 -->
 <div class='row1 align-left'>
     <table id="tablausuarios" class="table table-condensed table-hover display">
-        @if (count($diademas)>0)
+        @if (count($equipos)>0)
         <thead>
-        <th>N°</th>
+        <th>#</th>
         <th>Codigo</th>
-        <th>Fecha Compra</th>
+        <th>Tipo</th>
+        <th>Modelo</th>
+        <th>Serial</th>
+        <th>Os instalado</th>
+
         </thead>
         <input type="hidden" value="{{$var=0}}"/>
-        @foreach ($diademas as $d)
+        @foreach ($equipos as $e)
         <tbody>
             <tr>
                 <td>{{++$var}}</td>
-                <td>{{$d->codigo}}</td>
-                <td>{{$d->fecha_compra}}</td>
+                <td>{{$e->codigo}}</td>
+                <td>{{$e->tipo}}</td>
+                <td>{{$e->modelo}}</td>
+                <td>{{$e->serial}}</td>
+                <td>{{$e->os_instalado}}</td>
             </tr>
         </tbody>
     </table>
@@ -28,29 +35,31 @@ and open the template in the editor.
         <thead>
         <th>#</th>
         <th>Codigo</th>
-        <th>Fecha de Compra</th>
+        <th>Fecha compra</th>
+        <th>Fecha Asignacion</th>
         </thead>
         <input type="hidden" value="{{$var=0}}"/>
         @foreach ($diademas_asignadas as $da)
         <tbody>
             <tr>
                 <td>{{++$var}}</td>
-                <td>{{$da->codigo}}</td>
-                <td>{{$da->fecha_compra}}</td>
+                <td>{{$da->codigo_d}} </td>
+                <td>{{$da->fecha_compra}} </td>
+                <td>{{$da->fecha_asignacion}} </td>
             </tr>
         </tbody>
         @endforeach
         @else
-        <label class="label label-info">No hay personas asignadas a este equipo</label>
+        No hay Diademas asignadas a este equipo
         @endif
     </table>
     {!!Form::model($diadema,['method'=>'PATCH','route'=>['asignardiademas.update',$diadema->id_diadema]])!!}
     {{Form::token()}}
-    <a href=""><input type="hidden" name='id_diademas' value="{{$d->id_diadema}}"><button  class="btn btn-success" type="submit">Asignar equipo</button></a>
+    <a href=""><input type="hidden" name='id_equipos' value="{{$e->id_equipos}}"><button  class="btn btn-success" type="submit">Asignar equipo</button></a>
     {{Form::close()}}
     @endforeach
     @else
-    <label class="label label-danger">No hay equipos con este codigo</label>
+    No hay equipos con este codigo
     @endif
 
 </div>

@@ -7,13 +7,13 @@ and open the template in the editor.
 @extends('layouts.admin')
 
 @section('titulo')
-<h3 class="box-title">Asignar Diademas </h3>
+<h3 class="box-title">Asignar Diadema </h3>
 @endsection
 
 @section('content')
 <div class='row1 align-right'>
-    <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-        {!! Form::open(array('url' => 'asignarEquipos','method'=>'POST','autocomplete'=>'off') ) !!}
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        {!! Form::open(array('url' => 'asignardiademas','method'=>'POST','autocomplete'=>'off') ) !!}
         {{Form::token()}}
         <div class="form-group">
             <div class="input-group">
@@ -24,7 +24,7 @@ and open the template in the editor.
             </div>
         </div>
         {!! Form::close() !!}
-    </div>-->
+    </div>
 </div>
 <div class='row1 align-right'>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -47,7 +47,7 @@ $(document).ready(function () {
             };
             $.ajax({
                 data: parametros,
-                url: '/asignarEquipos/equipos',
+                url: '/asignardiademas/diademas',
                 type: 'post',
                 beforeSend: function () {
                     $("#resultado").html("Procesando, espere por favor...");

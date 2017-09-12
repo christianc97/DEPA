@@ -4,6 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<meta charset="utf-8">
 @extends('layouts.admin')
 
 @section('titulo')
@@ -12,6 +13,7 @@ and open the template in the editor.
 @endsection
 
 @section('content')
+<meta charset="utf-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -39,15 +41,15 @@ and open the template in the editor.
                 <tbody>
                     <tr>
                         <td>{{++$var}}</td>
-                        <td>{{$d->codigo}}</td>
+                        <td>{{$d->codigo_d}}</td>
                         <td>{{$d->fecha_compra}}</td>
-                        <td></td>
+                        <td><a href="{{URL::action('EquiposController@show',$d->id_equipos)}}">{{$d->codigoe}}</a></td>
                         <td></td>
                         <td>
-                        <a href="{{URL::action('DiademasController@show',$d->id_diadema)}}"></a><button class="btn btn-info" ><span class="glyphicon glyphicon-eye-open"></span> </button>
-                        <a href="{{URL::action('AsignarDiademasController@edit',$d->id_diadema)}}"><button class="btn btn-primary"><span class="glyphicon glyphicon-paperclip"></span></button></a>
-                            <button class="btn btn-success" ><span class="glyphicon glyphicon-edit"></span> </button>
-                            <button class="btn btn-danger" ><span class="glyphicon glyphicon-trash"></span> </button>
+                        <a href="{{URL::action('DiademasController@show',$d->id_diadema)}}"></a><button class="btn btn-info" data-toggle="tooltip"><span class="glyphicon glyphicon-eye-open"></span> </button>
+                        <a href="{{URL::action('AsignarDiademasController@edit',$d->id_diadema)}}"><button class="btn btn-primary" data-toggle="tooltip" title="Asignar a un equipo"><span class="glyphicon glyphicon-paperclip"></span></button></a>
+                            <button class="btn btn-success" data-toggle="tooltip"><span class="glyphicon glyphicon-edit"></span> </button>
+                            <button class="btn btn-danger" data-toggle="tooltip"><span class="glyphicon glyphicon-trash"></span> </button>
                         </td>
                     </tr>
                 </tbody>
@@ -56,5 +58,11 @@ and open the template in the editor.
         </div>
     </div>
 </div>
+<!-- tooltip actions button-->
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
 @endsection
 

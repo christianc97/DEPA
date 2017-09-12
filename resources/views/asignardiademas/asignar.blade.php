@@ -6,6 +6,10 @@ and open the template in the editor.
 -->
 @extends('layouts.admin')
 
+@section('titulo')
+<h3 class="box-title">Vistas task</h3>
+@endsection
+
 @section('content')
 <div>
     {!! Form::open(array('url' => 'asignardiademas/diademas','method'=>'POST','autocomplete'=>'off') ) !!}
