@@ -29,7 +29,7 @@
         </div>
         <div class="form-group">
             <a href=""><button  class="btn btn-primary" type="submit">Guardar</button></a>
-            <a href="{{asset('diademas')}}"><button class="btn btn-danger" type="button">Cancelar</button></a>
+            <a href="{{asset('diademas')}}"><button type="button" class="btn btn-danger" type="button">Cancelar</button></a>
         </div>
         
         {{Form::close()}}

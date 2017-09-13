@@ -18,9 +18,9 @@ class AsignarDiademasController extends Controller
         $equipos = DB::connection('reportesmensajeros')->select("select id_equipos, codigo, tipo, marca, modelo,serial, os_instalado from equipos ". "where codigo = '$codigo'");
 
         $diademas_asignadas = DB::connection('reportesmensajeros')->select("select codigo_d, fecha_compra, fecha_asignacion from equipos_diademas ed 
-            inner join diademas d on ed. diademas_id=d. id_diadema
+            inner join diademas d on ed.diademas_id = d.id_diadema
             inner join equipos e on ed.equipos_id = e.id_equipos
-            where codigo_d = $id_diadema and fecha_asignacion is not null and fecha_desasignacion is null ");
+            where codigo_d = '$codigo' and fecha_asignacion is not null and fecha_desasignacion is null ");
        
         return view('asignardiademas.diademas', ["diadema" => Diademas::findOrFail($id_diadema), "equipos" => $equipos, "diademas_asignadas" => $diademas_asignadas]);
     }
@@ -47,7 +47,7 @@ class AsignarDiademasController extends Controller
             DB::connection('reportesmensajeros')->insert("insert into equipos_diademas(diademas_id,equipos_id, fecha_asignacion, asignador)values ($id_diadema , $equipo,'$fecha_asignacion',$asignador)");
             return redirect()->back()->with('computador_asignado', 'Equipo asignado');
         }
-    }    
+    } 
     public function destroy($id_equipos) {
         $id_equipos = DB::connection('reportesmensajeros')->select("select equipos_id from equipos_diademas where equipos_id=$id_equipos");
         foreach ($id_equipos as $ie){

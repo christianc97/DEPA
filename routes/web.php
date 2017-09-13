@@ -47,7 +47,9 @@ Route::resource('/d', 'DescargarJitsiController');
 /*diademas*/
 Route::resource('diademas', 'DiademasController');
 Route::resource('asignardiademas', 'AsignarDiademasController');
-Route::resource('asignardiademas/diademas', 'AsignarDiademasController');
+Route::resource('asignardiademas/diademasAsignar', 'AsignarDiademasController');
+/**/
+Route::post('diademas/show', 'DiademasController@agregarDescripcion');
 
 
 

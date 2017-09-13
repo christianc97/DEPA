@@ -32,8 +32,7 @@ and open the template in the editor.
                 <th>Codigo</th>
                 <th>Fecha Compra</th>
                 <th>Asignada a</th>
-                <th>Notas</th>
-                <th colspan="2">Opciones</th>
+                <th colspan="2">Acciones</th>
 
                 </thead>
                 <input type="hidden" value="{{$var=0}}"/>
@@ -47,18 +46,21 @@ and open the template in the editor.
                         @if($d->codigoe)
                         <a href="{{URL::action('EquiposController@show',$d->id_equipos)}}">{{$d->codigoe}}</a>
                         @else
-                        <p class="text-danger">sin asignar</p>
+                        <p class="text-danger">Sin asignar</p>
                         @endif
                         </td>
-                        <td></td>
                         <td>
-                        <a href="{{URL::action('DiademasController@show',$d->id_diadema)}}"></a><button class="btn btn-info" data-toggle="tooltip"><span class="glyphicon glyphicon-eye-open"></span> </button>
+                        <a href="{{URL::action('DiademasController@show',$d->id_diadema)}}"><button class="btn btn-info" data-toggle="tooltip" title="Ver"><span class="glyphicon glyphicon-eye-open"></span> </button></a>
+
                         <a href="{{URL::action('AsignarDiademasController@edit',$d->id_diadema)}}"><button class="btn btn-primary" data-toggle="tooltip" title="Asignar a un equipo"><span class="glyphicon glyphicon-paperclip"></span></button></a>
-                            <button class="btn btn-success" data-toggle="tooltip"><span class="glyphicon glyphicon-edit"></span> </button>
-                            <button class="btn btn-danger" data-toggle="tooltip"><span class="glyphicon glyphicon-trash"></span> </button>
+
+                         <a href="{{URL::action('DiademasController@edit',$d->id_diadema)}}" ><button class="btn btn-success" data-toggle="tooltip" title="Editar"><span class="glyphicon glyphicon-edit"></span> </button></a>
+
+                        <a href="" data-target="#modal-delete-{{$d->id_diadema}}" data-toggle="modal"><button class="btn btn-danger" data-toggle="tooltip" title="Eliminar"><span class="glyphicon glyphicon-trash"></span> </button></a>
                         </td>
                     </tr>
                 </tbody>
+                @include('diademas.modal')
                 @endforeach
             </table>
         </div>

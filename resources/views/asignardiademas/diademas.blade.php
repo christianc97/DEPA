@@ -4,6 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<h3>Equipo </h3>
 <div class='row1 align-left'>
     <table id="tablausuarios" class="table table-condensed table-hover display">
         @if (count($equipos)>0)
@@ -28,30 +29,6 @@ and open the template in the editor.
                 <td>{{$e->os_instalado}}</td>
             </tr>
         </tbody>
-    </table>
-    <h3>Diademas asignadas a este equipo</h3>
-    <table id="tablausuarios" class="table table-condensed table-hover display">
-        @if (count($diademas_asignadas)>0)
-        <thead>
-        <th>#</th>
-        <th>Codigo</th>
-        <th>Fecha compra</th>
-        <th>Fecha Asignacion</th>
-        </thead>
-        <input type="hidden" value="{{$var=0}}"/>
-        @foreach ($diademas_asignadas as $da)
-        <tbody>
-            <tr>
-                <td>{{++$var}}</td>
-                <td>{{$da->codigo_d}} </td>
-                <td>{{$da->fecha_compra}} </td>
-                <td>{{$da->fecha_asignacion}} </td>
-            </tr>
-        </tbody>
-        @endforeach
-        @else
-        No hay Diademas asignadas a este equipo
-        @endif
     </table>
     {!!Form::model($diadema,['method'=>'PATCH','route'=>['asignardiademas.update',$diadema->id_diadema]])!!}
     {{Form::token()}}

@@ -20,7 +20,8 @@ abstract class Controller extends BaseController {
     public function validarPermisos($id, $user) {
         $tienePermiso=false;
         //consulta los permisos del usuario
-        $permisos = DB::connection('reportesmensajeros')->select('select permisos_id from users_permisos where users_id=' . $user . '');
+        $permisos = DB::connection('reportesmensajeros')->select('select permisos_id from users_permisos 
+                                                                    where users_id=' . $user . '');
         
         foreach ($permisos as $p) {
             if ($p->permisos_id==$id) {
