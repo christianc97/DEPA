@@ -7,22 +7,25 @@ use reportes\Diademas;
 use reportes\User;
 use Illuminate\Support\Facades\Redirect;
 use reportes\Http\Requests\DiademasFormRequest;
+use reportes\Http\Requests\EquiposFormRequest;
 use Illuminate\Support\Facades\Auth;
 use DB;
 
 class AsignarDiademasController extends Controller
 {
-    public function store(DiademasFormRequest $request) {
-    	$codigo = $request->get('codigo');
-        $id_diadema = $request->get('id');
-        $equipos = DB::connection('reportesmensajeros')->select("select id_equipos, codigo, tipo, marca, modelo,serial, os_instalado from equipos ". "where codigo = '$codigo'");
+    public function index() {
+    }
 
-        $diademas_asignadas = DB::connection('reportesmensajeros')->select("select codigo_d, fecha_compra, fecha_asignacion from equipos_diademas ed 
-            inner join diademas d on ed.diademas_id = d.id_diadema
-            inner join equipos e on ed.equipos_id = e.id_equipos
-            where codigo_d = '$codigo' and fecha_asignacion is not null and fecha_desasignacion is null ");
-       
-        return view('asignardiademas.diademas', ["diadema" => Diademas::findOrFail($id_diadema), "equipos" => $equipos, "diademas_asignadas" => $diademas_asignadas]);
+     public function store(EquiposFormRequest $request) {
+        $codigo = $request->get('codigo');
+        $id = $request->get('id');
+        $equipos = DB::connection('reportesmensajeros')->select("select id_equipos, codigo,tipo, marca, modelo,serial, os_instalado from equipos "
+                . "where codigo = '$codigo'");
+        $equipos_asignados = DB::connection('reportesmensajeros')->select("select nombre1, nombre2, apellido1, apellido2, area, fecha_asignacion, fecha_desasignacion from users_equipos ue
+            inner join users u on ue.users_id=u.id
+            inner join equipos e on ue.equipos_id=e.id_equipos
+            where codigo = '$codigo' and fecha_asignacion is not null and fecha_desasignacion is null");
+        return view('asignardiademas.diademas', ["usuario" => User::findOrFail($id), "equipos" => $equipos, "equipos_asignados" => $equipos_asignados]);
     }
 
     public function edit($id_diadema) {
@@ -39,7 +42,7 @@ class AsignarDiademasController extends Controller
         $fecha_asignacion = date('Y-m-d H:i:s');
         $asignador = Auth::id();
         $validacion = DB::connection('reportesmensajeros')->select("select id_equipos, codigo,tipo, marca, modelo,serial, os_instalado, diademas_id
-        	, fecha_asignacion, fecha_desasignacion from equipos e inner
+            , fecha_asignacion, fecha_desasignacion from equipos e inner
             join equipos_diademas ed on e.id_equipos=ed.equipos_id where diademas_id=$id_diadema and id_equipos=$equipo and fecha_asignacion is not null and fecha_desasignacion is null");
         if(count($validacion)>0){
             return redirect()->back()->with('computador_ya_asignado', 'La diadema esta asignada a el equipo');

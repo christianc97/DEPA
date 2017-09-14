@@ -93,7 +93,6 @@ and open the template in the editor.
                 @endif
 
             </span>
-            <p></p>
             <a href="{{asset('diademas')}}"><button  class="btn btn-danger" type="submit">volver</button></a>
         </div>
     </div>
@@ -114,7 +113,7 @@ $(document).ready(function () {
             };
             $.ajax({
                 data: parametros,
-                url: '/asignardiademas/diademas',
+                 url: '/asignardiademas/diademas',
                 type: 'post',
                 beforeSend: function () {
                     $("#resultado").html("Procesando, espere por favor...");

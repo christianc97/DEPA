@@ -160,9 +160,10 @@
                         @if(! empty($p->permisos_id ==24))
                         <li id='diademas'><a href="{{asset('/diademas')}}"><i class="fa fa-long-arrow-right"></i>Diademas</a></li>
                         @endif
-
                         
-                         
+                        @endforeach
+                        
+                         @foreach(Permisos() as $p)
                         @if(! empty($p->permisos_id ==19))
                         <li class="header"><i class="fa fa-laptop"></i>
                             <span>DOMICILIOS</span></li>

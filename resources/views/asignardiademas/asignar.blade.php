@@ -16,7 +16,7 @@ and open the template in the editor.
     {{Form::token()}}
     <div class="form-group">
             <div class="input-group">
-                <input type='text'  class="form-control b" id="codigo" name='codigo' placeholder="Buscar..." value="">
+                <input type='text'  class="form-control b" id="codigo" name='codigo' placeholder="Buscar..." value="codigo_pc">
                 <span class="input-group-btn">
                     <button type="button" id='miboton' class='btn btn-primary'>Buscar</button>
                 </span>

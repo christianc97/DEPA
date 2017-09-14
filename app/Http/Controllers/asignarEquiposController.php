@@ -14,7 +14,7 @@ class asignarEquiposController extends Controller {
 
     public function index() {
     }
-
+    
     public function store(EquiposFormRequest $request) {
         $codigo = $request->get('codigo');
         $id = $request->get('id');
