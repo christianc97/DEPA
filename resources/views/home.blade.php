@@ -36,7 +36,9 @@
     <div class="row">
         <div class="col-md-0 col-lg-0 col-md-offset-2">
           <h1>Bienvenido <b>{{Auth::user()->nombre1}} {{Auth::user()->apellido1}}</b></h1>
-          <h4>Al sistema de Reportes</h4>
+          <div class="col-md-0 col-lg-0 col-md-offset-2">
+          <h4>Sistema de Reportes</h4>
+        </div>
         </div>
     </div>
 </div>   
