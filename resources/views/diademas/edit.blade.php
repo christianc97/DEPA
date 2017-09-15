@@ -23,19 +23,19 @@ and open the template in the editor.
         </div>
         @endif
 
-        {!!Form::model($diademas,['method'=>'PATCH','route'=>['diademas.update',$diademas->id_diadema]])!!}
+        {!!Form::model($diadema,['method'=>'PATCH','route'=>['diademased.update',$diadema->id_diadema]])!!}
         {{Form::token()}}
         <div class='form-group'>
             <label for='codigo_d'>Codigo</label>
-            <input type="text" name="codigo_d" class="form-control" value="{{$diademas->codigo_d}}" placeholder="primer nombre">
+            <input type="text" name="codigo_d" class="form-control" value="{{$diadema->codigo_d}}" placeholder="primer nombre">
         </div>        
         <div class='form-group'>
             <label for='fecha_compra'>Fecha compra</label>
-            <input type="date" name="fecha_compra" class="form-control" value="{{$diademas->fecha_compra}}" placeholder="fecha ingreso">
+            <input type="date" name="fecha_compra" class="form-control" value="{{$diadema->fecha_compra}}" placeholder="fecha ingreso">
         </div>
         <div class="form-group">
             <a href=""><button  class="btn btn-primary" type="submit">Guardar</button></a>
-            <a href="{{asset('diademas')}}"><button class="btn btn-danger" type="button">Cancelar</button></a>
+            <a href="{{asset('diademased')}}"><button class="btn btn-danger" type="button">Cancelar</button></a>
         </div>
         {{Form::close()}}
     </div>

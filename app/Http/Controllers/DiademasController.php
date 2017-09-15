@@ -27,7 +27,7 @@ class DiademasController extends Controller
             ->select('select d.id_diadema, d.codigo_d, d.fecha_compra, GROUP_CONCAT(e.id_equipos) as id_equipos, GROUP_CONCAT(e.codigo) as codigoe from diademas d
             left join equipos_diademas ed on d.id_diadema= ed.diademas_id
             left join equipos e on ed.equipos_id= e.id_equipos 
-            where ed.fecha_desasignacion is null 
+            where ed.fecha_desasignacion is null and estado = 1
             group by d.id_diadema
             order by d.codigo_d asc');  
     	return view ('diademas.index', ["diademas" => $diademas]);
@@ -45,7 +45,7 @@ class DiademasController extends Controller
         $diadema->codigo_d = Str::lower($request->get('codigo'));
         $diadema->fecha_compra = $request->get('fecha_compra');
         $diadema->save();
-        return Redirect::to('diademas');
+        return Redirect::to('diademased');
     }
     public function show($id_diadema) {
 
@@ -63,7 +63,7 @@ class DiademasController extends Controller
     }
 
     public function edit($id_diadema) {
-        return view("diademas/edit", ["diademas" => Diademas::findOrFail($id_diadema)]);
+        return view("diademas/edit", ["diadema" => Diademas::findOrFail($id_diadema)]);
     }
     
     public function update(DiademasFormRequest $request, $id_diadema) {
@@ -71,16 +71,14 @@ class DiademasController extends Controller
         $diadema->codigo_d = Str::lower($request->get('codigo_d'));
         $diadema->fecha_compra = Str::lower($request->get('fecha_compra'));
         $diadema->update();
-        return Redirect::to('diademas');
+        return Redirect::to('diademased');
     }
 
     public function destroy($id_diadema) {
-        $id_diadema = DB::connection('reportesmensajeros')->select("select id_diadema from diademas where id_diadema=$id_diadema");
-        foreach ($id_diadema as $d){
-            $ide=$d->id_diadema;
-        }
-        DB::connection('reportesmensajeros')->delete("DELETE FROM diademas WHERE id_diadema=$ide");
-        return Redirect::to('diademas');
+        $diadema = Diademas::findOrFail($id_diadema);
+        $diadema->estado = 0;
+        $diadema->update();
+        return Redirect::to('diademased');
         
     }
     

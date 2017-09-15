@@ -19,7 +19,7 @@ and open the template in the editor.
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <div class="row1">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h4>Nuevo <a href="diademas/create"><i class="fa fa-plus"></i></a></h4>
+        <h4>Nuevo <a href="diademased/create"><i class="fa fa-plus"></i></a></h4>
     </div>
 </div>
 <div class="row1">

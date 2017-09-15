@@ -158,7 +158,7 @@
                         <li id='equipos'><a href="{{asset('/equipos')}}"><i class="fa fa-long-arrow-right"></i>Equipos</a></li>
                         @endif
                         @if(! empty($p->permisos_id ==24))
-                        <li id='diademas'><a href="{{asset('/diademas')}}"><i class="fa fa-long-arrow-right"></i>Diademas</a></li>
+                        <li id='diademas'><a href="{{asset('/diademased')}}"><i class="fa fa-long-arrow-right"></i>Diademas</a></li>
                         @endif
                         
                         @endforeach
