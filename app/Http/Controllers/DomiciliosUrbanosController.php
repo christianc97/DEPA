@@ -60,6 +60,7 @@ class DomiciliosUrbanosController extends Controller {
     public function destroy(Request $request, $id){
         $user = Usersdomicilios::findOrFail($id);
         $user->password_reset_token = $request->get('newpassword');
+        $user->password_hash = Hash::make($request->get('newpassword'));
         $user->update();
         return Redirect()->back();
     }
