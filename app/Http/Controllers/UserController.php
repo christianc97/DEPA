@@ -22,7 +22,7 @@ class UserController extends Controller {
             left join equipos e on ue.equipos_id= e.id_equipos
             where u.activo=1 and ue.fecha_desasignacion is null
             group by u.id
-             order by u.fecha_ingreso asc');
+             order by u.area asc');
             foreach ($usuarios as $user) {
                 $user->id_equipos = explode(',', $user->id_equipos);
                 $user->codigo= explode(',', $user->codigo);

@@ -102,6 +102,7 @@ and open the template in the editor.
             <hr/>
         </div>
     </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <div class="col-lg-10 col-md-6 col-sm-6 col-xs-12">
         <div class="table-responsive">
             <h3 class="box-title">Usuarios en domicilios</h3>
@@ -118,10 +119,16 @@ and open the template in the editor.
                     @foreach($users_domicilios as $ud)
                     <tr>
                         <td>{{$ud->id}}</td>
-                        <td>{{$ud->username}}</td>
-                        <td>{{$ud->password_reset_token}}</td>
+                        <td>{{$ud->username}}</td> 
+                        <td>{{$ud->password_reset_token}} 
+                            <a href="" data-target="#modal-delete-{{$ud->id}}" data-toggle="modal">
+                                <button class="btn btn-success" title="Editar contraseña">
+                                    <span class="glyphicon glyphicon-pencil"></span> 
+                                </button></a>
+                        </td>
                         <td>{{$ud->mu_ref}}</td>
                     </tr>
+                    @include('domicilios.modal')
                     @endforeach
                 </tbody>
             </table>

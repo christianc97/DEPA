@@ -4,6 +4,8 @@ namespace reportes\Http\Controllers;
 
 use Illuminate\Http\Request;
 use reportes\Empresa;
+use reportes\Usersdomicilios;
+use reportes\Http\Requests\UsuarioFormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Hash;
@@ -55,7 +57,12 @@ class DomiciliosUrbanosController extends Controller {
         $puntos_domicilios = DB::connection('mu_domicilios')->select("select p.nombre, p.direccion, p.ciudad,p.parking from puntos p where empresa_id=$id order by tms desc");
         return view("domicilios.show", ["empresa" => $empresa, "users_empresa" => $users_empresa, "users_domicilios" => $users_domicilios, "puntos_domicilios"=>$puntos_domicilios]);
     }
-
+    public function destroy(Request $request, $id){
+        $user = Usersdomicilios::findOrFail($id);
+        $user->password_reset_token = $request->get('newpassword');
+        $user->update();
+        return Redirect()->back();
+    }
     public function usersDomicilios(Request $request) {
         $username = $request->get("username");
         $password_hash = Hash::make($request->get("password"));

@@ -25,7 +25,7 @@ class EquiposController extends Controller {
         if ($tienePermiso) {
             $equipos = DB::connection('reportesmensajeros')
             ->select('select * from equipos
-                order by codigo asc');
+                order by codigo desc');
 
             return view('equipos.index', ["equipos" => $equipos]);
         } else {
