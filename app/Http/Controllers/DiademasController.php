@@ -20,7 +20,7 @@ class DiademasController extends Controller
     }
 
     public function index(){
-         $user = Auth::user()->id;
+        $user = Auth::user()->id;
         $tienePermiso = $this->validarPermisos($this->id, $user);
         if ($tienePermiso) {
     	 $diademas = DB::connection('reportesmensajeros')
