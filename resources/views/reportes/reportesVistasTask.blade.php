@@ -21,7 +21,7 @@ and open the template in the editor.
             <td><input type="number" id="id_task" name="id_task" class="form-control"></td>
             <td><button class="btn btn-info fa fa-file-text-o" type="button" id='miboton'> Mostrar</button></td>
             <td>o</td>
-            <td><button class="btn btn-success fa fa fa-bicycle" id="mostrarTrack" type="button"> Ir al track</button></td>
+            <td><button class="btn btn-success fa fa fa-bicycle" id="mostrarTrack" type="button"> Ver en el track</button></td>
         </tr>
         {!! Form::close() !!}
     </table>
