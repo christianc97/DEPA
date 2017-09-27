@@ -16,6 +16,7 @@ and open the template in the editor.
     <table class="tabledata" >
         <tr>
             <td >
+                <p>hello</p>
                 <b>Fecha inicio</b>
             </td>
             <td colspan="3" >
