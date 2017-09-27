@@ -71,6 +71,18 @@ class reportesTotalServiciosController extends Controller {
      (SELECT tp.products_value FROM task_places tp WHERE tp.task_id = t.id AND tp.tipo_task_places = 2 ORDER BY id ASC LIMIT 1) "gran total",
     (SELECT tp.client_name FROM task_places tp WHERE task_id = t.id AND tipo_task_places = 2 LIMIT 1) AS cliente_final,
     c.nombre AS ciudad,
+    t.os,
+    (SELECT th.datecreate FROM task_history th WHERE th.task_id = t.id AND th.type_task_status_id = 2 ORDER BY id ASC LIMIT 1) as iniciado,
+    (SELECT th.datecreate FROM task_history th WHERE th.task_id = t.id AND th.type_task_status_id = 3 ORDER BY id ASC LIMIT 1) as asignado,
+    (SELECT th.datecreate FROM task_history th WHERE th.task_id = t.id AND th.type_task_status_id = 4 ORDER BY id ASC LIMIT 1) as llego_al_punto,
+    (SELECT th.datecreate FROM task_history th WHERE th.task_id = t.id AND th.type_task_status_id = 4 and th.tipo_parada = 2 ORDER BY id asc LIMIT 1) as salio_del_punto,
+    (SELECT th.datecreate FROM task_history th WHERE th.task_id = t.id AND th.type_task_status_id = 4 and th.tipo_parada = 1 and recurso_id = t.id_resource ORDER BY id asc LIMIT 1,1) as llego_cliente,
+    (SELECT th.datecreate FROM task_history th WHERE th.task_id = t.id AND th.type_task_status_id = 5 ORDER BY id ASC LIMIT 1) as finalizado,
+    (SELECT th.descripcion FROM task_history th WHERE th.task_id = t.id AND th.type_task_status_id = 5 ORDER BY id ASC LIMIT 1) as motivo_finalizado, 
+    (SELECT th.create_users_id FROM task_history th WHERE th.task_id = t.id AND th.type_task_status_id = 5 ORDER BY id ASC LIMIT 1) as user_finalizador,
+    (SELECT tp.client_name FROM task_places tp WHERE task_id = t.id AND tipo_task_places = 2 LIMIT 1) as cliente_final,
+     (SELECT tp.document FROM task_places tp WHERE task_id = t.id AND tipo_task_places = 2 LIMIT 1) AS cliente_document,
+    c.nombre AS ciudad,
     t.os
 FROM
     task t
@@ -95,7 +107,7 @@ WHERE m.empresas_id = :id
 AND fecha BETWEEN  :between  AND :and', ["between" => $fecha_inicio, "and" => $fecha_fin, "id" => $id_empresa]);
 
 
-        if (count($total_servicios) > 2000) {
+        if (count($total_servicios) > 3000) {
             return view('reportes.reportesTotalServicios');
         } else {
             Excel::create('reporte total servicios empresa ' . $id_empresa . ' desde '.$fecha_inicio.' hasta '.$fecha_fin.'', function($excel)use($total_servicios, $movimientos_clientes, $movimientos) {
