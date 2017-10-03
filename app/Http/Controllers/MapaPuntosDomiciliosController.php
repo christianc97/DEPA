@@ -39,11 +39,15 @@ class MapaPuntosDomiciliosController extends Controller
 
         $id_punto = $request->get('id_punto');
 
-            $paradas = DB::select('select p.id, p.direccion, p.lat, p.long from puntos p where p.id = '. $id_punto .'');
-
+        if ($id_punto != '') {
+            $paradas = DB::select('select p.id, p.lat, p.long, p.direccion from puntos t where p.id = '.$id_punto.'');
+          
             $track = DB::select('SELECT * FROM puntos WHERE id = ' . $id_punto . '');
 
-            return view("domiciliospuntosmapa/MapaPuntosDomicilios", ["track" => $track, "id_p" => $id_punto, "paradas" => $paradas]);
+            return view("domiciliospuntosmapa/MapaPuntosDomicilios", ["track" => $track, "id_p" => $id_mensajero,"paradas"=>$paradas]);
         } 
- 
+        else {
+            return redirect()->back();
+        }
+ }
 }

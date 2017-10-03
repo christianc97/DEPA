@@ -43,7 +43,7 @@ Route::resource('domicilios', 'DomiciliosUrbanosController');
 Route::resource('domicilios/empresa', 'verEmpresasController');
 Route::resource('domiciliosUsuarios', 'DomiciliosUsuariosController');
 Route::resource('domiciliosPuntos', 'DomiciliosPuntosController');
-Route::resource('puntosdomicilios/mapa', 'MapaPuntosDomiciliosController');
+Route::resource('domiciliosPuntos/mapa', 'DomiciliosPuntosController');
 Route::resource('/d', 'DescargarJitsiController');
 /*diademas*/
 Route::resource('diademased', 'DiademasController');
@@ -68,7 +68,6 @@ Route::post('reportes/reportesTotalServicios', 'reportesTotalServiciosController
 Route::post('reportes/reportesTotalServiciosChia', 'reportesTotalServiciosChiaController@exportarTotalServiciosChia');
 Route::post('reportes/reportesListadoMensajeros', 'reportesListadoMensajerosController@exportarListadoMensajeros');
 Route::post('reportes/trackMensajero', 'trackMensajeroController@track');
-Route::post('puntosdomicilios/mapa', 'MapaPuntosDomiciliosController@track');
 Route::post('reportes/reportesTotalServiciosPersonas', 'reportesTotalServiciosPersonaController@exportarTotalServiciosPersonas');
 Route::post('equipos/show', 'EquiposController@agregarDescripcion');
 Route::post('domicilios/crearUsuario', 'DomiciliosUrbanosController@usersDomicilios');
@@ -81,9 +80,8 @@ Route::post('reportes/trackMensajeroExport', 'ExcelController@exportarTrackMensa
 
 /**/
 
-Route::match(array('GET', 'POST'), 'puntosdomicilios/mapa/{id_punto?}', array('uses' => 'trackMensajeroController@track'));
 
-Route::match(array('GET', 'POST'), 'reportes/trackMensajero/{id_mensajero?}', array('uses' => 'MapaPuntosDomiciliosController@track'));
+Route::match(array('GET', 'POST'), 'reportes/trackMensajero/{id_mensajero?}', array('uses' => 'trackMensajeroController@track'));
 
 
 Route::Auth();

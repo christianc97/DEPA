@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 @extends('layouts.admin')
 @section('titulo')
-<h3 class="box-title">Puntos Domicilios</h3>
+<h3 class="box-title">Puntos Domicilio <b>@foreach ($domicilios_puntos as $dp) {{$dp->nombre}} ({{$dp->id}}) @endforeach</b></h3>
 @endsection
 
 @section('content')
@@ -23,80 +23,7 @@ and open the template in the editor.
         padding: 0;
     }
 </style>
-<div>
-    {!! Form::open(array('method'=>'POST','autocomplete'=>'off') ) !!}
-    {{Form::token()}}
-    <table class="tabledata">
-        <tr>
-            <td>
-                <b>Id Punto Domicilios
-                    @if(!empty($id_p))
-                    : {{$id_p}}
-                    @endif
-                </b>
-                
-            </td>
-            <td>
-                <input type="number" id="id_punto" name="id_punto" class="form-control"/>
-               
-            </td>
-        </tr>
-        {!! Form::close() !!}
-        <tr>
-            <td></td>
-            <td colspan="2"> 
-                <a href=""><button id="miboton" class="btn btn-primary"><i class="fa fa-motorcycle" hidden="true"></i> Mostrar puntos</button></a>
-                
-            </td>
-        </tr>
-    </table>
-</div>
-<div id="map"></div>
-<div class='row1 align-left'>
-    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-        <table class="tabledata">
-            <tr>
-                <td><img src="http://maps.google.com/mapfiles/ms/icons/green-dot.png"/> Inicio del track</td>
-            </tr>
-            <tr>
-                <td><img src="http://maps.google.com/mapfiles/ms/icons/red-dot.png"/> Recorrido</td>
-            </tr>
-            <tr>
-                <td><img src="http://maps.google.com/mapfiles/ms/icons/blue-dot.png"/> Paradas</td>
-            </tr>
-        </table>
-    </div>
-</div>
-
-<div class='row1 align-right'>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-
-        <table id="mitabla" class="table table-condensed table-hover table-bordered table-striped">
-            <thead>
-                <td>Parada</td>
-                <td>Dirección</td>
-            </thead>
-            @if(isset($paradas))
-	            @foreach($paradas as $p)
-		            <tr>
-		                <td>{{$p->id}}</td>
-		                <td>{{$p->direccion}}</td>
-
-		            </tr>
-		            <br>
-	            
-	        	 @endforeach
-            @endif
-           
-            
-        </table>
-        
-    </div>
-    @yield('error')
-<div class="table-responsive ">
-    <span id="resultado"></span>
-</div>
-</div>
+<div id="map" style="height: 600px "></div>
 
 <script>
     function initMap() {
@@ -111,24 +38,22 @@ and open the template in the editor.
                 path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
             };
             var mark = true;
-            @if (isset($track))
-            @foreach($track as $t)
+            @foreach($domicilios_puntos as $dp)
                     flightPlanCoordinates.push({
-                    lat: {{$t -> lat}},
-                    lng: {{$t -> long}}
+                    lat: {{$dp -> lat}},
+                    lng: {{$dp -> long}}
                  });
             var marker = new google.maps.Marker({
                 position: {
-                lat: {{$t -> lat}},
-                lng: {{$t -> long}},
+                lat: {{$dp -> lat}},
+                lng: {{$dp -> long}},
                 
             },
                 map: map,
-                title: '{{$p->direccion}} {{$t->hora_apertura}} {{$t->hora_cierre}}'
+                title: '{{$dp->direccion}} {{$dp->hora_apertura}} {{$dp->hora_cierre}}'
 
             });
             @endforeach
-            @endif
             var icon = {
             url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png", // url
                     scaledSize: new google.maps.Size(40, 40), // scaled size
@@ -147,21 +72,22 @@ and open the template in the editor.
                 zIndex: 99999,
                 title: flightPlanCoordinates[0].time
             });
-            @if (isset($paradas))
-            @foreach($paradas as $p)
+           
+            @foreach($domicilios_puntos as $dp)
             var marker = new google.maps.Marker({
                 position: {
-                lat: {{$p -> lat}},
-                lng: {{$p -> long}}
+                lat: {{$dp -> lat}},
+                lng: {{$dp -> long}}
                 },
                 icon: paradas,
                 zIndex: 99999,
                 map: map,
-                title: 'parada: {{$p->id}} {{$p->direccion}}'
+                title:  'Parada: {{$dp->nombre}} {{$dp->direccion}} '
+                
 
             });
             @endforeach
-            @endif
+           
             var flightPath = new google.maps.Polyline({
                 path: flightPlanCoordinates,
                 icons: [{
@@ -183,6 +109,10 @@ and open the template in the editor.
 
             map.fitBounds(bounds);
     }
+
+    $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDONz_SC-y9biqWqhtxpLvzmChJnDobm5E&callback=initMap">

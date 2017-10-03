@@ -23,6 +23,7 @@ and open the template in the editor.
                 <th>Ciudad</th>
                 <th>Nombre empresa</th> 
                 <th>Parking</th>
+                <th></th>
 
                 </thead>
                 @foreach ($domicilios_puntos as $dp)
@@ -34,6 +35,7 @@ and open the template in the editor.
                         <td>{{$dp->ciudad}}</td>
                         <td><a href="domicilios/{{$dp->empresa_id}}">{{$dp->nombre}}</a></td>
                         <td>{{$dp->parking}}</td>
+                        <td><a href="{{URL::action('DomiciliosPuntosController@show',$dp->id)}}"><button class="btn btn-success">Ver en mapa</button></a></td>
                     </tr>
                 </tbody>
                 @endforeach
