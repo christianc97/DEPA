@@ -43,7 +43,7 @@ class trackMensajeroController extends Controller {
         return view("reportes/trackMensajero", ["track" => $track, "id_m" => $id_mensajero]);
     }
 
-    public function track(ReportesFormRequest $request) {
+    public function track(PuntosFormRequest $request) {
 
         $id_mensajero = $request->get('id_mensajero');
 

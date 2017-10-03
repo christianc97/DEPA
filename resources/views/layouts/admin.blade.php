@@ -181,6 +181,10 @@
                         <li id='domiciliosPuntos'><a href="{{asset('/domiciliosPuntos/')}}"><i class="fa fa-long-arrow-right"></i>Puntos domicilios</a></li>
 
                         @endif
+                        @if(! empty($p->permisos_id == 25))
+                        <li id='domiciliosPuntos'><a href="{{asset('/puntosdomicilios/mapa')}}"><i class="fa fa-long-arrow-right"></i>Mapa Puntos domicilios</a></li>
+
+                        @endif
 
                         @endforeach
 

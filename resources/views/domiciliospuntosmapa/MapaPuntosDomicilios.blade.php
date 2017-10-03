@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 @extends('layouts.admin')
 @section('titulo')
-<h3 class="box-title">Track Mensajero</h3>
+<h3 class="box-title">Puntos Domicilios</h3>
 @endsection
 
 @section('content')
@@ -29,14 +29,15 @@ and open the template in the editor.
     <table class="tabledata">
         <tr>
             <td>
-                <b>Id servicio 
-                    @if(!empty($id_m))
-                    : {{$id_m}}
+                <b>Id Punto Domicilios
+                    @if(!empty($id_p))
+                    : {{$id_p}}
                     @endif
                 </b>
+                
             </td>
             <td>
-                <input type="number" id="id_mensajero" name="id_mensajero" class="form-control"/>
+                <input type="number" id="id_punto" name="id_punto" class="form-control"/>
                
             </td>
         </tr>
@@ -44,7 +45,7 @@ and open the template in the editor.
         <tr>
             <td></td>
             <td colspan="2"> 
-                <a href=""><button id="miboton" class="btn btn-primary"><i class="fa fa-motorcycle" hidden="true"></i> Mostrar ruta</button></a>
+                <a href=""><button id="miboton" class="btn btn-primary"><i class="fa fa-motorcycle" hidden="true"></i> Mostrar puntos</button></a>
                 
             </td>
         </tr>
@@ -76,25 +77,15 @@ and open the template in the editor.
                 <td>Dirección</td>
             </thead>
             @if(isset($paradas))
-            @foreach($paradas as $p)
-            <tr>
-                <td>{{$p->tipo_task_places}}</td>
-                <td>{{$p->direccion}}</td>
+	            @foreach($paradas as $p)
+		            <tr>
+		                <td>{{$p->id}}</td>
+		                <td>{{$p->direccion}}</td>
 
-            </tr>
-            <br>
-            
-         @endforeach
-            @if(isset($track))
-            {!! Form::open(array('url' => 'reportes/trackMensajeroExport','method'=>'POST','autocomplete'=>'off') ) !!}
-                {{Form::token()}}
-
-                <td class="text text-success"><input type="hidden" name="id_mensajero" id="id_mensajero" value="{{$id_m}}"></td>
-
-            <td><a href="{{asset('trackMensajero')}}"><button id="export"  class="btn btn-success fa fa-file-excel-o"> Exportar a Excel</button></a></td>
-            {!! Form::close() !!}
-            
-            @endif
+		            </tr>
+		            <br>
+	            
+	        	 @endforeach
             @endif
            
             
@@ -133,7 +124,7 @@ and open the template in the editor.
                 
             },
                 map: map,
-                title: '{{$p->tipo_task_places}} {{$p->direccion}} {{$t->time}}'
+                title: '{{$p->direccion}} {{$t->hora_apertura}} {{$t->hora_cierre}}'
 
             });
             @endforeach
@@ -166,7 +157,7 @@ and open the template in the editor.
                 icon: paradas,
                 zIndex: 99999,
                 map: map,
-                title: 'parada: {{$p->tipo_task_places}} {{$p->direccion}}'
+                title: 'parada: {{$p->id}} {{$p->direccion}}'
 
             });
             @endforeach
