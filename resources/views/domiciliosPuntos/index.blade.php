@@ -25,7 +25,6 @@ and open the template in the editor.
                 <th>Parking</th>
 
                 </thead>
-                <input type="hidden" value="{{$var=0}}"/>
                 @foreach ($domicilios_puntos as $dp)
                 <tbody>
                     <tr>
