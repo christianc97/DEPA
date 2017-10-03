@@ -187,6 +187,7 @@ and open the template in the editor.
             <h3 class="box-title">Puntos en domicilios</h3>
             <table id="tablausuarios" class="table table-condensed table-hover display">
                 <thead>
+                <th>Id</th>
                 <th>Nombre punto</th>
                 <th>Direccion</th>
                 <th>Ciudad</th>
@@ -197,6 +198,7 @@ and open the template in the editor.
                 <tbody>
                     @foreach($puntos_domicilios as $pd)
                     <tr>
+                        <td>{{$pd->id}}</td>
                         <td>{{$pd->nombre}}</td>
                         <td>{{$pd->direccion}}</td>
                         <td>{{$pd->ciudad}}</td>

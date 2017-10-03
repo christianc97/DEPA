@@ -54,7 +54,7 @@ class DomiciliosUrbanosController extends Controller {
         $mu_ref = $empresa->mu_ref;
         $users_empresa = DB::select("select u.id, u.email from tbl_users u where u.empresas_id = $mu_ref");
         $users_domicilios = DB::connection('mu_domicilios')->select("select u.id,u.username,u.password_hash,u.password_reset_token,u.mu_ref from user u where empresa_id=$id");
-        $puntos_domicilios = DB::connection('mu_domicilios')->select("select p.nombre, p.direccion, p.ciudad,p.parking from puntos p where empresa_id=$id order by tms desc");
+        $puntos_domicilios = DB::connection('mu_domicilios')->select("select p.id, p.nombre, p.direccion, p.ciudad,p.parking from puntos p where empresa_id=$id order by tms desc");
         return view("domicilios.show", ["empresa" => $empresa, "users_empresa" => $users_empresa, "users_domicilios" => $users_domicilios, "puntos_domicilios"=>$puntos_domicilios]);
     }
     public function destroy(Request $request, $id){
