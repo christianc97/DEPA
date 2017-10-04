@@ -22,32 +22,11 @@ class MapaPuntosDomiciliosController extends Controller
         $user = Auth::user()->id;
         $tienePermiso = $this->validarPermisos($this->id, $user);
         if ($tienePermiso) {
+
             return view('domiciliospuntosmapa/MapaPuntosDomicilios');
         } else {
             return view('home');
         }
     }
 
-    public function show($id_punto) {
-        $id_punto = $id_punto;
-        $punto = DB::select('SELECT * FROM puntos WHERE id = ' . $id_punto. '');
-
-        return view("domiciliospuntosmapa/MapaPuntosDomicilios", ["punto" => $punto, "id_p" => $id_punto]);
-    }
-
-    public function track(PuntosFormRequest $request) {
-
-        $id_punto = $request->get('id_punto');
-
-        if ($id_punto != '') {
-            $paradas = DB::select('select p.id, p.lat, p.long, p.direccion from puntos t where p.id = '.$id_punto.'');
-          
-            $track = DB::select('SELECT * FROM puntos WHERE id = ' . $id_punto . '');
-
-            return view("domiciliospuntosmapa/MapaPuntosDomicilios", ["track" => $track, "id_p" => $id_mensajero,"paradas"=>$paradas]);
-        } 
-        else {
-            return redirect()->back();
-        }
- }
 }

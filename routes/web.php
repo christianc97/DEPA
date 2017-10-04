@@ -43,7 +43,7 @@ Route::resource('domicilios', 'DomiciliosUrbanosController');
 Route::resource('domicilios/empresa', 'verEmpresasController');
 Route::resource('domiciliosUsuarios', 'DomiciliosUsuariosController');
 Route::resource('domiciliosPuntos', 'DomiciliosPuntosController');
-Route::resource('domiciliosPuntos/mapa', 'DomiciliosPuntosController');
+Route::resource('puntosdomicilios/mapa', 'MapaPuntosDomiciliosController');
 Route::resource('/d', 'DescargarJitsiController');
 /*diademas*/
 Route::resource('diademased', 'DiademasController');

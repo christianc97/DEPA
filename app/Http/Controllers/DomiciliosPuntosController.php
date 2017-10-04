@@ -25,12 +25,6 @@ class DomiciliosPuntosController extends Controller {
             return view('home');
         }
     }
-    public function show($id){
-        $domicilios_puntos = DB::connection('mu_domicilios')->select('select * from puntos 
-            where id = ' . $id . '');
-
-        return view('domiciliosPuntos.MapaPuntosDomicilios', ["domicilios_puntos" => $domicilios_puntos]);
-
-        }
+    
 
 }

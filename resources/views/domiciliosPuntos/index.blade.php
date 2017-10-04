@@ -7,7 +7,8 @@ and open the template in the editor.
 @extends('layouts.admin')
 
 @section('titulo')
-<h3 class="box-title">Domicilios urbanos puntos</h3>
+<h3 class="box-title">Domicilios urbanos puntos</h3>  
+<a href="puntosdomicilios/mapa"><button class="btn btn-success btn-lg pull-right"><i class="fa fa-map-marker" aria-hidden="true"></i>  Ver en mapa</button></a>
 
 @endsection
 
@@ -23,7 +24,6 @@ and open the template in the editor.
                 <th>Ciudad</th>
                 <th>Nombre empresa</th> 
                 <th>Parking</th>
-                <th></th>
 
                 </thead>
                 @foreach ($domicilios_puntos as $dp)
@@ -35,7 +35,6 @@ and open the template in the editor.
                         <td>{{$dp->ciudad}}</td>
                         <td><a href="domicilios/{{$dp->empresa_id}}">{{$dp->nombre}}</a></td>
                         <td>{{$dp->parking}}</td>
-                        <td><a href="{{URL::action('DomiciliosPuntosController@show',$dp->id)}}"><button class="btn btn-success">Ver en mapa</button></a></td>
                     </tr>
                 </tbody>
                 @endforeach
