@@ -47,27 +47,16 @@ and open the template in the editor.
             });
             var flightPlanCoordinates = [
             ];
-            var lineSymbol = {
-                path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
-            };
+            
             var mark = true;
             
             @foreach($puntos as $p)
+            
                     flightPlanCoordinates.push({
                     lat: {{$p -> lat}},
                     lng: {{$p -> long}}
                  });
-            var marker = new google.maps.Marker({
-                position: {
-                lat: {{$p -> lat}},
-                lng: {{$p -> long}},
-                
-            },
-                map: map,
-                title: '{{$p-> nombre}} {{$p-> ciudad}}',
-
-
-            });
+            
             @endforeach
             
             var icon = {

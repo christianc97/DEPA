@@ -30,7 +30,7 @@ class MapaPuntosDomiciliosController extends Controller
     }
     public function bogota(){
         $puntos = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "bogota" ');
-        $paradas = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "bogota"');
+        $paradas= DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "bogota" ');
 
         return view('domiciliospuntosmapa/bogota', ["puntos"=> $puntos, "paradas"=> $paradas]);
     }
