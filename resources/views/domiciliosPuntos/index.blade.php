@@ -8,8 +8,6 @@ and open the template in the editor.
 
 @section('titulo')
 <h3 class="box-title">Domicilios urbanos puntos</h3>  
-<a href="puntosdomicilios/mapa"><button class="btn btn-success btn-lg pull-right"><i class="fa fa-map-marker" aria-hidden="true"></i>  Ver en mapa</button></a>
-
 @endsection
 
 @section('content')

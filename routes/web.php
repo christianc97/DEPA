@@ -44,6 +44,7 @@ Route::resource('domicilios/empresa', 'verEmpresasController');
 Route::resource('domiciliosUsuarios', 'DomiciliosUsuariosController');
 Route::resource('domiciliosPuntos', 'DomiciliosPuntosController');
 Route::resource('puntosdomicilios/mapa', 'MapaPuntosDomiciliosController');
+
 Route::resource('/d', 'DescargarJitsiController');
 /*diademas*/
 Route::resource('diademased', 'DiademasController');
@@ -107,4 +108,11 @@ Route::get('storage/{archivo}', function ($archivo) {
      abort(404);
 
 });
+Route::get('puntosdomicilios/MapaBogota', 'MapaPuntosDomiciliosController@bogota');
+Route::get('puntosdomicilios/MapaCali', 'MapaPuntosDomiciliosController@cali');
+Route::get('puntosdomicilios/MapaBarranquilla', 'MapaPuntosDomiciliosController@barranquilla');
+Route::get('puntosdomicilios/MapaMedellin', 'MapaPuntosDomiciliosController@medellin');
+Route::get('puntosdomicilios/MapaVillavicencio', 'MapaPuntosDomiciliosController@villavicencio');
+Route::get('puntosdomicilios/MapaCartagena', 'MapaPuntosDomiciliosController@cartagena');
+Route::get('puntosdomicilios/MapaSantaMarta', 'MapaPuntosDomiciliosController@santamarta');
 
