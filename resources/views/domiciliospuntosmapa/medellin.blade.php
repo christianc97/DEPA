@@ -64,7 +64,7 @@ and open the template in the editor.
                 
             },
                 map: map,
-                title: '{{$p-> nombre}} {{$p-> ciudad}}',
+                title: '',
 
 
             });
@@ -89,7 +89,7 @@ and open the template in the editor.
                 title: flightPlanCoordinates[0].time
             });
             
-            @foreach($paradas as $p)
+            @foreach($puntos as $p)
             var marker = new google.maps.Marker({
                 position: {
                 lat: {{$p -> lat}},
@@ -98,7 +98,7 @@ and open the template in the editor.
                 icon: paradas,
                 zIndex: 99999,
                 map: map,
-                title: '{{$p-> nombre}} {{$p-> ciudad}}'
+                title: ''
 
             });
             @endforeach

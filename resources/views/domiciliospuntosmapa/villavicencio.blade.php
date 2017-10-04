@@ -89,7 +89,7 @@ and open the template in the editor.
                 title: flightPlanCoordinates[0].time
             });
             
-            @foreach($paradas as $p)
+            @foreach($puntos as $p)
             var marker = new google.maps.Marker({
                 position: {
                 lat: {{$p -> lat}},
