@@ -22,54 +22,20 @@ class MapaPuntosDomiciliosController extends Controller
         $user = Auth::user()->id;
         $tienePermiso = $this->validarPermisos($this->id, $user);
         if ($tienePermiso) {
+            $bogota = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "bogota" ');
+            $cali = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "cali" ');
+            $barranquilla = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "barranquilla" ');
+            $medellin = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "medellin" ');
+            $villavicencio = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "villavicencio" ');
+            $cum_soacha = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "cum_soacha" ');
+            $cartagena = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "cartagena" ');
+            $sta_marta = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "sta_marta" ');
 
-            return view('domiciliospuntosmapa/MapaPuntosDomicilios');
+            return view('domiciliospuntosmapa/MapaPuntosDomicilios', ["bogota"=> $bogota, "cali"=> $cali, "barranquilla"=> $barranquilla, "medellin"=> $medellin, "villavicencio"=> $villavicencio, "cum_soacha"=> $cum_soacha, "cartagena"=> $cartagena, "sta_marta"=> $sta_marta]);
         } else {
             return view('home');
         }
-    }
-    public function bogota(){
-
-        $puntos = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "bogota" ');
-
-        return view('domiciliospuntosmapa/bogota', ["puntos"=> $puntos]);
-    }
-    public function cali(){
-
-        $puntos = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "cali" ');
-
-        return view('domiciliospuntosmapa/cali', ["puntos"=> $puntos]);
-    }
-    public function barranquilla(){
-
-        $puntos = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "barranquilla" ');
-
-        return view('domiciliospuntosmapa/barranquilla', ["puntos"=> $puntos]);
-    }
-    public function medellin(){
-
-        $puntos = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "medellin"');
-
-        return view('domiciliospuntosmapa/medellin', ["puntos"=> $puntos]);
-    }
-    public function villavicencio(){
-
-        $puntos = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "villavicencio" ');
-
-        return view('domiciliospuntosmapa/villavicencio', ["puntos"=> $puntos]);
-    }
-    public function cartagena(){
-
-        $puntos = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "cartagena" ');
-
-        return view('domiciliospuntosmapa/cartagena', ["puntos"=> $puntos]);
-    }
-    public function santamarta(){
-
-        $puntos = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "sta_marta" ');
-
-        return view('domiciliospuntosmapa/santamarta', ["puntos"=> $puntos]);
-    }
+    }   
 
 }
 
