@@ -199,6 +199,10 @@ and open the template in the editor.
 
 
             });
+             var infowindow = new google.maps.InfoWindow({
+                content: 'Ciudad: {{$p->ciudad}}  ',
+              });
+              infowindow.open(map,marker);
             @endforeach
             
             var icon = {
@@ -286,6 +290,10 @@ and open the template in the editor.
 
 
             });
+             var infowindow = new google.maps.InfoWindow({
+                content: 'Direccion: {{$p->direccion}} Ciudad: {{$p->ciudad}}  ',
+              });
+              infowindow.open(map,marker);
             @endforeach
             
             var icon = {
@@ -373,6 +381,10 @@ and open the template in the editor.
 
 
             });
+             var infowindow = new google.maps.InfoWindow({
+                content: 'Ciudad: {{$p->ciudad}}  ',
+              });
+              infowindow.open(map,marker);
             @endforeach
             
             var icon = {
@@ -460,6 +472,10 @@ and open the template in the editor.
 
 
             });
+             var infowindow = new google.maps.InfoWindow({
+                content: 'Direccion: {{$p->direccion}} Ciudad: {{$p->ciudad}}  ',
+              });
+              infowindow.open(map,marker);
             @endforeach
             
             var icon = {
@@ -567,7 +583,7 @@ and open the template in the editor.
             },
                 map: map,
                 icon: icon,
-                zIndex: 99999,
+                
                 title: flightPlanCoordinates[0].time
             });
             
@@ -578,7 +594,7 @@ and open the template in the editor.
                 lng: {{$p -> long}}
                 },
                 icon: paradas,
-                zIndex: 99999,
+                
                 map: map,
                 title: 'Direccion: {{$p->direccion}} Ciudad: {{$p->ciudad}}'
 
@@ -637,6 +653,10 @@ and open the template in the editor.
 
 
             });
+             var infowindow = new google.maps.InfoWindow({
+                content: 'Ciudad: {{$p->ciudad}}  ',
+              });
+              infowindow.open(map,marker);
             @endforeach
             
             var icon = {
@@ -724,6 +744,10 @@ and open the template in the editor.
 
 
             });
+             var infowindow = new google.maps.InfoWindow({
+                content: 'Direccion: {{$p->direccion}} Ciudad: {{$p->ciudad}}  ',
+              });
+              infowindow.open(map,marker);
             @endforeach
             
             var icon = {
