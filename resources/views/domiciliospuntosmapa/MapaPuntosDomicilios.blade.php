@@ -13,7 +13,7 @@ and open the template in the editor.
     /* Always set the map height explicitly to define the size of the div
      * element that contains the map. */
     #map {
-        height: 100vh;
+        height: 80vh;
 
     }
     /* Optional: Makes the sample page fill the window. */
@@ -46,7 +46,7 @@ and open the template in the editor.
     <i class="fa fa-map-marker" aria-hidden="true" ></i> Barranquilla
   </label>
   </a>
-  <a href="" class="btn btn-danger navbar-btn" onclick="medellin();">
+  <a href="" class="btn navbar-btn" onclick="medellin();">
   <label class="radio-inline" >
     <i class="fa fa-map-marker" aria-hidden="true"></i> Medellin
   </label>
@@ -136,8 +136,13 @@ and open the template in the editor.
                 zIndex: 99999,
                 map: map,
                 title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
-
             });
+
+            var infowindow = new google.maps.InfoWindow({
+                content: '{{$p->id}}  {{$p->ciudad}}',
+              });
+              infowindow.open(map,marker);
+
             @endforeach
             
             var flightPath = new google.maps.Polyline({
@@ -157,6 +162,8 @@ and open the template in the editor.
             @endif
 
             map.fitBounds(bounds);
+
+            
             event.preventDefault();
     }
 </script>
@@ -535,10 +542,14 @@ and open the template in the editor.
                 
             },
                 map: map,
-                title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
+                title: 'Direccion: {{$p->direccion}} Ciudad: {{$p->ciudad}}',
 
 
             });
+            var infowindow = new google.maps.InfoWindow({
+                content: 'Direccion: {{$p->direccion}} Ciudad: {{$p->ciudad}}  ',
+              });
+              infowindow.open(map,marker);
             @endforeach
             
             var icon = {
@@ -569,7 +580,7 @@ and open the template in the editor.
                 icon: paradas,
                 zIndex: 99999,
                 map: map,
-                title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
+                title: 'Direccion: {{$p->direccion}} Ciudad: {{$p->ciudad}}'
 
             });
             @endforeach
