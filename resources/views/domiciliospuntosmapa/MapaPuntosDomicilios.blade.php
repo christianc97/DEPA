@@ -101,10 +101,15 @@ and open the template in the editor.
                 
             },
                 map: map,
-                title: ' Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
-
+                //title: ' Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
 
             });
+
+            var infowindow = new google.maps.InfoWindow({
+                content: '<b>Telefono:</b> {{$p->telefono}} <br>  <b>Ciudad:</b> {{$p->ciudad}}',
+              });
+              infowindow.open(map,marker);
+
             @endforeach
             
             var icon = {
@@ -135,13 +140,10 @@ and open the template in the editor.
                 icon: paradas,
                 zIndex: 99999,
                 map: map,
-                title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
+                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
             });
 
-            var infowindow = new google.maps.InfoWindow({
-                content: '{{$p->id}}  {{$p->ciudad}}',
-              });
-              infowindow.open(map,marker);
+            
 
             @endforeach
             
@@ -195,12 +197,12 @@ and open the template in the editor.
                 
             },
                 map: map,
-                title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
+                //title: '<b>Nombre:</b> {{$p->nombre}} <br> <b>Ciudad:</b> {{$p->ciudad}}',
 
 
             });
              var infowindow = new google.maps.InfoWindow({
-                content: 'Ciudad: {{$p->ciudad}}  ',
+                content: '<b>Nombre:</b> {{$p->nombre}} <br> <b>Telefono:</b> {{$p->telefono}} <br> <b>Ciudad:</b> {{$p->ciudad}}',
               });
               infowindow.open(map,marker);
             @endforeach
@@ -233,7 +235,7 @@ and open the template in the editor.
                 icon: paradas,
                 zIndex: 99999,
                 map: map,
-                title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
+                //title: '<b>Nombre:</b> {{$p->nombre}} <br> <b>Ciudad:</b> {{$p->ciudad}}'
 
             });
             @endforeach
@@ -286,12 +288,12 @@ and open the template in the editor.
                 
             },
                 map: map,
-                title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
+                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
 
 
             });
              var infowindow = new google.maps.InfoWindow({
-                content: 'Direccion: {{$p->direccion}} Ciudad: {{$p->ciudad}}  ',
+                content: '<b>Nombre:</b> {{$p->nombre}} <br> <b>Direccion:</b> {{$p->direccion}} <br> <b>Ciudad:</b> {{$p->ciudad}}',
               });
               infowindow.open(map,marker);
             @endforeach
@@ -324,7 +326,7 @@ and open the template in the editor.
                 icon: paradas,
                 zIndex: 99999,
                 map: map,
-                title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
+                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
 
             });
             @endforeach
@@ -377,12 +379,12 @@ and open the template in the editor.
                 
             },
                 map: map,
-                title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
+                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
 
 
             });
              var infowindow = new google.maps.InfoWindow({
-                content: 'Ciudad: {{$p->ciudad}}  ',
+                content: '<b>Telefono:</b> {{$p->telefono}} <br> <b>Ciudad:</b> {{$p->ciudad}}',
               });
               infowindow.open(map,marker);
             @endforeach
@@ -415,7 +417,7 @@ and open the template in the editor.
                 icon: paradas,
                 zIndex: 99999,
                 map: map,
-                title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
+                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
 
             });
             @endforeach
@@ -468,12 +470,12 @@ and open the template in the editor.
                 
             },
                 map: map,
-                title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
+                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
 
 
             });
              var infowindow = new google.maps.InfoWindow({
-                content: 'Direccion: {{$p->direccion}} Ciudad: {{$p->ciudad}}  ',
+                content: '<b>Nombre:</b> {{$p->nombre}} <br> <b>Direccion:</b> {{$p->direccion}} <br> <b>Ciudad:</b> {{$p->ciudad}}',
               });
               infowindow.open(map,marker);
             @endforeach
@@ -506,7 +508,7 @@ and open the template in the editor.
                 icon: paradas,
                 zIndex: 99999,
                 map: map,
-                title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
+                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
 
             });
             @endforeach
@@ -558,12 +560,12 @@ and open the template in the editor.
                 
             },
                 map: map,
-                title: 'Direccion: {{$p->direccion}} Ciudad: {{$p->ciudad}}',
+                //title: 'Direccion: {{$p->direccion}} Ciudad: {{$p->ciudad}}',
 
 
             });
             var infowindow = new google.maps.InfoWindow({
-                content: 'Direccion: {{$p->direccion}} Ciudad: {{$p->ciudad}}  ',
+                content: '<b>Nombre:</b> {{$p->nombre}} <br> <b>Direccion:</b> {{$p->direccion}} <br> <b>Ciudad:</b> {{$p->ciudad}}',
               });
               infowindow.open(map,marker);
             @endforeach
@@ -596,7 +598,7 @@ and open the template in the editor.
                 icon: paradas,
                 
                 map: map,
-                title: 'Direccion: {{$p->direccion}} Ciudad: {{$p->ciudad}}'
+                //title: 'Direccion: {{$p->direccion}} Ciudad: {{$p->ciudad}}'
 
             });
             @endforeach
@@ -649,12 +651,12 @@ and open the template in the editor.
                 
             },
                 map: map,
-                title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
+                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
 
 
             });
              var infowindow = new google.maps.InfoWindow({
-                content: 'Ciudad: {{$p->ciudad}}  ',
+                content: '<b>Telefono:</b> {{$p->telefono}} <br> <b>Ciudad:</b> {{$p->ciudad}}',
               });
               infowindow.open(map,marker);
             @endforeach
@@ -687,7 +689,7 @@ and open the template in the editor.
                 icon: paradas,
                 zIndex: 99999,
                 map: map,
-                title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
+                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
 
             });
             @endforeach
@@ -740,12 +742,12 @@ and open the template in the editor.
                 
             },
                 map: map,
-                title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
+                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
 
 
             });
              var infowindow = new google.maps.InfoWindow({
-                content: 'Direccion: {{$p->direccion}} Ciudad: {{$p->ciudad}}  ',
+                content: '<b>Nombre:</b> {{$p->nombre}} <br> <b>Direccion:</b> {{$p->direccion}} <br> <b>Ciudad:</b> {{$p->ciudad}}',
               });
               infowindow.open(map,marker);
             @endforeach
@@ -778,7 +780,7 @@ and open the template in the editor.
                 icon: paradas,
                 zIndex: 99999,
                 map: map,
-                title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
+                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
 
             });
             @endforeach
