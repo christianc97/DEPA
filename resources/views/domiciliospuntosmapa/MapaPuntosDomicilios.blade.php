@@ -107,18 +107,12 @@ and open the template in the editor.
 
 
             });
-            
             @endforeach
-
-            
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(25, 25), // scaled size
+                    scaledSize: new google.maps.Size(15, 15), // scaled size
             };
-            var paradas = {
-            url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(25, 25), // scaled size
-            };
+            
             var marker = new google.maps.Marker({
                 position: {
                 lat: flightPlanCoordinates[0].lat,
@@ -136,18 +130,18 @@ and open the template in the editor.
                 lat: {{$p -> lat}},
                 lng: {{$p -> long}}
                 },
-                icon: paradas,
+                icon: icon,
                 zIndex: 99999,
                 map: map,
                 title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
             });
 
-            marker.setMap(map);
+           
               google.maps.event.addListener(marker,'click', function() {
                 var infowindow = new google.maps.InfoWindow({
                   content:"Id: {{$p->id}} Ciudad: {{$p->ciudad}}"
                 });
-              infowindow.open(map,marker);
+              infowindow.open(map, marker);
               });
 
             @endforeach
