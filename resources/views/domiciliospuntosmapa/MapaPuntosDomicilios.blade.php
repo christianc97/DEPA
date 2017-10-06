@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 @extends('layouts.admin')
 @section('titulo')
-<h3 class="box-title">Puntos Domicilios</h3>
+<h3 class="box-title">Puntos Domicilios </h3>
 @endsection
 @section('content')
 <style>
@@ -73,6 +73,7 @@ and open the template in the editor.
   </a>
 </p>
 <div id="map"></div>
+
 <!-- Bogota -->
 <script>
     function bogota() {
@@ -100,25 +101,23 @@ and open the template in the editor.
                 lng: {{$p -> long}},
                 
             },
+                icon: "pinkball.png",
                 map: map,
-                //title: ' Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
+                title: ' Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
+
 
             });
-
-            var infowindow = new google.maps.InfoWindow({
-                content: '<b>Telefono:</b> {{$p->telefono}} <br>  <b>Ciudad:</b> {{$p->ciudad}}',
-              });
-              infowindow.open(map,marker);
-
+            
             @endforeach
+
             
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(40, 40), // scaled size
+                    scaledSize: new google.maps.Size(25, 25), // scaled size
             };
             var paradas = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(40, 40), // scaled size
+                    scaledSize: new google.maps.Size(25, 25), // scaled size
             };
             var marker = new google.maps.Marker({
                 position: {
@@ -140,10 +139,16 @@ and open the template in the editor.
                 icon: paradas,
                 zIndex: 99999,
                 map: map,
-                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
+                title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
             });
 
-            
+            marker.setMap(map);
+              google.maps.event.addListener(marker,'click', function() {
+                var infowindow = new google.maps.InfoWindow({
+                  content:"Id: {{$p->id}} Ciudad: {{$p->ciudad}}"
+                });
+              infowindow.open(map,marker);
+              });
 
             @endforeach
             
@@ -618,6 +623,7 @@ and open the template in the editor.
                      flightPath.setMap(null);
                 };
             @endif
+
 
             map.fitBounds(bounds);
             event.preventDefault();
