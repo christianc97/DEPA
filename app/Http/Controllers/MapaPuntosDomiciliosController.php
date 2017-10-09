@@ -22,13 +22,13 @@ class MapaPuntosDomiciliosController extends Controller
         $user = Auth::user()->id;
         $tienePermiso = $this->validarPermisos($this->id, $user);
         if ($tienePermiso) {
-            $bogota = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "bogota" ');
-            $cali = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "cali" ');
+            $bogota = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "bogota" limit 100');
+            $cali = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "cali" limit 40');
             $barranquilla = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "barranquilla" ');
-            $medellin = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "medellin" ');
+            $medellin = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "medellin" limit 100');
             $villavicencio = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "villavicencio" ');
             $cum_soacha = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "cum_soacha" ');
-            $cartagena = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "cartagena" ');
+            $cartagena = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "cartagena" limit 100');
             $sta_marta = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "sta_marta" ');
 
             return view('domiciliospuntosmapa/MapaPuntosDomicilios', ["bogota"=> $bogota, "cali"=> $cali, "barranquilla"=> $barranquilla, "medellin"=> $medellin, "villavicencio"=> $villavicencio, "cum_soacha"=> $cum_soacha, "cartagena"=> $cartagena, "sta_marta"=> $sta_marta]);

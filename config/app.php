@@ -155,6 +155,7 @@ return [
         reportes\Providers\RouteServiceProvider::class,
         'Maatwebsite\Excel\ExcelServiceProvider',
         Collective\Html\HtmlServiceProvider::class,
+        
     ],
     /*
       |--------------------------------------------------------------------------
@@ -203,5 +204,6 @@ return [
         'Excel' => 'Maatwebsite\Excel\Facades\Excel',
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+       
     ],
 ];

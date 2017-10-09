@@ -76,735 +76,259 @@ and open the template in the editor.
 
 <!-- Bogota -->
 <script>
-    function bogota() {
-      
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 11,
-                center: {lat: 4.710988599999999, lng: - 74.072092},
-                mapTypeId: 'terrain'
-            });
-            var flightPlanCoordinates = [
-            ];
-            var lineSymbol = {
-                path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
-            };
-            var mark = true;
-            
-            @foreach($bogota as $p)
-                    flightPlanCoordinates.push({
-                    lat: {{$p -> lat}},
-                    lng: {{$p -> long}}
-                 });
-            var marker = new google.maps.Marker({
-                position: {
-                lat: {{$p -> lat}},
-                lng: {{$p -> long}},
-                
-            },
-                icon: "pinkball.png",
-                map: map,
-                title: ' Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
-
-
-            });
-            @endforeach
+function bogota() {
+        var map= {
+        center:new google.maps.LatLng(4.710988599999999,- 74.072092),
+        zoom:11,
+        mapTypeId: 'terrain'
+        };
+        var map=new google.maps.Map(document.getElementById("map"),map);
+        @foreach($bogota as $pb)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
                     scaledSize: new google.maps.Size(15, 15), // scaled size
             };
-            
-            var marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
                 position: {
-                lat: flightPlanCoordinates[0].lat,
-                lng: flightPlanCoordinates[0].lng
+                lat: {{$pb -> lat}},
+                lng: {{$pb -> long}},
             },
-                map: map,
                 icon: icon,
-                zIndex: 99999,
-                title: flightPlanCoordinates[0].time
-            });
-            
-            @foreach($bogota as $p)
-            var marker = new google.maps.Marker({
-                position: {
-                lat: {{$p -> lat}},
-                lng: {{$p -> long}}
-                },
-                icon: icon,
-                zIndex: 99999,
                 map: map,
-                title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
             });
-
-           
-              google.maps.event.addListener(marker,'click', function() {
-                var infowindow = new google.maps.InfoWindow({
-                  content:"Id: {{$p->id}} Ciudad: {{$p->ciudad}}"
-                });
-              infowindow.open(map, marker);
-              });
-
-            @endforeach
-            
-            var flightPath = new google.maps.Polyline({
-                path: flightPlanCoordinates,
-                strokeOpacity: 1.0,
-                strokeWeight: 2
-                
-               
+        google.maps.event.addListener(marker,'click',function() {
+        var infowindow = new google.maps.InfoWindow({
+          content: '<b>Nombre:</b> {{$pb->nombre}}<br> {{$pb->ciudad}} <br> <b>Direccion:</b> {{$pb->direccion}}',
             });
-            @if (isset($bogota))
-                var bounds = new google.maps.LatLngBounds();
-                for (var i = 0; i < flightPlanCoordinates.length; i++) {
-                     bounds.extend(flightPlanCoordinates[i]);
-//                     flightPath.setMap(map);
-                     flightPath.setMap(null);
-                };
-            @endif
-
-            map.fitBounds(bounds);
-
-            
-            event.preventDefault();
-    }
+          infowindow.open(map,marker);
+          });
+        @endforeach
+        event.preventDefault();
+        }
 </script>
 
-<!-- cali -->
 <script>
     function cali() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 11,
-                center: {lat: 4.710988599999999, lng: - 74.072092},
-                mapTypeId: 'terrain'
-            });
-            var flightPlanCoordinates = [
-            ];
-            var lineSymbol = {
-                path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
-            };
-            var mark = true;
-            
-            @foreach($cali as $p)
-                    flightPlanCoordinates.push({
-                    lat: {{$p -> lat}},
-                    lng: {{$p -> long}}
-                 });
-            var marker = new google.maps.Marker({
-                position: {
-                lat: {{$p -> lat}},
-                lng: {{$p -> long}},
-                
-            },
-                map: map,
-                //title: '<b>Nombre:</b> {{$p->nombre}} <br> <b>Ciudad:</b> {{$p->ciudad}}',
-
-
-            });
-             var infowindow = new google.maps.InfoWindow({
-                content: '<b>Nombre:</b> {{$p->nombre}} <br> <b>Telefono:</b> {{$p->telefono}} <br> <b>Ciudad:</b> {{$p->ciudad}}',
-              });
-              infowindow.open(map,marker);
-            @endforeach
-            
+        var map= {
+        center:new google.maps.LatLng(3.451944, -76.531167),
+        zoom:11,
+        mapTypeId: 'terrain'
+        };
+        var map=new google.maps.Map(document.getElementById("map"),map);
+        @foreach($cali as $pc)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(40, 40), // scaled size
+                    scaledSize: new google.maps.Size(15, 15), // scaled size
             };
-            var paradas = {
-            url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(40, 40), // scaled size
-            };
-            var marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
                 position: {
-                lat: flightPlanCoordinates[0].lat,
-                lng: flightPlanCoordinates[0].lng
+                lat: {{$pc -> lat}},
+                lng: {{$pc -> long}},
             },
-                map: map,
                 icon: icon,
-                zIndex: 99999,
-                title: flightPlanCoordinates[0].time
-            });
-            
-            @foreach($cali as $p)
-            var marker = new google.maps.Marker({
-                position: {
-                lat: {{$p -> lat}},
-                lng: {{$p -> long}}
-                },
-                icon: paradas,
-                zIndex: 99999,
                 map: map,
-                //title: '<b>Nombre:</b> {{$p->nombre}} <br> <b>Ciudad:</b> {{$p->ciudad}}'
-
             });
-            @endforeach
-            
-            var flightPath = new google.maps.Polyline({
-                path: flightPlanCoordinates,
-                strokeOpacity: 1.0,
-                strokeWeight: 2
-                
-               
+        google.maps.event.addListener(marker,'click',function() {
+        var infowindow = new google.maps.InfoWindow({
+          content: '<b>Nombre:</b> {{$pc->nombre}}<br> {{$pc->ciudad}} <br> <b>Direccion:</b> {{$pc->direccion}}',
             });
-            @if (isset($cali))
-                var bounds = new google.maps.LatLngBounds();
-                for (var i = 0; i < flightPlanCoordinates.length; i++) {
-                     bounds.extend(flightPlanCoordinates[i]);
-//                     flightPath.setMap(map);
-                     flightPath.setMap(null);
-                };
-            @endif
-
-            map.fitBounds(bounds);
-            event.preventDefault();
-    }
+          infowindow.open(map,marker);
+          });
+        @endforeach
+        event.preventDefault();
+        }
 </script>
-
-<!-- barranquilla -->
-<script>
+<script >
     function barranquilla() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 11,
-                center: {lat: 4.710988599999999, lng: - 74.072092},
-                mapTypeId: 'terrain'
-            });
-            var flightPlanCoordinates = [
-            ];
-            var lineSymbol = {
-                path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
-            };
-            var mark = true;
-            
-            @foreach($barranquilla as $p)
-                    flightPlanCoordinates.push({
-                    lat: {{$p -> lat}},
-                    lng: {{$p -> long}}
-                 });
-            var marker = new google.maps.Marker({
-                position: {
-                lat: {{$p -> lat}},
-                lng: {{$p -> long}},
-                
-            },
-                map: map,
-                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
-
-
-            });
-             var infowindow = new google.maps.InfoWindow({
-                content: '<b>Nombre:</b> {{$p->nombre}} <br> <b>Direccion:</b> {{$p->direccion}} <br> <b>Ciudad:</b> {{$p->ciudad}}',
-              });
-              infowindow.open(map,marker);
-            @endforeach
-            
+        var map= {
+        center:new google.maps.LatLng(11.004025, -74.809437),
+        zoom:11,
+        mapTypeId: 'terrain'
+        };
+        var map=new google.maps.Map(document.getElementById("map"),map);
+        @foreach($barranquilla as $pbr)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(40, 40), // scaled size
+                    scaledSize: new google.maps.Size(15, 15), // scaled size
             };
-            var paradas = {
-            url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(40, 40), // scaled size
-            };
-            var marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
                 position: {
-                lat: flightPlanCoordinates[0].lat,
-                lng: flightPlanCoordinates[0].lng
+                lat: {{$pbr -> lat}},
+                lng: {{$pbr -> long}},
             },
-                map: map,
                 icon: icon,
-                zIndex: 99999,
-                title: flightPlanCoordinates[0].time
-            });
-            
-            @foreach($barranquilla as $p)
-            var marker = new google.maps.Marker({
-                position: {
-                lat: {{$p -> lat}},
-                lng: {{$p -> long}}
-                },
-                icon: paradas,
-                zIndex: 99999,
                 map: map,
-                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
-
             });
-            @endforeach
-            
-            var flightPath = new google.maps.Polyline({
-                path: flightPlanCoordinates,
-                strokeOpacity: 1.0,
-                strokeWeight: 2
-                
-               
+        google.maps.event.addListener(marker,'click',function() {
+        var infowindow = new google.maps.InfoWindow({
+          content: '<b>Nombre:</b> {{$pbr->nombre}}<br> {{$pbr->ciudad}} <br> <b>Direccion:</b> {{$pbr->direccion}}',
             });
-            @if (isset($barranquilla))
-                var bounds = new google.maps.LatLngBounds();
-                for (var i = 0; i < flightPlanCoordinates.length; i++) {
-                     bounds.extend(flightPlanCoordinates[i]);
-//                     flightPath.setMap(map);
-                     flightPath.setMap(null);
-                };
-            @endif
-
-            map.fitBounds(bounds);
-            event.preventDefault();
-    }
+          infowindow.open(map,marker);
+          });
+        @endforeach
+        event.preventDefault();
+        }
 </script>
 
-<!-- medellin -->
-<script>
+<script >
     function medellin() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 11,
-                center: {lat: 4.710988599999999, lng: - 74.072092},
-                mapTypeId: 'terrain'
-            });
-            var flightPlanCoordinates = [
-            ];
-            var lineSymbol = {
-                path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
-            };
-            var mark = true;
-            
-            @foreach($medellin as $p)
-                    flightPlanCoordinates.push({
-                    lat: {{$p -> lat}},
-                    lng: {{$p -> long}}
-                 });
-            var marker = new google.maps.Marker({
-                position: {
-                lat: {{$p -> lat}},
-                lng: {{$p -> long}},
-                
-            },
-                map: map,
-                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
-
-
-            });
-             var infowindow = new google.maps.InfoWindow({
-                content: '<b>Telefono:</b> {{$p->telefono}} <br> <b>Ciudad:</b> {{$p->ciudad}}',
-              });
-              infowindow.open(map,marker);
-            @endforeach
-            
+        var map= {
+        center:new google.maps.LatLng(6.252633, -75.564466),
+        zoom:11,
+        mapTypeId: 'terrain'
+        };
+        var map=new google.maps.Map(document.getElementById("map"),map);
+        @foreach($medellin as $pm)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(40, 40), // scaled size
+                    scaledSize: new google.maps.Size(15, 15), // scaled size
             };
-            var paradas = {
-            url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(40, 40), // scaled size
-            };
-            var marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
                 position: {
-                lat: flightPlanCoordinates[0].lat,
-                lng: flightPlanCoordinates[0].lng
+                lat: {{$pm -> lat}},
+                lng: {{$pm -> long}},
             },
-                map: map,
                 icon: icon,
-                zIndex: 99999,
-                title: flightPlanCoordinates[0].time
-            });
-            
-            @foreach($medellin as $p)
-            var marker = new google.maps.Marker({
-                position: {
-                lat: {{$p -> lat}},
-                lng: {{$p -> long}}
-                },
-                icon: paradas,
-                zIndex: 99999,
                 map: map,
-                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
-
             });
-            @endforeach
-            
-            var flightPath = new google.maps.Polyline({
-                path: flightPlanCoordinates,
-                strokeOpacity: 1.0,
-                strokeWeight: 2
-                
-               
+        google.maps.event.addListener(marker,'click',function() {
+        var infowindow = new google.maps.InfoWindow({
+          content: '<b>Nombre:</b> {{$pm->nombre}}<br> {{$pm->ciudad}} <br> <b>Direccion:</b> {{$pm->direccion}}',
             });
-            @if (isset($medellin))
-                var bounds = new google.maps.LatLngBounds();
-                for (var i = 0; i < flightPlanCoordinates.length; i++) {
-                     bounds.extend(flightPlanCoordinates[i]);
-//                     flightPath.setMap(map);
-                     flightPath.setMap(null);
-                };
-            @endif
-
-            map.fitBounds(bounds);
-            event.preventDefault();
-    }
+          infowindow.open(map,marker);
+          });
+        @endforeach
+        event.preventDefault();
+        }
 </script>
-
-<!-- villavicencio -->
-<script>
+<script >
     function villavicencio() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 11,
-                center: {lat: 4.710988599999999, lng: - 74.072092},
-                mapTypeId: 'terrain'
-            });
-            var flightPlanCoordinates = [
-            ];
-            var lineSymbol = {
-                path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
-            };
-            var mark = true;
-            
-            @foreach($villavicencio as $p)
-                    flightPlanCoordinates.push({
-                    lat: {{$p -> lat}},
-                    lng: {{$p -> long}}
-                 });
-            var marker = new google.maps.Marker({
-                position: {
-                lat: {{$p -> lat}},
-                lng: {{$p -> long}},
-                
-            },
-                map: map,
-                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
-
-
-            });
-             var infowindow = new google.maps.InfoWindow({
-                content: '<b>Nombre:</b> {{$p->nombre}} <br> <b>Direccion:</b> {{$p->direccion}} <br> <b>Ciudad:</b> {{$p->ciudad}}',
-              });
-              infowindow.open(map,marker);
-            @endforeach
-            
+        var map= {
+        center:new google.maps.LatLng(4.151466, -73.636183),
+        zoom:11,
+        mapTypeId: 'terrain'
+        };
+        var map=new google.maps.Map(document.getElementById("map"),map);
+        @foreach($villavicencio as $pv)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(40, 40), // scaled size
+                    scaledSize: new google.maps.Size(15, 15), // scaled size
             };
-            var paradas = {
-            url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(40, 40), // scaled size
-            };
-            var marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
                 position: {
-                lat: flightPlanCoordinates[0].lat,
-                lng: flightPlanCoordinates[0].lng
+                lat: {{$pv -> lat}},
+                lng: {{$pv -> long}},
             },
-                map: map,
                 icon: icon,
-                zIndex: 99999,
-                title: flightPlanCoordinates[0].time
-            });
-            
-            @foreach($villavicencio as $p)
-            var marker = new google.maps.Marker({
-                position: {
-                lat: {{$p -> lat}},
-                lng: {{$p -> long}}
-                },
-                icon: paradas,
-                zIndex: 99999,
                 map: map,
-                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
-
             });
-            @endforeach
-            
-            var flightPath = new google.maps.Polyline({
-                path: flightPlanCoordinates,
-                strokeOpacity: 1.0,
-                strokeWeight: 2
-                
-               
+        google.maps.event.addListener(marker,'click',function() {
+        var infowindow = new google.maps.InfoWindow({
+          content: '<b>Nombre:</b> {{$pv->nombre}}<br> {{$pv->ciudad}} <br> <b>Direccion:</b> {{$pv->direccion}}',
             });
-            @if (isset($villavicencio))
-                var bounds = new google.maps.LatLngBounds();
-                for (var i = 0; i < flightPlanCoordinates.length; i++) {
-                     bounds.extend(flightPlanCoordinates[i]);
-//                     flightPath.setMap(map);
-                     flightPath.setMap(null);
-                };
-            @endif
-
-            map.fitBounds(bounds);
-            event.preventDefault();
-    }
+          infowindow.open(map,marker);
+          });
+        @endforeach
+        event.preventDefault();
+        }
 </script>
-<!-- cum_soacha -->
-<script>
+
+<script >
     function cum_soacha() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 11,
-                center: {lat: 4.710988599999999, lng: - 74.072092},
-                mapTypeId: 'terrain'
-            });
-            var flightPlanCoordinates = [
-            ];
-            var lineSymbol = {
-                path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
-            };
-            var mark = true;
-            
-            @foreach($cum_soacha as $p)
-                    flightPlanCoordinates.push({
-                    lat: {{$p -> lat}},
-                    lng: {{$p -> long}}
-                 });
-            var marker = new google.maps.Marker({
-                position: {
-                lat: {{$p -> lat}},
-                lng: {{$p -> long}},
-                
-            },
-                map: map,
-                //title: 'Direccion: {{$p->direccion}} Ciudad: {{$p->ciudad}}',
-
-
-            });
-            var infowindow = new google.maps.InfoWindow({
-                content: '<b>Nombre:</b> {{$p->nombre}} <br> <b>Direccion:</b> {{$p->direccion}} <br> <b>Ciudad:</b> {{$p->ciudad}}',
-              });
-              infowindow.open(map,marker);
-            @endforeach
-            
+        var map= {
+        center:new google.maps.LatLng(4.57549,-74.2312017),
+        zoom:13,
+        mapTypeId: 'terrain'
+        };
+        var map=new google.maps.Map(document.getElementById("map"),map);
+        @foreach($cum_soacha as $pcs)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(40, 40), // scaled size
+                    scaledSize: new google.maps.Size(15, 15), // scaled size
             };
-            var paradas = {
-            url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(40, 40), // scaled size
-            };
-            var marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
                 position: {
-                lat: flightPlanCoordinates[0].lat,
-                lng: flightPlanCoordinates[0].lng
+                lat: {{$pcs -> lat}},
+                lng: {{$pcs -> long}},
             },
-                map: map,
                 icon: icon,
-                
-                title: flightPlanCoordinates[0].time
-            });
-            
-            @foreach($cum_soacha as $p)
-            var marker = new google.maps.Marker({
-                position: {
-                lat: {{$p -> lat}},
-                lng: {{$p -> long}}
-                },
-                icon: paradas,
-                
                 map: map,
-                //title: 'Direccion: {{$p->direccion}} Ciudad: {{$p->ciudad}}'
-
             });
-            @endforeach
-            
-            var flightPath = new google.maps.Polyline({
-                path: flightPlanCoordinates,
-                strokeOpacity: 1.0,
-                strokeWeight: 2
-                
-               
+        google.maps.event.addListener(marker,'click',function() {
+        var infowindow = new google.maps.InfoWindow({
+          content: '<b>Nombre:</b> {{$pcs->nombre}}<br> {{$pcs->ciudad}} <br> <b>Direccion:</b> {{$pcs->direccion}}',
             });
-            @if (isset($cum_soacha))
-                var bounds = new google.maps.LatLngBounds();
-                for (var i = 0; i < flightPlanCoordinates.length; i++) {
-                     bounds.extend(flightPlanCoordinates[i]);
-//                     flightPath.setMap(map);
-                     flightPath.setMap(null);
-                };
-            @endif
-
-
-            map.fitBounds(bounds);
-            event.preventDefault();
-    }
+          infowindow.open(map,marker);
+          });
+        @endforeach
+        event.preventDefault();
+        }
 </script>
 
-<!-- cartagena -->
-<script>
+<script >
     function cartagena() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 11,
-                center: {lat: 4.710988599999999, lng: - 74.072092},
-                mapTypeId: 'terrain'
-            });
-            var flightPlanCoordinates = [
-            ];
-            var lineSymbol = {
-                path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
-            };
-            var mark = true;
-            
-            @foreach($cartagena as $p)
-                    flightPlanCoordinates.push({
-                    lat: {{$p -> lat}},
-                    lng: {{$p -> long}}
-                 });
-            var marker = new google.maps.Marker({
-                position: {
-                lat: {{$p -> lat}},
-                lng: {{$p -> long}},
-                
-            },
-                map: map,
-                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
-
-
-            });
-             var infowindow = new google.maps.InfoWindow({
-                content: '<b>Telefono:</b> {{$p->telefono}} <br> <b>Ciudad:</b> {{$p->ciudad}}',
-              });
-              infowindow.open(map,marker);
-            @endforeach
-            
+        var map= {
+        center:new google.maps.LatLng(10.391417, -75.476254),
+        zoom:11,
+        mapTypeId: 'terrain'
+        };
+        var map=new google.maps.Map(document.getElementById("map"),map);
+        @foreach($cartagena as $pcta)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(40, 40), // scaled size
+                    scaledSize: new google.maps.Size(15, 15), // scaled size
             };
-            var paradas = {
-            url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(40, 40), // scaled size
-            };
-            var marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
                 position: {
-                lat: flightPlanCoordinates[0].lat,
-                lng: flightPlanCoordinates[0].lng
+                lat: {{$pcta -> lat}},
+                lng: {{$pcta -> long}},
             },
-                map: map,
                 icon: icon,
-                zIndex: 99999,
-                title: flightPlanCoordinates[0].time
-            });
-            
-            @foreach($cartagena as $p)
-            var marker = new google.maps.Marker({
-                position: {
-                lat: {{$p -> lat}},
-                lng: {{$p -> long}}
-                },
-                icon: paradas,
-                zIndex: 99999,
                 map: map,
-                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
-
             });
-            @endforeach
-            
-            var flightPath = new google.maps.Polyline({
-                path: flightPlanCoordinates,
-                strokeOpacity: 1.0,
-                strokeWeight: 2
-                
-               
+        google.maps.event.addListener(marker,'click',function() {
+        var infowindow = new google.maps.InfoWindow({
+          content: '<b>Nombre:</b> {{$pcta->nombre}}<br> {{$pcta->ciudad}} <br> <b>Direccion:</b> {{$pcta->direccion}}',
             });
-            @if (isset($cartagena))
-                var bounds = new google.maps.LatLngBounds();
-                for (var i = 0; i < flightPlanCoordinates.length; i++) {
-                     bounds.extend(flightPlanCoordinates[i]);
-//                     flightPath.setMap(map);
-                     flightPath.setMap(null);
-                };
-            @endif
-
-            map.fitBounds(bounds);
-            event.preventDefault();
-    }
+          infowindow.open(map,marker);
+          });
+        @endforeach
+        event.preventDefault();
+        }
 </script>
 
-<!-- sta_marta -->
-<script>
+<script >
     function sta_marta() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 11,
-                center: {lat: 4.710988599999999, lng: - 74.072092},
-                mapTypeId: 'terrain'
-            });
-            var flightPlanCoordinates = [
-            ];
-            var lineSymbol = {
-                path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
-            };
-            var mark = true;
-            
-            @foreach($sta_marta as $p)
-                    flightPlanCoordinates.push({
-                    lat: {{$p -> lat}},
-                    lng: {{$p -> long}}
-                 });
-            var marker = new google.maps.Marker({
-                position: {
-                lat: {{$p -> lat}},
-                lng: {{$p -> long}},
-                
-            },
-                map: map,
-                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}',
-
-
-            });
-             var infowindow = new google.maps.InfoWindow({
-                content: '<b>Nombre:</b> {{$p->nombre}} <br> <b>Direccion:</b> {{$p->direccion}} <br> <b>Ciudad:</b> {{$p->ciudad}}',
-              });
-              infowindow.open(map,marker);
-            @endforeach
-            
+        var map= {
+        center:new google.maps.LatLng(11.2315668,-74.1999066),
+        zoom:13,
+        mapTypeId: 'terrain'
+        };
+        var map=new google.maps.Map(document.getElementById("map"),map);
+        @foreach($sta_marta as $psmt)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(40, 40), // scaled size
+                    scaledSize: new google.maps.Size(15, 15), // scaled size
             };
-            var paradas = {
-            url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(40, 40), // scaled size
-            };
-            var marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
                 position: {
-                lat: flightPlanCoordinates[0].lat,
-                lng: flightPlanCoordinates[0].lng
+                lat: {{$psmt -> lat}},
+                lng: {{$psmt -> long}},
             },
-                map: map,
                 icon: icon,
-                zIndex: 99999,
-                title: flightPlanCoordinates[0].time
-            });
-            
-            @foreach($sta_marta as $p)
-            var marker = new google.maps.Marker({
-                position: {
-                lat: {{$p -> lat}},
-                lng: {{$p -> long}}
-                },
-                icon: paradas,
-                zIndex: 99999,
                 map: map,
-                //title: 'Id: {{$p->id}} Ciudad: {{$p->ciudad}}'
-
             });
-            @endforeach
-            
-            var flightPath = new google.maps.Polyline({
-                path: flightPlanCoordinates,
-                strokeOpacity: 1.0,
-                strokeWeight: 2
-                
-               
+        google.maps.event.addListener(marker,'click',function() {
+        var infowindow = new google.maps.InfoWindow({
+          content: '<b>Nombre:</b> {{$psmt->nombre}}<br> {{$psmt->ciudad}} <br> <b>Direccion:</b> {{$psmt->direccion}}',
             });
-            @if (isset($sta_marta))
-                var bounds = new google.maps.LatLngBounds();
-                for (var i = 0; i < flightPlanCoordinates.length; i++) {
-                     bounds.extend(flightPlanCoordinates[i]);
-//                     flightPath.setMap(map);
-                     flightPath.setMap(null);
-                };
-            @endif
-
-            map.fitBounds(bounds);
-            event.preventDefault();
-    }
+          infowindow.open(map,marker);
+          });
+        @endforeach
+        event.preventDefault();
+        }
 </script>
+
 
 <!--  api de google maps-->
 <script async defer
