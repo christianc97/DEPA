@@ -98,7 +98,7 @@ function bogota() {
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
-          content: '<b>Nombre:</b> {{$pb->nombre}}<br> {{$pb->ciudad}} <br> <b>Direccion:</b> {{$pb->direccion}}',
+          content: '<b>Nombre:</b> {{$pb->nombre}}<br> <b>Id Empresa:</b> {{$pb->empresa_id}} <br> <b>Empresa:</b> {{$pb->empresa_id}} <br> <b>Direccion:</b> {{$pb->direccion}}',
             });
           infowindow.open(map,marker);
           });

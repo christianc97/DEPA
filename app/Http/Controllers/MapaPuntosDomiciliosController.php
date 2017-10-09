@@ -25,10 +25,10 @@ class MapaPuntosDomiciliosController extends Controller
             $bogota = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "bogota" limit 100');
             $cali = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "cali" limit 40');
             $barranquilla = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "barranquilla" ');
-            $medellin = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "medellin" limit 100');
+            $medellin = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "medellin" ');
             $villavicencio = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "villavicencio" ');
             $cum_soacha = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "cum_soacha" ');
-            $cartagena = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "cartagena" limit 100');
+            $cartagena = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "cartagena" ');
             $sta_marta = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "sta_marta" ');
 
             return view('domiciliospuntosmapa/MapaPuntosDomicilios', ["bogota"=> $bogota, "cali"=> $cali, "barranquilla"=> $barranquilla, "medellin"=> $medellin, "villavicencio"=> $villavicencio, "cum_soacha"=> $cum_soacha, "cartagena"=> $cartagena, "sta_marta"=> $sta_marta]);
