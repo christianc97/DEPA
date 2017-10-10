@@ -91,11 +91,10 @@ function bogota() {
                 map: map,
             });
         google.maps.event.addListener(marker,'click',function() {
-        var nombre = '{{$pb->empresa}}';
         var infowindow = new google.maps.InfoWindow({
-          content: nombre,
+           content: '<b>Nombre:</b> {{$pb->nombre}}<br> <b>Empresa:</b> {{$pb->empresa}} <br> <b>Direccion:</b> {{$pb->direccion}}',
             });
-          infowindow.open(map,marker);
+          infowindow.open(map, this);
           });
         @endforeach
         event.preventDefault();
@@ -142,24 +141,24 @@ function bogota() {
         mapTypeId: 'terrain'
         };
         var map = new google.maps.Map(document.getElementById("map"),map);
-        @foreach($barranquilla as $pbq)
+        @foreach($barranquilla as $p)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
                     scaledSize: new google.maps.Size(15, 15), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
-                lat: {{$pbq -> lat}},
-                lng: {{$pbq -> long}},
+                lat: {{$p -> lat}},
+                lng: {{$p -> long}},
             },
                 icon: icon,
                 map: map,
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
-          content: '<b>Nombre:</b> {{$pbq->nombre}}<br> <b>Empresa:</b> {{$pbq->id}} <br> <b>Direccion:</b> {{$pbq->direccion}}',
+          content: '<b>Nombre:</b> {{$p->nombre}}<br> <b>Empresa:</b> {{$p->empresa}} <br> <b>Direccion:</b> {{$p->direccion}}',
             });
-          infowindow.open(map,marker);
+          infowindow.open(map,this);
           });
         @endforeach
         event.preventDefault();
@@ -174,15 +173,15 @@ function bogota() {
         mapTypeId: 'terrain'
         };
         var map = new google.maps.Map(document.getElementById("map"),map);
-        @foreach($medellin as $pbq)
+        @foreach($medellin as $pm)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
                     scaledSize: new google.maps.Size(15, 15), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
-                lat: {{$pbq -> lat}},
-                lng: {{$pbq -> long}},
+                lat: {{$pm -> lat}},
+                lng: {{$pm -> long}},
             },
                 icon: icon,
                 map: map,
@@ -190,7 +189,7 @@ function bogota() {
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
-          content: '<b>Nombre:</b> {{$pbq->nombre}}<br> <b>Id Empresa:</b> {{$pbq->id}} <br> <b>Empresa:</b> {{$pbq->id}} <br> <b>Direccion:</b> {{$pbq->direccion}}',
+          content: '<b>Nombre:</b> {{$pm->nombre}}<br> <b>Empresa:</b> {{$pm->empresa}} <br> <b>Direccion:</b> {{$pm->direccion}}',
             });
           infowindow.open(map,marker);
           });
@@ -206,22 +205,22 @@ function bogota() {
         mapTypeId: 'terrain'
         };
         var map=new google.maps.Map(document.getElementById("map"),map);
-        @foreach($villavicencio as $pv)
+        @foreach($villavicencio as $p)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
                     scaledSize: new google.maps.Size(15, 15), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
-                lat: {{$pv -> lat}},
-                lng: {{$pv -> long}},
+                lat: {{$p -> lat}},
+                lng: {{$p -> long}},
             },
                 icon: icon,
                 map: map,
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
-          content: '<b>Nombre:</b> {{$pv->nombre}}<br> {{$pv->ciudad}} <br> <b>Direccion:</b> {{$pv->direccion}}',
+         content: '<b>Nombre:</b> {{$p->nombre}}<br> <b>Empresa:</b> {{$p->empresa}} <br> <b>Direccion:</b> {{$p->direccion}}',
             });
           infowindow.open(map,marker);
           });
@@ -238,22 +237,22 @@ function bogota() {
         mapTypeId: 'terrain'
         };
         var map=new google.maps.Map(document.getElementById("map"),map);
-        @foreach($cum_soacha as $pcs)
+        @foreach($cum_soacha as $p)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
                     scaledSize: new google.maps.Size(15, 15), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
-                lat: {{$pcs -> lat}},
-                lng: {{$pcs -> long}},
+                lat: {{$p -> lat}},
+                lng: {{$p -> long}},
             },
                 icon: icon,
                 map: map,
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
-          content: '<b>Nombre:</b> {{$pcs->nombre}}<br> {{$pcs->ciudad}} <br> <b>Direccion:</b> {{$pcs->direccion}}',
+          content: '<b>Nombre:</b> {{$p->nombre}}<br> <b>Empresa:</b> {{$p->empresa}} <br> <b>Direccion:</b> {{$p->direccion}}',
             });
           infowindow.open(map,marker);
           });
@@ -270,22 +269,22 @@ function bogota() {
         mapTypeId: 'terrain'
         };
         var map=new google.maps.Map(document.getElementById("map"),map);
-        @foreach($cartagena as $pcta)
+        @foreach($cartagena as $p)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
                     scaledSize: new google.maps.Size(15, 15), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
-                lat: {{$pcta -> lat}},
-                lng: {{$pcta -> long}},
+                lat: {{$p -> lat}},
+                lng: {{$p -> long}},
             },
                 icon: icon,
                 map: map,
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
-          content: '<b>Nombre:</b> {{$pcta->nombre}}<br> {{$pcta->ciudad}} <br> <b>Direccion:</b> {{$pcta->direccion}}',
+          content: '<b>Nombre:</b> {{$p->nombre}}<br> <b>Empresa:</b> {{$p->empresa}} <br> <b>Direccion:</b> {{$p->direccion}}',
             });
           infowindow.open(map,marker);
           });
@@ -302,22 +301,22 @@ function bogota() {
         mapTypeId: 'terrain'
         };
         var map=new google.maps.Map(document.getElementById("map"),map);
-        @foreach($sta_marta as $psmt)
+        @foreach($sta_marta as $p)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
                     scaledSize: new google.maps.Size(15, 15), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
-                lat: {{$psmt -> lat}},
-                lng: {{$psmt -> long}},
+                lat: {{$p -> lat}},
+                lng: {{$p -> long}},
             },
                 icon: icon,
                 map: map,
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
-          content: '<b>Nombre:</b> {{$psmt->nombre}}<br> {{$psmt->ciudad}} <br> <b>Direccion:</b> {{$psmt->direccion}}',
+          content: '<b>Nombre:</b> {{$p->nombre}}<br> <b>Empresa:</b> {{$p->empresa}} <br> <b>Direccion:</b> {{$p->direccion}}',
             });
           infowindow.open(map,marker);
           });
