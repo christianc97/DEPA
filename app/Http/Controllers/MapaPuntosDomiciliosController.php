@@ -22,7 +22,8 @@ class MapaPuntosDomiciliosController extends Controller
         $user = Auth::user()->id;
         $tienePermiso = $this->validarPermisos($this->id, $user);
         if ($tienePermiso) {
-            $bogota = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "bogota" limit 100');
+            $bogota = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "bogota" limit 100 ');
+
             $cali = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "cali" limit 40');
             $barranquilla = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "barranquilla" ');
             $medellin = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "medellin" ');

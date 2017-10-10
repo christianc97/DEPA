@@ -82,7 +82,7 @@ function bogota() {
         zoom:11,
         mapTypeId: 'terrain'
         };
-        var map=new google.maps.Map(document.getElementById("map"),map);
+        var map = new google.maps.Map(document.getElementById("map"),map);
         @foreach($bogota as $pb)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
