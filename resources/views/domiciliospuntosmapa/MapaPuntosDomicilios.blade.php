@@ -77,31 +77,32 @@ function bogota() {
         mapTypeId: 'terrain'
         };
         var map = new google.maps.Map(document.getElementById("map"),map);
-        @foreach($bogota as $pb)
+        @foreach($bogota as $p )
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
                     scaledSize: new google.maps.Size(15, 15), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
-                lat: {{$pb -> lat}},
-                lng: {{$pb -> long}},
+                lat: {{$p -> lat}},
+                lng: {{$p -> long}},
             },
                 icon: icon,
                 map: map,
+                animation: google.maps.Animation.DROP
             });
         google.maps.event.addListener(marker,'click',function() {
+          
         var infowindow = new google.maps.InfoWindow({
-           content: '<b>Nombre:</b> {{$pb->nombre}}<br> <b>Empresa:</b> {{$pb->empresa}} <br> <b>Direccion:</b> {{$pb->direccion}}',
-            });
-          infowindow.open(map, this);
+           
+           content: "<b>Nombre:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->nombre)}} <br> <b>Empresa:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->empresa)}} <br> <b>Direccion:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->direccion)}}",
+            })
+;              infowindow.open(map, this);
           });
         @endforeach
         event.preventDefault();
         }
-</script>
 
-<script>
     function cali() {
         var map= {
         center:new google.maps.LatLng(3.452637, -76.532877),
@@ -109,31 +110,32 @@ function bogota() {
         mapTypeId: 'terrain'
         };
         var map = new google.maps.Map(document.getElementById("map"),map);
-
-        @foreach($cali as $pb)
+        var marker, i;
+        
+        @foreach($cali as $p)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
                     scaledSize: new google.maps.Size(15, 15), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
-                lat: {{$pb -> lat}},
-                lng: {{$pb -> long}},
+                lat: {{$p -> lat}},
+                lng: {{$p -> long}},
             },
                 icon: icon,
                 map: map,
+                animation: google.maps.Animation.DROP
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
-          content: '<b>Nombre:</b> {{$pb->nombre}}<br> <b>Empresa:</b> {{$pb->empresa}} <br> <b>Direccion:</b> {{$pb->direccion}}',
+          content: "<b>Nombre:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->nombre)}} <br> <b>Empresa:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->empresa)}} <br> <b>Direccion:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->direccion)}}",
             });
-          infowindow.open(map,marker);
+          infowindow.open(map,this);
           });
         @endforeach
         event.preventDefault();
         }
-</script>
-<script >
+
     function barranquilla() {
         var map= {
         center:new google.maps.LatLng(11.004025, -74.809437),
@@ -153,19 +155,18 @@ function bogota() {
             },
                 icon: icon,
                 map: map,
+                animation: google.maps.Animation.DROP
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
-          content: '<b>Nombre:</b> {{$p->nombre}}<br> <b>Empresa:</b> {{$p->empresa}} <br> <b>Direccion:</b> {{$p->direccion}}',
+          content: "<b>Nombre:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->nombre)}} <br> <b>Empresa:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->empresa)}} <br> <b>Direccion:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->direccion)}}",
             });
           infowindow.open(map,this);
           });
         @endforeach
         event.preventDefault();
         }
-</script>
 
-<script >
         function medellin() {
         var map= {
         center:new google.maps.LatLng(6.252633, -75.564466),
@@ -185,19 +186,18 @@ function bogota() {
             },
                 icon: icon,
                 map: map,
-                title: 'medellin'
+                animation: google.maps.Animation.DROP
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
-          content: '<b>Nombre:</b> {{$pm->nombre}}<br> <b>Empresa:</b> {{$pm->empresa}} <br> <b>Direccion:</b> {{$pm->direccion}}',
+          content: "<b>Nombre:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->nombre)}} <br> <b>Empresa:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->empresa)}} <br> <b>Direccion:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->direccion)}}",
             });
-          infowindow.open(map,marker);
+          infowindow.open(map,this);
           });
         @endforeach
         event.preventDefault();
         }
-</script>
-<script >
+
     function villavicencio() {
         var map= {
         center:new google.maps.LatLng(4.151466, -73.636183),
@@ -217,19 +217,18 @@ function bogota() {
             },
                 icon: icon,
                 map: map,
+                animation: google.maps.Animation.DROP
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
-         content: '<b>Nombre:</b> {{$p->nombre}}<br> <b>Empresa:</b> {{$p->empresa}} <br> <b>Direccion:</b> {{$p->direccion}}',
+         content: "<b>Nombre:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->nombre)}} <br> <b>Empresa:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->empresa)}} <br> <b>Direccion:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->direccion)}}",
             });
-          infowindow.open(map,marker);
+          infowindow.open(map,this);
           });
         @endforeach
         event.preventDefault();
         }
-</script>
 
-<script >
     function cum_soacha() {
         var map= {
         center:new google.maps.LatLng(4.57549,-74.2312017),
@@ -249,19 +248,18 @@ function bogota() {
             },
                 icon: icon,
                 map: map,
+                animation: google.maps.Animation.DROP
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
-          content: '<b>Nombre:</b> {{$p->nombre}}<br> <b>Empresa:</b> {{$p->empresa}} <br> <b>Direccion:</b> {{$p->direccion}}',
+          content: "<b>Nombre:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->nombre)}} <br> <b>Empresa:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->empresa)}} <br> <b>Direccion:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->direccion)}}",
             });
-          infowindow.open(map,marker);
+          infowindow.open(map,this);
           });
         @endforeach
         event.preventDefault();
         }
-</script>
 
-<script >
     function cartagena() {
         var map= {
         center:new google.maps.LatLng(10.391417, -75.476254),
@@ -281,19 +279,18 @@ function bogota() {
             },
                 icon: icon,
                 map: map,
+                animation: google.maps.Animation.DROP
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
-          content: '<b>Nombre:</b> {{$p->nombre}}<br> <b>Empresa:</b> {{$p->empresa}} <br> <b>Direccion:</b> {{$p->direccion}}',
+          content: "<b>Nombre:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->nombre)}} <br> <b>Empresa:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->empresa)}} <br> <b>Direccion:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->direccion)}}",
             });
-          infowindow.open(map,marker);
+          infowindow.open(map,this);
           });
         @endforeach
         event.preventDefault();
         }
-</script>
 
-<script >
     function sta_marta() {
         var map= {
         center:new google.maps.LatLng(11.2315668,-74.1999066),
@@ -313,12 +310,13 @@ function bogota() {
             },
                 icon: icon,
                 map: map,
+                animation: google.maps.Animation.DROP
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
-          content: '<b>Nombre:</b> {{$p->nombre}}<br> <b>Empresa:</b> {{$p->empresa}} <br> <b>Direccion:</b> {{$p->direccion}}',
+          content: "<b>Nombre:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->nombre)}} <br> <b>Empresa:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->empresa)}} <br> <b>Direccion:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->direccion)}}",
             });
-          infowindow.open(map,marker);
+          infowindow.open(map,this);
           });
         @endforeach
         event.preventDefault();

@@ -22,37 +22,37 @@ class MapaPuntosDomiciliosController extends Controller
         $user = Auth::user()->id;
         $tienePermiso = $this->validarPermisos($this->id, $user);
         if ($tienePermiso) {
-            $bogota = DB::connection('mu_domicilios')->select('select p.id, p.nombre, empresa_id, p.lat, p.long, p.direccion, p.ciudad, e.nombre as empresa from puntos p
+            $bogota = DB::connection('mu_domicilios')->select('select p.id, p.nombre, empresa_id, p.lat, p.long, p.direccion, p.ciudad, e.nombre "empresa" from puntos p
                 left join empresa e on p.empresa_id = e.id 
-                where p.ciudad = "bogota" limit 100');
+                where p.ciudad = "bogota";');
 
-            $cali = DB::connection('mu_domicilios')->select('select p.id, p.nombre, empresa_id, p.lat, p.long, p.direccion, (e.nombre) as empresa from puntos p
+            $cali = DB::connection('mu_domicilios')->select('select p.id, p.nombre, empresa_id, p.lat, p.long, p.direccion, e.nombre "empresa" from puntos p
                 left join empresa e on p.empresa_id = e.id 
-                where ciudad = "cali" ');
+                where ciudad = "cali";');
 
             $barranquilla = DB::connection('mu_domicilios')->select('select p.id, p.nombre, empresa_id, p.lat, p.long, p.direccion, e.nombre "empresa" from puntos p
                 left join empresa e on p.empresa_id = e.id 
-                where ciudad = "barranquilla" ;');
+                where ciudad = "barranquilla";');
 
-            $medellin = DB::connection('mu_domicilios')->select('select p.id, p.nombre, empresa_id, p.lat, p.long, p.direccion, e.nombre as empresa from puntos p
+            $medellin = DB::connection('mu_domicilios')->select('select p.id, p.nombre, empresa_id, p.lat, p.long, p.direccion, e.nombre "empresa" from puntos p
                 left join empresa e on p.empresa_id = e.id 
-                where ciudad = "medellin" ;');
+                where ciudad = "medellin";');
 
             $villavicencio = DB::connection('mu_domicilios')->select('select p.id, p.nombre, empresa_id, p.lat, p.long, p.direccion, (e.nombre) as empresa from puntos p
                 left join empresa e on p.empresa_id = e.id 
-                where ciudad = "villavicencio" ;'); 
+                where ciudad = "villavicencio";'); 
 
             $cum_soacha = DB::connection('mu_domicilios')->select('select p.id, p.nombre, empresa_id, p.lat, p.long, p.direccion, (e.nombre) as empresa from puntos p
                 left join empresa e on p.empresa_id = e.id 
-                where ciudad = "cum_soacha" ;'); 
+                where ciudad = "cum_soacha";'); 
 
             $cartagena = DB::connection('mu_domicilios')->select('select p.id, p.nombre, empresa_id, p.lat, p.long, p.direccion, (e.nombre) as empresa from puntos p
                 left join empresa e on p.empresa_id = e.id 
-                where ciudad = "cartagena" ;'); 
+                where ciudad = "cartagena";'); 
 
             $sta_marta = DB::connection('mu_domicilios')->select('select p.id, p.nombre, empresa_id, p.lat, p.long, p.direccion, (e.nombre) as empresa from puntos p
                 left join empresa e on p.empresa_id = e.id 
-                where ciudad = "sta_marta" ;'); 
+                where ciudad = "sta_marta";'); 
 
             return view('domiciliospuntosmapa/MapaPuntosDomicilios', ["bogota"=> $bogota, "cali"=> $cali, "barranquilla"=> $barranquilla, "medellin"=> $medellin, "villavicencio"=> $villavicencio, "cum_soacha"=> $cum_soacha, "cartagena"=> $cartagena, "sta_marta"=> $sta_marta]);
         } else {
