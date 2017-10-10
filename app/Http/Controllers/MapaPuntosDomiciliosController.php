@@ -22,12 +22,22 @@ class MapaPuntosDomiciliosController extends Controller
         $user = Auth::user()->id;
         $tienePermiso = $this->validarPermisos($this->id, $user);
         if ($tienePermiso) {
-            $bogota = DB::connection('mu_domicilios')->select('select p.id, p.nombre, empresa_id, p.lat, p.long, p.direccion, p.ciudad, GROUP_CONCAT(e.nombre) as nombree from puntos p
-            inner join empresa e on p.empresa_id = e.id where ciudad = "bogota"  group by e.id order by p.empresa_id desc limit 100;');
+            $bogota = DB::connection('mu_domicilios')->select('select p.id, p.nombre, empresa_id, p.lat, p.long, p.direccion, e.nombre as empresa from puntos p
+                left join empresa e on p.empresa_id = e.id 
+                where ciudad = "bogota"');
 
-            $cali = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "cali" limit 40');
-            $barranquilla = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "barranquilla" ');
-            $medellin = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "medellin" ');
+            $cali = DB::connection('mu_domicilios')->select('select p.id, p.nombre, empresa_id, p.lat, p.long, p.direccion, (e.nombre) as empresa from puntos p
+                left join empresa e on p.empresa_id = e.id 
+                where ciudad = "cali" ;');
+
+            $barranquilla = DB::connection('mu_domicilios')->select('select p.id, p.nombre, empresa_id, p.lat, p.long, p.direccion, (e.nombre) as empresa from puntos p
+                left join empresa e on p.empresa_id = e.id 
+                where ciudad = "medellin" ;');
+
+            $medellin = DB::connection('mu_domicilios')->select('select p.id, p.nombre, empresa_id, p.lat, p.long, p.direccion, (e.nombre) as empresa from puntos p
+                left join empresa e on p.empresa_id = e.id 
+                where ciudad = "medellin" ;');
+
             $villavicencio = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "villavicencio" ');
             $cum_soacha = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "cum_soacha" ');
             $cartagena = DB::connection('mu_domicilios')->select('select * from puntos where ciudad = "cartagena" ');

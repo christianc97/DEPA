@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 @extends('layouts.admin')
 @section('titulo')
 <h3 class="box-title">Puntos Domicilios </h3>
@@ -97,8 +91,9 @@ function bogota() {
                 map: map,
             });
         google.maps.event.addListener(marker,'click',function() {
+        var nombre = '{{$pb->empresa}}';
         var infowindow = new google.maps.InfoWindow({
-          content: '<b>Nombre:</b> {{$pb->nombre}}<br> <b>Id Empresa:</b> {{$pb->empresa_id}} <br> <b>Empresa:</b> {{$pb->nombree}} <br> <b>Direccion:</b> {{$pb->direccion}}',
+          content: nombre,
             });
           infowindow.open(map,marker);
           });
@@ -110,27 +105,28 @@ function bogota() {
 <script>
     function cali() {
         var map= {
-        center:new google.maps.LatLng(3.451944, -76.531167),
+        center:new google.maps.LatLng(3.452637, -76.532877),
         zoom:11,
         mapTypeId: 'terrain'
         };
-        var map=new google.maps.Map(document.getElementById("map"),map);
-        @foreach($cali as $pc)
+        var map = new google.maps.Map(document.getElementById("map"),map);
+
+        @foreach($cali as $pb)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
                     scaledSize: new google.maps.Size(15, 15), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
-                lat: {{$pc -> lat}},
-                lng: {{$pc -> long}},
+                lat: {{$pb -> lat}},
+                lng: {{$pb -> long}},
             },
                 icon: icon,
                 map: map,
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
-          content: '<b>Nombre:</b> {{$pc->nombre}}<br> {{$pc->ciudad}} <br> <b>Direccion:</b> {{$pc->direccion}}',
+          content: '<b>Nombre:</b> {{$pb->nombre}}<br> <b>Empresa:</b> {{$pb->empresa}} <br> <b>Direccion:</b> {{$pb->direccion}}',
             });
           infowindow.open(map,marker);
           });
@@ -145,23 +141,23 @@ function bogota() {
         zoom:11,
         mapTypeId: 'terrain'
         };
-        var map=new google.maps.Map(document.getElementById("map"),map);
-        @foreach($barranquilla as $pbr)
+        var map = new google.maps.Map(document.getElementById("map"),map);
+        @foreach($barranquilla as $pbq)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
                     scaledSize: new google.maps.Size(15, 15), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
-                lat: {{$pbr -> lat}},
-                lng: {{$pbr -> long}},
+                lat: {{$pbq -> lat}},
+                lng: {{$pbq -> long}},
             },
                 icon: icon,
                 map: map,
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
-          content: '<b>Nombre:</b> {{$pbr->nombre}}<br> {{$pbr->ciudad}} <br> <b>Direccion:</b> {{$pbr->direccion}}',
+          content: '<b>Nombre:</b> {{$pbq->nombre}}<br> <b>Empresa:</b> {{$pbq->id}} <br> <b>Direccion:</b> {{$pbq->direccion}}',
             });
           infowindow.open(map,marker);
           });
@@ -171,29 +167,30 @@ function bogota() {
 </script>
 
 <script >
-    function medellin() {
+        function medellin() {
         var map= {
         center:new google.maps.LatLng(6.252633, -75.564466),
         zoom:11,
         mapTypeId: 'terrain'
         };
-        var map=new google.maps.Map(document.getElementById("map"),map);
-        @foreach($medellin as $pm)
+        var map = new google.maps.Map(document.getElementById("map"),map);
+        @foreach($medellin as $pbq)
             var icon = {
             url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
                     scaledSize: new google.maps.Size(15, 15), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
-                lat: {{$pm -> lat}},
-                lng: {{$pm -> long}},
+                lat: {{$pbq -> lat}},
+                lng: {{$pbq -> long}},
             },
                 icon: icon,
                 map: map,
+                title: 'medellin'
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
-          content: '<b>Nombre:</b> {{$pm->nombre}}<br> {{$pm->ciudad}} <br> <b>Direccion:</b> {{$pm->direccion}}',
+          content: '<b>Nombre:</b> {{$pbq->nombre}}<br> <b>Id Empresa:</b> {{$pbq->id}} <br> <b>Empresa:</b> {{$pbq->id}} <br> <b>Direccion:</b> {{$pbq->direccion}}',
             });
           infowindow.open(map,marker);
           });
