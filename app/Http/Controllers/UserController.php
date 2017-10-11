@@ -89,6 +89,9 @@ class UserController extends Controller {
         $usuario->cargo = $request->get('cargo');
         $usuario->fecha_nacimiento = $request->get('fecha_nacimiento');
         $usuario->genero = $request->get('genero');
+
+        $usuario->password = bcrypt($request['contrasena']);
+
         $usuario->telefono = $request->get('telefono');
         $usuario->celular = $request->get('celular');
         $usuario->direccion = $request->get('direccion');

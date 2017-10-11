@@ -54,7 +54,8 @@ class MapaPuntosDomiciliosController extends Controller
                 left join empresa e on p.empresa_id = e.id 
                 where ciudad = "sta_marta";'); 
 
-            return view('domiciliospuntosmapa/MapaPuntosDomicilios', ["bogota"=> $bogota, "cali"=> $cali, "barranquilla"=> $barranquilla, "medellin"=> $medellin, "villavicencio"=> $villavicencio, "cum_soacha"=> $cum_soacha, "cartagena"=> $cartagena, "sta_marta"=> $sta_marta]);
+            return view('domiciliospuntosmapa/MapaPuntosDomicilios', ["bogota"=> $bogota, "cali"=> $cali, "barranquilla"=> $barranquilla, "medellin"=> $medellin, "villavicencio"=> $villavicencio, "cum_soacha"=> $cum_soacha, "cartagena"=> $cartagena, "sta_marta"=> $sta_marta]);*/
+            return view('domiciliospuntosmapa/MapaPuntosDomicilios', ["bogota"=> $bogota]);
         } else {
             return view('home');
         }

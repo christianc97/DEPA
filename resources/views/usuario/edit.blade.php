@@ -77,6 +77,11 @@ and open the template in the editor.
             </select>
         </div>
 
+        <div class='form-group'>
+            <label for='contrasena'>contraseña</label>
+            <input type="text" value="" name="contrasena" class="form-control">
+        </div>
+
     </div>
 </div>
 <div class='row1 align-right'>

@@ -91,13 +91,13 @@ function bogota() {
                 map: map,
                 animation: google.maps.Animation.DROP
             });
-        google.maps.event.addListener(marker,'click',function() {
+        google.maps.event.addListener(marker,'click', function() {
           
         var infowindow = new google.maps.InfoWindow({
            
            content: "<b>Nombre:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->nombre)}} <br> <b>Empresa:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->empresa)}} <br> <b>Direccion:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->direccion)}}",
-            })
-;              infowindow.open(map, this);
+            });              
+        infowindow.open(map, this);
           });
         @endforeach
         event.preventDefault();
