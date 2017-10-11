@@ -11,38 +11,61 @@ and open the template in the editor.
 @endsection
 
 @section('content')
-<div class="container">
-  <div class="table-responsive">          
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Empresa mu</th>
-        <th>Nombre empresa</th>
-        <th>Direcion</th>
-        <th>Usuario mu</th>
-        <th>Username</th>
-        <th>Password</th>
-        <th>Ciudad</th>
-      </tr>
-    </thead>
-    <tbody>
-         <tr>
-        <input type="hidden" value="{{$var=0}}"/>
-        @foreach ($domicilios_usuarios as $du)
-        <td>{{$du->id}}</td>
-        <td><a href="http://admin.mensajerosurbanos.com/empresas/{{$du->empresa_mu}}"  target="_blank">{{$du->empresa_mu}}</a></td>
-        <td>{{$du->nombre_empresa}}</td>
-        <td>{{$du->direccion}}</td>
-        <td>{{$du->usuario_mu}}</td>
-        <td>{{$du->username}}</td>
-        <td>{{$du->password_reset_token}}</td>
-        <td>{{$du->ciudad}}</td>
-      </tr>
-    </tbody>
-    @endforeach
-  </table>
-  </div>
-</div>
+<style type="text/css">
+  .table-fixed thead,
+.table-fixed tfoot{
+  width: 100%;
+}
+
+.table-fixed tbody {
+  height: 500px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.table-fixed thead,
+.table-fixed tbody,
+.table-fixed tfoot,
+.table-fixed tr,
+.table-fixed td,
+.table-fixed th {
+  display: block;
+}
+
+.table-fixed tbody td,
+.table-fixed thead > tr> th,
+.table-fixed tfoot > tr> td{
+  float: left;
+  border-bottom-width: 0;
+}
+</style>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <table class="table table-fixed">
+          <thead>
+            <tr>
+              <th class="col-xs-2">Id</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($domicilios_usuarios as $du)
+            <tr>
+              <th class="col-xs-2">{{$du->id}}</th>
+            </tr>
+            @endforeach
+          </tbody>
+          <tfoot>
+            <tr>
+              <td class="col-xs-2">Total 1</td>
+              <td class="col-xs-2">Total 2</td>
+              <td class="col-xs-2">Total 3</td>
+              <td class="col-xs-2">Total 4</td>
+              <td class="col-xs-2">Total 5</td>
+              <td class="col-xs-2">Total 6</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
 
 @endsection
