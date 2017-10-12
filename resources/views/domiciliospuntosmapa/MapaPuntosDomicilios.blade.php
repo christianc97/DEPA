@@ -23,49 +23,23 @@
     color: red;
     } 
 </style>
-<p>
-  Ciudades Disponibles: &nbsp;
-  <a href="" class="btn navbar-btn"  onclick="bogota();">
-  <label class="radio-inline">
-    <i class="fa fa-map-marker" aria-hidden="true" ></i> Bogota
-  </label>
-  </a>
-  <a href="" class="btn navbar-btn"  onclick="cali();">
-  <label class="radio-inline">
-    <i class="fa fa-map-marker" aria-hidden="true" ></i> Cali
-  </label>
-  </a>
-  <a href="" class="btn navbar-btn" onclick="barranquilla();">
-  <label class="radio-inline" >
-    <i class="fa fa-map-marker" aria-hidden="true" ></i> Barranquilla
-  </label>
-  </a>
-  <a href="" class="btn navbar-btn" onclick="medellin();">
-  <label class="radio-inline" >
-    <i class="fa fa-map-marker" aria-hidden="true"></i> Medellin
-  </label>
-  </a>
-  <a href="" class="btn navbar-btn"  onclick="villavicencio();">
-  <label class="radio-inline">
-    <i class="fa fa-map-marker" aria-hidden="true" ></i> Villavicencio
-  </label>
-  </a>
-  <a href="" class="btn navbar-btn"  onclick="cum_soacha();">
-  <label class="radio-inline">
-    <i class="fa fa-map-marker" aria-hidden="true" ></i> Cum_Soacha
-  </label>
-  </a>
-  <a href="" class="btn navbar-btn"  onclick="cartagena();">
-  <label class="radio-inline">
-    <i class="fa fa-map-marker" aria-hidden="true" ></i> Cartagena
-  </label>
-  </a>
-  <a href="" class="btn navbar-btn" onclick="sta_marta();">
-  <label class="radio-inline" >
-    <i class="fa fa-map-marker" aria-hidden="true" ></i> Sta_marta
-  </label>
-  </a>
-</p>
+
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Ciudades Disponibles
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="bogota();">Bogotá</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="cali();">Cali</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="barranquilla();">Barranquilla</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="medellin();">Medellin</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="villavicencio();">Villavicencio</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="cum_soacha();">Cum Soacha</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="cartagena();">Cartagena</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="sta_marta();">Sta Marta</a></li>
+    </ul>
+  </div>
+<br>
+  
 <div id="map"></div>
 
 <!-- Bogota -->
@@ -79,8 +53,8 @@ function bogota() {
         var map = new google.maps.Map(document.getElementById("map"),map);
         @foreach($bogota as $p )
             var icon = {
-            url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(15, 15), // scaled size
+            url: "{{ asset('img/ypoint.png') }}", // url
+                    scaledSize: new google.maps.Size(20,20), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
@@ -89,11 +63,11 @@ function bogota() {
             },
                 icon: icon,
                 map: map,
-                animation: google.maps.Animation.DROP
+                
             });
         google.maps.event.addListener(marker,'click', function() {
-          
-        var infowindow = new google.maps.InfoWindow({
+         
+         var infowindow = new google.maps.InfoWindow({
            
            content: "<b>Nombre:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->nombre)}} <br> <b>Empresa:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->empresa)}} <br> <b>Direccion:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->direccion)}}",
             });              
@@ -114,8 +88,8 @@ function bogota() {
         
         @foreach($cali as $p)
             var icon = {
-            url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(15, 15), // scaled size
+            url: "{{ asset('img/ypoint.png') }}", // url
+                    scaledSize: new google.maps.Size(20,20), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
@@ -124,7 +98,7 @@ function bogota() {
             },
                 icon: icon,
                 map: map,
-                animation: google.maps.Animation.DROP
+                
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
@@ -145,8 +119,8 @@ function bogota() {
         var map = new google.maps.Map(document.getElementById("map"),map);
         @foreach($barranquilla as $p)
             var icon = {
-            url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(15, 15), // scaled size
+            url: "{{ asset('img/ypoint.png') }}", // url
+                    scaledSize: new google.maps.Size(20,20), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
@@ -155,7 +129,7 @@ function bogota() {
             },
                 icon: icon,
                 map: map,
-                animation: google.maps.Animation.DROP
+                
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
@@ -176,8 +150,8 @@ function bogota() {
         var map = new google.maps.Map(document.getElementById("map"),map);
         @foreach($medellin as $pm)
             var icon = {
-            url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(15, 15), // scaled size
+            url: "{{ asset('img/ypoint.png') }}", // url
+                    scaledSize: new google.maps.Size(20,20), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
@@ -186,7 +160,7 @@ function bogota() {
             },
                 icon: icon,
                 map: map,
-                animation: google.maps.Animation.DROP
+                
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
@@ -207,8 +181,8 @@ function bogota() {
         var map=new google.maps.Map(document.getElementById("map"),map);
         @foreach($villavicencio as $p)
             var icon = {
-            url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(15, 15), // scaled size
+            url: "{{ asset('img/ypoint.png') }}", // url
+                    scaledSize: new google.maps.Size(20,20), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
@@ -217,7 +191,7 @@ function bogota() {
             },
                 icon: icon,
                 map: map,
-                animation: google.maps.Animation.DROP
+                
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
@@ -238,8 +212,8 @@ function bogota() {
         var map=new google.maps.Map(document.getElementById("map"),map);
         @foreach($cum_soacha as $p)
             var icon = {
-            url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(15, 15), // scaled size
+            url: "{{ asset('img/ypoint.png') }}", // url
+                    scaledSize: new google.maps.Size(20,20), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
@@ -248,7 +222,7 @@ function bogota() {
             },
                 icon: icon,
                 map: map,
-                animation: google.maps.Animation.DROP
+                
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
@@ -269,8 +243,8 @@ function bogota() {
         var map=new google.maps.Map(document.getElementById("map"),map);
         @foreach($cartagena as $p)
             var icon = {
-            url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(15, 15), // scaled size
+            url: "{{ asset('img/ypoint.png') }}", // url
+                    scaledSize: new google.maps.Size(20,20), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
@@ -279,7 +253,7 @@ function bogota() {
             },
                 icon: icon,
                 map: map,
-                animation: google.maps.Animation.DROP
+                
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
@@ -300,8 +274,8 @@ function bogota() {
         var map=new google.maps.Map(document.getElementById("map"),map);
         @foreach($sta_marta as $p)
             var icon = {
-            url: "https://openclipart.org/image/2400px/svg_to_png/234416/Red-Button.png", // url
-                    scaledSize: new google.maps.Size(15, 15), // scaled size
+            url: "{{ asset('img/ypoint.png') }}", // url
+                    scaledSize: new google.maps.Size(20,20), // scaled size
             };
         var marker = new google.maps.Marker({
                 position: {
@@ -310,7 +284,7 @@ function bogota() {
             },
                 icon: icon,
                 map: map,
-                animation: google.maps.Animation.DROP
+                
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
