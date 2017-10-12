@@ -49,6 +49,8 @@
         </div>
     </div>
     <div class="col-sm-2">
+        <button class="btn btn-success" onclick="clientes()">Clientes</button>
+        <!--
         <div class="dropdown" >
             <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Clientes
             <span class="caret"></span></button>
@@ -58,7 +60,7 @@
               <li><a href=""  onclick="clientes();">{{++$var}}. {{$c->nombre}} <br><b>{{$c->ciudad}}</b></a></li>
                 @endforeach
             </ul>
-        </div>
+        </div>-->
     </div>
   </div>
 </div>
@@ -325,8 +327,8 @@ function bogota() {
     function clientes()
     {
     var map= {
-        center:new google.maps.LatLng(4.0000000,-72.0000000),
-        zoom:5,
+        center:new google.maps.LatLng(4.710988599999999,- 74.072092),
+        zoom:6,
         mapTypeId: 'terrain'
         };
         var map=new google.maps.Map(document.getElementById("map"),map);
