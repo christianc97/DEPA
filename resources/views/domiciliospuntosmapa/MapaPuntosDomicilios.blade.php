@@ -55,7 +55,7 @@
             <ul class="dropdown-menu scrollable-menu" role="menu">
                 <input type="hidden" value="{{$var=0}}"/>
                 @foreach($clientes as $c )
-              <li id="loc" value="{{$c->lat}}{{$c->long}}"><a href="" onclick="clientes();">{{++$var}}. {{$c->nombre}} <br><b>{{$c->ciudad}}</b></a></li>
+              <li><a href=""  onclick="clientes();">{{++$var}}. {{$c->nombre}} <br><b>{{$c->ciudad}}</b></a></li>
                 @endforeach
             </ul>
         </div>
@@ -320,6 +320,39 @@ function bogota() {
         @endforeach
         event.preventDefault();
         }
+</script>
+<script>
+    function clientes()
+    {
+    var map= {
+        center:new google.maps.LatLng(4.0000000,-72.0000000),
+        zoom:5,
+        mapTypeId: 'terrain'
+        };
+        var map=new google.maps.Map(document.getElementById("map"),map);
+        @foreach($clientes as $p)
+            var icon = {
+            url: "{{ asset('img/ypoint.png') }}", // url
+                    scaledSize: new google.maps.Size(20,20), // scaled size
+            };
+        var marker = new google.maps.Marker({
+                position: {
+                lat: {{$p -> lat}},
+                lng: {{$p -> long}},
+            },
+                icon: icon,
+                map: map,
+                
+            });
+        google.maps.event.addListener(marker,'click',function() {
+        var infowindow = new google.maps.InfoWindow({
+          content: "<b>Nombre:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->nombre)}} <br> <b>Empresa:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->empresa)}} <br> <b>Direccion:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->direccion)}} <br> <b>MU REF:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->mu_ref)}}",
+            });
+          infowindow.open(map,this);
+          });
+        @endforeach
+        event.preventDefault();
+    }
 </script>
 <!--  api de google maps-->
 <script async defer
