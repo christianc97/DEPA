@@ -22,24 +22,49 @@
     a:active {
     color: red;
     } 
+    .scrollable-menu {
+    height: auto;
+    max-height: 600px;
+    overflow-x: hidden;
+    }
 </style>
 
-  <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Ciudades Disponibles
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="bogota();">Bogotá</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="cali();">Cali</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="barranquilla();">Barranquilla</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="medellin();">Medellin</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="villavicencio();">Villavicencio</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="cum_soacha();">Cum Soacha</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="cartagena();">Cartagena</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="sta_marta();">Sta Marta</a></li>
-    </ul>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-2">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Ciudades
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="bogota();">Bogotá</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="cali();">Cali</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="barranquilla();">Barranquilla</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="medellin();">Medellin</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="villavicencio();">Villavicencio</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="cum_soacha();">Cum Soacha</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="cartagena();">Cartagena</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="" onclick="sta_marta();">Sta Marta</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="dropdown" >
+            <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Clientes
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu scrollable-menu" role="menu">
+                <input type="hidden" value="{{$var=0}}"/>
+                @foreach($clientes as $c )
+              <li value="{{$c->mu_ref}}"><a href="" onclick="clientes();">{{++$var}}. {{$c->nombre}}</a></li>
+              @endforeach
+            </ul>
+        </div>
+    </div>
   </div>
-<br>
+</div>
+
   
+  <br>
 <div id="map"></div>
 
 <!-- Bogota -->
@@ -296,7 +321,38 @@ function bogota() {
         event.preventDefault();
         }
 </script>
-
+<script>
+    function clientes() {
+        var map= {
+        center:new google.maps.LatLng(11.2315668,-74.1999066),
+        zoom:13,
+        mapTypeId: 'terrain'
+        };
+        var map=new google.maps.Map(document.getElementById("map"),map);
+        @foreach($clientes as $c)
+            var icon = {
+            url: "{{ asset('img/ypoint.png') }}", // url
+                    scaledSize: new google.maps.Size(20,20), // scaled size
+            };
+        var marker = new google.maps.Marker({
+                position: {
+                lat: {{$c -> lat}},
+                lng: {{$c -> long}},
+            },
+                icon: icon,
+                map: map,
+                
+            });
+        google.maps.event.addListener(marker,'click',function() {
+        var infowindow = new google.maps.InfoWindow({
+          content: "client here",
+            });
+          infowindow.open(map,this);
+          });
+        @endforeach
+        event.preventDefault();
+        }
+</script>
 
 <!--  api de google maps-->
 <script async defer
