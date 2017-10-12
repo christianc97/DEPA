@@ -23,16 +23,14 @@ and open the template in the editor.
   width: 100%;
 }
 
-.table-fixed thead,
-.table-fixed tbody,
-.table-fixed tfoot,
-.table-fixed tr,
-.table-fixed td,
-.table-fixed th {
+
+.table-fixed tbody{
+  display: block;
+}
+.table-fixed tfoot{
   display: block;
 }
 
-.table-fixed tbody td,
 .table-fixed thead > tr> th,
 .table-fixed tfoot > tr> td{
   float: left;
@@ -45,13 +43,25 @@ and open the template in the editor.
         <table class="table table-fixed">
           <thead>
             <tr>
-              <th class="col-xs-2">Id</th>
+              <th class="col-xs-1">Id</th>
+              <th class="col-xs-1">Empresa mu</th>
+              <th class="col-xs-2">Nombre empresa</th>
+              <th class="col-xs-2">Direcion</th>
+              <th class="col-xs-2">Username</th>
+              <th class="col-xs-2">Password</th>
+              <th class="col-xs-1">Ciudad</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($domicilios_usuarios as $du)
             <tr>
-              <th class="col-xs-2">{{$du->id}}</th>
+              <td class="col-xs-1">{{$du->id}}</td>
+              <td class="col-xs-1"><a href="http://admin.mensajerosurbanos.com/empresas/{{$du->empresa_mu}}"  target="_blank">{{$du->empresa_mu}}</a></td>
+              <td class="col-xs-2">{{$du->nombre_empresa}}</td>
+              <td class="col-xs-2">{{$du->direccion}}</td>
+              <td class="col-xs-2">{{$du->username}}</td>
+              <td class="col-xs-2">{{$du->password_reset_token}}</td>
+              <td class="col-xs-1">{{$du->ciudad}}</td>
             </tr>
             @endforeach
           </tbody>
