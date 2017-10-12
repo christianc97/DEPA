@@ -53,7 +53,7 @@ and open the template in the editor.
               <td >{{$du->id}}</td>
               <td class="col-xs-2"><a href="http://admin.mensajerosurbanos.com/empresas/{{$du->empresa_mu}}"  target="_blank">{{$du->empresa_mu}}</a></td>
               <td class="col-xs-3">{{$du->nombre_empresa}}</td>
-              <td class="col-xs-2">{{$du->direccion}}</td>
+              <td class="col-xs-3">{{$du->direccion}} &ensp; <a href=""><i class="fa fa-pencil" aria-hidden="true" style="color: green"></i></a></td>
               <td class="col-xs-2">{{$du->username}}</td>
               <td class="col-xs-2">{{$du->password_reset_token}}</td>
               <td class="col-xs-3">{{$du->ciudad}}</td>

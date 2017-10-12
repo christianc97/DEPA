@@ -49,18 +49,12 @@
         </div>
     </div>
     <div class="col-sm-2">
-        <button class="btn btn-success" onclick="clientes()">Clientes</button>
-        <!--
-        <div class="dropdown" >
-            <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Clientes
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu scrollable-menu" role="menu">
-                <input type="hidden" value="{{$var=0}}"/>
-                @foreach($clientes as $c )
-              <li><a href=""  onclick="clientes();">{{++$var}}. {{$c->nombre}} <br><b>{{$c->ciudad}}</b></a></li>
-                @endforeach
-            </ul>
-        </div>-->
+        <select id="selectBox" onChange="clientes();" class="form-control col-sm-1">
+          <option>Clientes</option>
+          @foreach($clientes as $c)
+          <option value="{{$c->mu_ref}}" onclick="clientes()">{{$c->nombre}}</option>
+          @endforeach
+        </select>
     </div>
   </div>
 </div>
@@ -324,14 +318,19 @@ function bogota() {
         }
 </script>
 <script>
-    function clientes()
-    {
+    window.onload = function () {
+  var selectBox = document.getElementById("selectBox");
+  selectBox.addEventListener('change', clientes);
+  function clientes() {
+    
     var map= {
         center:new google.maps.LatLng(4.710988599999999,- 74.072092),
-        zoom:6,
+        zoom:5,
         mapTypeId: 'terrain'
         };
-        var map=new google.maps.Map(document.getElementById("map"),map);
+        var map = new google.maps.Map(document.getElementById("map"),map);
+        var marker, i;
+        
         @foreach($clientes as $p)
             var icon = {
             url: "{{ asset('img/ypoint.png') }}", // url
@@ -348,13 +347,14 @@ function bogota() {
             });
         google.maps.event.addListener(marker,'click',function() {
         var infowindow = new google.maps.InfoWindow({
-          content: "<b>Nombre:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->nombre)}} <br> <b>Empresa:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->empresa)}} <br> <b>Direccion:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->direccion)}} <br> <b>MU REF:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->mu_ref)}}",
+          content: "<b>Nombre:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->nombre)}} <br> <b>Empresa:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->empresa)}} <br> <b>Direccion:</b> {{preg_replace('[\n|\r|\n\r]', ' ' , $p->direccion)}}",
             });
           infowindow.open(map,this);
           });
         @endforeach
         event.preventDefault();
-    }
+  }
+}
 </script>
 <!--  api de google maps-->
 <script async defer
