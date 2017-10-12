@@ -54,9 +54,9 @@ class MapaPuntosDomiciliosController extends Controller
                 left join empresa e on p.empresa_id = e.id 
                 where ciudad = "sta_marta";'); 
 
-            $clientes = DB::connection('mu_domicilios')->select('select p.id, p.nombre, empresa_id, p.lat, p.long, p.direccion, (e.nombre) as empresa, e.mu_ref from puntos p
+            $clientes = DB::connection('mu_domicilios')->select('select p.id, p.nombre, empresa_id, p.lat, p.long, p.direccion, p.ciudad, (e.nombre) as empresa, e.mu_ref from puntos p
                 left join empresa e on p.empresa_id = e.id 
-                where mu_ref is not null group by mu_ref ');
+                where mu_ref is not null group by mu_ref order by ciudad;');
 
             return view('domiciliospuntosmapa/MapaPuntosDomicilios', ["bogota"=> $bogota, "cali"=> $cali, "barranquilla"=> $barranquilla, "medellin"=> $medellin, "villavicencio"=> $villavicencio, "cum_soacha"=> $cum_soacha, "cartagena"=> $cartagena, "sta_marta"=> $sta_marta, "clientes"=> $clientes]);
         } else {

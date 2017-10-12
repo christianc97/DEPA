@@ -55,8 +55,8 @@
             <ul class="dropdown-menu scrollable-menu" role="menu">
                 <input type="hidden" value="{{$var=0}}"/>
                 @foreach($clientes as $c )
-              <li value="{{$c->mu_ref}}"><a href="" onclick="clientes();">{{++$var}}. {{$c->nombre}}</a></li>
-              @endforeach
+              <li id="loc" value="{{$c->lat}}{{$c->long}}"><a href="" onclick="clientes();">{{++$var}}. {{$c->nombre}} <br><b>{{$c->ciudad}}</b></a></li>
+                @endforeach
             </ul>
         </div>
     </div>
@@ -321,39 +321,6 @@ function bogota() {
         event.preventDefault();
         }
 </script>
-<script>
-    function clientes() {
-        var map= {
-        center:new google.maps.LatLng(11.2315668,-74.1999066),
-        zoom:13,
-        mapTypeId: 'terrain'
-        };
-        var map=new google.maps.Map(document.getElementById("map"),map);
-        @foreach($clientes as $c)
-            var icon = {
-            url: "{{ asset('img/ypoint.png') }}", // url
-                    scaledSize: new google.maps.Size(20,20), // scaled size
-            };
-        var marker = new google.maps.Marker({
-                position: {
-                lat: {{$c -> lat}},
-                lng: {{$c -> long}},
-            },
-                icon: icon,
-                map: map,
-                
-            });
-        google.maps.event.addListener(marker,'click',function() {
-        var infowindow = new google.maps.InfoWindow({
-          content: "client here",
-            });
-          infowindow.open(map,this);
-          });
-        @endforeach
-        event.preventDefault();
-        }
-</script>
-
 <!--  api de google maps-->
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDONz_SC-y9biqWqhtxpLvzmChJnDobm5E&callback=bogota">
