@@ -9,6 +9,8 @@ use DB;
 class DomiciliosUsuariosController extends Controller {
 
     protected $id = 20;
+    
+
 
     public function __construct() {
         $this->middleware('auth');
