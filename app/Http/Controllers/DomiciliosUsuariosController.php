@@ -4,12 +4,19 @@ namespace reportes\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use reportes\Empresa;
+use reportes\Usersdomicilios;
+use reportes\Http\Requests\UsuarioFormRequest;
+use reportes\Http\Requests\EmpresasFormRequest;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
+use stdClass;
 use DB;
 
 class DomiciliosUsuariosController extends Controller {
 
     protected $id = 20;
-    
+
 
 
     public function __construct() {
@@ -29,6 +36,16 @@ class DomiciliosUsuariosController extends Controller {
         } else {
             return view('home');
         }
+    }
+   public function edit($id) {
+        return view("domiciliosUsuarios.edit", ["empresa" => Empresa::findOrFail($id)]);
+    }
+
+    public function update(EmpresasFormRequest $request, $id) {
+        $empresa = Empresa::findOrFail($id);
+        $empresa->direccion = $request->get('direccion');
+        $empresa->update();
+        return Redirect::to('domiciliosUsuarios');
     }
 
 }

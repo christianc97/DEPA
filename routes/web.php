@@ -54,8 +54,6 @@ Route::resource('asignardiademas/diademas', 'AsignarDiademasController');
 Route::post('diademas/show', 'DiademasController@agregarDescripcion');
 
 
-
-
 Route::post('reportes/reportesServiciosFinalizados', 'reporteServiciosFinalizadosController@exportarServiciosFinalizados');
 Route::post('reportes/reportesAdmin', 'reporteAdminController@exportarAdmin');
 
@@ -75,6 +73,7 @@ Route::post('domicilios/crearUsuario', 'DomiciliosUrbanosController@usersDomicil
 Route::post('domicilios/crearPuntos', 'DomiciliosUrbanosController@crearPuntos');
 Route::post('/domicilios/buscarDireccion', 'DomiciliosUrbanosController@buscarDireccion');
 Route::post('storage/create', 'StorageController@save');
+
 
 /*export excel track*/
 Route::post('reportes/trackMensajeroExport', 'ExcelController@exportarTrackMensajero');

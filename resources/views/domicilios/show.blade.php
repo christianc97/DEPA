@@ -124,7 +124,8 @@ and open the template in the editor.
                             <a href="" data-target="#modal-delete-{{$ud->id}}" data-toggle="modal">
                                 <button class="btn btn-success" title="Editar contraseña">
                                     <span class="glyphicon glyphicon-pencil"></span> 
-                                </button></a>
+                                </button>
+                            </a>
                         </td>
                         <td>{{$ud->mu_ref}}</td>
                     </tr>

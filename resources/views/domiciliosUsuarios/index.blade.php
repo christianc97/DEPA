@@ -35,7 +35,7 @@ and open the template in the editor.
 
 <div class="container">                                                                                   
   <div class="table-responsive">          
-  <table class="table table-fixed">
+  <table class="table table-hover table-fixed">
           <thead>
             <tr>
               <th >Id</th>
@@ -52,15 +52,18 @@ and open the template in the editor.
             <tr>
               <td >{{$du->id}}</td>
               <td class="col-xs-2"><a href="http://admin.mensajerosurbanos.com/empresas/{{$du->empresa_mu}}"  target="_blank">{{$du->empresa_mu}}</a></td>
-              <td class="col-xs-3">{{$du->nombre_empresa}}</td>
-              <td class="col-xs-3"> {{$du->direccion}} &ensp;
-                @if(Auth::user()->id == 170)
-                  <a href=""><i class="fa fa-pencil" aria-hidden="true" style="color: green"></i></a>
-                @endif 
-              </td>
+              <td class="col-xs-3">{{$du->nombre_empresa}}</td> 
+              <td class="col-xs-3"> {{$du->direccion}} &ensp;</td>
               <td class="col-xs-2">{{$du->username}}</td>
               <td class="col-xs-2">{{$du->password_reset_token}}</td>
               <td class="col-xs-3">{{$du->ciudad}}</td>
+              <td class="col-xs-1">
+                @if(Auth::user()->id == 208)
+                <a href="{{URL::action('DomiciliosUsuariosController@edit',$du->id)}}">
+                  <button class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                </a>
+                @endif
+              </td>
             </tr>
             @endforeach
           </tbody>
