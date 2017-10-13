@@ -63,6 +63,11 @@ and open the template in the editor.
                   <button class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 </a>
                 @endif
+                @if(Auth::user()->id == 170)
+                <a href="{{URL::action('DomiciliosUsuariosController@edit',$du->id)}}">
+                  <button class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                </a>
+                @endif
               </td>
             </tr>
             @endforeach
