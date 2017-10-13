@@ -57,7 +57,7 @@ and open the template in the editor.
               <td class="col-xs-2">{{$du->username}}</td>
               <td class="col-xs-2">{{$du->password_reset_token}}</td>
               <td class="col-xs-3">{{$du->ciudad}}</td>
-              <td class="col-xs-1">
+              <td class="col-xs-3">
                 @if(Auth::user()->id == 208)
                 <a href="{{URL::action('DomiciliosUsuariosController@edit',$du->id)}}">
                   <button class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i></button>
@@ -69,5 +69,5 @@ and open the template in the editor.
           </tbody>
         </table>  
       </div>
-
 @endsection
+
