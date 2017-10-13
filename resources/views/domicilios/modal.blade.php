@@ -16,7 +16,7 @@ and open the template in the editor.
             </div>
             <div class="modal-body">
                 Nueva Contraseña:
-                <input autofocus="" class="form-control" placeholder="Nueva Contraseña" value="" id="newpassword" name="newpassword">
+                <input autofocus="" class="form-control" placeholder="Nueva Contraseña" value="" id="newpassword" name="newpassword" required="">
                 <br>
                 <p>Contraseña actual: <b>{{$ud->password_reset_token}}</b></p>
             </div>
