@@ -160,7 +160,9 @@
                         @if(! empty($p->permisos_id ==24))
                         <li id='diademas'><a href="{{asset('/diademased')}}"><i class="fa fa-long-arrow-right"></i>Diademas</a></li>
                         @endif
-                        
+                         @if(! empty($p->permisos_id == 26))
+                        <li id='domiciliosPuntos'><a href="{{asset('/reportes/GruposElite')}}"><i class="fa fa-long-arrow-right"></i>Grupos Elite</a></li>
+                        @endif
                         @endforeach
                         
                          @foreach(Permisos() as $p)
@@ -181,18 +183,13 @@
                         <li id='domiciliosPuntos'><a href="{{asset('/domiciliosPuntos/')}}"><i class="fa fa-long-arrow-right"></i>Puntos domicilios</a></li>
 
                         @endif
+
                         @if(! empty($p->permisos_id == 25))
                         <li id='domiciliosPuntos'><a href="{{asset('/puntosdomicilios/mapa')}}"><i class="fa fa-long-arrow-right"></i>Mapa Puntos domicilios</a></li>
-
                         @endif
-
-                        @if(! empty($p->permisos_id == 26))
-                        <li id='domiciliosPuntos'><a href="{{asset('/reportes/GruposElite')}}"><i class="fa fa-long-arrow-right"></i>Grupos Elite</a></li>
-                        @endif
-
+                        
+                       
                         @endforeach
-
-
 
                         @foreach(Permisos() as $p)
                         @if(! empty($p->permisos_id ==9))
