@@ -37,7 +37,7 @@ Route::resource('perfil', 'PerfilController');
 Route::resource('reportes/reportesVistasTask', 'VistasTaskController');
 Route::resource('reportes/vistasTask', 'VistasTaskController');
 Route::resource('reportes/GruposElite', 'GruposEliteController');
-Route::resource('reportes/comercialAsociado', 'ComercialAsociadoController');
+Route::resource('reportes/comercialAsignado', 'ComercialAsociadoController');
 Route::resource('asignarEquipos', 'asignarEquiposController');
 Route::resource('asignarEquipos/equipos', 'asignarEquiposController');
 Route::resource('equipos', 'EquiposController');
