@@ -9,7 +9,7 @@ and open the template in the editor.
 
 @section('titulo')
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
-<h3 class="box-title"><i class="fa fa-address-card-o" aria-hidden="true"></i> Comercial asociado</h3>
+<h3 class="box-title"><i class="fa fa-address-card-o" aria-hidden="true"></i> Comercial Asignado</h3>
 @endsection
 
 @section('content')
@@ -26,7 +26,7 @@ and open the template in the editor.
                 <th>N°</th>
                 <th>Id Empresa</th>
                 <th>Nombre Empresa</th>
-                <th>Comercial Asociado</th>
+                <th>Comercial Asignado</th>
                 <th>Acciones</th>
 
                 </thead>
