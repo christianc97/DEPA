@@ -41,7 +41,7 @@ and open the template in the editor.
                         <td>{{$ge->nombres}}</td>
                         <td>{{$ge->apellidos}}</td>
                         <td>
-                        <a href="http://admin.mensajerosurbanos.com/recursos/{{$ge->id}}" target="_new"><button class="btn btn-info" data-toggle="tooltip" title="Ver"><span class="glyphicon glyphicon-eye-open"></span> </button></a>
+                        <a href="http://admin.mensajerosurbanos.com/recursos/{{$ge->id}}" target="_blank"><button class="btn btn-info" data-toggle="tooltip" title="Ver"><span class="glyphicon glyphicon-eye-open"></span> </button></a>
 
                          <a href="http://admin.mensajerosurbanos.com/recursos/update/{{$ge->id}}" target="_blank"><button class="btn btn-success" data-toggle="tooltip" title="Editar"><span class="glyphicon glyphicon-edit"></span> </button></a>
 
