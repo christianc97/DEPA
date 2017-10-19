@@ -63,7 +63,8 @@ and open the template in the editor.
     </div>
     <div class="col-lg-10 col-md-6 col-sm-6 col-xs-12">
         <h3 class="box-title">Crear nuevo usuario <div class="box-tools pull-right">
-                <button class="btn btn-box-tool" onclick="abre();"><i class="fa fa-minus"></i></button>
+                <button class="btn btn-box-tool" onclick="abre();"><i class="fa fa-plus"></i></button>
+                <button class="btn btn-box-tool" onclick="cierra();"><i class="fa fa-minus"></i></button>
             </div></h3>
     </div>
     <div id="desaparece" style="display:none">
@@ -359,6 +360,13 @@ and open the template in the editor.
                             document.getElementById("desaparece").style.display = "block";
                         else
                             document.getElementById("desaparece").style.display = "none";
+                    }
+                    function cierra() {
+                        comprueba = document.getElementById("desaparece").style.display;
+                        if (comprueba == 'block')
+                            document.getElementById("desaparece").style.display = "none";
+                        else
+                            document.getElementById("desaparece").style.display = "block";
                     }
 </script>
 <script async defer
