@@ -195,7 +195,6 @@ and open the template in the editor.
                 <th>Ciudad</th>
                 <th>Parking</th>
                 <th></th>
-
                 </thead>
                 <tbody>
                     @foreach($puntos_domicilios as $pd)
@@ -205,15 +204,16 @@ and open the template in the editor.
                         <td>{{$pd->direccion}}</td>
                         <td>{{$pd->ciudad}}</td>
                         <td>{{$pd->parking}}</td>
+                        <td><a href="" data-target="#modal-view-{{$pd->id}}" data-toggle="modal"><button class="btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i></button></a></td>
                     </tr>
-                    @endforeach
+                @include('domicilios.ModalView')
+                @endforeach
                 </tbody>
             </table>
         </div>
         <hr/>
     </div>
 </div>
-
 @endsection
 <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
