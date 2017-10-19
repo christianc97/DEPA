@@ -215,6 +215,8 @@ and open the template in the editor.
     </div>
 </div>
 @endsection
+
+    
 <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 <script>
