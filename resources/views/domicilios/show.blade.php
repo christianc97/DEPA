@@ -130,14 +130,15 @@ and open the template in the editor.
                         </td>
                         <td>{{$ud->mu_ref}}</td>
                     </tr>
-                    @include('domicilios.modal')
                     @endforeach
                 </tbody>
             </table>
         </div>
         <hr/>
     </div>
-
+ @foreach($users_domicilios as $ud)
+ @include('domicilios.modal')
+ @endforeach
 
     <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
         <div class="table-responsive"><h3 class="box-title">Crear nuevo punto</h3>
@@ -206,7 +207,6 @@ and open the template in the editor.
                         <td>{{$pd->parking}}</td>
                         <td><a href="" data-target="#modal-view-{{$pd->id}}" data-toggle="modal"><button class="btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i></button></a></td>
                     </tr>
-                @include('domicilios.ModalView')
                 @endforeach
                 </tbody>
             </table>
@@ -214,8 +214,198 @@ and open the template in the editor.
         <hr/>
     </div>
 </div>
+@foreach($puntos_domicilios as $pd)
+    @include('domicilios.ModalView')
+    <script>
+            function lunes(value)
+            {
+                if(value==false)
+                {
+                    document.getElementById("lunes1").disabled=false;
+                    document.getElementById("lunes2").disabled=false;
+                }else if(value==true){
+                    document.getElementById("lunes1").disabled=true;
+                    document.getElementById("lunes2").disabled=true;
+                }
+            }
+            function martes(value)
+            {
+                if(value==false)
+                {
+                    document.getElementById("martes1").disabled=false;
+                    document.getElementById("martes2").disabled=false;
+                }else if(value==true){
+                    document.getElementById("martes1").disabled=true;
+                    document.getElementById("martes2").disabled=true;
+                }
+            }
+            function miercoles(value)
+            {
+                if(value==false)
+                {
+                    document.getElementById("miercoles1").disabled=false;
+                    document.getElementById("miercoles2").disabled=false;
+                }else if(value==true){
+                    document.getElementById("miercoles1").disabled=true;
+                    document.getElementById("miercoles2").disabled=true;
+                }
+            }
+            function jueves(value)
+            {
+                if(value==false)
+                {
+                    document.getElementById("jueves1").disabled=false;
+                    document.getElementById("jueves2").disabled=false;
+                }else if(value==true){
+                    document.getElementById("jueves1").disabled=true;
+                    document.getElementById("jueves2").disabled=true;
+                }
+            }
+            function viernes(value)
+            {
+                if(value==false)
+                {
+                    document.getElementById("viernes1").disabled=false;
+                    document.getElementById("viernes2").disabled=false;
+                }else if(value==true){
+                    document.getElementById("viernes1").disabled=true;
+                    document.getElementById("viernes2").disabled=true;
+                }
+            }
+            function sabado(value)
+            {
+                if(value==false)
+                {
+                    document.getElementById("sabado1").disabled=false;
+                    document.getElementById("sabado2").disabled=false;
+                }else if(value==true){
+                    document.getElementById("sabado1").disabled=true;
+                    document.getElementById("sabado2").disabled=true;
+                }
+            }
+            function domingo(value)
+            {
+                if(value==false)
+                {
+                    document.getElementById("domingo1").disabled=false;
+                    document.getElementById("domingo2").disabled=false;
+                }else if(value==true){
+                    document.getElementById("domingo1").disabled=true;
+                    document.getElementById("domingo2").disabled=true;
+                }
+            }
+            function festivos(value)
+            {
+                if(value==false)
+                {
+                    document.getElementById("festivos1").disabled=false;
+                    document.getElementById("festivos2").disabled=false;
+                }else if(value==true){
+                    document.getElementById("festivos1").disabled=true;
+                    document.getElementById("festivos2").disabled=true;
+                }
+            }
+            function falert(value)
+            {
+                var val = document.getElementById('dialunes').alert(val);
+            }
+    </script>
+@endforeach
 @endsection
-
+    <!-- <script>
+            function lunes(value)
+            {
+                if(value==false)
+                {
+                    document.getElementById("lunes1").disabled=false;
+                    document.getElementById("lunes2").disabled=false;
+                }else if(value==true){
+                    document.getElementById("lunes1").disabled=true;
+                    document.getElementById("lunes2").disabled=true;
+                }
+            }
+            function martes(value)
+            {
+                if(value==false)
+                {
+                    document.getElementById("martes1").disabled=false;
+                    document.getElementById("martes2").disabled=false;
+                }else if(value==true){
+                    document.getElementById("martes1").disabled=true;
+                    document.getElementById("martes2").disabled=true;
+                }
+            }
+            function miercoles(value)
+            {
+                if(value==false)
+                {
+                    document.getElementById("miercoles1").disabled=false;
+                    document.getElementById("miercoles2").disabled=false;
+                }else if(value==true){
+                    document.getElementById("miercoles1").disabled=true;
+                    document.getElementById("miercoles2").disabled=true;
+                }
+            }
+            function jueves(value)
+            {
+                if(value==false)
+                {
+                    document.getElementById("jueves1").disabled=false;
+                    document.getElementById("jueves2").disabled=false;
+                }else if(value==true){
+                    document.getElementById("jueves1").disabled=true;
+                    document.getElementById("jueves2").disabled=true;
+                }
+            }
+            function viernes(value)
+            {
+                if(value==false)
+                {
+                    document.getElementById("viernes1").disabled=false;
+                    document.getElementById("viernes2").disabled=false;
+                }else if(value==true){
+                    document.getElementById("viernes1").disabled=true;
+                    document.getElementById("viernes2").disabled=true;
+                }
+            }
+            function sabado(value)
+            {
+                if(value==false)
+                {
+                    document.getElementById("sabado1").disabled=false;
+                    document.getElementById("sabado2").disabled=false;
+                }else if(value==true){
+                    document.getElementById("sabado1").disabled=true;
+                    document.getElementById("sabado2").disabled=true;
+                }
+            }
+            function domingo(value)
+            {
+                if(value==false)
+                {
+                    document.getElementById("domingo1").disabled=false;
+                    document.getElementById("domingo2").disabled=false;
+                }else if(value==true){
+                    document.getElementById("domingo1").disabled=true;
+                    document.getElementById("domingo2").disabled=true;
+                }
+            }
+            function festivos(value)
+            {
+                if(value==false)
+                {
+                    document.getElementById("festivos1").disabled=false;
+                    document.getElementById("festivos2").disabled=false;
+                }else if(value==true){
+                    document.getElementById("festivos1").disabled=true;
+                    document.getElementById("festivos2").disabled=true;
+                }
+            }
+            function falert(value)
+            {
+                var val = document.getElementById('dialunes').alert(val);
+            }
+    </script>-->
     
 <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>

@@ -65,6 +65,11 @@ class DomiciliosUrbanosController extends Controller {
         $user->update();
         return Redirect()->back();
     }
+    public function horarioSave(Request $request) {
+        DB::connection('mu_domicilios')->select("select * from puntos");
+        return redirect()->back();
+    }
+
     public function usersDomicilios(Request $request) {
         $username = $request->get("username");
         $password_hash = Hash::make($request->get("password"));
