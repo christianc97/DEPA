@@ -72,7 +72,7 @@ Route::post('reportes/reportesTotalServiciosPersonas', 'reportesTotalServiciosPe
 Route::post('equipos/show', 'EquiposController@agregarDescripcion');
 Route::post('puntosdomicilios/mapa', 'MapaPuntosDomiciliosController@clientes');
 Route::post('domicilios/crearUsuario', 'DomiciliosUrbanosController@usersDomicilios');
-Route::post('domicilios/crearjsonhoras', 'DomiciliosUrbanosController@horarioSave');
+Route::post('domicilios/tiempos', 'DomiciliosUrbanosController@tiempos');
 Route::post('domicilios/crearPuntos', 'DomiciliosUrbanosController@crearPuntos');
 Route::post('/domicilios/buscarDireccion', 'DomiciliosUrbanosController@buscarDireccion');
 Route::post('storage/create', 'StorageController@save');

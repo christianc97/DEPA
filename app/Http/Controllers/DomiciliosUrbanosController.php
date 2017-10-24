@@ -4,13 +4,16 @@ namespace reportes\Http\Controllers;
 
 use Illuminate\Http\Request;
 use reportes\Empresa;
+use reportes\Puntos;
 use reportes\Usersdomicilios;
 use reportes\Http\Requests\UsuarioFormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Str;
 use GuzzleHttp\Client;
+use Response;
 use DB;
 
 class DomiciliosUrbanosController extends Controller {
@@ -65,9 +68,38 @@ class DomiciliosUrbanosController extends Controller {
         $user->update();
         return Redirect()->back();
     }
-    public function horarioSave(Request $request) {
-        DB::connection('mu_domicilios')->select("select * from puntos");
-        return redirect()->back();
+    public function tiempos(Request $request){
+        
+    $id= $request->get('id');
+
+    $lunes1 = $request->get('lunes1');
+    $lunes2 = $request->get('lunes2');
+
+    $martes1 = $request->get('martes1');
+    $martes2 = $request->get('martes2');
+
+    $miercoles1 = $request->get('miercoles1');
+    $miercoles2 = $request->get('miercoles2');
+
+    $jueves1 = $request->get('jueves1');
+    $jueves2 = $request->get('jueves2');
+
+    $viernes1 = $request->get('viernes1');
+    $viernes2 = $request->get('viernes2');
+
+    $sabado1 = $request->get('sabado1');
+    $sabado2 = $request->get('sabado2');
+
+    $domingo1 = $request->get('domingo1');
+    $domingo2 = $request->get('domingo2');
+
+    $festivos1 = $request->get('festivos1');
+    $festivos2 = $request->get('festivos2');
+    
+    $tiempos = "'$lunes1-$lunes2,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
+    
+    DB::connection('mu_domicilios')->update('update puntos p set dir_down_der_lat = '.$tiempos.' where p.id = '.$id.'');
+    return Redirect()->back();
     }
 
     public function usersDomicilios(Request $request) {

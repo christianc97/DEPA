@@ -214,8 +214,9 @@ and open the template in the editor.
         <hr/>
     </div>
 </div>
-@foreach($puntos_domicilios as $pd)
-    @include('domicilios.ModalView')
+    @foreach($puntos_domicilios as $pd)
+     @include('domicilios.ModalView')
+    @endforeach
     <script>
             function lunes(value)
             {
@@ -310,7 +311,6 @@ and open the template in the editor.
                 var val = document.getElementById('dialunes').alert(val);
             }
     </script>
-@endforeach
 @endsection
    
     
