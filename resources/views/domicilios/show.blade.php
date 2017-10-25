@@ -224,7 +224,7 @@ and open the template in the editor.
    <script>
             function lunes(value)
             {
-                var a0 ;
+
                 if(value==false)
                 {
                     document.getElementById("lunes1").disabled=false;
@@ -232,7 +232,7 @@ and open the template in the editor.
                 }else if(value==true){
                     document.getElementById("lunes1").disabled=true;
                     document.getElementById("lunes2").disabled=true;
-                    a0 = document.getElementById("lunes24"). value;
+                    
                 }
             }
             function martes(value)
@@ -320,12 +320,13 @@ and open the template in the editor.
 
 <script>
 function validar() {
-    var a0, a1, a2, b1, b2, c1, c2, d1, d2, e1, e2, f1, f2, g1, g2, h1, h2 ;
+    var a0, a1, a2, b0, b1, b2, c1, c2, d1, d2, e1, e2, f1, f2, g1, g2, h1, h2 ;
     //lunes
     a0 = document.getElementById("lunes24"). value;
     a1 = document.getElementById("lunes1"). value;
     a2 = document.getElementById("lunes2"). value;
     //martes
+    b0 = document.getElementById("martes24"). value;
     b1 = document.getElementById("martes1"). value;
     b2 = document.getElementById("martes2"). value;
     //miercoles

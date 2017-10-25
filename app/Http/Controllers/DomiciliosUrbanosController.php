@@ -75,35 +75,41 @@ class DomiciliosUrbanosController extends Controller {
     $lunes1 = $request->get('lunes1');
     $lunes2 = $request->get('lunes2');
 
-    $lunes24 = $request->get('lunes24');
+    $martes24 = $request->get('martes24');
     $martes1 = $request->get('martes1');
     $martes2 = $request->get('martes2');
 
-    $lunes24 = $request->get('lunes24');
+    $miercoles24 = $request->get('miercoles24');
     $miercoles1 = $request->get('miercoles1');
     $miercoles2 = $request->get('miercoles2');
-    
-    $lunes24 = $request->get('lunes24');
+
+    $jueves24 = $request->get('jueves24');
     $jueves1 = $request->get('jueves1');
     $jueves2 = $request->get('jueves2');
 
+    $viernes24 = $request->get('viernes24');
     $viernes1 = $request->get('viernes1');
     $viernes2 = $request->get('viernes2');
 
+    $sabados24 = $request->get('sabados24');
     $sabado1 = $request->get('sabado1');
     $sabado2 = $request->get('sabado2');
 
+    $domingos24 = $request->get('domingos24');
     $domingo1 = $request->get('domingo1');
     $domingo2 = $request->get('domingo2');
 
+    $festivos24 = $request->get('festivos24');
     $festivos1 = $request->get('festivos1');
     $festivos2 = $request->get('festivos2');
 
-    if ($lunes1 || $lunes2 == "") {
-       $tiempos = "'$lunes24,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
-    }else{
+    if ($lunes1 || $lunes2 == "" ) {
+       $tiempos = "'$lunes24,' '$martes24,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
+    }
+    else{
         $tiempos = "'$lunes1-$lunes2,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
     }
+
     
     
     

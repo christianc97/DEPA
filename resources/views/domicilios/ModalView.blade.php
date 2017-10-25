@@ -24,7 +24,7 @@
                 </tr>
                 <tr>
                     <td>Martes</td>
-                    <td><input type="checkbox" name="martes24"  value="24"  onchange="martes(this.checked);"></td>
+                    <td><input type="checkbox" name="martes24" id="martes24"  value="24"  onchange="martes(this.checked);"></td>
                     <td><input type="number"   step="any" required="" id="martes1" class="form-control" placeholder="Hora de apertura" name="martes1"></td>
                     <td><input type="number"   step="any" required="" id="martes2" class="form-control" placeholder="Hora de cierre" name="martes2"></td>
                 </tr>
