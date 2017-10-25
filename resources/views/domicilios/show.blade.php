@@ -224,6 +224,7 @@ and open the template in the editor.
    <script>
             function lunes(value)
             {
+                var a0 ;
                 if(value==false)
                 {
                     document.getElementById("lunes1").disabled=false;
@@ -231,6 +232,7 @@ and open the template in the editor.
                 }else if(value==true){
                     document.getElementById("lunes1").disabled=true;
                     document.getElementById("lunes2").disabled=true;
+                    a0 = document.getElementById("lunes24"). value;
                 }
             }
             function martes(value)

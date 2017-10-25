@@ -71,16 +71,19 @@ class DomiciliosUrbanosController extends Controller {
     public function tiempos(Request $request){
         
     $id= $request->get('id');
-
+    $lunes24 = $request->get('lunes24');
     $lunes1 = $request->get('lunes1');
     $lunes2 = $request->get('lunes2');
 
+    $lunes24 = $request->get('lunes24');
     $martes1 = $request->get('martes1');
     $martes2 = $request->get('martes2');
 
+    $lunes24 = $request->get('lunes24');
     $miercoles1 = $request->get('miercoles1');
     $miercoles2 = $request->get('miercoles2');
-
+    
+    $lunes24 = $request->get('lunes24');
     $jueves1 = $request->get('jueves1');
     $jueves2 = $request->get('jueves2');
 
@@ -95,8 +98,14 @@ class DomiciliosUrbanosController extends Controller {
 
     $festivos1 = $request->get('festivos1');
     $festivos2 = $request->get('festivos2');
+
+    if ($lunes1 || $lunes2 == "") {
+       $tiempos = "'$lunes24,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
+    }else{
+        $tiempos = "'$lunes1-$lunes2,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
+    }
     
-    $tiempos = "'$lunes1-$lunes2,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
+    
     
     DB::connection('mu_domicilios')->update('update puntos p set dir_down_der_lat = '.$tiempos.' where p.id = '.$id.'');
     return Redirect()->back();
