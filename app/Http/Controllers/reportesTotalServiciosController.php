@@ -107,7 +107,7 @@ WHERE m.empresas_id = :id
 AND fecha BETWEEN  :between  AND :and', ["between" => $fecha_inicio, "and" => $fecha_fin, "id" => $id_empresa]);
 
 
-        if (count($total_servicios) > 3000) {
+        if (count($total_servicios) > 4000) {
             return view('reportes.reportesTotalServicios');
         } else {
             Excel::create('reporte total servicios empresa ' . $id_empresa . ' desde '.$fecha_inicio.' hasta '.$fecha_fin.'', function($excel)use($total_servicios, $movimientos_clientes, $movimientos) {
