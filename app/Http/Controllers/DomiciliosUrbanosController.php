@@ -102,9 +102,10 @@ class DomiciliosUrbanosController extends Controller {
     $festivos24 = $request->get('festivos24');
     $festivos1 = $request->get('festivos1');
     $festivos2 = $request->get('festivos2');
-    //si se seleccionan todo los combos entonces
-    if ($lunes1 || $lunes2  || $martes1 || $martes2 || $miercoles1 || $miercoles2 || $jueves1 || $jueves2 || $viernes1 || $viernes2 || $sabado1 || $sabado2 || $domingo1 || $domingo2 || $festivos1 || $festivos2 == ""  ) {
-       $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes24,' '$sabados24,' '$domingos24,' '$festivos24'"; 
+    //lunes variacion1
+    //si se selecciona el combo lunes24  entonces
+    if ($lunes1 || $martes1  == "" ) {
+        $tiempos = "'$lunes24,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'";
     }
     //si se selecciona el combo lunes24 y martes24 entonces
     if ($lunes1 || $martes1  == "" ) {
@@ -125,6 +126,21 @@ class DomiciliosUrbanosController extends Controller {
     //si se selecciona el combo lunes24, martes24, miercoles24, jueves24, viernes24 y sabados24 entonces
     if ($lunes1 || $martes1 || $miercoles1 || $jueves1 || $viernes1 || $sabado1 == "" ) {
         $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes24,' '$sabados24,' '$domingo1-$domingo2,' '$festivos1-$festivos2'";
+    }
+    //si se selecciona el combo lunes24, martes24, miercoles24, jueves24, viernes24, sabados24 y domingos24 entonces
+    if ($lunes1 || $martes1 || $miercoles1 || $jueves1 || $viernes1 || $sabado1 || $domingo1 == "" ) {
+        $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes24,' '$sabados24,' '$domingos24,' '$festivos1-$festivos2'";
+    }
+    //-------------------------------------------------------------------------------------------------------------------
+    //lunes variacion2
+    //si se seleccionan el combo lunes24 y miercoles24 entonces
+    if ($lunes1 || $miercoles1  == "" ) {
+        $tiempos = "'$lunes24,' '$martes1-$martes2,' '$miercoles24,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'";
+    }
+
+    //si se selecciona todos los combos entonces
+    if ($lunes1 || $martes1 || $miercoles1 || $jueves1 || $viernes1 || $sabado1 || $domingo1 || $festivos1== "" ) {
+        $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes24,' '$sabados24,' '$domingos24,' '$festivos24'";
     }
     //si se llenan todos los campos eentonces
     else{
