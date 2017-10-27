@@ -171,6 +171,11 @@ class DomiciliosUrbanosController extends Controller {
     return Redirect()->back();
     }
 
+    public function cruzverde(Request $request){
+        $ms = 'hello';
+        return $ms;
+    }
+
     public function usersDomicilios(Request $request) {
         $username = $request->get("username");
         $password_hash = Hash::make($request->get("password"));
