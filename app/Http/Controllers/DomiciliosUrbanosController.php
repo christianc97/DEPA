@@ -102,45 +102,65 @@ class DomiciliosUrbanosController extends Controller {
     $festivos24 = $request->get('festivos24');
     $festivos1 = $request->get('festivos1');
     $festivos2 = $request->get('festivos2');
-    //lunes variacion1
-    //si se selecciona el combo lunes24  entonces
-    if ($lunes1 || $martes1  == "" ) {
-        $tiempos = "'$lunes24,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'";
+    //si se seleccionan todo los combos entonces
+    if ($lunes1 || $lunes2  || $martes1 || $martes2 || $miercoles1 || $miercoles2 || $jueves1 || $jueves2 || $viernes1 || $viernes2 || $sabado1 || $sabado2 || $domingo1 || $domingo2 || $festivos1 || $festivos2 == ""  ) {
+       $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes24,' '$sabados24,' '$domingos24,' '$festivos24'"; 
     }
     //si se selecciona el combo lunes24 y martes24 entonces
-    if ($lunes1 || $martes1  == "" ) {
+    if ($lunes1 || $lunes2 || $martes1 || $martes2 == "" ) {
         $tiempos = "'$lunes24,' '$martes24,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'";
     }
-    //si se selecciona el combo lunes24, martes24 y miercoles24 entonces
-    if ($lunes1 || $martes1 || $miercoles1 == "" ) {
-        $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'";
-    }
-    //si se selecciona el combo lunes24, martes24, miercoles24 y jueves24 entonces
-    if ($lunes1 || $martes1 || $miercoles1 || $jueves1 == "" ) {
-        $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'";
-    }
-    //si se selecciona el combo lunes24, martes24, miercoles24, jueves24 y viernes24 entonces
-    if ($lunes1 || $martes1 || $miercoles1 || $jueves1 || $viernes1 == "" ) {
-        $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes24,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'";
-    }
-    //si se selecciona el combo lunes24, martes24, miercoles24, jueves24, viernes24 y sabados24 entonces
-    if ($lunes1 || $martes1 || $miercoles1 || $jueves1 || $viernes1 || $sabado1 == "" ) {
-        $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes24,' '$sabados24,' '$domingo1-$domingo2,' '$festivos1-$festivos2'";
-    }
-    //si se selecciona el combo lunes24, martes24, miercoles24, jueves24, viernes24, sabados24 y domingos24 entonces
-    if ($lunes1 || $martes1 || $miercoles1 || $jueves1 || $viernes1 || $sabado1 || $domingo1 == "" ) {
-        $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes24,' '$sabados24,' '$domingos24,' '$festivos1-$festivos2'";
-    }
-    //-------------------------------------------------------------------------------------------------------------------
-    //lunes variacion2
-    //si se seleccionan el combo lunes24 y miercoles24 entonces
-    if ($lunes1 || $miercoles1  == "" ) {
+    //si se selecciona el combo lunes24 y miercoles24 entonces
+    if ($lunes1 || $lunes2 || $miercoles1 || $miercoles2 == "" ) {
         $tiempos = "'$lunes24,' '$martes1-$martes2,' '$miercoles24,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'";
     }
+    //si se selecciona el combo lunes24 y jueves24 entonces
+    if ($lunes1 || $lunes2 || $jueves1 || $jueves2 == "" ) {
+        $tiempos = "'$lunes24,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves24,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'";
+    }
+    //si se selecciona el combo lunes24 y viernes24 entonces
+    if ($lunes1 || $lunes2 || $viernes1 || $viernes2 == "" ) {
+        $tiempos = "'$lunes24,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes24,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'";
+    }
+    //si se selecciona el combo lunes24 y sabados24 entonces
+    if ($lunes1 || $lunes2 || $sabado1 || $sabado2 == "" ) {
+        $tiempos = "'$lunes24,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabados24,' '$domingo1-$domingo2,' '$festivos1-$festivos2'";
+    }
+    //si se selecciona el combo lunes24 y domingos24 entonces
+    if ($lunes1 || $lunes2 || $domingo1 || $domingo2 == "" ) {
+        $tiempos = "'$lunes24,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingos24,' '$festivos1-$festivos2'";
+    }
+    //si se selecciona el combo lunes24 y festivos24 entonces
+    if ($lunes1 || $lunes2 || $festivos1 || $festivos2 == "" ) {
+        $tiempos = "'$lunes24,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos24'";
+    }
 
-    //si se selecciona todos los combos entonces
-    if ($lunes1 || $martes1 || $miercoles1 || $jueves1 || $viernes1 || $sabado1 || $domingo1 || $festivos1== "" ) {
-        $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes24,' '$sabados24,' '$domingos24,' '$festivos24'";
+
+    //------------------------------------------------------------------------------------------------------
+
+    //si se selecciona el combo lunes24 y martes24 entonces
+    if ($martes1 || $martes2 || $miercoles1 || $miercoles2 == "" ) {
+        $tiempos = "'$lunes1-$lunes2,' '$martes24,' '$miercoles24,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'";
+    }
+    //si se selecciona el combo lunes24 y miercoles24 entonces
+    if ($martes1 || $martes2 || $jueves1 || $jueves2 == "" ) {
+        $tiempos = "'$lunes1-$lunes2,' 'martes24,' '$miercoles1-$miercoles2,' '$jueves24,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'";
+    }
+    //si se selecciona el combo lunes24 y jueves24 entonces
+    if ($martes1 || $martes2 || $viernes1 || $viernes2 == "" ) {
+        $tiempos = "'$lunes1-$lunes2,' 'martes24,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes24,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'";
+    }
+    //si se selecciona el combo lunes24 y viernes24 entonces
+    if ($martes1 || $martes2 || $sabado1 || $sabado2 == "" ) {
+        $tiempos = "'$lunes1-$lunes2,' 'martes24,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabados24,' '$domingo1-$domingo2,' '$festivos1-$festivos2'";
+    }
+    //si se selecciona el combo lunes24 y domingos24 entonces
+    if ($martes1 || $martes2 || $domingo1 || $domingo2 == "" ) {
+        $tiempos = "'$lunes1-$lunes2,' 'martes24,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingos24,' '$festivos1-$festivos2'";
+    }
+    //si se selecciona el combo lunes24 y festivos24 entonces
+    if ($martes1 || $martes2 || $festivos1 || $festivos2 == "" ) {
+        $tiempos = "'$lunes1-$lunes2,' 'martes24,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos24'";
     }
     //si se llenan todos los campos eentonces
     else{
