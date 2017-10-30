@@ -19,50 +19,50 @@
                 <tr>
                     <td>Lunes</td>
                     <td><input type="checkbox" name="lunes24" id="lunes24"  value="24"  onchange="lunes(this.checked);"></td>
-                    <td><input type="number" step="any" required="" id="lunes1" name="lunes1" class="form-control" placeholder="Hora de apertura" name="apertura"></td>
-                    <td><input type="number" step="any" required="" id="lunes2" name="lunes2" class="form-control" placeholder="Hora de cierre" name="cierre"></td>
+                    <td><input type="number" style="width: 80px" step="any" required="" id="lunes1" name="lunes1" class="form-control" name="apertura"></td>
+                    <td><input type="number" style="width: 80px" step="any" required="" id="lunes2" name="lunes2" class="form-control" name="cierre"></td>
                 </tr>
                 <tr>
                     <td>Martes</td>
                     <td><input type="checkbox" name="martes24" id="martes24"  value="24"  onchange="martes(this.checked);"></td>
-                    <td><input type="number"   step="any" required="" id="martes1" class="form-control" placeholder="Hora de apertura" name="martes1"></td>
-                    <td><input type="number"   step="any" required="" id="martes2" class="form-control" placeholder="Hora de cierre" name="martes2"></td>
+                    <td><input type="number" style="width: 80px"   step="any" required="" id="martes1" class="form-control" name="martes1"></td>
+                    <td><input type="number" style="width: 80px"   step="any" required="" id="martes2" class="form-control" name="martes2"></td>
                 </tr>
                 <tr>
                     <td>Miercoles</td>
                     <td><input type="checkbox" name="miercoles24"  value="24"  onchange="miercoles(this.checked);"></td>
-                    <td><input type="number"   step="any" required="" id="miercoles1" class="form-control" placeholder="Hora de apertura" name="miercoles1"></td>
-                    <td><input type="number"   step="any" required="" id="miercoles2" class="form-control" placeholder="Hora de cierre" name="miercoles2"></td>
+                    <td><input type="number" style="width: 80px"   step="any" required="" id="miercoles1" class="form-control" name="miercoles1"></td>
+                    <td><input type="number" style="width: 80px"   step="any" required="" id="miercoles2" class="form-control" name="miercoles2"></td>
                 </tr>
                 <tr>
                     <td>Jueves</td>
                     <td><input type="checkbox" name="jueves24"  value="24"  onchange="jueves(this.checked);"></td>
-                    <td><input type="number"   step="any" required="" id="jueves1" class="form-control" placeholder="Hora de apertura" name="jueves1"></td>
-                    <td><input type="number"   step="any" required="" id="jueves2" class="form-control" placeholder="Hora de cierre" name="jueves2"></td>
+                    <td><input type="number" style="width: 80px"   step="any" required="" id="jueves1" class="form-control" name="jueves1"></td>
+                    <td><input type="number" style="width: 80px"   step="any" required="" id="jueves2" class="form-control" name="jueves2"></td>
                 </tr>
                 <tr>
                     <td>Viernes</td>
                     <td><input type="checkbox" name="viernes24"  value="24"  onchange="viernes(this.checked);"></td>
-                    <td><input type="number"   step="any" required="" id="viernes1" class="form-control" placeholder="Hora de apertura" name="viernes1"></td>
-                    <td><input type="number"   step="any" required="" id="viernes2" class="form-control" placeholder="Hora de cierre" name="viernes2"></td>
+                    <td><input type="number" style="width: 80px"   step="any" required="" id="viernes1" class="form-control" name="viernes1"></td>
+                    <td><input type="number" style="width: 80px"   step="any" required="" id="viernes2" class="form-control" name="viernes2"></td>
                 </tr>
                 <tr>
                     <td>Sabados</td>
                     <td><input type="checkbox" name="sabados24"  value="24"  onchange="sabado(this.checked);"></td>
-                    <td><input type="number"   step="any" required="" id="sabado1" class="form-control" placeholder="Hora de apertura" name="sabado1"></td>
-                    <td><input type="number"   step="any" required="" id="sabado2" class="form-control" placeholder="Hora de cierre" name="sabado2"></td>
+                    <td><input type="number" style="width: 80px"   step="any" required="" id="sabado1" class="form-control" name="sabado1"></td>
+                    <td><input type="number" style="width: 80px"   step="any" required="" id="sabado2" class="form-control" name="sabado2"></td>
                 </tr>
                 <tr>
                     <td>Domingos</td>
                     <td><input type="checkbox" name="domingos24"  value="24"  onchange="domingo(this.checked);"></td>
-                    <td><input type="number"   step="any" required="" id="domingo1" class="form-control" placeholder="Hora de apertura" name="domingo1"></td>
-                    <td><input type="number"   step="any" required="" id="domingo2" class="form-control" placeholder="Hora de cierre" name="domingo2"></td>
+                    <td><input type="number" style="width: 80px"   step="any" required="" id="domingo1" class="form-control" name="domingo1"></td>
+                    <td><input type="number" style="width: 80px"   step="any" required="" id="domingo2" class="form-control" name="domingo2"></td>
                 </tr>
                 <tr>
                     <td>Festivos</td>
                     <td><input type="checkbox" name="festivos24"  value="24"  onchange="festivos(this.checked);"></td>
-                    <td><input type="number"   step="any" required="" id="festivos1" class="form-control" placeholder="Hora de apertura" name="festivos1"></td>
-                    <td><input type="number"   step="any" required="" id="festivos2" class="form-control" placeholder="Hora de cierre" name="festivos2"></td>
+                    <td><input type="number" style="width: 80px"   step="any" required="" id="festivos1" class="form-control" name="festivos1"></td>
+                    <td><input type="number" style="width: 80px"   step="any" required="" id="festivos2" class="form-control" name="festivos2"></td>
                 </tr>
             </table>
         </div>
