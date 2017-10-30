@@ -112,10 +112,35 @@ class DomiciliosUrbanosController extends Controller {
 
         $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes24,' '$sabados24,' '$domingos24,' '$festivos24'"; 
     }
-
+    //si se seleccionan los combos lunes24 y martes24 entonces.......
     if (empty($lunes1  && $martes1) && !empty($miercoles1 && $jueves1 && $viernes1 && $sabado1 && $domingo1 && $festivos1) ) {
         
          $tiempos = "'$lunes24,' '$martes24,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
+    }
+    //si se seleccionan los combos lunes24, martes24 y miercoles24 entonces.......
+    if (empty($lunes1  && $martes1 && $miercoles1) && !empty($jueves1 && $viernes1 && $sabado1 && $domingo1 && $festivos1) ) {
+        
+         $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
+    }
+    //si se seleccionan los combos lunes24, martes24, miercoles24 y jueves24 entonces.......
+    if (empty($lunes1  && $martes1 && $miercoles1 && $jueves1) && !empty($viernes1 && $sabado1 && $domingo1 && $festivos1) ) {
+        
+         $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
+    }
+    //si se seleccionan los combos lunes24, martes24, miercoles24, jueves24 y viernes24 entonces.......
+    if (empty($lunes1  && $martes1 && $miercoles1 && $jueves1 && $viernes1) && !empty($sabado1 && $domingo1 && $festivos1) ) {
+        
+         $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes24,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
+    }
+    //si se seleccionan los combos lunes24, martes24, miercoles24, jueves24, viernes24 y sabado24 entonces.......
+    if (empty($lunes1  && $martes1 && $miercoles1 && $jueves1 && $viernes1 && $sabado1) && !empty($domingo1 && $festivos1) ) {
+        
+         $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes24,' '$sabados24,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
+    }
+    //si se seleccionan los combos lunes24, martes24, miercoles24, jueves24, viernes24, sabado24 y domingo24 entonces.......
+    if (empty($lunes1  && $martes1 && $miercoles1 && $jueves1 && $viernes1 && $sabado1 && $domingo1) && !empty($festivos1) ) {
+        
+         $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes24,' '$sabados24,' '$domingos24,' '$festivos1-$festivos2'"; 
     }
     DB::connection('mu_domicilios')->update('update puntos p set dir_down_der_lat = '.$tiempos.' where p.id = '.$id.'');
     return Redirect()->back();
