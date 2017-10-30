@@ -19,8 +19,8 @@
                 <tr>
                     <td>Lunes</td>
                     <td><input type="checkbox" name="lunes24" id="lunes24"  value="24"  onchange="lunes(this.checked);"></td>
-                    <td><input type="number" style="width: 80px" step="any" required="" id="lunes1" name="lunes1" class="form-control" name="apertura"></td>
-                    <td><input type="number" style="width: 80px" step="any" required="" id="lunes2" name="lunes2" class="form-control" name="cierre"></td>
+                    <td><input type="number" style="width: 80px" step="any" required="" id="lunes1" class="form-control" name="lunes1"></td>
+                    <td><input type="number" style="width: 80px" step="any" required="" id="lunes2" class="form-control" name="lunes2"></td>
                 </tr>
                 <tr>
                     <td>Martes</td>

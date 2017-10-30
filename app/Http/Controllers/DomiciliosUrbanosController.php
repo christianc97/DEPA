@@ -103,13 +103,13 @@ class DomiciliosUrbanosController extends Controller {
     $festivos1 = $request->get('festivos1');
     $festivos2 = $request->get('festivos2');
     //si se seleccionan todo los combos entonces
-    if (($lunes1) || ($martes1) ||  ($miercoles1) || ($jueves1) || ($viernes1) || ($sabado1) ||  ($domingo1) ||  ($festivos1)  == ""  ) {
-       $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes24,' '$sabados24,' '$domingos24,' '$festivos24'"; 
+    //if ($lunes1 || $lunes2  || $martes1 || $martes2 || $miercoles1 || $miercoles2 || $jueves1 || $jueves2 || $viernes1 || $viernes2 || $sabado1 || $sabado2 || $domingo1 || $domingo2 || $festivos1 || $festivos2 == "" ) {
+
+    if (!empty($lunes1 || $lunes2  || $martes1 || $martes2 || $miercoles1 || $miercoles2 || $jueves1 || $jueves2 || $viernes1 || $viernes2 || $sabado1 || $sabado2 || $domingo1 || $domingo2 || $festivos1 || $festivos2)){
+      $tiempos = "'$lunes1-$lunes2,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
     }
-    
-    //si se llenan todos los campos eentonces
-    else{
-        $tiempos = "'$lunes1-$lunes2,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
+    elseif($lunes1 || $lunes2  || $martes1 || $martes2 || $miercoles1 || $miercoles2 || $jueves1 || $jueves2 || $viernes1 || $viernes2 || $sabado1 || $sabado2 || $domingo1 || $domingo2 || $festivos1 || $festivos2 == ""){
+        $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes24,' '$sabados24,' '$domingos24,' '$festivos24'"; 
     }
 
     DB::connection('mu_domicilios')->update('update puntos p set dir_down_der_lat = '.$tiempos.' where p.id = '.$id.'');
