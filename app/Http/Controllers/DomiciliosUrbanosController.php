@@ -102,8 +102,6 @@ class DomiciliosUrbanosController extends Controller {
     $festivos24 = $request->get('festivos24');
     $festivos1 = $request->get('festivos1');
     $festivos2 = $request->get('festivos2');
-    //si se seleccionan todo los combos entonces
-    //if ($lunes1 || $lunes2  || $martes1 || $martes2 || $miercoles1 || $miercoles2 || $jueves1 || $jueves2 || $viernes1 || $viernes2 || $sabado1 || $sabado2 || $domingo1 || $domingo2 || $festivos1 || $festivos2 == "" ) {
 
     if (!empty($lunes1 || $lunes2  || $martes1 || $martes2 || $miercoles1 || $miercoles2 || $jueves1 || $jueves2 || $viernes1 || $viernes2 || $sabado1 || $sabado2 || $domingo1 || $domingo2 || $festivos1 || $festivos2)){
       $tiempos = "'$lunes1-$lunes2,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
@@ -111,16 +109,10 @@ class DomiciliosUrbanosController extends Controller {
     elseif($lunes1 || $lunes2  || $martes1 || $martes2 || $miercoles1 || $miercoles2 || $jueves1 || $jueves2 || $viernes1 || $viernes2 || $sabado1 || $sabado2 || $domingo1 || $domingo2 || $festivos1 || $festivos2 == ""){
         $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes24,' '$sabados24,' '$domingos24,' '$festivos24'"; 
     }
-
     DB::connection('mu_domicilios')->update('update puntos p set dir_down_der_lat = '.$tiempos.' where p.id = '.$id.'');
     return Redirect()->back();
     }
-
-    public function cruzverde(Request $request){
-        $ms = 'hello';
-        return $ms;
-    }
-
+    
     public function usersDomicilios(Request $request) {
         $username = $request->get("username");
         $password_hash = Hash::make($request->get("password"));

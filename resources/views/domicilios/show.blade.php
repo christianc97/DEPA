@@ -217,10 +217,7 @@ and open the template in the editor.
     @foreach($puntos_domicilios as $pd)
      @include('domicilios.ModalView')
     @endforeach
-    
-
 @endsection
-   @foreach($puntos_domicilios as $pd)
    <script>
             function lunes(value)
             {
@@ -319,7 +316,7 @@ and open the template in the editor.
     </script>
 
 <script>
-function validar() {
+    function validar() {
     var a0, a1, a2, b0, b1, b2, c1, c2, d1, d2, e1, e2, f1, f2, g1, g2, h1, h2 ;
     //lunes
     a0 = document.getElementById("lunes24"). value;
@@ -454,7 +451,6 @@ function validar() {
     }
 }
 </script>
-@endforeach 
 <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 <script>
