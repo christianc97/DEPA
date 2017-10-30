@@ -112,6 +112,11 @@ class DomiciliosUrbanosController extends Controller {
 
         $tiempos = "'$lunes24,' '$martes24,' '$miercoles24,' '$jueves24,' '$viernes24,' '$sabados24,' '$domingos24,' '$festivos24'"; 
     }
+
+    if (empty($lunes1  && $martes1) && !empty($miercoles1 && $jueves1 && $viernes1 && $sabado1 && $domingo1 && $festivos1) ) {
+        
+         $tiempos = "'$lunes24,' '$martes24,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
+    }
     DB::connection('mu_domicilios')->update('update puntos p set dir_down_der_lat = '.$tiempos.' where p.id = '.$id.'');
     return Redirect()->back();
     }
