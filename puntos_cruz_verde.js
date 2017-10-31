@@ -800,4 +800,14 @@
             schedule: ["7-20", "7-207", "7-207", "7-20", "7-20", "7-20", "8-19", "8-19"],
             cityId: 1
           }
+          {
+            name: "Cruz Verde Murallas",
+            address: "TV 54 # 38 - 1 EDS Las Murallas",
+            address2: "",
+            zone: "costa",
+            latLon : [-75.50144673836, 10.388575216603],
+            scheduleLabel: "domingo a domingo 8:00 a.m. a 8:00 p.m.",
+            schedule: ["8-8", "8-8", "8-8", "8-8", "8-8", "8-8", "8-8", "8-8"],
+            cityId: 1
+          }
         ];
