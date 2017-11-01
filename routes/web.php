@@ -10,27 +10,32 @@
   | contains the "web" middleware group. Now create something great!
   |
  */
-
+  
 Route::get('/', function () {
     return view('auth/login');
 });
 
 Route::get('api/prueba/{id}', function ($id) {
 
-    $ciudades = DB::connection('mensajeros')->select('select id, nombre, name_geoapps from ciudad');
+    
 
 
-    $name = DB::connection('mu_domicilios')->select('select nombre from puntos where id = '.$id.'');
-    $address = DB::connection('mu_domicilios')->select('select direccion from puntos where id = '.$id.'');
-    $address2 = '';
+    $name = DB::connection('mu_domicilios')->select('select p.nombre from puntos p where p.id = '.$id.'');
+    $address = DB::connection('mu_domicilios')->select('select p.direccion from puntos p where p.id = '.$id.'');
+    $address2 = ''; 
     $zone = '';
     $latLon = DB::connection('mu_domicilios')->select('select p.lat, p.long from puntos p where p.id = '.$id.'');
     $scheduleLabel = '';
-    $schedule = DB::connection('mu_domicilios')->select('select dir_down_der_lat from puntos where id = '.$id.'');
-    $cityId = DB::connection('mu_domicilios')->select('select ciudad from puntos where id = '.$id.'');
+    $schedule = DB::connection('mu_domicilios')->select('select p.dir_down_der_lat from puntos p where p.id = '.$id.'');
 
+    //seleccionar nombre ciudad de tablá puntos...
+    $cityId = DB::connection('mu_domicilios')->select('select p.ciudad from puntos p where p.id = '.$id.'');
+    //tenemos el nombre de la ciudad del punto seleccionado..
+    $name = "bogota";
+    //cambiamos la nombre de ciudad a id de ciudad..
+    $ciudadid = DB::connection('mensajeros')->select('select c.id from ciudad c where c.name_geoapps = "'.$name.'"');
+    return $ciudadid;
 
-  
     $puntos = array('name' => $name,
                     'address' => $address,
                     'address2' => $address2,
@@ -38,6 +43,7 @@ Route::get('api/prueba/{id}', function ($id) {
                     'latLon' => $latLon,
                     'scheduleLabel' => $scheduleLabel,
                     'schedule' => $schedule,
+                    //mostramos es id de la ciudad
                     'cityId' => $cityId
                      );
     return json_encode($puntos);
