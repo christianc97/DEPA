@@ -808,6 +808,27 @@
             latLon : [-75.50144673836, 10.388575216603],
             scheduleLabel: "domingo a domingo 8:00 a.m. a 8:00 p.m.",
             schedule: ["8-8", "8-8", "8-8", "8-8", "8-8", "8-8", "8-8", "8-8"],
-            cityId: 1
+            cityId: 8
+          }
+          //cali(01-11-2017)
+          {
+            name: "120_Cruz Verde Roosevelt",
+            address: "Calle 6 # 44 – 58",
+            address2: "",
+            zone: "cali",
+            latLon : [-74.106020404842, 4.6213065712691],
+            scheduleLabel: "Lunes a viernes 7:00 a.m. a 6:00 p.m. Sábados  8:00 a.m. a 1:00 p.m.",
+            schedule: ["7-6", "7-6", "7-6", "7-6", "7-6", "8-1", "24-24", "24-24"],
+            cityId: 2
+          },
+          {
+            name: "188_Cruz Verde Tequendama",
+            address: "Carrera 44 # 5C – 105",
+            address2: "",
+            zone: "cali",
+            latLon : [4.627739, -74.097907],
+            scheduleLabel: "Lunes a viernes 8:00 a.m. a  5:00 p.m. Sábados  9:00 a.m. a 11:00 p.m.",
+            schedule: ["8-5", "8-5", "8-5", "8-5", "8-5", "9-11", "24-24", "24-24"],
+            cityId: 2
           }
         ];
