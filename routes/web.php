@@ -31,10 +31,12 @@ Route::get('api/prueba/{id}', function ($id) {
     //seleccionar nombre ciudad de tablá puntos...
     $cityId = DB::connection('mu_domicilios')->select('select p.ciudad from puntos p where p.id = '.$id.'');
     //tenemos el nombre de la ciudad del punto seleccionado..
-    $name = "bogota";
+  
+    $name = 'bogota';
+
     //cambiamos la nombre de ciudad a id de ciudad..
     $ciudadid = DB::connection('mensajeros')->select('select c.id from ciudad c where c.name_geoapps = "'.$name.'"');
-    return $ciudadid;
+    
 
     $puntos = array('name' => $name,
                     'address' => $address,
@@ -44,7 +46,7 @@ Route::get('api/prueba/{id}', function ($id) {
                     'scheduleLabel' => $scheduleLabel,
                     'schedule' => $schedule,
                     //mostramos es id de la ciudad
-                    'cityId' => $cityId
+                    'cityId' => $ciudadid
                      );
     return json_encode($puntos);
         
