@@ -10,7 +10,7 @@
   | contains the "web" middleware group. Now create something great!
   |
  */
-  
+use Illuminate\Support\Str;
 Route::get('/', function () {
     return view('auth/login');
 });
@@ -29,13 +29,11 @@ Route::get('api/prueba/{id}', function ($id) {
     $schedule = DB::connection('mu_domicilios')->select('select p.dir_down_der_lat from puntos p where p.id = '.$id.'');
 
     //seleccionar nombre ciudad de tablá puntos...
-    $cityId = DB::connection('mu_domicilios')->select('select p.ciudad from puntos p where p.id = '.$id.'');
+    $ciudad = DB::connection('mu_domicilios')->select('select ciudad from puntos where id = '.$id.'');
     //tenemos el nombre de la ciudad del punto seleccionado..
-  
-    $name = 'bogota';
-
+    //$ciudad = 'cartagena';    
     //cambiamos la nombre de ciudad a id de ciudad..
-    $ciudadid = DB::connection('mensajeros')->select('select c.id from ciudad c where c.name_geoapps = "'.$name.'"');
+    $ciudadid = DB::connection('mensajeros')->select('select id from ciudad where name_geoapps = "'.$ciudad[0]->ciudad.'" ');
     
 
     $puntos = array('name' => $name,
@@ -45,10 +43,9 @@ Route::get('api/prueba/{id}', function ($id) {
                     'latLon' => $latLon,
                     'scheduleLabel' => $scheduleLabel,
                     'schedule' => $schedule,
-                    //mostramos es id de la ciudad
                     'cityId' => $ciudadid
                      );
-    return json_encode($puntos);
+    return $puntos;
         
 });
 
