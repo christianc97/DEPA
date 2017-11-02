@@ -10,15 +10,21 @@
   | contains the "web" middleware group. Now create something great!
   |
  */
-use Illuminate\Support\Str;
+
 Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('api/prueba/{id}', function ($id) {
+Route::get('api/prueba/tiempos/todos', function () {
+  $puntos = DB::connection('mu_domicilios')->select('select p.nombre, p.direccion, p.lat, p.long, p.dir_down_der_lat, p.ciudad from puntos p');
+
+
+  return array($puntos);
 
     
+});
 
+Route::get('api/tiempos/punto/{id}', function ($id) {
 
     $name = DB::connection('mu_domicilios')->select('select p.nombre from puntos p where p.id = '.$id.'');
     $address = DB::connection('mu_domicilios')->select('select p.direccion from puntos p where p.id = '.$id.'');
