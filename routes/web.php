@@ -13,10 +13,12 @@
 Route::get('/', function () {
     return view('auth/login');
 });
+
 Route::get('api/prueba/tiempos/todos', function () {
-  $puntos = DB::connection('mu_domicilios')->select('select p.nombre, p.direccion, p.lat, p.long, p.dir_down_der_lat, p.ciudad from puntos p');
-  return $puntos;
+  $puntos = DB::connection('mu_domicilios')->select('select p.nombre, p.direccion, p.direccion2, p.zone, p.scheduleLabel, p.lat, p.long, p.dir_down_der_lat, p.cityId from puntos p');
+  return json_encode($puntos);
 });
+
 Route::get('api/tiempos/punto/{id}', function ($id) {
     $name = DB::connection('mu_domicilios')->select('select p.nombre from puntos p where p.id = '.$id.'');
     $address = DB::connection('mu_domicilios')->select('select p.direccion from puntos p where p.id = '.$id.'');
