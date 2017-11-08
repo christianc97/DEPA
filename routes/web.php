@@ -14,25 +14,26 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('api/prueba/tiempos/todos', function () {
-  $puntos = DB::connection('mu_domicilios')->select('select p.nombre, p.direccion, p.direccion2, p.zone, p.scheduleLabel, p.lat, p.long, p.dir_down_der_lat, p.cityId from puntos p');
+Route::get('api/tiempos/todos', function () {
+  $puntos = DB::connection('mu_domicilios')->select('select p.nombre as name, p.direccion as address, p.direccion2 as address2, p.zone, p.scheduleLabel, p.lat, p.long, p.dir_down_der_lat as schedule, p.cityId from puntos p');
   return json_encode($puntos);
 });
 
 Route::get('api/tiempos/punto/{id}', function ($id) {
     $name = DB::connection('mu_domicilios')->select('select p.nombre from puntos p where p.id = '.$id.'');
     $address = DB::connection('mu_domicilios')->select('select p.direccion from puntos p where p.id = '.$id.'');
-    $address2 = ''; 
-    $zone = '';
+    $address2 = DB::connection('mu_domicilios')->select('select p.direccion2 from puntos p where p.id = '.$id.''); 
+    $zone = DB::connection('mu_domicilios')->select('select p.zone from puntos p where p.id = '.$id.'');
     $latLon = DB::connection('mu_domicilios')->select('select p.lat, p.long from puntos p where p.id = '.$id.'');
-    $scheduleLabel = '';
+    $scheduleLabel = DB::connection('mu_domicilios')->select('select p.scheduleLabel from puntos p where p.id = '.$id.'');
     $schedule = DB::connection('mu_domicilios')->select('select p.dir_down_der_lat from puntos p where p.id = '.$id.'');
     //seleccionar nombre ciudad de tablá puntos...
     $ciudad = DB::connection('mu_domicilios')->select('select ciudad from puntos where id = '.$id.'');
     //tenemos el nombre de la ciudad del punto seleccionado...
     //cambiamos la nombre de ciudad a id de ciudad..
     $ciudadid = DB::connection('mensajeros')->select('select id from ciudad where name_geoapps = "'.$ciudad[0]->ciudad.'" ');
-    $puntos = array('name' => $name,
+
+    return array('name' => $name,
                     'address' => $address,
                     'address2' => $address2,
                     'zone' => $zone,
@@ -41,7 +42,6 @@ Route::get('api/tiempos/punto/{id}', function ($id) {
                     'schedule' => $schedule,
                     'cityId' => $ciudadid
                      );
-    return $puntos;     
 });
 
 Route::resource('reportes/reportesServiciosFinalizados', 'reporteServiciosFinalizadosController');
