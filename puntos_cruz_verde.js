@@ -831,4 +831,75 @@
             schedule: ["8-5", "8-5", "8-5", "8-5", "8-5", "9-11", "24-24", "24-24"],
             cityId: 2
           }
+          //puntos zona medellin 08/11/2017
+          {
+            name: "Cruz Verde Campestre",
+            address: "Calle 16 Sur # 44 - 20",
+            address2: "",
+            zone: "Medellin",
+            latLon : [-75.57766846075, 6.1904447400371],
+            scheduleLabel: "6.00 am a 10:00 pm",
+            schedule: ["6-22", "6-22", "6-22", "6-22", "6-22", "6-22", "6-22", "6-22"],
+            cityId: 3
+          },
+          {
+            name: "Cruz Verde Jumbo Cra 65",
+            address: "Carrera  65 # 45 - 85",
+            address2: "",
+            zone: "Medellin",
+            latLon : [-75.583162447366, 6.2509185297859],
+            scheduleLabel: "Lunes a jueves 8:00 a.m. a 8:30 p.m.\n Viernes y sábado 8:00 a.m. a 09:00 p.m.\n Domingos y festivos 8:00 a.m a 8:00 p.m.",
+            schedule: ["8-20.5", "8-20.5", "8-20.5", "8-20.5", "8-21", "8-21", "8-20", "8-20"],
+            cityId: 3
+          },
+          {
+            name: "Cruz Verde Metro Bello",
+            address: "Carrera 50 # 27B - 71 Barrio La Cabañita",
+            address2: "",
+            zone: "Medellin",
+            latLon : [6.317234, -75.556873],
+            scheduleLabel: "Domingo a domingo 8:00 a.m. a 09:00 p.m.",
+            schedule: ["8-21", "8-21", "8-21", "8-21", "8-21", "8-21", "8-21", "8-21"],
+            cityId: 3
+          },
+          {
+            name: "Cruz Verde Metro Prado",
+            address: "Carrera 55 # 59 - 25",
+            address2: "",
+            zone: "Medellin",
+            latLon : [-75.5702827948, 6.2586716145802],
+            scheduleLabel: "Domingo a domingo de 8:00 a.m. a 8.00 p.m. ",
+            schedule: ["8-20", "8-20", "8-20", "8-20", "8-20", "8-20", "8-20", "8-20"],
+            cityId: 3
+          },          
+          {
+            name: "Cruz Verde Punto Clave",
+            address: "Calle 27 # 46 - 70 Local 145 Centro Comercial Punto Clave",
+            address2: "",
+            zone: "Medellin",
+            latLon : [-75.5742721163, 6.2294232287],
+            scheduleLabel: "Lunes a viernes  7:00 a.m. a  7:00 p.m. \n Sábados  7:00 a.m. a  6:00 p.m. \n Domingos y festivos 11:00 a.m  a  5:00 p.m",
+            schedule: ["7-19", "7-19", "7-19", "7-19", "7-19", "7-18", "11-17", "11-17"],
+            cityId: 3
+          },
+          {
+            name: "Cruz Verde San Diego",
+            address: "Carrera 43 # 36 - 25",
+            address2: "",
+            zone: "Medellin",
+            latLon : [-75.569447779937, 6.2361705747648],
+            scheduleLabel: "Lunes a sábados 8:00 a.m. a 7:00 p.m. \n Domingos y festivos 9:00 a.m. a 4:00 p.m.",
+            schedule: ["8-19", "8-19", "8-19", "8-19", "8-19", "8-19", "9-16", "9-16"],
+            cityId: 3
+          },
+          {
+            name: "Cruz Verde Torre Médica",
+            address: "Carrera 48 # 19 A - 56",
+            address2: "",
+            zone: "Medellin",
+            latLon : [75.575234302701, 6.2234090913227],
+            scheduleLabel: "Lunes a viernes 7:00 a.m. a 07 p.m. \n Sábados  8:00 a.m. a 2:00 p.m.",
+            schedule: ["7-19", "7-19", "7-19", "7-19", "7-19", "8-14", "24-24", "24-24"],
+            cityId: 3
+          }
         ];
