@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+@extends('layouts.admin')
+@section('titulo')
+<h3 class="box-title">Permisos del usuario</h3>
+@endsection
+
+@section('content')
+<div class='row1 align-right'>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <div class="table-responsive">
+            @if(session('permiso_asignado'))
+                <h5 style='color:#179b2b'>{{session('permiso_asignado')}}</h5>
+            @endif
+            @if(session('permiso_desasignado'))
+                <h5 style='color:red'>{{session('permiso_desasignado')}}</h5>
+            @endif
+            <table id="tablausuarios" class="table table-condensed table-hover display">
+                <thead>
+                <th>#</th>
+                <th>Nombre permiso</th>
+                <th></th>
+                <th colspan="2">Opciones</th>
+
+                </thead>
+                <input type="hidden" value="{{$var=0}}"/>
+                @foreach ($permisos as $p)
+                <tbody>
+                    <tr>
+                        <td>{{++$var}}</td>
+                        <td>{{$p->nombre_permiso}}</td>
+                        <td>
+                            @if($p->permisos_id)
+                            <small>sin asignar</small>
+                        </td>
+                        <td>
+                            
+                            <a href=""><input type="hidden" onclick="myFunction()" name='idPermiso' value="{{$p->idPermisos}}"><button  class="btn btn-danger" type="submit"><i class="fa fa-times" aria-hidden="true"></i></button></a>
+                            
+                        </td>
+                        @else
+                        <td
+                            <a href=""><input type="hidden" onclick="myFunction()" name='idPermiso' value="{{$p->idPermisos}}"><button  class="btn btn-success" type="submit"><i class="fa fa-check" aria-hidden="true"></i></button></a>
+                        </td>
+
+                        @endif
+                    </tr>
+                </tbody>
+                @endforeach
+            </table>
+            <a href="{{asset('usuario')}}"><button  class="btn btn-danger" type="submit">volver</button></a>
+        </div>
+    </div>
+</div>
+<script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
+<script>
+function myFunction() {
+    location.reload();
+}
+</script>
+@endsection
