@@ -22,9 +22,9 @@ class GruposEliteController extends Controller
         $tienePermiso = $this->validarPermisos($this->id, $user);
         if ($tienePermiso) {
     	 $gruposElite = DB::connection('mensajeros')
-            ->select('select e.name, r.nombres, r.apellidos, r.tbl_users_id, r.id from recursos r 
+            ->select('select e.id, e.name, r.nombres, r.apellidos, r.tbl_users_id, r.id from recursos r 
 				left join elite_groups e on r.elite_group = e.id
-				where r.elite_group is not null;');  
+				where r.elite_group is not null order by e.name;');  
     	return view ('reportes.gruposElite', ["gruposElite" => $gruposElite]);
          } else {
             return view('home');
