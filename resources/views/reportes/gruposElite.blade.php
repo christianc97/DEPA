@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <meta charset="utf-8">
 @extends('layouts.admin')
 
 @section('titulo')
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
 <h3 class="box-title"><i class="fa fa-users" aria-hidden="true"></i> Grupos Elite</h3>
-
-<button class="btn btn-success pull-right">Asociar Puntos</button>
-
+@foreach ($permisoAsociar as $pa)
+    @if ($pa->permisos_id == 28)
+    <button class="btn btn-success pull-right"><i class="fa fa-plus" aria-hidden="true"></i> Asociar Puntos</button>
+    @endif
+@endforeach
 @endsection
 
 @section('content')
@@ -32,7 +29,7 @@ and open the template in the editor.
                 <th>Nombres Mensajero</th>
                 <th>Apellidos Mensajero</th>
                 <th>Telefono Mensajero</th>
-                <th>Acción</th>
+                <th>Acciónes</th>
 
                 </thead>
                 <input type="hidden" value="{{$var=0}}"/>
@@ -40,13 +37,14 @@ and open the template in the editor.
                 <tbody>
                     <tr>
                         <td>{{++$var}}</td>
-                        <td>{{$ge->name}}</td>
+                        <td><a href="#">{{$ge->name}}</a></td>
                         <td>{{$ge->tbl_users_id}}</td>
                         <td>{{$ge->nombres}}</td>
                         <td>{{$ge->apellidos}}</td>
                         <td><a href="SIP:03{{$ge->celular}}">{{$ge->celular}}</a></td>
                         <td>
-                        <a href="http://admin.mensajerosurbanos.com/recursos/{{$ge->id}}" target="_blank"><button class="btn btn-info" data-toggle="tooltip" title="Ver"><span class="glyphicon glyphicon-eye-open"></span> </button></a>
+                        <a href="http://admin.mensajerosurbanos.com/recursos/{{$ge->id}}" target="_blank"><button class="btn btn-info" data-toggle="tooltip" title="Ver"><span class="glyphicon glyphicon-eye-open"></span></button></a>
+                        <a href="" data-target="#modal-create-{{$ge->idGrupo}}" data-toggle="modal"><button class="btn btn-success" data-toggle="tooltip" title="Asociar Punto"><span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-map-marker"></span> </button></a>
                         </td>
                     </tr>
                 </tbody>
@@ -55,7 +53,9 @@ and open the template in the editor.
         </div>
     </div>
 </div>
-<!-- tooltip actions button-->
+@foreach ($gruposElite as $ge)
+@include('reportes.modalAsociarPuntos')
+@endforeach
 <script>
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
