@@ -18,8 +18,7 @@ and open the template in the editor.
         <div class="table-responsive">
             <table id="tablausuarios" class="table table-bordered">
                 <thead>
-                <th>#</th>
-                <th>Nombres</th>
+                <th >Nombres</th>
                 <th>permiso</th>
                 <th>permiso</th>
                 <th>permiso</th>
@@ -29,12 +28,10 @@ and open the template in the editor.
                 <th>permiso</th>
                 <th>permiso</th>
                 </thead>
-                <input type="hidden" value="{{$var=0}}"/>
                 @foreach ($permisos as $u)
                 <tbody>
                     <tr>
-                        <td>{{++$var}}</td>
-                        <td>{{$u->nombre1}} {{$u->nombre2}} {{$u->apellido1}} {{$u->apellido2}}</td>
+                        <td width="50">{{$u->nombre1}} {{$u->nombre2}} {{$u->apellido1}} {{$u->apellido2}}</td>
                         <td></td>
                         <td></td>
                         <td></td>

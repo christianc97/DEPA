@@ -168,6 +168,10 @@ and open the template in the editor.
                         <td><input class="form-control" type="text" id='nombre_punto' name='nombre_punto'></td>
                     </tr>
                     <tr>
+                        <th>Nombre Zona</th>
+                        <td><input class="form-control" type="text" id='nombre_zona' name='nombre_zona'></td>
+                    </tr>
+                    <tr>
                         <th>Parking</th>
                         <td><input class="form-control" type="number" id='parking' name='parking'></td>
 
@@ -231,6 +235,7 @@ and open the template in the editor.
                     var long;
                     $(document).ready(function () {
                         $('#nombre_punto').val('');
+                        $('#nombre_zona').val('');
                         $('#direccion').val('');
                         $('#parking').val('');
                         $('#ciudad').val('');
@@ -335,10 +340,12 @@ and open the template in the editor.
                     function crearPunto() {
                         if ($('#nombre_punto').val()=='') {
                             jQuery("#nombre_punto").css("border", "1px solid red");
+                            jQuery("#nombre_zona").css("border", "");
                             jQuery("#parking").css("border", "");
                         } else {
                         var data = {
                             nombre: $('#nombre_punto').val(),
+                            nombrezona: $('#nombre_zona').val(),
                             address: $('#direccion').val(),
                             lat: lat,
                             long: long,

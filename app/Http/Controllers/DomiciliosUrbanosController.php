@@ -326,7 +326,7 @@ class DomiciliosUrbanosController extends Controller {
              $tiempos = "'$lunes1-$lunes2,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos24'"; 
         }
 
-        DB::connection('mu_domicilios')->update('update puntos p set dir_down_der_lat = '.$tiempos.' where p.id = '.$id.'');
+        DB::connection('mu_domicilios')->update('update puntos p set schedule = '.$tiempos.' where p.id = '.$id.'');
         return Redirect()->back();
     }
     
@@ -360,6 +360,7 @@ class DomiciliosUrbanosController extends Controller {
 
         $nombre = $objeto->nombre;
         $direccion = $objeto->address;
+        $nombrezona = $objeto->nombrezona;
         $lat = $objeto->lat;
         $long = $objeto->long;
         $empresa_id = $objeto->empresa_id;
@@ -374,8 +375,8 @@ class DomiciliosUrbanosController extends Controller {
             $parking=0;
         }
 
-        DB::connection('mu_domicilios')->insert("insert into puntos(`nombre`, `direccion`, `lat`, `long`, `empresa_id`, `user_create`, `user_modify`, `cityId` , `ciudad`,`parking`)"
-                . "values ('$nombre','$direccion','$lat','$long',$empresa_id,$user_create,$user_modify,'$cityId','$ciudad',$parking)");
+        DB::connection('mu_domicilios')->insert("insert into puntos(`nombre`, `direccion`,`zone`, `lat`, `long`, `empresa_id`, `user_create`, `user_modify`, `cityId` , `ciudad`,`parking`)"
+                . "values ('$nombre','$direccion','$nombrezona','$lat','$long',$empresa_id,$user_create,$user_modify,'$cityId','$ciudad',$parking)");
     }
 
 }

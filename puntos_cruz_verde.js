@@ -25,7 +25,7 @@
             address2: "172_cruz_verde_calle_100",
             zone: "Mensajeros Urbanos",
             latLon : [-74.046736406, 4.6839698420001],
-            scheduleLabel: "Lunes a viernes 6:00 a.m. a 8:00 p.m.\n Sábados 7:00 a.m. a 7:00 p.m.\n Domingo y festivos 9:00 a.m. a 4:00 p.m.",
+            scheduleLabel: "Lunes a viernes 6:00 a.m. a 8:00 p.m. Sábados 7:00 a.m. a 7:00 p.m. Domingo y festivos 9:00 a.m. a 4:00 p.m.",
             schedule: ["9-16", "6-20", "6-20", "6-20", "6-20", "6-20", "7-19", "9-16"],
             cityId: 1
           },
@@ -45,7 +45,7 @@
             address2: "252_ Cruz_verde_jumbo_santa_ana",
             zone: "Mensajeros Urbanos",
             latLon : [-74.037634004, 4.6902048480001],
-            scheduleLabel: "Lunes a jueves 8:00 a.m. a 8:30 p.m.\n Viernes y sábados  8:00 a.m. a 09:00 p.m.\n Domingos y festivos 9:00 a.m. a 8:30 p.m. ",
+            scheduleLabel: "Lunes a jueves 8:00 a.m. a 8:30 p.m. Viernes y sábados  8:00 a.m. a 09:00 p.m. Domingos y festivos 9:00 a.m. a 8:30 p.m. ",
             schedule: ["9-20.5", "8-20.5", "8-20.5", "8-20.5", "8-20.5", "8-21", "8-21", "9-20.5"],
             cityId: 1
           },
@@ -65,7 +65,7 @@
             address2: "101_cruz _verde _domicilios _cedritos",
             zone: "Servicourier",
             latLon : [-74.040047216, 4.7458450430001],
-            scheduleLabel: "Lunes a Sabado  6:00 a.m. a 11:00 p.m.\n Miercoles de 6:00 am a 24:00\n Domingos de 6:15 am a 11:00 pm",
+            scheduleLabel: "Lunes a Sabado  6:00 a.m. a 11:00 p.m. Miercoles de 6:00 am a 24:00 Domingos de 6:15 am a 11:00 pm",
             schedule: ["6.25-23", "6-23", "6-23", "6-23.99", "6-23", "6-23", "6-23", "6.25-23"],
             cityId: 1
           },
@@ -75,7 +75,7 @@
             address2: "381_cruz_verde_domicilios Alcazares",
             zone: "Servicourier",
             latLon : [-74.064888055, 4.6611216800001],
-            scheduleLabel: "Lunes a Sabado  6:00 a.m. a 11:00 p.m.\n Miercoles de 6:00 am a 24:00\n Domingos de 6:15 am a 11:00 pm",
+            scheduleLabel: "Lunes a Sabado  6:00 a.m. a 11:00 p.m. Miercoles de 6:00 am a 24:00 Domingos de 6:15 am a 11:00 pm",
             schedule: ["6.25-23", "6-23", "6-23", "6-23.99", "6-23", "6-23", "6-23", "6.25-23"],
             cityId: 1
           },
@@ -88,7 +88,10 @@
             scheduleLabel: "24 Horas",
             schedule: ["0-0", "0-0", "0-0", "0-0", "0-0", "0-0", "0-0", "0-0"],
             cityId: 1
+
+
           },
+          //no esta
           {
             name: "Cruz verde chapinero",
             address: "Calle 67 # 11 - 73",
@@ -99,6 +102,7 @@
             schedule: ["9-19", "8-21", "8-21", "8-21", "8-21", "8-21", "8-21", "9-19"],
             cityId: 1
           },
+
           {
             name: "Cruz verde puente largo",
             address: "Avenida Suba # 106 B - 06/14",
@@ -109,13 +113,14 @@
             schedule: ["9-19", "8-21", "8-21", "8-21", "8-21", "8-21", "8-21", "9-19"],
             cityId: 1
           },
+          //-----------------------------------------------------------------------------
           {
             name: "Cruz Verde Centro Internacional",
             address: "Carrera 13 # 26 –71 Centro Internacional  Locales 103 y 104",
             address2:"268_cruz_verde_centro_internacional",
             zone: "Montevideo",
             latLon : [-74.071318247257, 4.6137027017308],
-            scheduleLabel: "Lunes a viernes 6:30 a.m. a  7:00 p.m.\n Sábados 8:00 a.m. a 3:00 p.m.",
+            scheduleLabel: "Lunes a viernes 6:30 a.m. a  7:00 p.m. Sábados 8:00 a.m. a 3:00 p.m.",
             schedule: ["24-24", "6.5-19", "6.5-19", "6.5-19", "6.5-19", "6.5-19", "8-15", "24-24"],
             cityId: 1
           },
@@ -125,7 +130,7 @@
             address2: "171_cruz_verde_plaza_de_las_americas",
             zone: "Montevideo",
             latLon : [-74.137202391, 4.6184426130001],
-            scheduleLabel: "Lunes a viernes  8:00 a.m. a 09:00 p.m.\n Sábados, domingos y festivos 9:00 a.m. a 8:00 p.m.",
+            scheduleLabel: "Lunes a viernes  8:00 a.m. a 09:00 p.m. Sábados, domingos y festivos 9:00 a.m. a 8:00 p.m.",
             schedule: ["9-20", "8-21", "8-21", "8-21", "8-21", "8-21", "9-20", "9-20"],
             cityId: 1
           },
@@ -145,7 +150,7 @@
             address2: "167_cruz_verde_quinta_paredes",
             zone: "Montevideo",
             latLon : [-74.095998753, 4.634827208],
-            scheduleLabel: "Lunes a sábado 7:00 a.m. a 7:00 p.m.\n Domingos y festivos 9:00 a.m. a 5:00 p.m.",
+            scheduleLabel: "Lunes a sábado 7:00 a.m. a 7:00 p.m. Domingos y festivos 9:00 a.m. a 5:00 p.m.",
             schedule: ["9-17", "7-19", "7-19", "7-19", "7-19", "7-19", "7-19", "9-17"],
             cityId: 1
           },
@@ -155,7 +160,7 @@
             address2: "165_cruz_verde_tunal",
             zone: "Montevideo",
             latLon : [-74.129399718015, 4.5780488870406],
-            scheduleLabel: "Lunes a sábados 7:00 a.m. a 6:00 p.m.\n Domingos y festivos  9:00 a.m. a  6:00 p.m.",
+            scheduleLabel: "Lunes a sábados 7:00 a.m. a 6:00 p.m. Domingos y festivos  9:00 a.m. a  6:00 p.m.",
             schedule: ["9-18", "7-18", "7-18", "7-18", "7-18", "7-18", "7-18", "9-18"],
             cityId: 1
           },
@@ -175,7 +180,7 @@
             address2: "197_ Cruz_verde_metro_fontibon",
             zone: "Montevideo",
             latLon : [-74.152636213, 4.680472163],
-            scheduleLabel: "Lunes a sábado 8:00 a.m. a 7:00 p.m.\n Domingos y festivos 9:00 a.m. a 6:00 p.m.",
+            scheduleLabel: "Lunes a sábado 8:00 a.m. a 7:00 p.m. Domingos y festivos 9:00 a.m. a 6:00 p.m.",
             schedule: ["9-18", "8-19", "8-19", "8-19", "8-19", "8-19", "8-19", "9-18"],
             cityId: 1
           },
@@ -189,6 +194,7 @@
             schedule: ["8-20", "8-20", "8-20", "8-20", "8-20", "8-20", "8-20", "8-20"],
             cityId: 1
           },
+          //no esta
           {
             name: "Cruz Verde 20 de Julio",
             address: "Carrera 10 # 30B-20 sur",
@@ -199,6 +205,8 @@
             schedule: ["9-18.5", "8-20", "8-20", "8-20", "8-20", "8-20", "8-20", "9-18.5"],
             cityId: 1
           },
+          //-------------------------------
+          //nombre punto repetido
           {
             name: "Cruz Verde Jumbo Hayuelos",
             address: "Carrera 84 # 26-50",
@@ -209,13 +217,14 @@
             schedule: ["8-20", "8-20.5", "8-20.5", "8-20.5", "8-20.5", "8-21", "8-21", "8-20"],
             cityId: 1
           },
+          //-------------------------------
           {
             name: "Cruz Verde Jumbo Cra 30",
             address: "Carrera 32 # 18-10 ",
             address2: "263_ Cruz_verde_jumbo_cra_30",
             zone: "Montevideo",
             latLon : [-74.09005522344, 4.6192355938584],
-            scheduleLabel: "Lunes a jueves 8:00 a.m. a 8:00 p.m.\n Viernes y sábados  8:00 a.m. a 8:30 p.m.\n Domingos y festivos 8:00 a.m. a 8:00 p.m.",
+            scheduleLabel: "Lunes a jueves 8:00 a.m. a 8:00 p.m. Viernes y sábados  8:00 a.m. a 8:30 p.m. Domingos y festivos 8:00 a.m. a 8:00 p.m.",
             schedule: ["8-20", "8-20", "8-20", "8-20", "8-20", "8-20.5", "8-20.5", "8-20"],
             cityId: 1
           },
@@ -235,7 +244,7 @@
             address2: "178_cruz_verde_calle_72",
             zone: "Alcazares",
             latLon : [-74.054544863397, 4.6543156758052],
-            scheduleLabel: "Lunes a sábados 7:00 a.m. a 8:00 p.m.\n Domingo y festivos  9:00 a.m. a 5:00 p.m.",
+            scheduleLabel: "Lunes a sábados 7:00 a.m. a 8:00 p.m. Domingo y festivos  9:00 a.m. a 5:00 p.m.",
             schedule: ["9-17", "7-20", "7-20", "7-20", "7-20", "7-20", "7-20", "9-17"],
             cityId: 1
           },
@@ -245,7 +254,7 @@
             address2: "451_cruz_verde_chapinero_alto",
             zone: "Alcazares",
             latLon : [-74.062208061508, 4.6425874718411],
-            scheduleLabel: "Lunes a Viernes de 7:00 a.m. a 6:00 p.m.\n Sábados y domingos  9:00 a.m. a 4:00 p.m.",
+            scheduleLabel: "Lunes a Viernes de 7:00 a.m. a 6:00 p.m. Sábados y domingos  9:00 a.m. a 4:00 p.m.",
             schedule: ["9-16", "7-18", "7-18", "7-18", "7-18", "7-18", "9-16", "9-14"],
             cityId: 1
           },
@@ -255,7 +264,7 @@
             address2: "163_cruz_verde_palermo",
             zone: "Alcazares",
             latLon : [-74.07361295, 4.6352416730001],
-            scheduleLabel: "Lunes a Viernes 7:00 a.m. a 6:00 p.m.\n Sábados 7:00 a.m. a 01:00 pm",
+            scheduleLabel: "Lunes a Viernes 7:00 a.m. a 6:00 p.m. Sábados 7:00 a.m. a 01:00 pm",
             schedule: ["24-24", "7-18", "7-18", "7-18", "7-18", "7-18", "7-13", "24-24"],
             cityId: 1
           },
@@ -265,7 +274,7 @@
             address2: "396_cruz_verde_acuña_las_villas",
             zone: "Alcazares",
             latLon : [-74.069020842, 4.7182333370001],
-            scheduleLabel: "Lunes a sábado 8:00 a.m. a 09:00 p.m.\n Domingos y festivos 9:00 a.m. a 8:00 p.m.",
+            scheduleLabel: "Lunes a sábado 8:00 a.m. a 09:00 p.m. Domingos y festivos 9:00 a.m. a 8:00 p.m.",
             schedule: ["9-20", "8-21", "8-21", "8-21", "8-21", "8-21", "8-21", "9-20"],
             cityId: 1
           },
@@ -275,7 +284,7 @@
             address2: "409_cruz_verde_acuña_chapinero",
             zone: "Alcazares",
             latLon : [-74.062191081, 4.653117668],
-            scheduleLabel: "Lunes a sábado 8:00 a.m. a 09:00 p.m.\n Domingos y festivos 9:00 a.m.  a 7:00 p.m.",
+            scheduleLabel: "Lunes a sábado 8:00 a.m. a 09:00 p.m. Domingos y festivos 9:00 a.m.  a 7:00 p.m.",
             schedule: ["9-19", "8-21", "8-21", "8-21", "8-21", "8-21", "8-21", "9-19"],
             cityId: 1
           },
@@ -295,7 +304,7 @@
             address2: "378_cruz_verde_avenida_las_villas",
             zone: "Cedritos",
             latLon : [-74.06442318, 4.7277578110001],
-            scheduleLabel: "Lunes a sábados 7:00 a.m. a 8:00 p.m.\n Domingo y festivos  9:00 a.m. a 5:00 p.m.",
+            scheduleLabel: "Lunes a sábados 7:00 a.m. a 8:00 p.m. Domingo y festivos  9:00 a.m. a 5:00 p.m.",
             schedule: ["9-17", "7-20", "7-20", "7-20", "7-20", "7-20", "7-20", "9-17"],
             cityId: 1
           },
@@ -305,7 +314,7 @@
             address2: "164_cruz_verde_cedro_bolivar",
             zone: "Cedritos",
             latLon : [-74.044581094129, 4.7338390799155],
-            scheduleLabel: "Lunes a viernes 7:00 a.m. a 8:00 p.m.\n Sábados 7:00 a.m. a 7:00 p.m.\n Domingos y festivos 8:00 a.m. a 7:00 p.m.",
+            scheduleLabel: "Lunes a viernes 7:00 a.m. a 8:00 p.m. Sábados 7:00 a.m. a 7:00 p.m. Domingos y festivos 8:00 a.m. a 7:00 p.m.",
             schedule: ["8-19", "7-20", "7-20", "7-20", "7-20", "7-20", "7-19", "8-19"],
             cityId: 1
           },
@@ -315,7 +324,7 @@
             address2: "308_cruz_verde_toberin",
             zone: "Cedritos",
             latLon : [-74.043854949, 4.7466192030001],
-            scheduleLabel: "Lunes a viernes 7:00 a.m. a 6:00 p.m.\n Sábados 7:00 a.m. a 1:00 p.m.",
+            scheduleLabel: "Lunes a viernes 7:00 a.m. a 6:00 p.m. Sábados 7:00 a.m. a 1:00 p.m.",
             schedule: ["24-24", "7-18", "7-18", "7-18", "7-18", "7-18", "7-13", "24-24"],
             cityId: 1
           },
@@ -325,24 +334,24 @@
             address2:"245_ Cruz_verde_jumbo_calle_170",
             zone: "Cedritos",
             latLon : [-74.063706913, 4.7569129880001],
-            scheduleLabel: "Lunes a jueves 8:00 a.m. a 8:30 p.m.\n Viernes y sábados  8:00 a.m. a 09:00 p.m.\nDomingos  y festivos 8:00 a.m. a 8:30 p.m.",
+            scheduleLabel: "Lunes a jueves 8:00 a.m. a 8:30 p.m. Viernes y sábados  8:00 a.m. a 09:00 p.m.Domingos  y festivos 8:00 a.m. a 8:30 p.m.",
             schedule: ["8-20.5", "8-20.5", "8-20.5", "8-20.5", "8-20.5", "8-21", "8-21", "8-20.5"],
             cityId: 1
           },
           {
             name: "Cruz Verde Jumbo Calle 80",
             address: "Avenida Calle 80 # 69Q - 50",
-            address2: "248_ Cruz_verde_jumbo_calle_80",
+            address2: "248_Cruz_verde_jumbo_calle_80",
             zone: "Floresta",
             latLon : [-74.082147154, 4.690879764],
-            scheduleLabel: "Lunes a jueves 8:00 a.m. a 8:00 p.m.\n Viernes, sábado, domingos y festivos 8:00 a.m.  a  8:30 p.m.",
+            scheduleLabel: "Lunes a jueves 8:00 a.m. a 8:00 p.m. Viernes, sábado, domingos y festivos 8:00 a.m.  a  8:30 p.m.",
             schedule: ["8-20.5", "8-20", "8-20", "8-20", "8-20", "8-20.5", "8-20.5", "8-20.5"],
             cityId: 1
           },
           {
             name: "Cruz Verde Jumbo Suba",
             address: "AK 104 # 148 - 7",
-            address2:"229_ Cruz_verde_jumbo_suba",
+            address2:"229_Cruz_verde_jumbo_suba",
             zone: "Floresta",
             latLon : [-74.095367669, 4.748592338],
             scheduleLabel: "Domingo a domingo 8:00 a.m. a 8:30 p.m.",
@@ -355,7 +364,7 @@
             address2:"166_cruz_verde_calle_106",
             zone: "Floresta",
             latLon : [-74.055507692226, 4.6943211814733],
-            scheduleLabel: "Lunes a sábados 7:00 a.m. a 09:00 p.m.\n Domingos y festivos 9:00 a.m. a  8:00 p.m.",
+            scheduleLabel: "Lunes a sábados 7:00 a.m. a 09:00 p.m. Domingos y festivos 9:00 a.m. a  8:00 p.m.",
             schedule: ["9-20", "7-21", "7-21", "7-21", "7-21", "7-21", "7-21", "9-20"],
             cityId: 1
           },
@@ -365,7 +374,7 @@
             address2: "156_cruz_verde_calle_80",
             zone: "Floresta",
             latLon : [-74.103169288, 4.7045056010001],
-            scheduleLabel: "Lunes a sábados  7:00 a.m. a 7:00 p.m.\n Domingos y festivos  8:00 a.m. a 5:00 p.m.",
+            scheduleLabel: "Lunes a sábados  7:00 a.m. a 7:00 p.m. Domingos y festivos  8:00 a.m. a 5:00 p.m.",
             schedule: ["8-17", "7-19", "7-19", "7-19", "7-19", "7-19", "7-19", "8-17"],
             cityId: 1
           },
@@ -375,7 +384,7 @@
             address2: "186_cruz_verde_calle_97",
             zone: "Floresta",
             latLon : [-74.056891598, 4.6849032040001],
-            scheduleLabel: "Lunes a viernes 7:00 a.m. a 8:00 p.m.\n Sábados 7:00 a.m. a 5:00 p.m.\n Domingo y festivos  9:00 a.m. a 5:00 p.m.",
+            scheduleLabel: "Lunes a viernes 7:00 a.m. a 8:00 p.m. Sábados 7:00 a.m. a 5:00 p.m. Domingo y festivos  9:00 a.m. a 5:00 p.m.",
             schedule: ["9-17", "7-20", "7-20", "7-20", "7-20", "7-20", "7-17", "9-17"],
             cityId: 1
           },
@@ -405,10 +414,11 @@
             address2: "410_cruz_verde_acuña_avenida_el_dorado",
             zone: "Floresta",
             latLon : [-74.088374266, 4.6335091380001],
-            scheduleLabel: "Lunes a sábado 8:00 a.m. a 09:00 p.m.\n Domingos y festivos 9:00 a.m.  a 07:00 p.m.",
+            scheduleLabel: "Lunes a sábado 8:00 a.m. a 09:00 p.m. Domingos y festivos 9:00 a.m.  a 07:00 p.m.",
             schedule: ["9-19", "8-21", "8-21", "8-21", "8-21", "8-21", "8-21", "9-19"],
             cityId: 1
           },
+          //no esta
           {
             name: "Cruz verde Salitre",
             address: "Calle 23B # 66 - 46 Edificio de Consultorios Clínica Colombia",
@@ -419,16 +429,18 @@
             schedule: ["6-21", "6-21", "6-21", "6-21", "6-21", "6-21", "6-21", "6-21"],
             cityId: 1
           },
+          //------------------------------------------------------
           {
             name: "Cruz verde Centenario",
             address: "Av. 4 N # 7 N – 46 Local 104 Centro Comercial Centenario",
             address2: "189_Cruz Verde Centenario",
             zone: "Cali",
             latLon : [-76.537261502258, 3.4544305245481],
-            scheduleLabel: "Lunes a viernes 9:00 a.m. a 8:00 p.m.\n Sábados, domingos y festivos 9:00 a.m. a 6:00 p.m.",
+            scheduleLabel: "Lunes a viernes 9:00 a.m. a 8:00 p.m. Sábados, domingos y festivos 9:00 a.m. a 6:00 p.m.",
             schedule: ["9-18", "9-20", "9-20", "9-20", "9-20", "9-20", "9-18", "9-18"],
             cityId: 2
           },
+          //no esta
           {
             name: "Cruz verde Imbanaco",
             address: "Carrera 39 # 5A–104",
@@ -439,6 +451,7 @@
             schedule: ["24-24", "7-20", "7-20", "7-20", "7-20", "7-20", "7-18", "24-24"],
             cityId: 2
           },
+
           {
             name: "Cruz verde Las Velas",
             address: "Carrera 105 # 15B – 45 Local 20 Centro Comercial Las Velas Ciudad Jardín",
@@ -449,6 +462,7 @@
             schedule: ["9-17", "8-20", "8-20", "8-20", "8-20", "8-20", "8-20", "9-17"],
             cityId: 2
           },
+          //-------------------------------------------------------------------------------------------
           {
             name: "Cruz verde Simón Bolívar",
             address: "Diagonal 65 # 25 – 50 Local 1005",
@@ -505,7 +519,7 @@
             address2: "390_Cruz Verde Calle 82",
             zone: "Barranquilla",
             latLon : [-74.815068082, 11.003217796],
-            scheduleLabel: "Lunes a viernes 7:00 a.m. a 6:00 p.m. \n Sábados 7:00 a.m. a 5:00 p.m.",
+            scheduleLabel: "Lunes a viernes 7:00 a.m. a 6:00 p.m. Sábados 7:00 a.m. a 5:00 p.m.",
             schedule: ["24-24", "7-18", "7-18", "7-18", "7-18", "7-18", "7-15", "24-24"],
             cityId: 4
           },
@@ -529,6 +543,7 @@
             schedule: ["8-21", "8-21", "8-21", "8-21", "8-21", "8-21", "8-21", "8-21"],
             cityId: 4
           },
+          //no esta
           {
             name: "Cruz Verde Jumbo Alto Prado",
             address: "Carrera 55 # 75-155 Segundo Piso",
@@ -539,16 +554,18 @@
             schedule: ["8-19", "8-19", "8-19", "8-19", "8-19", "8-19", "8-19", "8-19"],
             cityId: 4
           },
+          //------------------------------------------
           {
             name: "Cruz Verde Jumbo Americano",
             address: "Carrera 38 # 74 - 61 Centro Comercial Americano Local 52 - 53",
             address2: "257_Cruz Verde Jumbo Americano",
             zone: "Barranquilla",
             latLon : [-74.813229851261, 10.985794609225],
-            scheduleLabel: "Lunes a sábado 8:00 a.m. a 8:00 p.m. \n Domingos  y festivos  8:00 a.m. a  7:00 p.m.",
+            scheduleLabel: "Lunes a sábado 8:00 a.m. a 8:00 p.m. Domingos  y festivos  8:00 a.m. a  7:00 p.m.",
             schedule: ["8-19", "8-20", "8-20", "8-20", "8-20", "8-20", "8-20", "8-19"],
             cityId: 4
           },
+          //no esta
           {
             name: "Cruz Verde Bocagrande",
             address: "Av. San Martín N° 4-66 Bocagrande Local 1 y 2",
@@ -559,16 +576,18 @@
             schedule: ["8-19", "8-19", "8-19", "8-19", "8-19", "8-19", "8-19", "8-19"],
             cityId: 8
           },
+          //----------------------------
           {
             name: "Cruz Verde Bocagrande Carrera 3",
             address: "Carrera 3 # 8 - 50",
             address2: "456_Cruz Verde Bocagrande Carrera 3",
             zone: "Cartagena",
             latLon : [-75.553994668528, 10.403364853594],
-            scheduleLabel: "Lunes a sábado 8:00 a.m. a 8:00 p.m. \n Domingos  y festivos  8:00 a.m. a  7:00 p.m.",
+            scheduleLabel: "Lunes a sábado 8:00 a.m. a 8:00 p.m.  Domingos  y festivos  8:00 a.m. a  7:00 p.m.",
             schedule: ["8-19", "8-20", "8-20", "8-20", "8-20", "8-20", "8-20", "8-19"],
             cityId: 8
           },
+          //no esta
           {
             name: "Cruz Verde Manga",
             address: "Avenida Alfonso Araujo Calle 26 # 21 – 46",
@@ -595,7 +614,7 @@
             address2: "457_Cruz Verde Villa Olimpica",
             zone: "Santa Marta",
             latLon : [-74.195162934874, 11.236551980009],
-            scheduleLabel: "Lunes a Viernes 7:00 a.m a 6:00 p.m. \n Sábados 8:00 a.m. a 5:00 p.m.",
+            scheduleLabel: "Lunes a Viernes 7:00 a.m a 6:00 p.m. Sábados 8:00 a.m. a 5:00 p.m.",
             schedule: ["24-24", "7-18", "7-18", "7-18", "7-18", "7-18", "8-17", "24-24"],
             cityId: 9
           }
@@ -616,7 +635,7 @@
             address2: "200_Cruz Verde Jumbo Cra 65",
             zone: "Medellin",
             latLon : [-75.583162447366, 6.2509185297859],
-            scheduleLabel: "Lunes a jueves 8:00 a.m. a 8:30 p.m. \n Viernes y sábado 8:00 a.m. a 09:00 p.m. \n Domingos y festivos 8:00 a.m a 8:00 p.m.",
+            scheduleLabel: "Lunes a jueves 8:00 a.m. a 8:30 p.m. Viernes y sábado 8:00 a.m. a 09:00 p.m. Domingos y festivos 8:00 a.m a 8:00 p.m.",
             schedule: ["8-20", "8-20.5", "8-20.5", "8-20.5", "8-20.5", "8-21", "8-21", "8-20"],
             cityId: 3
           },
@@ -630,6 +649,7 @@
             schedule: ["24-24", "8-21", "8-21", "8-21", "8-21", "8-21", "8-21", "8-21"],
             cityId: 3
           },
+          
           {
             name: "Cruz Verde Metro Prado",
             address: "Carrera 55 # 59 - 25",
@@ -646,7 +666,7 @@
             address2: "161_Cruz Verde Punto Clave",
             zone: "Medellin",
             latLon : [-75.5742721163, 6.2294232287],
-            scheduleLabel: "Lunes a viernes 8:00 a.m. a 7:00 p.m.\n Sábado 7:00am a 6:00pm \n Domingos y festivos  11:00 a.m.  a  5:00 p.m.",
+            scheduleLabel: "Lunes a viernes 8:00 a.m. a 7:00 p.m. Sábado 7:00am a 6:00pm  Domingos y festivos  11:00 a.m.  a  5:00 p.m.",
             schedule: ["11-17", "8-19", "8-19", "8-19", "8-19", "8-19", "7-18", "11-17"],
             cityId: 3
           },
@@ -656,7 +676,7 @@
             address2: "113_Cruz Verde San Diego",
             zone: "Medellin",
             latLon : [-75.569447779937, 6.2361705747648],
-            scheduleLabel: "Lunes a sábados 8:00 a.m. a 7:00 p.m. \n Domingos y festivos 9:00 a.m. a 4:00 p.m.",
+            scheduleLabel: "Lunes a sábados 8:00 a.m. a 7:00 p.m. Domingos y festivos 9:00 a.m. a 4:00 p.m.",
             schedule: ["9-16", "8-19", "8-19", "8-19", "8-19", "8-19", "8-19", "9-16"],
             cityId: 3
           },
@@ -666,7 +686,7 @@
             address2: "187_Cruz Verde Torre Médica",
             zone: "Medellin",
             latLon : [-75.575234302701, 6.2234090913227],
-            scheduleLabel: "Lunes a viernes 7:00 a.m. a 6:00 p.m. \n Sábados  8:00 a.m. a 2:00 p.m.",
+            scheduleLabel: "Lunes a viernes 7:00 a.m. a 6:00 p.m. Sábados  8:00 a.m. a 2:00 p.m.",
             schedule: ["24-24", "7-18", "7-18", "7-18", "7-18", "7-18", "8-14", "24-24"],
             cityId: 3
           },
@@ -676,7 +696,7 @@
             address2: "309_Cruz Verde Metro San Francisco",
             zone: "Barranquilla",
             latLon : [-74.794050252,11.005030806],
-            scheduleLabel: "Lunes a sábado 8:00 a.m. a 8:00 p.m.\n Domingos  y festivos  8:00 a.m. a  7:00 p.m.",
+            scheduleLabel: "Lunes a sábado 8:00 a.m. a 8:00 p.m. Domingos  y festivos  8:00 a.m. a  7:00 p.m.",
             schedule: ["8-19", "8-20", "8-20", "8-20", "8-20", "8-20", "8-20", "8-19"],
             cityId: 4
           },
@@ -706,7 +726,7 @@
             address2: "253_Cruz Verde Metro Banderas",
             zone: "Montevideo",
             latLon : [-74.145848335568,4.6319520569829],
-            scheduleLabel: "Lunes a sábado 8:00 a.m. a 8:00 p.m.\n Domingos y festivos 9:00 a.m. a 6:30 p.m.",
+            scheduleLabel: "Lunes a sábado 8:00 a.m. a 8:00 p.m. Domingos y festivos 9:00 a.m. a 6:30 p.m.",
             schedule: ["9-18.5", "8-20", "8-20", "8-20", "8-20", "8-20", "8-20", "9-18.5"],
             cityId: 1
           },
@@ -716,7 +736,7 @@
             address2: "467_Cruz Verde Santa Paula",
             zone: "Usaquen",
             latLon : [-74.044486575,4.6873143220001],
-            scheduleLabel: "Lunes a sábado 7:00 a.m. a 7:00 p.m.\n Domingos y festivos 8:00 a.m. a 5:00 p.m.",
+            scheduleLabel: "Lunes a sábado 7:00 a.m. a 7:00 p.m. Domingos y festivos 8:00 a.m. a 5:00 p.m.",
             schedule: ["8-17", "7-19", "7-19", "7-19", "7-19", "7-19", "7-19", "8-17"],
             cityId: 1
           },
@@ -726,7 +746,7 @@
             address2: "461_Cruz Verde Santa Fé",
             zone: "Cedritos",
             latLon : [-74.045031953819,4.7631527955543],
-            scheduleLabel: "Lunes a sábado 10:00 a.m. a 9:00 p.m. \n Domingo y festivos 11:00 a.m. a 8:00 p.m.",
+            scheduleLabel: "Lunes a sábado 10:00 a.m. a 9:00 p.m. Domingo y festivos 11:00 a.m. a 8:00 p.m.",
             schedule: ["11-20", "10-21", "10-21", "10-21", "10-21", "10-21", "10-21", "11-20"],
             cityId: 1
           },
@@ -746,7 +766,7 @@
             address2: "",
             zone: "Usaquen",
             latLon : [-74.032640545, 4.705505277],
-            scheduleLabel: "Lunes a Sabado 8:00 a.m. a 8:00 p.m. \n Domingos y festivos 9:00 a.m. a 6:00 p.m.",
+            scheduleLabel: "Lunes a Sabado 8:00 a.m. a 8:00 p.m. Domingos y festivos 9:00 a.m. a 6:00 p.m.",
             schedule: ["8-20", "8-20", "8-20", "8-20", "8-20", "8-20", "9-18", "9-18"],
             cityId: 1
           },
@@ -756,7 +776,7 @@
             address2: "",
             zone: "Floresta",
             latLon : [-74.065487246, 4.7325163310001],
-            scheduleLabel: "Lunes a sábados  9:00 a.m. a 8:00 p.m. \n Domingos y festivos 10:00 a.m  a 7:00 p.m.",
+            scheduleLabel: "Lunes a sábados  9:00 a.m. a 8:00 p.m. Domingos y festivos 10:00 a.m  a 7:00 p.m.",
             schedule: ["9-20", "9-20", "9-20", "9-20", "9-20", "9-20", "10-19", "10-19"],
             cityId: 1
           },
@@ -786,7 +806,7 @@
             address2: "",
             zone: "Floresta",
             latLon : [-74.049273797, 4.6816190490001],
-            scheduleLabel: "Lunes a sábados 7:00 a.m. a 7:00 p.m.\n Domingos y festivos 9:00 a.m. a 5:00 p.m. \n Tutelas y CTC Lunes a viernes  8:00 a.m. a 7:00 p.m. Sábados 9:00 a.m. a 1:00 p.m. ",
+            scheduleLabel: "Lunes a sábados 7:00 a.m. a 7:00 p.m. Domingos y festivos 9:00 a.m. a 5:00 p.m.  Tutelas y CTC Lunes a viernes  8:00 a.m. a 7:00 p.m. Sábados 9:00 a.m. a 1:00 p.m. ",
             schedule: ["7-19", "7-19", "7-197", "7-19", "7-19", "7-19", "9-17", "9-17"],
             cityId: 1
           },
@@ -796,10 +816,11 @@
             address2: "",
             zone: "Floresta",
             latLon : [-74.032640545, 4.705505277],
-            scheduleLabel: "Lunes a sábado 7:00 a.m. a 8:00 p.m.\n Domingos y festivos 8:00 a.m. a 7:00 p.m.",
+            scheduleLabel: "Lunes a sábado 7:00 a.m. a 8:00 p.m. Domingos y festivos 8:00 a.m. a 7:00 p.m.",
             schedule: ["7-20", "7-207", "7-207", "7-20", "7-20", "7-20", "8-19", "8-19"],
             cityId: 1
           }
+          //no esta....
           {
             name: "Cruz Verde Murallas",
             address: "TV 54 # 38 - 1 EDS Las Murallas",

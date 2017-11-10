@@ -15,7 +15,7 @@ Route::get('/', function () {
 });
 
 Route::get('api/tiempospuntos/', function () {
-  $puntos = DB::connection('mu_domicilios')->select('select p.nombre as name, p.direccion as address, p.direccion2 as address2, p.zone, p.scheduleLabel, p.lat, p.long, p.dir_down_der_lat as schedule, p.cityId from puntos p');
+  $puntos = DB::connection('mu_domicilios')->select('select p.nombre as name, p.direccion as address, p.direccion2 as address2, p.zone, p.scheduleLabel, p.lat, p.long, p.schedule, p.cityId from puntos p');
    return json_encode($puntos);
 });
 
