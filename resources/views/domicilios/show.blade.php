@@ -168,7 +168,7 @@ and open the template in the editor.
                         <td><input class="form-control" type="text" id='nombre_punto' name='nombre_punto'></td>
                     </tr>
                     <tr>
-                        <th>Nombre Zona</th>
+                        <th>Nombre Zona <small class="text text-warning">(Opcional)</small></th>
                         <td><input class="form-control" type="text" id='nombre_zona' name='nombre_zona'></td>
                     </tr>
                     <tr>
