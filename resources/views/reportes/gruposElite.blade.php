@@ -10,6 +10,9 @@ and open the template in the editor.
 @section('titulo')
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
 <h3 class="box-title"><i class="fa fa-users" aria-hidden="true"></i> Grupos Elite</h3>
+
+<button class="btn btn-success pull-right">Asociar Puntos</button>
+
 @endsection
 
 @section('content')
@@ -28,7 +31,8 @@ and open the template in the editor.
                 <th>Id Mensajero</th>
                 <th>Nombres Mensajero</th>
                 <th>Apellidos Mensajero</th>
-                <th>Acciones</th>
+                <th>Telefono Mensajero</th>
+                <th>Acción</th>
 
                 </thead>
                 <input type="hidden" value="{{$var=0}}"/>
@@ -40,11 +44,9 @@ and open the template in the editor.
                         <td>{{$ge->tbl_users_id}}</td>
                         <td>{{$ge->nombres}}</td>
                         <td>{{$ge->apellidos}}</td>
+                        <td><a href="SIP:03{{$ge->celular}}">{{$ge->celular}}</a></td>
                         <td>
                         <a href="http://admin.mensajerosurbanos.com/recursos/{{$ge->id}}" target="_blank"><button class="btn btn-info" data-toggle="tooltip" title="Ver"><span class="glyphicon glyphicon-eye-open"></span> </button></a>
-
-                         <a href="http://admin.mensajerosurbanos.com/recursos/update/{{$ge->id}}" target="_blank"><button class="btn btn-success" data-toggle="tooltip" title="Editar"><span class="glyphicon glyphicon-edit"></span> </button></a>
-
                         </td>
                     </tr>
                 </tbody>
