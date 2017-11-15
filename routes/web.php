@@ -19,11 +19,6 @@ Route::get('api/tiempospuntos', function () {
    return json_encode($puntos);
 });
 
-Route::get('/grupo', function () {
-  $grupo = DB::connection('reportesmensajeros')->select('select * from grupoelite_puntos');
-    return $grupo;
-});
-
 //Route::get('api/tiempospuntos/{id}', function ($id) {
   //$puntos = DB::connection('mu_domicilios')->select('select p.nombre as name, p.direccion as address, p.direccion2 as address2, p.zone, p.scheduleLabel, p.lat, p.long, p.schedule, p.cityId, p.empresa_id from puntos p where p.empresa_id = '.$id.'');
    //return json_encode($puntos);
