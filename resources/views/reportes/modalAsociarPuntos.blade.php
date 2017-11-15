@@ -12,22 +12,18 @@
             <div class="modal-body">
                 <table class="table table-hover">
                     <thead>
-                        <th>Id</th>
                         <th>Nombre Grupo</th>
                         <th>Nombre Punto</th>
                     </thead>
                     <input type="hidden" value="{{$var=0}}"/>
-                
                     <tbody>
-                        @foreach ($gruposE as $ge)
-                        <tr>
-                        <td>{{$ge->id}} <input type="hidden" value="{{$ge->id}}" name="idgrupo-{{$ge->id}}"></td>
-                        <td>{{$ge->name}} <input type="hidden" value="{{$ge->name}}" name="nombregrupo-{{$ge->id}}"></td>
-                        <td><input type="text" name="nombrepunto-{{$ge->id}}" class="form-control" placeholder="Nombre del punto "></td>
-                        </tr>
-                        @endforeach
+                        <tr>                
+                        <td><select  class="form-control" name="nombregrupo">
+                            @foreach ($gruposE as $ge)<option value="{{$ge->name}}">{{$ge->id}}.{{$ge->name}}</option>@endforeach
+                        </select></td>
+                        <td><input type="text" name="nombrepunto" class="form-control" placeholder="Nombre del punto" required=""></td>
+                        </tr>                        
                     </tbody>
-                
                 </table>
             </div>
             <div class="modal-footer">
