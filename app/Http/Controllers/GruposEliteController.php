@@ -29,7 +29,7 @@ class GruposEliteController extends Controller
 
             $permisoAsociar = DB::connection('reportesmensajeros')->select('select permisos_id from users_permisos where users_id=' . $user . '');
 
-            $infogroup = DB::connection('reportesmensajeros')->select('select id_grupo, nombre_grupo, nombre_punto from grupoelite_puntos order by nombre_grupo');
+            $infogroup = DB::connection('reportesmensajeros')->select('select id_grupo, nombre_grupo, nombre_punto from grupoelite_puntos');
 
     	return view ('reportes.gruposElite', ["gruposElite" => $gruposElite, "permisoAsociar" => $permisoAsociar, 'gruposE' => $gruposE, 'infogroup' => $infogroup]);
          } else {

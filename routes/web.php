@@ -18,6 +18,7 @@ Route::get('api/tiempospuntos', function () {
   $puntos = DB::connection('mu_domicilios')->select('select p.nombre as name, p.direccion as address, p.direccion2 as address2, p.zone, p.scheduleLabel, p.lat, p.long, p.schedule, p.cityId from puntos p');
    return json_encode($puntos);
 });
+Route::get('/findPuntoName', 'GruposEliteController@findPuntoName');
 
 //Route::get('api/tiempospuntos/{id}', function ($id) {
   //$puntos = DB::connection('mu_domicilios')->select('select p.nombre as name, p.direccion as address, p.direccion2 as address2, p.zone, p.scheduleLabel, p.lat, p.long, p.schedule, p.cityId, p.empresa_id from puntos p where p.empresa_id = '.$id.'');
@@ -87,6 +88,7 @@ Route::post('domicilios/crearUsuario', 'DomiciliosUrbanosController@usersDomicil
 Route::post('domicilios/tiempos', 'DomiciliosUrbanosController@tiempos');
 Route::post('reportes/puntosgrupos', 'GruposEliteController@puntosgrupos');
 Route::post('domicilios/crearPuntos', 'DomiciliosUrbanosController@crearPuntos');
+Route::post('/domicilios/buscarDireccion', 'DomiciliosUrbanosController@buscarDireccion');
 Route::post('/domicilios/buscarDireccion', 'DomiciliosUrbanosController@buscarDireccion');
 Route::post('storage/create', 'StorageController@save');
 

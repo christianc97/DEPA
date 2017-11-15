@@ -68,6 +68,55 @@ class DomiciliosUrbanosController extends Controller {
         $user->update();
         return Redirect()->back();
     }
+    
+    public function usersDomicilios(Request $request) {
+        $username = $request->get("username");
+        $password_hash = Hash::make($request->get("password"));
+        $password = $request->get("password");
+        $empresa_id = $request->get("empresa_id");
+        $mu_ref = $request->get("mu_ref");
+
+        DB::connection('mu_domicilios')->insert("insert into user(username,password_hash,password_reset_token,empresa_id, mu_ref)"
+                . "values ('$username','$password_hash','$password',$empresa_id,$mu_ref)");
+        return redirect()->back();
+    }
+
+    public function buscarDireccion() {
+        $data = Input::get('data1');
+        $client = new Client();
+        $response = $client->post('http://beta.api.mensajerosurbanos.com/address', [
+            'json' => $data
+        ]);
+
+        $contents = (string) $response->getBody();
+
+        return $contents;
+    }
+
+    public function crearPuntos() {
+        $puntos = Input::get('puntos');
+        $objeto = (object) $puntos;
+
+        $nombre = $objeto->nombre;
+        $direccion = $objeto->address;
+        $nombrezona = $objeto->nombrezona;
+        $lat = $objeto->lat;
+        $long = $objeto->long;
+        $empresa_id = $objeto->empresa_id;
+        $user_create = $objeto->user_create;
+        $user_modify = $objeto->user_modify;
+        $ciudad = $objeto->city;
+        $idCity = DB::connection('mensajeros')->select('select id from ciudad where name_geoapps = "'.$ciudad.'" ');
+        $cityId = $idCity[0]->id;
+        $parking = $objeto->parking;
+        
+        if ($objeto->parking=='') {
+            $parking=0;
+        }
+
+        DB::connection('mu_domicilios')->insert("insert into puntos(`nombre`, `direccion`,`zone`, `lat`, `long`, `empresa_id`, `user_create`, `user_modify`, `cityId` , `ciudad`,`parking`)"
+                . "values ('$nombre','$direccion','$nombrezona','$lat','$long',$empresa_id,$user_create,$user_modify,'$cityId','$ciudad',$parking)");
+    }
     public function tiempos(Request $request){
         
         $id= $request->get('id');
@@ -330,53 +379,5 @@ class DomiciliosUrbanosController extends Controller {
         return Redirect()->back();
     }
     
-    public function usersDomicilios(Request $request) {
-        $username = $request->get("username");
-        $password_hash = Hash::make($request->get("password"));
-        $password = $request->get("password");
-        $empresa_id = $request->get("empresa_id");
-        $mu_ref = $request->get("mu_ref");
-
-        DB::connection('mu_domicilios')->insert("insert into user(username,password_hash,password_reset_token,empresa_id, mu_ref)"
-                . "values ('$username','$password_hash','$password',$empresa_id,$mu_ref)");
-        return redirect()->back();
-    }
-
-    public function buscarDireccion() {
-        $data = Input::get('data1');
-        $client = new Client();
-        $response = $client->post('http://beta.api.mensajerosurbanos.com/address', [
-            'json' => $data
-        ]);
-
-        $contents = (string) $response->getBody();
-
-        return $contents;
-    }
-
-    public function crearPuntos() {
-        $puntos = Input::get('puntos');
-        $objeto = (object) $puntos;
-
-        $nombre = $objeto->nombre;
-        $direccion = $objeto->address;
-        $nombrezona = $objeto->nombrezona;
-        $lat = $objeto->lat;
-        $long = $objeto->long;
-        $empresa_id = $objeto->empresa_id;
-        $user_create = $objeto->user_create;
-        $user_modify = $objeto->user_modify;
-        $ciudad = $objeto->city;
-        $idCity = DB::connection('mensajeros')->select('select id from ciudad where name_geoapps = "'.$ciudad.'" ');
-        $cityId = $idCity[0]->id;
-        $parking = $objeto->parking;
-        
-        if ($objeto->parking=='') {
-            $parking=0;
-        }
-
-        DB::connection('mu_domicilios')->insert("insert into puntos(`nombre`, `direccion`,`zone`, `lat`, `long`, `empresa_id`, `user_create`, `user_modify`, `cityId` , `ciudad`,`parking`)"
-                . "values ('$nombre','$direccion','$nombrezona','$lat','$long',$empresa_id,$user_create,$user_modify,'$cityId','$ciudad',$parking)");
-    }
 
 }

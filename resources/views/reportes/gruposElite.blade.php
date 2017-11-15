@@ -7,23 +7,10 @@
     <h3 class="box-title"><i class="fa fa-users" aria-hidden="true"></i> Grupos Elite</h3>
     @foreach ($permisoAsociar as $pa)
         @if ($pa->permisos_id == 28)        
-            <div class="container-fluid pull-right">
-              <div class="row">
 
-                <div class="col-sm-2">
                     <a href="" data-target="#modal-create-{{$pa->permisos_id}}" data-toggle="modal">
                         <button class="btn btn-success pull-right"><i class="fa fa-plus" aria-hidden="true"></i> Asociar Puntos</button>
                     </a>
-                </div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-2">
-                    <a href="" data-target="#modal-view-{{$pa->permisos_id}}" data-toggle="modal">
-                        <button class="btn btn-info pull-right"><i class="fa fa-info-circle" aria-hidden="true"></i> Informacion puntos</button>
-                    </a>
-                </div>
-              </div>
-            </div>
         @endif
     @endforeach
 @endsection
@@ -53,7 +40,7 @@
                 <tbody>
                     <tr>
                         <td>{{++$var}}</td>
-                        <td>{{$ge->name}}</td>
+                        <td><a href="" data-target="#modal-view-{{$ge->id}}" data-toggle="modal">{{$ge->name}}</a></td>
                         <td>{{$ge->tbl_users_id}}</td>
                         <td>{{$ge->nombres}}</td>
                         <td>{{$ge->apellidos}}</td>
