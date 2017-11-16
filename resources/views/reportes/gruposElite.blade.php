@@ -63,14 +63,9 @@ $(document).ready(function(){
 
 $('table[data-form="deleteForm"]').on('click', '.form-delete', function(e){
     e.preventDefault();
-
     var $form = $(this);
-
-
-
     $('#viewmodal').modal({ backdrop: 'static', keyboard: true })
         .on('click', '#btn-primary', function(){
-            alert('alert1   |');
         });
 });
 

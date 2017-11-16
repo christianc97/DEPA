@@ -16,7 +16,6 @@
                     </thead>
                     <input type="hidden" value="{{$var=0}}"/>
                     <tbody id="tabla-puntos">
-                
                     </tbody>
                 </table>
             </div>
