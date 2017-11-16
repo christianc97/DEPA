@@ -18,7 +18,12 @@ Route::get('api/tiempospuntos', function () {
   $puntos = DB::connection('mu_domicilios')->select('select p.nombre as name, p.direccion as address, p.direccion2 as address2, p.zone, p.scheduleLabel, p.lat, p.long, p.schedule, p.cityId from puntos p');
    return json_encode($puntos);
 });
-Route::get('/findPuntoName', 'GruposEliteController@findPuntoName');
+//Route::get('/findPuntoName', 'GruposEliteController@findPuntoName');
+
+Route::get('/puntosAsociados/{id}', function ($id) {
+  $infogroup = DB::connection('reportesmensajeros')->select('select id_grupo, nombre_grupo, nombre_punto from grupoelite_puntos where id_grupo = '.$id);
+    return $infogroup;
+});
 
 //Route::get('api/tiempospuntos/{id}', function ($id) {
   //$puntos = DB::connection('mu_domicilios')->select('select p.nombre as name, p.direccion as address, p.direccion2 as address2, p.zone, p.scheduleLabel, p.lat, p.long, p.schedule, p.cityId, p.empresa_id from puntos p where p.empresa_id = '.$id.'');
