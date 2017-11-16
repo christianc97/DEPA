@@ -36,6 +36,10 @@ class GruposEliteController extends Controller
             return view('home');
         }
     }
+    public function show($id){
+        $gruposinfo = DB::connection('reportesmensajeros')->select('select * from grupoelite_puntos gep where gep.id_grupo = '.$id);
+        return view('reportes.modalEliminarPuntos', ['gruposinfo'=> $gruposinfo]);
+    }
 
     public function puntosgrupos(Request $request){
             
@@ -47,5 +51,14 @@ class GruposEliteController extends Controller
             DB::connection('reportesmensajeros')->insert("insert into grupoelite_puntos(id_grupo, nombre_grupo, nombre_punto, user_id)values ($idgrupo, '$nombregrupo', '$nombrepunto', $iduser)");
             return Redirect()->back();  
     
-}
+    }
+    public function destroy($id_grupo){
+         $id_grupo = DB::connection('reportesmensajeros')->select("select id_grupo from grupoelite_puntos where id_grupo=$id_grupo");
+        foreach ($id_grupo as $f){
+            $ide=$f->id_grupo;
+        }
+        DB::connection('reportesmensajeros')->delete("DELETE FROM grupoelite_puntos WHERE id_grupo= ".$ide);
+        return Redirect()->back();  
+        
+    }
 }

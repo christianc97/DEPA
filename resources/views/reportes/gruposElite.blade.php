@@ -40,7 +40,7 @@
                 <tbody>
                     <tr>
                         <td>{{++$var}}</td>
-                        <td><a href="" data-target="#modal-view-{{$ge->id}}" data-toggle="modal">{{$ge->name}}</a></td>
+                        <td><a href="{{URL::action('GruposEliteController@show',$ge->idGrupo)}}">{{$ge->name}}</a></td>
                         <td>{{$ge->tbl_users_id}}</td>
                         <td>{{$ge->nombres}}</td>
                         <td>{{$ge->apellidos}}</td>
@@ -57,10 +57,6 @@
 </div>
 @foreach ($gruposElite as $ge)
     @include('reportes.modalAsociarPuntos')
-@endforeach
-
-@foreach ($gruposElite as $ge)
- @include('reportes.modalEliminarPuntos')
 @endforeach
 <script>
 $(document).ready(function(){
