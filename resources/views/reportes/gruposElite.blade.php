@@ -40,7 +40,7 @@
                 <tbody>
                     <tr>
                         <td>{{++$var}}</td>
-                        <td><a href="{{URL::action('GruposEliteController@show',$ge->idGrupo)}}">{{$ge->name}}</a></td>
+                        <td>@if($pa->permisos_id == 28) <a href="{{URL::action('GruposEliteController@show',$ge->idGrupo)}}">{{$ge->name}}</a> @else {{$ge->name}}@endif</td>
                         <td>{{$ge->tbl_users_id}}</td>
                         <td>{{$ge->nombres}}</td>
                         <td>{{$ge->apellidos}}</td>
