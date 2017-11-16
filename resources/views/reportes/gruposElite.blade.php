@@ -66,12 +66,30 @@ $('table[data-form="deleteForm"]').on('click', '.form-delete', function(e){
     var $form = $(this);
     $('#viewmodal').modal({ backdrop: 'static', keyboard: true })
         .on('click', '#btn-primary', function(){
+
         });
 });
 
 function obtenerPuntos(idgrupo){
     $.ajax({
       url: "/puntosAsociados/" + idgrupo,
+      context: document.body
+    }).done(function(res) {
+      // Limpiar tabla
+      $('#tabla-puntos').empty();
+      var tr = '<tr>';
+      for(var i = 0; i < res.length; i++){
+        tr += '<td>' + res[i].id_grupo + '</td>';
+        tr += '<td>' + res[i].nombre_grupo + '</td>';
+        tr += '<td>' + res[i].nombre_punto + '</td>';
+      }
+      tr += '</tr>'
+      $('#tabla-puntos').append(tr);
+    });
+}
+function eliminarPuntos(idgrupo){
+    $.ajax({
+      url: "/eliminar/puntosAsociados/" + idgrupo,
       context: document.body
     }).done(function(res) {
       // Limpiar tabla

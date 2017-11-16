@@ -20,7 +20,7 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" id="btn-primary">Asociar</button>
+                <button onclick="eliminarPuntos({{$ge->idGrupo}});" class="btn btn-primary" id="btn-primary">Asociar</button>
                 <button type="button" class="btn btn-danger" data-dismiss=
                 "modal"> Cancelar </button>
             </div>

@@ -55,9 +55,9 @@ class GruposEliteController extends Controller
     public function destroy($id_grupo){
          $id_grupo = DB::connection('reportesmensajeros')->select("select id_grupo from grupoelite_puntos where id_grupo=$id_grupo");
         foreach ($id_grupo as $f){
-            $ide=$f->id_grupo;
+            $idg=$f->id_grupo;
         }
-        DB::connection('reportesmensajeros')->delete("DELETE FROM grupoelite_puntos WHERE id_grupo= ".$ide);
+        DB::connection('reportesmensajeros')->delete("DELETE FROM grupoelite_puntos WHERE id_grupo= ".$idg);
         return Redirect()->back();  
         
     }
