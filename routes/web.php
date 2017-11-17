@@ -10,6 +10,9 @@
   | contains the "web" middleware group. Now create something great!
   |
  */
+  use Illuminate\Support\Facades\Route; 
+
+
 Route::get('/', function () {
     return view('auth/login');
 });
@@ -31,11 +34,16 @@ Route::get('/eliminar/puntosAsociados/{id}', function ($id) {
 });
 
 Route::get('/api/serviciosvistos/{id}', function ($id) {
-
+  if (Auth::guest()) {
+    return 'Login Into';  
+  }
+  else{
     $vistos = DB::connection('mensajeros')->select('select d.id_resource, r.nombre, d.datacreate, d.round from dispacher_process_task d 
-  left join recursos r on r.tbl_users_id = d.id_resource
-  where d.id_status = 2 and  d.task_id = '.$id);
+                                                    left join recursos r on r.tbl_users_id = d.id_resource
+                                                    where d.id_status = 2 and  d.task_id = '.$id);
     return $vistos;
+  }
+    
 });
 
 //Route::get('api/tiempospuntos/{id}', function ($id) {
