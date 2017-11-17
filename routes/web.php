@@ -34,17 +34,14 @@ Route::get('/eliminar/puntosAsociados/{id}', function ($id) {
 });
 
 Route::get('/api/serviciosvistos/{id}', function ($id) {
-  if (Auth::guest()) {
-    return 'Login Into';  
-  }
-  else{
+  
     $vistos = DB::connection('mensajeros')->select('select d.id_resource, r.nombre, d.datacreate, d.round from dispacher_process_task d 
                                                     left join recursos r on r.tbl_users_id = d.id_resource
                                                     where d.id_status = 2 and  d.task_id = '.$id);
     return $vistos;
-  }
+  
     
-});
+})->middleware('auth.basic');
 
 //Route::get('api/tiempospuntos/{id}', function ($id) {
   //$puntos = DB::connection('mu_domicilios')->select('select p.nombre as name, p.direccion as address, p.direccion2 as address2, p.zone, p.scheduleLabel, p.lat, p.long, p.schedule, p.cityId, p.empresa_id from puntos p where p.empresa_id = '.$id.'');
