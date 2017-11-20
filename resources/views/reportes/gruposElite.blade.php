@@ -82,26 +82,24 @@ function obtenerPuntos(idgrupo){
         tr += '<td>' + res[i].id_grupo + '</td>';
         tr += '<td>' + res[i].nombre_grupo + '</td>';
         tr += '<td>' + res[i].nombre_punto + '</td>';
+        <?php if ($pa->permisos_id == 28): ?>
+          tr += '<td><button onclick="eliminarPuntos(' + res[i].id_grupo + ')" class="btn btn-danger">Eliminar</button></td>';
+        <?php else: ?>
+          tr += '<td></td>';
+        <?php endif ?>
       }
       tr += '</tr>'
       $('#tabla-puntos').append(tr);
     });
 }
 function eliminarPuntos(idgrupo){
+  console.log(idgrupo);
     $.ajax({
       url: "/eliminar/puntosAsociados/" + idgrupo,
       context: document.body
     }).done(function(res) {
       // Limpiar tabla
       $('#tabla-puntos').empty();
-      var tr = '<tr>';
-      for(var i = 0; i < res.length; i++){
-        tr += '<td>' + res[i].id_grupo + '</td>';
-        tr += '<td>' + res[i].nombre_grupo + '</td>';
-        tr += '<td>' + res[i].nombre_punto + '</td>';
-      }
-      tr += '</tr>'
-      $('#tabla-puntos').append(tr);
     });
 }
 </script>
