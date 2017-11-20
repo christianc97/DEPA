@@ -13,6 +13,7 @@
                         <th>Id Grupo</th>
                         <th>Nombre Grupo</th>
                         <th>Nombre Punto</th>
+                        <th></th>
                     </thead>
                     <input type="hidden" value="{{$var=0}}"/>
                     <tbody id="tabla-puntos">

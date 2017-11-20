@@ -36,12 +36,12 @@ Route::get('/eliminar/puntosAsociados/{id}', function ($id) {
 Route::get('/api/serviciosvistos/{id}', function ($id) {
   
     $vistos = DB::connection('mensajeros')->select('select d.id_resource, r.nombre, d.datacreate, d.round from dispacher_process_task d 
-                                                    left join recursos r on r.tbl_users_id = d.id_resource
-                                                    where d.id_status = 2 and  d.task_id = '.$id);
+      left join recursos r on r.tbl_users_id = d.id_resource
+      where d.id_status = 2 and  d.task_id = '.$id);
     return $vistos;
   
     
-})->middleware('auth.basic.once');
+})
 
 Route::get('/api/user', function () {
     // Only authenticated users may enter...
