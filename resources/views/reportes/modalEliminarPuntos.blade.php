@@ -20,7 +20,7 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <button onclick="eliminarPuntos({{$ge->idGrupo}});" class="btn btn-danger" id="btn-danger">Eliminar</button>
+                @if($pa->permisos_id == 28)<button onclick="eliminarPuntos({{$ge->idGrupo}});" class="btn btn-danger" id="btn-danger">Eliminar</button>@endif
                 <button type="button" class="btn btn-primary" data-dismiss=
                 "modal"> Cancelar </button>
             </div>

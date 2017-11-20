@@ -35,7 +35,7 @@
                 <tbody>
                     <tr>
                         <td>{{++$var}}</td>
-                        <td onclick="obtenerPuntos({{$ge->idGrupo}});">@if($pa->permisos_id == 28) <a href="#modal-view" class="form-delete">{{$ge->name}}</a> @else {{$ge->name}}@endif</td>
+                        <td onclick="obtenerPuntos({{$ge->idGrupo}});"> <a href="#modal-view" class="form-delete">{{$ge->name}}</a></td>
                         <td>{{$ge->tbl_users_id}}</td>
                         <td>{{$ge->nombres}}</td>
                         <td>{{$ge->apellidos}}</td>
