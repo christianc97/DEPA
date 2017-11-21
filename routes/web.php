@@ -41,11 +41,8 @@ Route::get('/api/serviciosvistos/{id}', function ($id) {
     return $vistos;
   
     
-})
+});
 
-Route::get('/api/user', function () {
-    // Only authenticated users may enter...
-})->middleware('auth.basic.once');
 
 //Route::get('api/tiempospuntos/{id}', function ($id) {
   //$puntos = DB::connection('mu_domicilios')->select('select p.nombre as name, p.direccion as address, p.direccion2 as address2, p.zone, p.scheduleLabel, p.lat, p.long, p.schedule, p.cityId, p.empresa_id from puntos p where p.empresa_id = '.$id.'');
