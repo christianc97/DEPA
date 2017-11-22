@@ -42,7 +42,7 @@ Route::get('/api/serviciosvistos/{id}', function ($id) {
 });
 
 
-Route::get('api/tiempospuntos1/{id}', function ($id) {
+Route::get('api/tiempospuntos/{id}', function ($id) {
   $puntos = DB::connection('mu_domicilios')->select('select p.nombre as name, p.direccion as address, p.direccion2 as address2, p.zone, p.scheduleLabel,  p.lat, p.long, p.schedule, p.cityId, p.empresa_id from puntos p where p.empresa_id in (select e.id from empresa e where e.mu_ref = '.$id.' )');
 
   foreach ($puntos as $punto) {
