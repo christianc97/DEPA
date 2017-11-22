@@ -17,7 +17,7 @@ class AuthenticateOnceWithBasicAuth
      */
     
     
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, $next)
     {
        return Auth::onceBasic() ?: $next($request);
        
