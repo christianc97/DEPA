@@ -47,6 +47,7 @@ Route::get('api/tiempospuntos/{id}', function ($id) {
 
   foreach ($puntos as $punto) {
     $punto->latLon = array($punto->long, $punto->lat);
+    $punto->schedule = explode(',', $punto->schedule);
   }
 
    return json_encode($puntos);
