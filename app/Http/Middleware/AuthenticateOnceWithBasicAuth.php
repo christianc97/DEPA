@@ -15,8 +15,15 @@ class AuthenticateOnceWithBasicAuth
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function __construct(AuthFactory $auth)
     {
-       return Auth::onceBasic() ?: $next($request);
+        $this->auth = $auth;
+    }
+    
+    public function handle($request, Closure $next, $guard = null)
+    {
+       //return Auth::onceBasic($guard) ?: $next($request);
+       return $this->auth->guard($guard)->onceBasic() ?: $next($request);
     }
 }
+
