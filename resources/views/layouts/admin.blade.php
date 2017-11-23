@@ -166,6 +166,9 @@
                          @if(! empty($p->permisos_id == 27))
                         <li id='domiciliosPuntos'><a href="{{asset('/reportes/comercialAsignado')}}"><i class="fa fa-long-arrow-right"></i>Comercial Asignado</a></li>
                         @endif
+                        @if(! empty($p->permisos_id == 29))
+                        <li id='domiciliosPuntos'><a href="{{asset('/reportes/ServiciosVistos')}}"><i class="fa fa-long-arrow-right"></i>Servicios Vistos</a></li>
+                        @endif
                         @endforeach
                         
                          @foreach(Permisos() as $p)
