@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('titulo')
-	<h4><i class="fa fa-list" aria-hidden="true"></i> Servicios Vistos</h4>
+	<h4><i class="fa fa-list" aria-hidden="true"></i> Servicios que se han entregado a los mensajeros</h4>
 @endsection
 @section('content')
 <div class="container-fluid">
@@ -21,8 +21,9 @@
 	<div class="table-responsive">
 		<table class="table table-hover">
 			<thead>
-				<th>Id Recurso</th>
+				<th>Id Mensajero</th>
 				<th>Nombre Mensajero</th>
+				<th>Fecha creacion</th>
 				<th>Round</th>
 			</thead>
 			<tbody id="tabla-puntos">
@@ -39,24 +40,30 @@
       url: "/api/serviciosvistos/" + id,
       context: document.body,
       beforeSend: function() {
-	    $('#wait').text('Espere un momento por favor...');
+	    $('#wait').text('Espera un momento por favor...');
 	  },
 	  success: function(html) {
 	    $('#wait').html(html);
 	  }
     }).done(function(res) {
       // Limpiar tabla
-      $('#tabla-puntos').empty();
+      if (res.length > 1) {
+      	$('#tabla-puntos').empty();
       var tr = '<tr>';
       for(var i = 0; i < res.length; i++){
       	
         tr += '<td>' + res[i].id_resource + '</td>';
         tr += '<td>' + res[i].nombre + '</td>';
+        tr += '<td>' + res[i].datacreate + '</td>';
         tr += '<td>' + res[i].round + '</td>';
         tr += '</tr>'
       }
-      
       $('#tabla-puntos').append(tr);
+      } else {
+      	document.getElementById("wait").innerHTML = "<div class='alert alert-info alert-dismissable fade in'><a href='#' class='close alert-link' data-dismiss='alert' aria-label='close'>&times;</a><strong>Informacion!</strong> No hay datos relacionados a este servicio</div>";
+      }
+
+      
     });
 	}
 </script>
