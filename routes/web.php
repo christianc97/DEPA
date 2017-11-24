@@ -24,7 +24,7 @@ Route::get('/api/serviciosvistos/{id}', function ($id) {
   
     $vistos = DB::connection('mensajeros')->select('select d.id_resource, r.nombre, d.datacreate, d.round from dispacher_process_task d 
       left join recursos r on r.tbl_users_id = d.id_resource
-      where d.id_status = 2 and  d.task_id = '.$id);
+      where d.id_status = 2 and  d.task_id = '.$id.' order by d.round asc');
     return $vistos;
         
 })->Middleware('auth.basic.once');
