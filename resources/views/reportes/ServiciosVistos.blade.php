@@ -60,6 +60,7 @@
       }
       $('#tabla-puntos').append(tr);
       } else {
+      	$('#tabla-puntos').empty();
       	document.getElementById("wait").innerHTML = "<div class='alert alert-info alert-dismissable fade in'><a href='#' class='close alert-link' data-dismiss='alert' aria-label='close'>&times;</a><strong>Informacion!</strong> No hay datos relacionados a este servicio</div>";
       }
 
