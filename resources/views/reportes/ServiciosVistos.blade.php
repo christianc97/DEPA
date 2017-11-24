@@ -26,7 +26,7 @@
 				<th>Round</th>
 			</thead>
 			<tbody id="tabla-puntos">
-				
+				<div id="wait"></div>
 			</tbody>
 		</table>
 	</div>
@@ -38,6 +38,12 @@
 		$.ajax({
       url: "/api/serviciosvistos/" + id,
       context: document.body,
+      beforeSend: function() {
+	    $('#wait').text('Espere un momento por favor...');
+	  },
+	  success: function(html) {
+	    $('#wait').html(html);
+	  }
     }).done(function(res) {
       // Limpiar tabla
       $('#tabla-puntos').empty();
