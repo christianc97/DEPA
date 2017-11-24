@@ -11,12 +11,12 @@ Route::get('api/tiempospuntos', function () {
 //Route::get('/findPuntoName', 'GruposEliteController@findPuntoName');
 
 Route::get('/puntosAsociados/{id}', function ($id) {
-  $infogroup = DB::connection('reportesmensajeros')->select('select id_grupo, nombre_grupo, nombre_punto from grupoelite_puntos where id_grupo = '.$id);
+  $infogroup = DB::connection('reportesmensajeros')->select('select id, id_grupo, nombre_grupo, nombre_punto from grupoelite_puntos where id_grupo = '.$id);
     return $infogroup;
 });
 Route::get('/eliminar/puntosAsociados/{id}', function ($id) {
 
-    DB::connection('reportesmensajeros')->delete("DELETE FROM grupoelite_puntos WHERE id_grupo= ".$id);
+    DB::connection('reportesmensajeros')->delete("DELETE FROM grupoelite_puntos WHERE id = ".$id);
   
 });
 //servicios vistos... añadir auth

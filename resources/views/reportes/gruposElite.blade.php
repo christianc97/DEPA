@@ -79,16 +79,18 @@ function obtenerPuntos(idgrupo){
       $('#tabla-puntos').empty();
       var tr = '<tr>';
       for(var i = 0; i < res.length; i++){
+       tr += '<td>' + res[i].id + '</td>';
         tr += '<td>' + res[i].id_grupo + '</td>';
         tr += '<td>' + res[i].nombre_grupo + '</td>';
         tr += '<td>' + res[i].nombre_punto + '</td>';
         <?php if ($pa->permisos_id == 28): ?>
-          tr += '<td><button onclick="eliminarPuntos(' + res[i].id_grupo + ')" class="btn btn-danger">Eliminar</button></td>';
+          tr += '<td><button onclick="eliminarPuntos(' + res[i].id + ')" class="btn btn-danger">Eliminar</button></td>';
         <?php else: ?>
           tr += '<td></td>';
         <?php endif ?>
+        tr += '</tr>'
       }
-      tr += '</tr>'
+      
       $('#tabla-puntos').append(tr);
     });
 }
