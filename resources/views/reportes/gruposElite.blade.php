@@ -10,6 +10,7 @@
                 <button class="btn btn-success pull-right"><i class="fa fa-plus" aria-hidden="true"></i> Asociar Puntos</button>
             </a>
         @endif
+        @include('reportes.modalAsociarPuntos')
     @endforeach
 @endsection
 @section('content')
@@ -50,9 +51,6 @@
         </div>
     </div>
 </div>
-@foreach ($gruposElite as $ge)
-    @include('reportes.modalAsociarPuntos')
-@endforeach
 @foreach ($gruposElite as $ge)
     @include('reportes.modalEliminarPuntos')
 @endforeach
