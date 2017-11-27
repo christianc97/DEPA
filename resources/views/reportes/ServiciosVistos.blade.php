@@ -53,7 +53,7 @@
       for(var i = 0; i < res.length; i++){
       	
         tr += '<td>' + res[i].id_resource + '</td>';
-        tr += '<td>' + res[i].nombre + '</td>';
+        tr += '<td><a href="http://admin.mensajerosurbanos.com/recursos/' + res[i].id_resource + '" target="_blank">' + res[i].nombre + '</a></td>';
         tr += '<td>' + res[i].datacreate + '</td>';
         tr += '<td>' + res[i].round + '</td>';
         tr += '</tr>'
