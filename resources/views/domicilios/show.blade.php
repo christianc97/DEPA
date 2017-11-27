@@ -209,7 +209,7 @@ and open the template in the editor.
                         <td>{{$pd->direccion}}</td>
                         <td>{{$pd->ciudad}}</td>
                         <td>{{$pd->parking}}</td>
-                        <td><a href="" data-target="#modal-view-{{$pd->id}}" data-toggle="modal"><button class="btn btn-primary"><span class="glyphicon glyphicon-time"></span></button></a></td>
+                        <td><a href="" data-target="#modal-view-{{$pd->id}}" data-toggle="modal"><button class="btn btn-primary" onclick="obtenerTiemposPuntos({{$pd->id}})"><span class="glyphicon glyphicon-time"></span></button></a></td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -374,16 +374,23 @@ and open the template in the editor.
                         comprueba = document.getElementById("desaparece").style.display;
                         if (comprueba == 'none')
                             document.getElementById("desaparece").style.display = "block";
-                        else
-                            document.getElementById("desaparece").style.display = "none";
+                       
                     }
                     function cierra() {
                         comprueba = document.getElementById("desaparece").style.display;
                         if (comprueba == 'block')
                             document.getElementById("desaparece").style.display = "none";
-                        else
-                            document.getElementById("desaparece").style.display = "block";
+                        
                     }
+function obtenerTiemposPuntos(id){
+    $.ajax({
+      url: "/api/consulta/tiempospuntos/" + id,
+      context: document.body
+    }).done(function(res) {
+      
+      }
+    });
+}
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDONz_SC-y9biqWqhtxpLvzmChJnDobm5E&callback=initMap">
