@@ -197,6 +197,7 @@ and open the template in the editor.
                 <th>Id</th>
                 <th>Nombre punto</th>
                 <th>Direccion</th>
+                <th>Tiempos</th>
                 <th>Ciudad</th>
                 <th>Parking</th>
                 <th>Tiempos</th>
@@ -207,6 +208,7 @@ and open the template in the editor.
                         <td>{{$pd->id}}</td>
                         <td>{{$pd->nombre}}</td>
                         <td>{{$pd->direccion}}</td>
+                        <td>@if ($pd->schedule == "")<a href="" data-target="#modal-view-{{$pd->id}}" data-toggle="modal" style="text-decoration: none;"><p class="text text-danger">No hay tiempos registrados</p></a> @else {{$pd->schedule}} @endif</td>
                         <td>{{$pd->ciudad}}</td>
                         <td>{{$pd->parking}}</td>
                         <td><a href="" data-target="#modal-view-{{$pd->id}}" data-toggle="modal"><button class="btn btn-primary" onclick="obtenerTiemposPuntos({{$pd->id}})"><span class="glyphicon glyphicon-time"></span></button></a></td>
@@ -222,12 +224,7 @@ and open the template in the editor.
      @include('domicilios.ModalView')
     @endforeach
 @endsection
-<script>
-    function deshabilitarInputs(dia, value, id){
-        document.getElementById(dia + "1-" + id).disabled = value;
-        document.getElementById(dia + "2-" + id).disabled = value;
-    }
-</script>
+
 <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 <script>
