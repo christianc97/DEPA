@@ -382,15 +382,7 @@ and open the template in the editor.
                             document.getElementById("desaparece").style.display = "none";
                         
                     }
-function obtenerTiemposPuntos(id){
-    $.ajax({
-      url: "/api/consulta/tiempospuntos/" + id,
-      context: document.body
-    }).done(function(res) {
-      
-      }
-    });
-}
+
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDONz_SC-y9biqWqhtxpLvzmChJnDobm5E&callback=initMap">
