@@ -192,7 +192,7 @@ and open the template in the editor.
     <div class="col-lg-10 col-md-6 col-sm-6 col-xs-12">
         <div class="table-responsive">
             <h3 class="box-title">Puntos en domicilios</h3>
-            <table id="tablausuarios" class="table table-condensed table-hover display">
+            <table id="tablausuarios" class="table table-hover">
                 <thead>
                 <th>Id</th>
                 <th>Nombre punto</th>
@@ -206,14 +206,14 @@ and open the template in the editor.
                     @foreach($puntos_domicilios as $pd)
                     <tr>
                         <td>{{$pd->id}}</td>
-                        <td>{{$pd->nombre}}</td>
+                        <td><a href="" data-target="#modal-edit-{{$pd->id}}" data-toggle="modal" title="Editar Nombre" style="color: #333; text-decoration: none;">{{$pd->nombre}} <span class="glyphicon glyphicon-pencil"></span> </a></td>
                         <td>{{$pd->direccion}}</td>
                         <td>
                             @if ($pd->scheduleLabel == "")<a href="" data-target="#modal-view-{{$pd->id}}" data-toggle="modal" style="text-decoration: none;"><p class="text text-danger">No hay tiempos registrados</p></a> @else {{$pd->scheduleLabel}} @endif
                         </td>
                         <td>{{$pd->ciudad}}</td>
                         <td>{{$pd->parking}}</td>
-                        <td><a href="" data-target="#modal-view-{{$pd->id}}" data-toggle="modal"><button class="btn btn-primary" onclick="obtenerTiemposPuntos({{$pd->id}})"><span class="glyphicon glyphicon-time"></span></button></a></td>
+                        <td><a href="" data-target="#modal-view-{{$pd->id}}" data-toggle="modal"><button class="btn btn-primary"><span class="glyphicon glyphicon-time"></span></button></a></td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -224,9 +224,14 @@ and open the template in the editor.
 </div>
     @foreach($puntos_domicilios as $pd)
      @include('domicilios.ModalView')
+     @include('domicilios.ModalEditNombrePuntos')
     @endforeach
 @endsection
-
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
 <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 <script>

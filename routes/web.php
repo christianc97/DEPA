@@ -110,6 +110,7 @@ Route::post('equipos/show', 'EquiposController@agregarDescripcion');
 Route::post('puntosdomicilios/mapa', 'MapaPuntosDomiciliosController@clientes');
 Route::post('domicilios/crearUsuario', 'DomiciliosUrbanosController@usersDomicilios');
 Route::post('domicilios/tiempos', 'DomiciliosUrbanosController@tiempos');
+Route::post('domicilios/editNombrePunto', 'DomiciliosUrbanosController@editNombrePunto');
 Route::post('reportes/puntosgrupos', 'GruposEliteController@puntosgrupos');
 Route::post('domicilios/crearPuntos', 'DomiciliosUrbanosController@crearPuntos');
 Route::post('/domicilios/buscarDireccion', 'DomiciliosUrbanosController@buscarDireccion');

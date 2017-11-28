@@ -162,6 +162,14 @@ class DomiciliosUrbanosController extends Controller {
         DB::connection('mu_domicilios')->update('update puntos p set scheduleLabel = "'.$scheduleLabel.'" where p.id = '.$id);
         return Redirect()->back();
     }
-    
+    public function editNombrePunto(Request $request){
+
+        $id = $request->get('id');
+        $nuevo_punto = $request->get('nuevopunto');
+
+        $edit_punto = DB::connection('mu_domicilios')->update('update puntos p set nombre =  "'.$nuevo_punto.'" where p.id = '.$id);
+        
+        return Redirect()->back();
+    }
 
 }
