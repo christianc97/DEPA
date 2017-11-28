@@ -208,7 +208,9 @@ and open the template in the editor.
                         <td>{{$pd->id}}</td>
                         <td>{{$pd->nombre}}</td>
                         <td>{{$pd->direccion}}</td>
-                        <td>@if ($pd->scheduleLabel == "")<a href="" data-target="#modal-view-{{$pd->id}}" data-toggle="modal" style="text-decoration: none;"><p class="text text-danger">No hay tiempos registrados</p></a> @else {{$pd->scheduleLabel}} @endif</td>
+                        <td>
+                            @if ($pd->scheduleLabel == "")<a href="" data-target="#modal-view-{{$pd->id}}" data-toggle="modal" style="text-decoration: none;"><p class="text text-danger">No hay tiempos registrados</p></a> @else {{$pd->scheduleLabel}} @endif
+                        </td>
                         <td>{{$pd->ciudad}}</td>
                         <td>{{$pd->parking}}</td>
                         <td><a href="" data-target="#modal-view-{{$pd->id}}" data-toggle="modal"><button class="btn btn-primary" onclick="obtenerTiemposPuntos({{$pd->id}})"><span class="glyphicon glyphicon-time"></span></button></a></td>

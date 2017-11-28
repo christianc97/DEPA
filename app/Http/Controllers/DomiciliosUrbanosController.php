@@ -147,20 +147,19 @@ class DomiciliosUrbanosController extends Controller {
 
         //tiempos puntos
         $schedule_tiempos = "'$lunes1-$lunes2,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
-        
-        DB::connection('mu_domicilios')->update('update puntos p set schedule = '.$schedule_tiempos.' where p.id = '.$id.'');
+
+        DB::connection('mu_domicilios')->update('update puntos p set schedule = '.$schedule_tiempos.' where p.id = '.$id);
 
         //label de tiempos
-        if (($lunes1 && $lunes2 && $martes1 && $martes2 && $miercoles1 && $miercoles2 && $jueves1 && $jueves2 && $viernes1 && $viernes2 && $sabado1 && $sabado2 && $domingo1 && $domingo2 && $festivos1 && $festivos2)== '0') {
+        if (($lunes1 && $lunes2) == '0' && ($martes1 && $martes2) == '0' && ($miercoles1 && $miercoles2) == '0' && ($jueves1 && $jueves2) == '0' && ($viernes1 && $viernes2) == '0' && ($sabado1 && $sabado2) == '0' && ($domingo1 && $domingo2) == '0' && ($festivos1 && $festivos2) == '0' ) {
             $scheduleLabel = "24 horas";
         }
         else{
 
-            $scheduleLabel = "'Lunes de $lunes1 a $lunes2,' 'Martes de $martes1 a $martes2,' 'Miercoles de $miercoles1 a $miercoles2,' 'Jueves de $jueves1 a $jueves2,' 'Viernes de $viernes1 a $viernes2,' 'Sabados de $sabado1 a $sabado2,' 'Domingos de $domingo1 a $domingo2,' 'Festivos de $festivos1 a $festivos2'";
+            $scheduleLabel = "Lunes de $lunes1 a.m a $lunes2 p.m, Martes de $martes1 a.m a $martes2 p.m, Miercoles de $miercoles1 a.m a $miercoles2 p.m, Jueves de $jueves1 a.m a $jueves2 p.m, Viernes de $viernes1 a.m a $viernes2 p.m, Sabados de $sabado1 a.m a $sabado2 p.m, Domingos de $domingo1 a.m a $domingo2 p.m, Festivos de $festivos1 a.m a $festivos2 p.m";
         }
-        
-        DB::connection('mu_domicilios')->update('update puntos p set scheduleLabel = "'.$scheduleLabel.'" where p.id = '.$id.'');
 
+        DB::connection('mu_domicilios')->update('update puntos p set scheduleLabel = "'.$scheduleLabel.'" where p.id = '.$id);
         return Redirect()->back();
     }
     
