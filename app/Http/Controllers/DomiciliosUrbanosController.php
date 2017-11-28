@@ -57,7 +57,7 @@ class DomiciliosUrbanosController extends Controller {
         $mu_ref = $empresa->mu_ref;
         $users_empresa = DB::select("select u.id, u.email from tbl_users u where u.empresas_id = $mu_ref");
         $users_domicilios = DB::connection('mu_domicilios')->select("select u.id,u.username,u.password_hash,u.password_reset_token,u.mu_ref from user u where empresa_id=$id");
-        $puntos_domicilios = DB::connection('mu_domicilios')->select("select p.id, p.nombre, p.direccion, p.schedule, p.cityId, p.ciudad,p.parking from puntos p where empresa_id=$id order by id asc");
+        $puntos_domicilios = DB::connection('mu_domicilios')->select("select p.id, p.nombre, p.direccion, p.schedule, p.scheduleLabel, p.cityId, p.ciudad,p.parking from puntos p where empresa_id=$id order by id asc");
 
         return view("domicilios.show", ["empresa" => $empresa, "users_empresa" => $users_empresa, "users_domicilios" => $users_domicilios, "puntos_domicilios"=>$puntos_domicilios]);
     }
@@ -118,9 +118,9 @@ class DomiciliosUrbanosController extends Controller {
                 . "values ('$nombre','$direccion','$nombrezona','$lat','$long',$empresa_id,$user_create,$user_modify,'$cityId','$ciudad',$parking)");
     }
     public function tiempos(Request $request){
-        
+        //id que se envia desde el ModalView de tiempos puntos
         $id= $request->get('id');
-        
+        //tomar datos de los campos
         $lunes1 = $request->get('lunes1');
         $lunes2 = $request->get('lunes2');
         
@@ -145,10 +145,22 @@ class DomiciliosUrbanosController extends Controller {
         $festivos1 = $request->get('festivos1');
         $festivos2 = $request->get('festivos2');
 
-        $tiempos = "'$lunes1-$lunes2,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
-    
+        //tiempos puntos
+        $schedule_tiempos = "'$lunes1-$lunes2,' '$martes1-$martes2,' '$miercoles1-$miercoles2,' '$jueves1-$jueves2,' '$viernes1-$viernes2,' '$sabado1-$sabado2,' '$domingo1-$domingo2,' '$festivos1-$festivos2'"; 
         
-        DB::connection('mu_domicilios')->update('update puntos p set schedule = '.$tiempos.' where p.id = '.$id.'');
+        DB::connection('mu_domicilios')->update('update puntos p set schedule = '.$schedule_tiempos.' where p.id = '.$id.'');
+
+        //label de tiempos
+        if (($lunes1 && $lunes2 && $martes1 && $martes2 && $miercoles1 && $miercoles2 && $jueves1 && $jueves2 && $viernes1 && $viernes2 && $sabado1 && $sabado2 && $domingo1 && $domingo2 && $festivos1 && $festivos2)== '0') {
+            $scheduleLabel = "24 horas";
+        }
+        else{
+
+            $scheduleLabel = "'Lunes de $lunes1 a $lunes2,' 'Martes de $martes1 a $martes2,' 'Miercoles de $miercoles1 a $miercoles2,' 'Jueves de $jueves1 a $jueves2,' 'Viernes de $viernes1 a $viernes2,' 'Sabados de $sabado1 a $sabado2,' 'Domingos de $domingo1 a $domingo2,' 'Festivos de $festivos1 a $festivos2'";
+        }
+        
+        DB::connection('mu_domicilios')->update('update puntos p set scheduleLabel = "'.$scheduleLabel.'" where p.id = '.$id.'');
+
         return Redirect()->back();
     }
     
