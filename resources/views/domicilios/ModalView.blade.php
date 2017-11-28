@@ -48,7 +48,7 @@
                 </tr>
                 <tr id="schedule">
                     <td>Lunes</td>
-                    <td><input type="number" style="width: 90px" required="" title="valor entre 0 y 24" id="" class="form-control" name="lunes1" min="0" max="24" step="any" autofocus=""></td>
+                    <td><input type="number" style="width: 90px" required="" title="valor entre 0 y 24" id="" class="form-control" name="lunes1" min="0" max="24" step="any"></td>
                     <td><input type="number" style="width: 90px" required="" title="valor entre 0 y 24" id="" class="form-control" name="lunes2" min="0" max="24" step="any"></td>
                 </tr>
                 <tr>
@@ -92,8 +92,8 @@
             </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger " data-dismiss="modal">Cerrar</button>
-          <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="button" class="btn btn-danger " data-dismiss="modal">Cerrar</button>
         </div>        
         {!! Form::close() !!}
       </div>

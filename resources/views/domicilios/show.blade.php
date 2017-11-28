@@ -192,10 +192,10 @@ and open the template in the editor.
     <div class="col-lg-10 col-md-6 col-sm-6 col-xs-12">
         <div class="table-responsive">
             <h3 class="box-title">Puntos en domicilios</h3>
-            <table id="tablausuarios" class="table table-hover">
+            <table id="tablausuarios" class="table table-hover table-bordered">
                 <thead>
                 <th>Id</th>
-                <th>Nombre punto</th>
+                <th style="width: 200px">Nombre punto</th>
                 <th>Direccion</th>
                 <th>Horarios</th>
                 <th>Ciudad</th>
