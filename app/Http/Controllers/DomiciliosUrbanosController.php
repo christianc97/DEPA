@@ -156,54 +156,324 @@ class DomiciliosUrbanosController extends Controller {
         }
         //de domingo a domingo
         elseif (($lunes1) == ($festivos1) && ($lunes2) == ($festivos2)) {
+            //8 pm
             if ($lunes2 == 20.25) {
                 $festivos2 = '8:15';
             }
             elseif ($lunes2 == 20.5) {
                 $festivos2 = '8:30';
             }
-            else{
+            elseif ($lunes2 == 20) {
+                
                 $festivos2 = '8';
+            }
+            //6 pm
+            elseif ($lunes2 == 18.25) {
+                $festivos2 = '6:15';
+            }
+            elseif ($lunes2 == 18.5) {
+                $festivos2 = '6:30';
+            }
+            elseif ($lunes2 == 18) {
+                $festivos2 = '6';
+            }
+            //7 pm
+            elseif ($lunes2 == 19.25) {
+                $festivos2 = '7:15';
+            }
+            elseif ($lunes2 == 19.5) {
+                $festivos2 = '7:30';
+            }
+            elseif ($lunes2 == 19) {
+                $festivos2 = '7';
+            }
+            //9 pm
+            elseif ($lunes2 == 21.25) {
+                $festivos2 = '9:15';
+            }
+            elseif ($lunes2 == 21.5) {
+                $festivos2 = '9:30';
+            }
+            elseif ($lunes2 == 21) {
+                $festivos2 = '9';
+            }
+            //10 pm
+            elseif ($lunes2 == 22.25) {
+                $festivos2 = '10:15';
+            }
+            elseif ($lunes2 == 22.5) {
+                $festivos2 = '10:30';
+            }
+            elseif ($lunes2 == 22) {
+                $festivos2 = '10';
+            }
+            //11 pm
+            elseif ($lunes2 == 23.25) {
+                $festivos2 = '11:15';
+            }
+            elseif ($lunes2 == 23.5) {
+                $festivos2 = '11:30';
+            }
+            elseif ($lunes2 == 23) {
+                $festivos2 = '11';
             }
 
             $scheduleLabel = "Domingo a Domingo $lunes1 a.m a $festivos2 p.m";
         }
         //de lunes a sabado
         elseif (($lunes1) == ($sabado1) && ($lunes2) == ($sabado2)) {
+            //8 pm
             if ($lunes2 == 20.25) {
                 $sabado2 = '8:15';
             }
             elseif ($lunes2 == 20.5) {
                 $sabado2 = '8:30';
             }
-            else{
+            elseif ($lunes2 == 20) {
+                
                 $sabado2 = '8';
             }
+            //6 pm
+            elseif ($lunes2 == 18.25) {
+                $sabado2 = '6:15';
+            }
+            elseif ($lunes2 == 18.5) {
+                $sabado2 = '6:30';
+            }
+            elseif ($lunes2 == 18) {
+                $sabado2 = '6';
+            }
+            //7 pm
+            elseif ($lunes2 == 19.25) {
+                $sabado2 = '7:15';
+            }
+            elseif ($lunes2 == 19.5) {
+                $sabado2 = '7:30';
+            }
+            elseif ($lunes2 == 19) {
+                $sabado2 = '7';
+            }
+            //9 pm
+            elseif ($lunes2 == 21.25) {
+                $sabado2 = '9:15';
+            }
+            elseif ($lunes2 == 21.5) {
+                $sabado2 = '9:30';
+            }
+            elseif ($lunes2 == 21) {
+                $sabado2 = '9';
+            }
+            //10 pm
+            elseif ($lunes2 == 22.25) {
+                $sabado2 = '10:15';
+            }
+            elseif ($lunes2 == 22.5) {
+                $sabado2 = '10:30';
+            }
+            elseif ($lunes2 == 22) {
+                $sabado2 = '10';
+            }
+            //11 pm
+            elseif ($lunes2 == 23.25) {
+                $sabado2 = '11:15';
+            }
+            elseif ($lunes2 == 23.5) {
+                $sabado2 = '11:30';
+            }
+            elseif ($lunes2 == 23) {
+                $sabado2 = '11';
+            }
+            //8 pm festivos
+            if ($festivos2 == 20.25) {
+                $festivos2 = '8:15';
+            }
+            elseif ($festivos2 == 20.5) {
+                $festivos2 = '8:30';
+            }
+            elseif ($festivos2 == 20) {
+                
+                $festivos2 = '8';
+            }
+            //6 pm festivos
+            elseif ($festivos2 == 18.25) {
+                $festivos2 = '6:15';
+            }
+            elseif ($festivos2 == 18.5) {
+                $festivos2 = '6:30';
+            }
+            elseif ($festivos2 == 18) {
+                $festivos2 = '6';
+            }
+            //7 pm festivos
+            elseif ($festivos2 == 19.25) {
+                $festivos2 = '7:15';
+            }
+            elseif ($festivos2 == 19.5) {
+                $festivos2 = '7:30';
+            }
+            elseif ($festivos2 == 19) {
+                $festivos2 = '7';
+            }
+            //9 pm festivos
+            elseif ($festivos2 == 21.25) {
+                $festivos2 = '9:15';
+            }
+            elseif ($festivos2 == 21.5) {
+                $festivos2 = '9:30';
+            }
+            elseif ($festivos2 == 21) {
+                $festivos2 = '9';
+            }
+            //10 pm festivos
+            elseif ($festivos2 == 22.25) {
+                $festivos2 = '10:15';
+            }
+            elseif ($festivos2 == 22.5) {
+                $festivos2 = '10:30';
+            }
+            elseif ($festivos2 == 22) {
+                $festivos2 = '10';
+            }
+            //11 pm festivos
+            elseif ($festivos2 == 23.25) {
+                $festivos2 = '11:15';
+            }
+            elseif ($festivos2 == 23.5) {
+                $festivos2 = '11:30';
+            }
+            elseif ($festivos2 == 23) {
+                $festivos2 = '11';
+            }
+
             $scheduleLabel = "Lunes a Sabado de $lunes1 a.m a $sabado2 p.m, Domingos y Festivos de $domingo1 a.m a $festivos2 p.m";
         }
         // de lunes a viernes
         elseif (($lunes1) == ($viernes1) && ($lunes2) == ($viernes2)) {
+            //8 pm
             if ($lunes2 == 20.25) {
                 $viernes2 = '8:15';
             }
             elseif ($lunes2 == 20.5) {
                 $viernes2 = '8:30';
             }
-            else{
+            elseif ($lunes2 == 20) {
+                
                 $viernes2 = '8';
+            }
+            //6 pm
+            elseif ($lunes2 == 18.25) {
+                $viernes2 = '6:15';
+            }
+            elseif ($lunes2 == 18.5) {
+                $viernes2 = '6:30';
+            }
+            elseif ($lunes2 == 18) {
+                $viernes2 = '6';
+            }
+            //7 pm
+            elseif ($lunes2 == 19.25) {
+                $viernes2 = '7:15';
+            }
+            elseif ($lunes2 == 19.5) {
+                $viernes2 = '7:30';
+            }
+            elseif ($lunes2 == 19) {
+                $viernes2 = '7';
+            }
+            //9 pm
+            elseif ($lunes2 == 21.25) {
+                $viernes2 = '9:15';
+            }
+            elseif ($lunes2 == 21.5) {
+                $viernes2 = '9:30';
+            }
+            elseif ($lunes2 == 21) {
+                $viernes2 = '9';
+            }
+            //10 pm
+            elseif ($lunes2 == 22.25) {
+                $viernes2 = '10:15';
+            }
+            elseif ($lunes2 == 22.5) {
+                $viernes2 = '10:30';
+            }
+            elseif ($lunes2 == 22) {
+                $viernes2 = '10';
+            }
+            //11 pm
+            elseif ($lunes2 == 23.25) {
+                $viernes2 = '11:15';
+            }
+            elseif ($lunes2 == 23.5) {
+                $viernes2 = '11:30';
+            }
+            elseif ($lunes2 == 23) {
+                $viernes2 = '11';
             }
             $scheduleLabel = "Lunes a Viernes de $lunes1 a.m a $viernes2 p.m, Sabados de $sabado1 a.m a $sabado2 p.m, Domingos y Festivos de $domingo1 a.m a $festivos2 p.m";
         }
         // de lunes a jueves
         elseif (($lunes1) == ($jueves1) && ($lunes2) == ($jueves2)) {
+            //8 pm
             if ($lunes2 == 20.25) {
                 $jueves2 = '8:15';
             }
             elseif ($lunes2 == 20.5) {
                 $jueves2 = '8:30';
             }
-            else{
+            elseif ($lunes2 == 20) {
+                
                 $jueves2 = '8';
+            }
+            //6 pm
+            elseif ($lunes2 == 18.25) {
+                $jueves2 = '6:15';
+            }
+            elseif ($lunes2 == 18.5) {
+                $jueves2 = '6:30';
+            }
+            elseif ($lunes2 == 18) {
+                $jueves2 = '6';
+            }
+            //7 pm
+            elseif ($lunes2 == 19.25) {
+                $jueves2 = '7:15';
+            }
+            elseif ($lunes2 == 19.5) {
+                $jueves2 = '7:30';
+            }
+            elseif ($lunes2 == 19) {
+                $jueves2 = '7';
+            }
+            //9 pm
+            elseif ($lunes2 == 21.25) {
+                $jueves2 = '9:15';
+            }
+            elseif ($lunes2 == 21.5) {
+                $jueves2 = '9:30';
+            }
+            elseif ($lunes2 == 21) {
+                $jueves2 = '9';
+            }
+            //10 pm
+            elseif ($lunes2 == 22.25) {
+                $jueves2 = '10:15';
+            }
+            elseif ($lunes2 == 22.5) {
+                $jueves2 = '10:30';
+            }
+            elseif ($lunes2 == 22) {
+                $jueves2 = '10';
+            }
+            //11 pm
+            elseif ($lunes2 == 23.25) {
+                $jueves2 = '11:15';
+            }
+            elseif ($lunes2 == 23.5) {
+                $jueves2 = '11:30';
+            }
+            elseif ($lunes2 == 23) {
+                $jueves2 = '11';
             }
             $scheduleLabel = "Lunes a Jueves de $lunes1 a.m a $jueves2 p.m, Viernes y Sabados de $viernes1 a.m a $sabado2 p.m, Domingos y Festivos de $domingo1 a.m a $festivos2 p.m";
         }

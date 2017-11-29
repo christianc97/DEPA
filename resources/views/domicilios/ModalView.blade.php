@@ -34,7 +34,7 @@
                         &ensp;1. La hora de apertura será 0.
                         <br>
                         &ensp;2. La hora de cierre será 0.
-                        <b><li>30 y 15 minutos</li></b>
+                        <b><li>30 y 15 minutos p.m </li></b>
                         &ensp;1. Los 30 minutos se estableceran con el <b>.5</b> (Ej. 20.5 p.m).
                         <br>
                         &ensp;2. Los 15 minutos se estableceran con el <b>.25</b> (Ej. 20.25 p.m).
