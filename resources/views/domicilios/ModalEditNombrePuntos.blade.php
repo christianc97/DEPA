@@ -18,9 +18,12 @@ and open the template in the editor.
             </div>
             <div class="modal-body">
                 Nuevo Nombre:
-                <input autofocus="" class="form-control" placeholder="Nuevo Nombre" id="nuevopunto" name="nuevopunto" required="">
+                <input class="form-control" placeholder="Nuevo Nombre" id="nuevopunto" name="nuevopunto" required="" value="{{$pd->nombre}}">
+                Nueva Zona <small class="text text-warning">(opcional)</small>:
+                <input class="form-control" placeholder="Nueva Zona (opcional)" id="nuevazona" name="nuevazona" value="{{$pd->zone}}">
                 <br>
-                <p>Nombre de punto actual: <b>{{$pd->nombre}}</b></p>
+                <p>Nombre de Punto actual: <b>{{$pd->nombre}}</b></p>
+                <p>Nombre de Zona actual: @if ($pd->zone == "")<b class="text text-danger">Zona no registrada</b>@else<b>{{$pd->zone}}</b>@endif</p>
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Aceptar</button>

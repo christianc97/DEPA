@@ -57,7 +57,7 @@ class DomiciliosUrbanosController extends Controller {
         $mu_ref = $empresa->mu_ref;
         $users_empresa = DB::select("select u.id, u.email from tbl_users u where u.empresas_id = $mu_ref");
         $users_domicilios = DB::connection('mu_domicilios')->select("select u.id,u.username,u.password_hash,u.password_reset_token,u.mu_ref from user u where empresa_id=$id");
-        $puntos_domicilios = DB::connection('mu_domicilios')->select("select p.id, p.nombre, p.direccion, p.schedule, p.scheduleLabel, p.cityId, p.ciudad,p.parking from puntos p where empresa_id=$id order by id asc");
+        $puntos_domicilios = DB::connection('mu_domicilios')->select("select p.id, p.nombre, p.direccion, p.zone, p.schedule, p.scheduleLabel, p.cityId, p.ciudad,p.parking from puntos p where empresa_id=$id order by id asc");
 
         return view("domicilios.show", ["empresa" => $empresa, "users_empresa" => $users_empresa, "users_domicilios" => $users_domicilios, "puntos_domicilios"=>$puntos_domicilios]);
     }
@@ -158,6 +158,15 @@ class DomiciliosUrbanosController extends Controller {
 
             $scheduleLabel = "Lunes de $lunes1 a.m a $lunes2 p.m, Martes de $martes1 a.m a $martes2 p.m, Miercoles de $miercoles1 a.m a $miercoles2 p.m, Jueves de $jueves1 a.m a $jueves2 p.m, Viernes de $viernes1 a.m a $viernes2 p.m, Sabados de $sabado1 a.m a $sabado2 p.m, Domingos de $domingo1 a.m a $domingo2 p.m, Festivos de $festivos1 a.m a $festivos2 p.m";
         }
+        if (($lunes1 && $lunes2) == '24') {
+
+            $scheduleLabel = "Lunes cerrado, Martes de $martes1 a.m a $martes2 p.m, Miercoles de $miercoles1 a.m a $miercoles2 p.m, Jueves de $jueves1 a.m a $jueves2 p.m, Viernes de $viernes1 a.m a $viernes2 p.m, Sabados de $sabado1 a.m a $sabado2 p.m, Domingos de $domingo1 a.m a $domingo2 p.m, Festivos de $festivos1 a.m a $festivos2 p.m";
+        }
+        elseif (($martes1 && $martes2) == '24') {
+
+            $scheduleLabel = "Lunes de $lunes1 a.m a $lunes2 p.m, Martes cerrado, Miercoles de $miercoles1 a.m a $miercoles2 p.m, Jueves de $jueves1 a.m a $jueves2 p.m, Viernes de $viernes1 a.m a $viernes2 p.m, Sabados de $sabado1 a.m a $sabado2 p.m, Domingos de $domingo1 a.m a $domingo2 p.m, Festivos de $festivos1 a.m a $festivos2 p.m";
+        }
+        
 
         DB::connection('mu_domicilios')->update('update puntos p set scheduleLabel = "'.$scheduleLabel.'" where p.id = '.$id);
         return Redirect()->back();
@@ -166,8 +175,9 @@ class DomiciliosUrbanosController extends Controller {
 
         $id = $request->get('id');
         $nuevo_punto = $request->get('nuevopunto');
+        $nueva_zona = $request->get('nuevazona');
 
-        $edit_punto = DB::connection('mu_domicilios')->update('update puntos p set nombre =  "'.$nuevo_punto.'" where p.id = '.$id);
+        $edit_punto = DB::connection('mu_domicilios')->update('update puntos p set nombre =  "'.$nuevo_punto.'", zone = "'.$nueva_zona.'" where p.id = '.$id);
         
         return Redirect()->back();
     }
