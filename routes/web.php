@@ -39,16 +39,6 @@ Route::get('api/tiempospuntos/{id}', function ($id) {
 
    return json_encode($puntos);
 });
- Route::get('/api/consulta/tiempospuntos/{id}', function($id){
-  $consulta_tiempos_puntos = DB::connection('mu_domicilios')->select('select schedule from puntos where id = '.$id);
-
-  foreach ($consulta_tiempos_puntos as $punto) {
-
-    $punto->schedule = explode(',', $punto->schedule);
-  }
-
-  return json_encode($consulta_tiempos_puntos);
- });
 
 Route::resource('reportes/reportesServiciosFinalizados', 'reporteServiciosFinalizadosController');
 Route::resource('reportes/reportesAdmin', 'reporteAdminController');
@@ -75,6 +65,7 @@ Route::resource('reportes/vistasTask', 'VistasTaskController');
 Route::resource('reportes/GruposElite', 'GruposEliteController');
 Route::resource('reportes/comercialAsignado', 'ComercialAsociadoController');
 Route::resource('reportes/ServiciosEntregados', 'ServiciosVistosController');
+Route::resource('reportes/serviciosSinFinalizar', 'ServiciosSinFinalizarController');
 Route::resource('asignarEquipos', 'asignarEquiposController');
 Route::resource('asignarEquipos/equipos', 'asignarEquiposController');
 Route::resource('equipos', 'EquiposController');

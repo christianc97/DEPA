@@ -17,9 +17,8 @@ class ServiciosVistosController extends Controller
     }
 
     public function index(){
-    	$vistos = 'hello';
-
-    	return view('reportes.ServiciosVistos', ['vistos'=> $vistos]);
+    	
+    	return view('reportes.ServiciosVistos');
     }
     
 }
