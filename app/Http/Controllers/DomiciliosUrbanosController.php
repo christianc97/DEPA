@@ -170,14 +170,41 @@ class DomiciliosUrbanosController extends Controller {
         }
         //de lunes a sabado
         elseif (($lunes1) == ($sabado1) && ($lunes2) == ($sabado2)) {
+            if ($lunes2 == 20.25) {
+                $sabado2 = '8:15';
+            }
+            elseif ($lunes2 == 20.5) {
+                $sabado2 = '8:30';
+            }
+            else{
+                $sabado2 = '8';
+            }
             $scheduleLabel = "Lunes a Sabado de $lunes1 a.m a $sabado2 p.m, Domingos y Festivos de $domingo1 a.m a $festivos2 p.m";
         }
         // de lunes a viernes
         elseif (($lunes1) == ($viernes1) && ($lunes2) == ($viernes2)) {
+            if ($lunes2 == 20.25) {
+                $viernes2 = '8:15';
+            }
+            elseif ($lunes2 == 20.5) {
+                $viernes2 = '8:30';
+            }
+            else{
+                $viernes2 = '8';
+            }
             $scheduleLabel = "Lunes a Viernes de $lunes1 a.m a $viernes2 p.m, Sabados de $sabado1 a.m a $sabado2 p.m, Domingos y Festivos de $domingo1 a.m a $festivos2 p.m";
         }
         // de lunes a jueves
         elseif (($lunes1) == ($jueves1) && ($lunes2) == ($jueves2)) {
+            if ($lunes2 == 20.25) {
+                $jueves2 = '8:15';
+            }
+            elseif ($lunes2 == 20.5) {
+                $jueves2 = '8:30';
+            }
+            else{
+                $jueves2 = '8';
+            }
             $scheduleLabel = "Lunes a Jueves de $lunes1 a.m a $jueves2 p.m, Viernes y Sabados de $viernes1 a.m a $sabado2 p.m, Domingos y Festivos de $domingo1 a.m a $festivos2 p.m";
         }
         else{
