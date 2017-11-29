@@ -156,6 +156,16 @@ class DomiciliosUrbanosController extends Controller {
         }
         //de domingo a domingo
         elseif (($lunes1) == ($festivos1) && ($lunes2) == ($festivos2)) {
+            if ($lunes2 == 20.25) {
+                $festivos2 = '8:15';
+            }
+            elseif ($lunes2 == 20.5) {
+                $festivos2 = '8:30';
+            }
+            else{
+                $festivos2 = '8';
+            }
+
             $scheduleLabel = "Domingo a Domingo $lunes1 a.m a $festivos2 p.m";
         }
         //de lunes a sabado

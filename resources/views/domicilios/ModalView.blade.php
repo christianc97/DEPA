@@ -26,16 +26,18 @@
                     <img src="{{asset('img/picker.png')}}" class="img-responsive" width="250">
                     <dt>2. Uso de las horas </dt>
                       <dd>
-                        <ul>
-                            <b><li>Si el punto está cerrado</li></b>
-                            1. La hora de apertura será 24.
-                            <br>
-                            2. La hora de cierre será 24.
-                            <b><li>Si el punto está abierto todo el dia</li></b>
-                            1. La hora de apertura será 0.
-                            <br>
-                            2. La hora de cierre será 0.
-                        </ul>
+                        <b><li>Si el punto está cerrado</li></b>
+                        &ensp;1. La hora de apertura será 24.
+                        <br>
+                        &ensp;2. La hora de cierre será 24.
+                        <b><li>Si el punto está abierto todo el dia</li></b>
+                        &ensp;1. La hora de apertura será 0.
+                        <br>
+                        &ensp;2. La hora de cierre será 0.
+                        <b><li>30 y 15 minutos</li></b>
+                        &ensp;1. Los 30 minutos se estableceran con el <b>.5</b> (Ej. 20.5 p.m).
+                        <br>
+                        &ensp;2. Los 15 minutos se estableceran con el <b>.25</b> (Ej. 20.25 p.m).
                     </dd>
                     </dl>
                 </div>
