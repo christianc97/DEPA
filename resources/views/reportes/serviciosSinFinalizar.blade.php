@@ -3,10 +3,12 @@
 	<h4><i class="fa fa-calendar-times-o" aria-hidden="true"></i> Servicios sin finalizar</h4>
 @endsection
 @section('content')
-<div class="container-fluid">     
-  <table class="table table-condensed" style="overflow-x: scroll;">
-    <thead>
-				<th>Id</th>
+<div class="row1">
+    <div id="personal_completo" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tabcontent">
+        <div class="table-responsive">
+            <table id="tablausuarios" class="table table-condensed table-hover display">
+                <thead>
+                <th>Id</th>
 				<th>uuid</th>
 				<th>N° Orden</th>
 				<th>Fecha Creacion</th>
@@ -21,10 +23,10 @@
 				<th>Valor Total Servicio</th>
 				<th>Tipo De Pago</th>
 				<th>Ciudad</th>
-
-			</thead>
-    		<tbody >
-				@foreach($servicios_sin_finalizar as $ssf)
+                </thead>
+                <input type="hidden" value="{{$var=0}}"/>
+                <tbody>
+                 @foreach($servicios_sin_finalizar as $ssf)
 				<tr>
 					<td>{{$ssf->id}}</td>
 					<td>{{$ssf->uuid}}</td>					
@@ -43,8 +45,10 @@
 					<td>{{$ssf->ciudad}}</td>	
 				</tr>
 				@endforeach
-			</tbody>
-  </table>
+				</tbody>
+            </table>
+        </div>
+    </div>
 </div>
 @endsection
 
