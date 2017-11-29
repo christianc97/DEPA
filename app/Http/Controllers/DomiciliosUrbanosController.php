@@ -154,19 +154,26 @@ class DomiciliosUrbanosController extends Controller {
         if (($lunes1 && $lunes2) == '0' && ($martes1 && $martes2) == '0' && ($miercoles1 && $miercoles2) == '0' && ($jueves1 && $jueves2) == '0' && ($viernes1 && $viernes2) == '0' && ($sabado1 && $sabado2) == '0' && ($domingo1 && $domingo2) == '0' && ($festivos1 && $festivos2) == '0' ) {
             $scheduleLabel = "24 horas";
         }
+        //de domingo a domingo
+        elseif (($lunes1) == ($festivos1) && ($lunes2) == ($festivos2)) {
+            $scheduleLabel = "Domingo a Domingo $lunes1 a.m a $festivos2 p.m";
+        }
+        //de lunes a sabado
+        elseif (($lunes1) == ($sabado1) && ($lunes2) == ($sabado2)) {
+            $scheduleLabel = "Lunes a Sabado de $lunes1 a.m a $sabado2 p.m, Domingos y Festivos de $domingo1 a.m a $festivos2 p.m";
+        }
+        // de lunes a viernes
+        elseif (($lunes1) == ($viernes1) && ($lunes2) == ($viernes2)) {
+            $scheduleLabel = "Lunes a Viernes de $lunes1 a.m a $viernes2 p.m, Sabados de $sabado1 a.m a $sabado2 p.m, Domingos y Festivos de $domingo1 a.m a $festivos2 p.m";
+        }
+        // de lunes a jueves
+        elseif (($lunes1) == ($jueves1) && ($lunes2) == ($jueves2)) {
+            $scheduleLabel = "Lunes a Jueves de $lunes1 a.m a $jueves2 p.m, Viernes y Sabados de $viernes1 a.m a $sabado2 p.m, Domingos y Festivos de $domingo1 a.m a $festivos2 p.m";
+        }
         else{
 
             $scheduleLabel = "Lunes de $lunes1 a.m a $lunes2 p.m, Martes de $martes1 a.m a $martes2 p.m, Miercoles de $miercoles1 a.m a $miercoles2 p.m, Jueves de $jueves1 a.m a $jueves2 p.m, Viernes de $viernes1 a.m a $viernes2 p.m, Sabados de $sabado1 a.m a $sabado2 p.m, Domingos de $domingo1 a.m a $domingo2 p.m, Festivos de $festivos1 a.m a $festivos2 p.m";
         }
-        if (($lunes1 && $lunes2) == '24') {
-
-            $scheduleLabel = "Lunes cerrado, Martes de $martes1 a.m a $martes2 p.m, Miercoles de $miercoles1 a.m a $miercoles2 p.m, Jueves de $jueves1 a.m a $jueves2 p.m, Viernes de $viernes1 a.m a $viernes2 p.m, Sabados de $sabado1 a.m a $sabado2 p.m, Domingos de $domingo1 a.m a $domingo2 p.m, Festivos de $festivos1 a.m a $festivos2 p.m";
-        }
-        elseif (($martes1 && $martes2) == '24') {
-
-            $scheduleLabel = "Lunes de $lunes1 a.m a $lunes2 p.m, Martes cerrado, Miercoles de $miercoles1 a.m a $miercoles2 p.m, Jueves de $jueves1 a.m a $jueves2 p.m, Viernes de $viernes1 a.m a $viernes2 p.m, Sabados de $sabado1 a.m a $sabado2 p.m, Domingos de $domingo1 a.m a $domingo2 p.m, Festivos de $festivos1 a.m a $festivos2 p.m";
-        }
-        
 
         DB::connection('mu_domicilios')->update('update puntos p set scheduleLabel = "'.$scheduleLabel.'" where p.id = '.$id);
         return Redirect()->back();
@@ -183,3 +190,4 @@ class DomiciliosUrbanosController extends Controller {
     }
 
 }
+;
