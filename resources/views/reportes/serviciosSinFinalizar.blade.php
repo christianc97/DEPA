@@ -6,7 +6,7 @@
 <div class="row1">
     <div id="personal_completo" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tabcontent">
         <div class="table-responsive">
-            <table id="tablausuarios" class="table table-condensed table-hover display">
+            <table id="tablausuarios" class="table table-condensed table-hover display table-bordered">
                 <thead>
                 <th>Id</th>
 				<th>uuid</th>
