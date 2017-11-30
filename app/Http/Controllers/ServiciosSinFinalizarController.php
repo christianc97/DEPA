@@ -17,7 +17,7 @@ class ServiciosSinFinalizarController extends Controller
     }
 
     public function index(){
-    	$servicios_sin_finalizar = DB::select('SELECT t.id,
+    	$servicios_sin_finalizar = DB::connection('mensajeros')->select('SELECT t.id,
                                                 t.uuid,
                                                 (SELECT tp.order_id FROM task_places tp WHERE task_id = t.id AND tipo_task_places = 1 LIMIT 1) AS num_orden,
                                                      t.date_created,
