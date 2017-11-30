@@ -191,7 +191,7 @@ and open the template in the editor.
     </div>
     <div class="col-lg-10 col-md-6 col-sm-6 col-xs-12">
         <div class="table-responsive">
-            <h3 class="box-title">Puntos en domicilios</h3>
+            <h3 class="box-title">Puntos en domicilios</h3><p id="msj-delete"></p>
             <table id="tablausuarios" class="table table-hover table-bordered">
                 <thead>
                 <th>Id</th>
@@ -201,6 +201,7 @@ and open the template in the editor.
                 <th>Ciudad</th>
                 <th>Parking</th>
                 <th>Tiempos</th>
+                <th>Accion</th>
                 </thead>
                 <tbody id="tabla-puntos">
                     @foreach($puntos_domicilios as $pd)
@@ -214,13 +215,13 @@ and open the template in the editor.
                         <td>{{$pd->ciudad}}</td>
                         <td>{{$pd->parking}}</td>
                         <td><a href="" data-target="#modal-view-{{$pd->id}}" data-toggle="modal"><button class="btn btn-primary"><span class="glyphicon glyphicon-time"></span></button></a></td>
-                        <td><a href="" onclick="eliminarPuntos({{$pd->id}})"><span class="glyphicon glyphicon-trash"></span></a></td>
+                        <td><button class='btn btn-danger' onclick="eliminarPuntos({{$pd->id}})"><span class="glyphicon glyphicon-trash" title=""></span></button></td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-        <p id="msj-delete"></p>
+        
         <hr/>
     </div>
 </div>
