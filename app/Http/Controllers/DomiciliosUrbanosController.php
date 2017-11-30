@@ -410,8 +410,10 @@ class DomiciliosUrbanosController extends Controller {
             elseif ($domingo2 == 23) {
                 $domingo2 = '11';
             }
-            
-            //debo decir si festivo es = 24 entonces cerrado
+            elseif ($domingo2 == 24) {
+                $domingo1 = 'cerrado';
+                $domingo2 = 'cerrado';
+            }
 
             $scheduleLabel = "Lunes a Sabado de $lunes1 a.m a $sabado2 p.m, Domingos de $domingo1 a $domingo2, y Festivos de $festivos1 a.m a $festivos2 p.m";
         }
@@ -604,6 +606,14 @@ class DomiciliosUrbanosController extends Controller {
             elseif ($sabado2 == 23) {
                 $sabado2 = '11';
             }
+            elseif ($sabado2 == 24) {
+                $sabado1 = 'cerrado';
+                $sabado2 = 'cerrado';
+            }
+            elseif ($sabado2 == 0) {
+                $sabado1 = 'Todo el dia';
+                $sabado2 = 'Todo el dia';
+            }
 
             //noche domingos-------
             //8 pm domingos
@@ -666,6 +676,14 @@ class DomiciliosUrbanosController extends Controller {
             }
             elseif ($domingo2 == 23) {
                 $domingo2 = '11';
+            }
+            elseif ($domingo2 == 24) {
+                $domingo1 = 'cerrado';
+                $domingo2 = 'cerrado';
+            }
+            elseif ($domingo2 == 0) {
+                $domingo1 = 'Todo el dia';
+                $domingo2 = 'Todo el dia';
             }
 
 
@@ -734,7 +752,254 @@ class DomiciliosUrbanosController extends Controller {
             elseif ($lunes2 == 23) {
                 $jueves2 = '11';
             }
-
+            //viernes noche--//viernes 6pm
+            if ($viernes2 == 18) {
+                $viernes2 = '6';
+            }
+            elseif ($viernes2 == 18.5) {
+                $viernes2 = '6:30';
+            }
+            elseif ($viernes2 == 18.25) {
+                $viernes2 = '6:15';
+            }
+            //viernes noche 7 pm
+            elseif ($viernes2 == 19) {
+                $viernes2 = '7';
+            }
+            elseif ($viernes2 == 19.5) {
+                $viernes2 = '7:30';
+            }
+            elseif ($viernes2 == 19.25) {
+                $viernes2 = '7:15';
+            }
+            //viernes 8 pm noche
+            elseif ($viernes2 == 20) {
+                $viernes2 = '8';
+            }
+            elseif ($viernes2 == 20.5) {
+                $viernes2 = '8:30';
+            }
+            elseif ($viernes2 == 20.25) {
+                $viernes2 = '8:15';
+            }
+            //viernes 9 pm noche
+            elseif ($viernes2 == 21) {
+                $viernes2 = '9';
+            }
+            elseif ($viernes2 == 21.5 ) {
+                $viernes2 = '9:30';
+            }
+            elseif ($viernes2 == 21.25) {
+                $viernes2 ='9:15';
+            }
+            //viernes 10 pm noche
+            elseif ($viernes2 == 22) {
+                $viernes2 = '10';
+            }
+            elseif ($viernes2 == 22.5) {
+                $viernes2 = '10:30';
+            }
+            elseif ($viernes2 == 22.25)  {
+                $viernes2 = '10:15';
+            }
+            //viernes 11 pm noche
+            elseif ($viernes2 == 23) {
+                $viernes2 = '11';
+            }
+            elseif ($viernes2 == 23.5) {
+                $viernes2 = '11:30';
+            }
+            elseif ($viernes2 == 23.25)  {
+                $viernes2 = '11:15';
+            }
+            //sabado noche-------------------
+            //sabado 6pm
+            if ($sabado2 == 18) {
+                $sabado2 = '6';
+            }
+            elseif ($sabado2 == 18.5) {
+                $sabado2 = '6:30';
+            }
+            elseif ($sabado2 == 18.25) {
+                $sabado2 = '6:15';
+            }
+            //viernes noche 7 pm
+            elseif ($sabado2 == 19) {
+                $sabado2 = '7';
+            }
+            elseif ($sabado2 == 19.5) {
+                $sabado2 = '7:30';
+            }
+            elseif ($sabado2 == 19.25) {
+                $sabado2 = '7:15';
+            }
+            //viernes 8 pm noche
+            elseif ($sabado2 == 20) {
+                $sabado2 = '8';
+            }
+            elseif ($sabado2 == 20.5) {
+                $sabado2 = '8:30';
+            }
+            elseif ($sabado2 == 8.25) {
+                $sabado2 = '8:15';
+            }
+            //viernes 9 pm noche
+            elseif ($sabado2 == 21) {
+                $sabado2 = '9';
+            }
+            elseif ($sabado2 == 21.5 ) {
+                $sabado2 = '9:30';
+            }
+            elseif ($sabado2 == 21.25) {
+                $sabado2 ='9:15';
+            }
+            //viernes 10 pm noche
+            elseif ($sabado2 == 22) {
+                $sabado2 = '10';
+            }
+            elseif ($sabado2 == 22.5) {
+                $sabado2 = '10:30';
+            }
+            elseif ($sabado2 == 22.25)  {
+                $sabado2 = '10:15';
+            }
+            //viernes 11 pm noche
+            elseif ($sabado2 == 23) {
+                $sabado2 = '10';
+            }
+            elseif ($sabado2 == 23.5) {
+                $sabado2 = '10:30';
+            }
+            elseif ($sabado2 == 23.25)  {
+                $sabado2 = '10:15';
+            }
+            //----------------------------
+            //domingo noche--
+            //viernes 6pm
+            if ($domingo2 == 18) {
+                $domingo2 = '6';
+            }
+            elseif ($domingo2 == 18.5) {
+                $domingo2 = '6:30';
+            }
+            elseif ($domingo2 == 18.25) {
+                $domingo2 = '6:15';
+            }
+            //viernes noche 7 pm
+            elseif ($domingo2 == 19) {
+                $domingo2 = '7';
+            }
+            elseif ($domingo2 == 19.5) {
+                $domingo2 = '7:30';
+            }
+            elseif ($domingo2 == 19.25) {
+                $domingo2 = '7:15';
+            }
+            //viernes 8 pm noche
+            elseif ($domingo2 == 20) {
+                $domingo2 = '8';
+            }
+            elseif ($domingo2 == 20.5) {
+                $domingo2 = '8:30';
+            }
+            elseif ($domingo2 == 8.25) {
+                $domingo2 = '8:15';
+            }
+            //viernes 9 pm noche
+            elseif ($domingo2 == 21) {
+                $domingo2 = '9';
+            }
+            elseif ($domingo2 == 21.5 ) {
+                $domingo2 = '9:30';
+            }
+            elseif ($domingo2 == 21.25) {
+                $domingo2 ='9:15';
+            }
+            //viernes 10 pm noche
+            elseif ($domingo2 == 22) {
+                $domingo2 = '10';
+            }
+            elseif ($domingo2 == 22.5) {
+                $domingo2 = '10:30';
+            }
+            elseif ($domingo2 == 22.25)  {
+                $domingo2 = '10:15';
+            }
+            //viernes 11 pm noche
+            elseif ($domingo2 == 23) {
+                $domingo2 = '10';
+            }
+            elseif ($domingo2 == 23.5) {
+                $domingo2 = '10:30';
+            }
+            elseif ($domingo2 == 23.25)  {
+                $domingo2 = '10:15';
+            }
+            //---------------------------------
+            //viernes noche--//viernes 6pm
+            if ($festivos2 == 18) {
+                $festivos2 = '6';
+            }
+            elseif ($festivos2 == 18.5) {
+                $festivos2 = '6:30';
+            }
+            elseif ($festivos2 == 18.25) {
+                $festivos2 = '6:15';
+            }
+            //viernes noche 7 pm
+            elseif ($festivos2 == 19) {
+                $festivos2 = '7';
+            }
+            elseif ($festivos2 == 19.5) {
+                $festivos2 = '7:30';
+            }
+            elseif ($festivos2 == 19.25) {
+                $festivos2 = '7:15';
+            }
+            //viernes 8 pm noche
+            elseif ($festivos2 == 20) {
+                $festivos2 = '8';
+            }
+            elseif ($festivos2 == 20.5) {
+                $festivos2 = '8:30';
+            }
+            elseif ($festivos2 == 8.25) {
+                $festivos2 = '8:15';
+            }
+            //viernes 9 pm noche
+            elseif ($festivos2 == 21) {
+                $festivos2 = '9';
+            }
+            elseif ($festivos2 == 21.5 ) {
+                $festivos2 = '9:30';
+            }
+            elseif ($festivos2 == 21.25) {
+                $festivos2 ='9:15';
+            }
+            //viernes 10 pm noche
+            elseif ($festivos2 == 22) {
+                $festivos2 = '10';
+            }
+            elseif ($festivos2 == 22.5) {
+                $festivos2 = '10:30';
+            }
+            elseif ($festivos2 == 22.25)  {
+                $festivos2 = '10:15';
+            }
+            //viernes 11 pm noche
+            elseif ($festivos2 == 23) {
+                $festivos2 = '10';
+            }
+            elseif ($festivos2 == 23.5) {
+                $festivos2 = '10:30';
+            }
+            elseif ($festivos2 == 23.25)  {
+                $festivos2 = '10:15';
+            }
+            elseif ($festivos2 == 24) {
+                $festivos1 = 'cerrado';
+                $festivos2 = 'cerrado';
+            }
             $scheduleLabel = "Lunes a Jueves de $lunes1 a.m a $jueves2 p.m, Viernes de $viernes1 a.m a $viernes2 p.m, Sabados de $sabado1 a.m a $sabado2 p.m, Domingos de $domingo1 a.m a $domingo2 p.m, Festivos de $festivos1 a.m a $festivos2 p.m";
         }
         else{
