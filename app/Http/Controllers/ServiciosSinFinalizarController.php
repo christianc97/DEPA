@@ -52,7 +52,7 @@ class ServiciosSinFinalizarController extends Controller
                                         where t.estado in (1,2,3,4) 
                                         group by t.estado;');
     	
-    	return view('reportes.serviciosSinFinalizar', ["servicios_sin_finalizar" => $servicios_sin_finalizar], ["type_task_status" => $type_task_status]);
+    	return view('reportes.serviciosSinFinalizar', ["servicios_sin_finalizar" => $servicios_sin_finalizar]);
     }
     
 }
