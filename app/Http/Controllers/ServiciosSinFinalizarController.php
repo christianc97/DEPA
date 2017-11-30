@@ -17,7 +17,7 @@ class ServiciosSinFinalizarController extends Controller
     }
 
     public function index(){
-    	$servicios_sin_finalizar = DB::connection('mensajeros')->select('SELECT t.id,
+    	$servicios_sin_finalizar = DB::select('SELECT t.id,
                                                 t.uuid,
                                                 (SELECT tp.order_id FROM task_places tp WHERE task_id = t.id AND tipo_task_places = 1 LIMIT 1) AS num_orden,
                                                      t.date_created,
@@ -32,7 +32,6 @@ class ServiciosSinFinalizarController extends Controller
                                                      t.valor_total,
                                                      pa.nombre AS tipo_de_pago,
                                                 c.nombre AS ciudad
-
                                             FROM
                                                 task t
                                             INNER JOIN tbl_users sol ON sol.id = t.solicitante
@@ -46,11 +45,6 @@ class ServiciosSinFinalizarController extends Controller
                                             WHERE  
                                             t.estado in (1,2,3,4)
                                             order by t.fecha_inicio;');
-
-        $type_task_status = DB::connection('mensajeros')->select('select ts.nombre estado, count(t.id) cantidad  from task t 
-                                        LEFT JOIN type_task_status ts ON ts.id = t.estado
-                                        where t.estado in (1,2,3,4) 
-                                        group by t.estado;');
     	
     	return view('reportes.serviciosSinFinalizar', ["servicios_sin_finalizar" => $servicios_sin_finalizar]);
     }
