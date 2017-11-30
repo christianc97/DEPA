@@ -202,7 +202,7 @@ and open the template in the editor.
                 <th>Parking</th>
                 <th>Tiempos</th>
                 </thead>
-                <tbody>
+                <tbody id="tabla-puntos">
                     @foreach($puntos_domicilios as $pd)
                     <tr>
                         <td>{{$pd->id}}</td>
@@ -214,11 +214,13 @@ and open the template in the editor.
                         <td>{{$pd->ciudad}}</td>
                         <td>{{$pd->parking}}</td>
                         <td><a href="" data-target="#modal-view-{{$pd->id}}" data-toggle="modal"><button class="btn btn-primary"><span class="glyphicon glyphicon-time"></span></button></a></td>
+                        <td><a href="" onclick="eliminarPuntos({{$pd->id}})"><span class="glyphicon glyphicon-trash"></span></a></td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
+        <p id="msj-delete"></p>
         <hr/>
     </div>
 </div>
@@ -231,6 +233,17 @@ and open the template in the editor.
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
 });
+function eliminarPuntos(id){
+  
+    $.ajax({
+      url: "/eliminar/puntosdomicilios/" + id,
+      context: document.body
+    }).done(function(res) {
+      // Limpiar tabla
+      var msj = $( "<strong class='text text-danger'>Eliminando.....</strong>" );
+      $('#msj-delete').append(msj);
+    });
+}
 </script>
 <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>

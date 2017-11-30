@@ -40,6 +40,12 @@ Route::get('api/tiempospuntos/{id}', function ($id) {
    return json_encode($puntos);
 });
 
+Route::get('/eliminar/puntosdomicilios/{id}', function ($id) {
+
+    DB::connection('mu_domicilios')->delete("DELETE FROM puntos WHERE id = ".$id);
+  
+});
+
 Route::resource('reportes/reportesServiciosFinalizados', 'reporteServiciosFinalizadosController');
 Route::resource('reportes/reportesAdmin', 'reporteAdminController');
 Route::resource('reportes/reportesChia', 'ServActivChiaController');
