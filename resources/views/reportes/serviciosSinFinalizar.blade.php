@@ -6,7 +6,7 @@
 <div class="container-fluid">
 	<table class="table table-bordered display">
 		<thead>
-			<th>Estado:/th>
+			<th>Estado:</th>
 			@foreach($type_task_status as $tts)
 			<th >{{$tts->estado}}</th>
 			@endforeach
