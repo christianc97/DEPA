@@ -47,7 +47,7 @@ class ServiciosSinFinalizarController extends Controller
                                             t.estado in (1,2,3,4)
                                             order by t.fecha_inicio;');
 
-        $type_task_status = DB::select('select ts.nombre estado, count(t.id) cantidad  from task t 
+        $type_task_status = DB::connection('mensajeros')->select('select ts.nombre estado, count(t.id) cantidad  from task t 
                                         LEFT JOIN type_task_status ts ON ts.id = t.estado
                                         where t.estado in (1,2,3,4) 
                                         group by t.estado;');
