@@ -14,16 +14,22 @@ and open the template in the editor.
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">x</span>
                 </button>
-                <h4 class="modal-title">Editar Nombre Punto:<b> {{$pd->nombre}}</b> </h4>
+                <h4 class="modal-title">Editar Informacion Punto:<b> {{$pd->nombre}}</b> </h4>
             </div>
             <div class="modal-body">
-                Nuevo Nombre:
+                Nuevo Nombre: <small class="text text-danger">*</small>
                 <input class="form-control" placeholder="Nuevo Nombre" id="nuevopunto" name="nuevopunto" required="" value="{{$pd->nombre}}">
                 Nueva Zona <small class="text text-warning">(opcional)</small>:
                 <input class="form-control" placeholder="Nueva Zona (opcional)" id="nuevazona" name="nuevazona" value="{{$pd->zone}}">
+                Nueva direccion: <small class="text text-danger">*</small>
+                <input class="form-control" placeholder="Nueva direccion" id="nuevazona" name="nuevadireccion" value="{{$pd->direccion}}">
+                Nuevo valor de parking: <small class="text text-warning">(opcional)</small>
+                <input class="form-control" placeholder="Nueva Zona (opcional)" id="nuevazona" name="nuevoparking" value="{{$pd->parking}}">
                 <br>
-                <p>Nombre de Punto actual: <b>{{$pd->nombre}}</b></p>
-                <p>Nombre de Zona actual: @if ($pd->zone == "")<b class="text text-danger">Zona no registrada</b>@else<b>{{$pd->zone}}</b>@endif</p>
+                <p>Punto actual: <b>{{$pd->nombre}}</b></p>
+                <p>Zona actual: @if ($pd->zone == "")<b class="text text-danger">Zona no registrada</b>@else<b>{{$pd->zone}}</b>@endif</p>
+                <p>Punto direccion: <b>{{$pd->direccion}}</b></p>
+                <p>Parking Actual: @if ($pd->parking == "0")<b class="text text-danger">Parking sin valor</b>@else<b>{{$pd->parking}}</b>@endif</p>
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Aceptar</button>

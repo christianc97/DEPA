@@ -1096,8 +1096,10 @@ class DomiciliosUrbanosController extends Controller {
         $id = $request->get('id');
         $nuevo_punto = $request->get('nuevopunto');
         $nueva_zona = $request->get('nuevazona');
+        $nueva_direccion = $request->get('nuevadireccion');
+        $nuevo_parking = $request->get('nuevoparking');
 
-        $edit_punto = DB::connection('mu_domicilios')->update('update puntos p set nombre =  "'.$nuevo_punto.'", zone = "'.$nueva_zona.'" where p.id = '.$id);
+        $edit_punto = DB::connection('mu_domicilios')->update('update puntos p set nombre =  "'.$nuevo_punto.'", zone = "'.$nueva_zona.'", direccion = "'.$nueva_direccion.'", direccion2 = "'.$nueva_direccion.'", parking = "'.$nuevo_parking.'" where p.id = '.$id);
         
         return Redirect()->back();
     }
