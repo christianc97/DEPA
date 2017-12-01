@@ -243,6 +243,7 @@ function eliminarPuntos(id){
       // Limpiar tabla
       var msj = $( "<strong class='text text-danger'>Eliminando.....</strong>" );
       $('#msj-delete').append(msj);
+      location.reload();
     });
 }
 </script>

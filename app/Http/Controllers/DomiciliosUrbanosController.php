@@ -99,6 +99,7 @@ class DomiciliosUrbanosController extends Controller {
 
         $nombre = $objeto->nombre;
         $direccion = $objeto->address;
+        $direccion2 = $objeto->address;
         $nombrezona = $objeto->nombrezona;
         $lat = $objeto->lat;
         $long = $objeto->long;
@@ -114,8 +115,8 @@ class DomiciliosUrbanosController extends Controller {
             $parking=0;
         }
 
-        DB::connection('mu_domicilios')->insert("insert into puntos(`nombre`, `direccion`,`zone`, `lat`, `long`, `empresa_id`, `user_create`, `user_modify`, `cityId` , `ciudad`,`parking`)"
-                . "values ('$nombre','$direccion','$nombrezona','$lat','$long',$empresa_id,$user_create,$user_modify,'$cityId','$ciudad',$parking)");
+        DB::connection('mu_domicilios')->insert("insert into puntos(`nombre`, `direccion`, `direccion2`,`zone`, `lat`, `long`, `empresa_id`, `user_create`, `user_modify`, `cityId` , `ciudad`,`parking`)"
+                . "values ('$nombre','$direccion','$direccion2','$nombrezona','$lat','$long',$empresa_id,$user_create,$user_modify,'$cityId','$ciudad',$parking)");
     }
     public function tiempos(Request $request){
         //id que se envia desde el ModalView de tiempos puntos
