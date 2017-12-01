@@ -51,12 +51,12 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-10 col-md-offset-6">
-         <img src="{{ asset('img/Mensajero-de-pie.png') }}" width="20%" class="img-resposive" 
-                  srcset="{{ asset('img/Mensajero-de-pie.png') }} 2x, 
-             {{ asset('img/Mensajero-de-pie.png') }} 768w, 
-             {{ asset('img/Mensajero-de-pie.png') }} 768w 2x, 
-             {{ asset('img/Mensajero-de-pie.png') }} 1200w, 
-             {{ asset('img/Mensajero-de-pie.png') }} 1200w 2x">
+         <img src="{{ asset('img/santa-mu.png') }}" width="40%" class="img-resposive" 
+                  srcset="{{ asset('img/santa-mu.png') }} 2x, 
+             {{ asset('img/santa-mu.png') }} 768w, 
+             {{ asset('img/santa-mu.png') }} 768w 2x, 
+             {{ asset('img/santa-mu.png') }} 1200w, 
+             {{ asset('img/santa-mu.png') }} 1200w 2x">
         </div>
     </div>
 </div>

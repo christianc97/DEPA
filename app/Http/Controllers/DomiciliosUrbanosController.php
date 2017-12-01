@@ -294,6 +294,36 @@ class DomiciliosUrbanosController extends Controller {
                 
                 $festivos2 = '8';
             }
+            //3 pm domingos y festivos
+            elseif ($festivos2 == 15.25) {
+                $festivos2 = '3:15';
+            }
+            elseif ($festivos2 == 15.5) {
+                $festivos2 = '3:30';
+            }
+            elseif ($festivos2 == 15) {
+                $festivos2 = '3';
+            }
+            //4 pm domingos y festivos
+            elseif ($festivos2 == 16.25) {
+                $festivos2 = '4:15';
+            }
+            elseif ($festivos2 == 16.5) {
+                $festivos2 = '4:30';
+            }
+            elseif ($festivos2 == 16) {
+                $festivos2 = '4';
+            }
+            //5 pm domingos y festivos
+            elseif ($festivos2 == 17.25) {
+                $festivos2 = '5:15';
+            }
+            elseif ($festivos2 == 17.5) {
+                $festivos2 = '5:30';
+            }
+            elseif ($festivos2 == 17) {
+                $festivos2 = '5';
+            }
             //6 pm domingos y festivos
             elseif ($festivos2 == 18.25) {
                 $festivos2 = '6:15';
@@ -360,6 +390,36 @@ class DomiciliosUrbanosController extends Controller {
                 
                 $domingo2 = '8';
             }
+            //3 pm domingos y festivos
+            elseif ($domingo2 == 15.25) {
+                $domingo2 = '3:15';
+            }
+            elseif ($domingo2 == 15.5) {
+                $domingo2 = '3:30';
+            }
+            elseif ($domingo2 == 15) {
+                $domingo2 = '3';
+            }
+            //4 pm domingos y festivos
+            elseif ($domingo2 == 16.25) {
+                $domingo2 = '4:15';
+            }
+            elseif ($domingo2 == 16.5) {
+                $domingo2 = '4:30';
+            }
+            elseif ($domingo2 == 16) {
+                $domingo2 = '4';
+            }
+            //5 pm domingos y festivos
+            elseif ($domingo2 == 17.25) {
+                $domingo2 = '5:15';
+            }
+            elseif ($domingo2 == 17.5) {
+                $domingo2 = '5:30';
+            }
+            elseif ($domingo2 == 17) {
+                $domingo2 = '5';
+            }
             //6 pm domingos y festivos
             elseif ($domingo2 == 18.25) {
                 $domingo2 = '6:15';
@@ -415,7 +475,7 @@ class DomiciliosUrbanosController extends Controller {
                 $domingo2 = 'cerrado';
             }
 
-            $scheduleLabel = "Lunes a Sabado de $lunes1 a.m a $sabado2 p.m, Domingos de $domingo1 a $domingo2, y Festivos de $festivos1 a.m a $festivos2 p.m";
+            $scheduleLabel = "Lunes a Sabado de $lunes1 a.m a $sabado2 p.m, Domingos de $domingo1 a.m a $domingo2 p.m, y Festivos de $festivos1 a.m a $festivos2 p.m";
         }
         // de lunes a viernes
         elseif (($lunes1) == ($viernes1) && ($lunes2) == ($viernes2)) {
@@ -626,6 +686,16 @@ class DomiciliosUrbanosController extends Controller {
             elseif ($domingo2 == 20) {
                 
                 $domingo2 = '8';
+            }
+            //5 pm domingos y festivos
+            elseif ($domingo2 == 17.25) {
+                $domingo2 = '5:15';
+            }
+            elseif ($domingo2 == 17.5) {
+                $domingo2 = '5:30';
+            }
+            elseif ($domingo2 == 17) {
+                $domingo2 = '5';
             }
             //6 pm domingos y festivos
             elseif ($domingo2 == 18.25) {
@@ -875,6 +945,16 @@ class DomiciliosUrbanosController extends Controller {
             }
             //----------------------------
             //domingo noche--
+            //viernes 6pm
+            if ($domingo2 == 17) {
+                $domingo2 = '5';
+            }
+            elseif ($domingo2 == 17.5) {
+                $domingo2 = '5:30';
+            }
+            elseif ($domingo2 == 17.25) {
+                $domingo2 = '5:15';
+            }
             //viernes 6pm
             if ($domingo2 == 18) {
                 $domingo2 = '6';
