@@ -6,7 +6,9 @@ and open the template in the editor.
 -->
 @extends('layouts.admin')
 @section('titulo')
-<h3 class="box-title">Permisos del usuario</h3>
+<h3 class="box-title">
+    Permisos del usuario <b>{{$usuario->nombre1}} {{$usuario->apellido1}}</b>
+</h3>
 @endsection
 
 @section('content')

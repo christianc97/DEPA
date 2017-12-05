@@ -7,49 +7,36 @@ and open the template in the editor.
 
 @extends('layouts.admin')
 @section('titulo')
-<h3 class="box-title">Personal</h3>
+<h3 class="box-title">Permisos asignados a los usuarios</h3>
 @endsection
 
 @section('content')
-<div class="row1">
-</div>
-<div class="row1">
-    <div id="personal_activo" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tabcontent">
-        <div class="table-responsive">
-            <table id="tablausuarios" class="table table-bordered">
-                <thead>
-                <th >Nombres</th>
-                <th>permiso</th>
-                <th>permiso</th>
-                <th>permiso</th>
-                <th>permiso</th>
-                <th>permiso</th>
-                <th>permiso</th>
-                <th>permiso</th>
-                <th>permiso</th>
-                </thead>
-                @foreach ($permisos as $u)
-                <tbody>
-                    <tr>
-                        <td width="50">{{$u->nombre1}} {{$u->nombre2}} {{$u->apellido1}} {{$u->apellido2}}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        
-                          </td>
-                    </tr>
-                </tbody>
-                 @endforeach
-            </table>
-        </div>
+    <div class="container-fluid">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th class="col-sm-2">Nombres</th>
+                    <th>Permisos</th>
+                </tr>
+            </thead>
+            <input type="hidden" value="{{$var=0}}"/>
+            @foreach($permisos as $p)
+            <tbody>
+                <tr>
+                    <td>{{++$var}}</td>
+                    <td><a href="{{URL::action('UserController@edit',$p->id)}}" target="_blank">{{$p->nombre}} {{$p->apellido}}</a></td>
+                    <td>
+                        @if(empty($p->permisos))
+                            <a href="{{URL::action('PermisosController@edit',$p->id)}}" target="_blank"><l class="text text-danger">Usuario sin permisos</l></a>
+                        @endif
+                        <a href="{{URL::action('PermisosController@edit',$p->id)}}" target="_blank" style="text-decoration: none; color: black">{{$p->permisos}}</a>
+                    </td>
+                </tr>
+            </tbody>
+            @endforeach
+        </table>
     </div>
-</div>
-
 @endsection
 <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
 

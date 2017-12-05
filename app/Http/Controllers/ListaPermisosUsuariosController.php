@@ -21,12 +21,13 @@ class ListaPermisosUsuariosController extends Controller
     public function index(){
 
     	$permisos = DB::connection('reportesmensajeros')
-            ->select('select u.id,u.cedula, u.nombre1, u.nombre2, u.apellido1, u.apellido2, u.area, u.cargo, u.sucursal, u.genero, u.celular, u.correo_corporativo, u.fecha_ingreso, u.fecha_finalizacion_contrato,GROUP_CONCAT(e.id_equipos) as id_equipos, GROUP_CONCAT(e.codigo) as codigo from users u
-            left join users_equipos ue on u.id= ue.users_id
-            left join equipos e on ue.equipos_id= e.id_equipos
-            where u.activo=1 and ue.fecha_desasignacion is null
+            ->select('select u.id, u.nombre1 as nombre,  u.apellido1 as apellido,  GROUP_CONCAT("\n", e.nombre_permiso) as permisos from users u
+            left join users_permisos ue on u.id= ue.users_id
+            left join permisos e on ue.permisos_id= e.idPermisos
+            where u.activo=1
             group by u.id
-             order by u.nombre1 asc');
+             order by u.nombre1 asc;');
+            
     	return view('permisos.listaPermisos', ['permisos' => $permisos]) 
     	;
     }
