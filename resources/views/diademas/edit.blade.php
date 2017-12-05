@@ -23,7 +23,7 @@ and open the template in the editor.
         </div>
         @endif
 
-        {!!Form::model($diadema,['method'=>'PATCH','route'=>['diademased.update',$diadema->id_diadema]])!!}
+        {!!Form::model($diadema,['method'=>'PATCH','route'=>['diademasList.update',$diadema->id_diadema]])!!}
         {{Form::token()}}
         <div class='form-group'>
             <label for='codigo_d'>Codigo</label>
@@ -35,7 +35,7 @@ and open the template in the editor.
         </div>
         <div class="form-group">
             <a href=""><button  class="btn btn-primary" type="submit">Guardar</button></a>
-            <a href="{{asset('diademased')}}"><button class="btn btn-danger" type="button">Cancelar</button></a>
+            <a href="{{asset('diademasList')}}"><button class="btn btn-danger" type="button">Cancelar</button></a>
         </div>
         {{Form::close()}}
     </div>

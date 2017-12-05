@@ -158,19 +158,22 @@
                         <li id='equipos'><a href="{{asset('/equipos')}}"><i class="fa fa-long-arrow-right"></i>Equipos</a></li>
                         @endif
                         @if(! empty($p->permisos_id ==24))
-                        <li id='diademas'><a href="{{asset('/diademased')}}"><i class="fa fa-long-arrow-right"></i>Diademas</a></li>
+                        <li id='diademas'><a href="{{asset('/diademasList')}}"><i class="fa fa-long-arrow-right"></i>Diademas</a></li>
                         @endif
                          @if(! empty($p->permisos_id == 26))
-                        <li id='domiciliosPuntos'><a href="{{asset('/reportes/GruposElite')}}"><i class="fa fa-long-arrow-right"></i>Grupos Elite</a></li>
+                        <li id='GruposElite'><a href="{{asset('/reportes/GruposElite')}}"><i class="fa fa-long-arrow-right"></i>Grupos Elite</a></li>
                         @endif
                          @if(! empty($p->permisos_id == 27))
-                        <li id='domiciliosPuntos'><a href="{{asset('/reportes/comercialAsignado')}}"><i class="fa fa-long-arrow-right"></i>Comercial Asignado</a></li>
+                        <li id='comercialAsignado'><a href="{{asset('/reportes/comercialAsignado')}}"><i class="fa fa-long-arrow-right"></i>Comercial Asignado</a></li>
                         @endif
                         @if(! empty($p->permisos_id == 29))
                         <li id='serviciosEntregados'><a href="{{asset('/reportes/ServiciosEntregados')}}"><i class="fa fa-long-arrow-right"></i>Servicios Entregados App</a></li>
                         @endif
                         @if(! empty($p->permisos_id == 30))
                         <li id='serviciosSinFinalizar'><a href="{{asset('/reportes/serviciosSinFinalizar')}}"><i class="fa fa-long-arrow-right"></i>Servicios Sin Finalizar</a></li>
+                        @endif
+                        @if(! empty($p->permisos_id == 31))
+                        <li id='permisos-Asignados'><a href="{{asset('/lista/usuarios-permisos')}}"><i class="fa fa-long-arrow-right"></i>Permisos Asignados</a></li>
                         @endif
                         @endforeach
                         

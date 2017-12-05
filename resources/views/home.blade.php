@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- if para denegar el acceso a quienes ya terminaron contrato -->
 @if (!(empty(Auth::user()->fecha_finalizacion_contrato)))
 
@@ -37,9 +37,9 @@
         <div class="col-md-0 col-lg-0 col-md-offset-2">
           <h1>
             @if (Auth::user()->genero == 'f')
-            Bienvenida <b>{{Auth::user()->nombre1}} {{Auth::user()->apellido1}}</b>
+            Bienvenida <b>{{Auth::user()->nombre1}} {{Auth::user()->apellido1}}</b> <i class="fa fa-snowflake-o" aria-hidden="true" style="font-size:30px"></i>
             @else
-            Bienvenido <b>{{Auth::user()->nombre1}} {{Auth::user()->apellido1}}</b>
+            Bienvenido <b>{{Auth::user()->nombre1}} {{Auth::user()->apellido1}}</b> <i class="fa fa-snowflake-o" aria-hidden="true" style="font-size:30px"></i>
             @endif
           </h1>
           <div class="col-md-0 col-lg-0 col-md-offset-2">

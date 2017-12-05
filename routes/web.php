@@ -82,7 +82,7 @@ Route::resource('domiciliosPuntos', 'DomiciliosPuntosController');
 Route::resource('puntosdomicilios/mapa', 'MapaPuntosDomiciliosController');
 Route::resource('/d', 'DescargarJitsiController');
 /*diademas*/
-Route::resource('diademased', 'DiademasController');
+Route::resource('diademasList', 'DiademasController');
 Route::resource('asignardiademas', 'AsignarDiademasController');
 //Route::resource('asignardiademas/diademasAsignar', 'AsignarDiademasController');
 Route::resource('asignardiademas/diademas', 'AsignarDiademasController');
