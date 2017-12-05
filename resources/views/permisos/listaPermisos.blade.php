@@ -11,8 +11,9 @@ and open the template in the editor.
 @endsection
 
 @section('content')
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <div class="container-fluid">
-        <table class="table table-hover table-bordered">
+        <table class="table table-hover ">
             <thead>
                 <tr>
                     <th>N°</th>
@@ -27,10 +28,10 @@ and open the template in the editor.
                     <td>{{++$var}}</td>
                     <td><a href="{{URL::action('UserController@edit',$p->id)}}" target="_blank">{{$p->nombre}} {{$p->apellido}}</a></td>
                     <td>
-                        @if(empty($p->permisos))
+                        @if($p->permisos == "")
                             <a href="{{URL::action('PermisosController@edit',$p->id)}}" target="_blank"><l class="text text-danger">Usuario sin permisos</l></a>
                         @endif
-                        <a href="{{URL::action('PermisosController@edit',$p->id)}}" target="_blank" style="text-decoration: none; color: black">{{$p->permisos}}</a>
+                        {{$p->permisos}} <a href="{{URL::action('PermisosController@edit',$p->id)}}" target="_blank"><span class="glyphicon glyphicon-pencil"></span></a>
                     </td>
                 </tr>
             </tbody>
