@@ -61,8 +61,16 @@ and open the template in the editor.
         </div>
         <hr/>
     </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <div class="col-lg-10 col-md-6 col-sm-6 col-xs-12">
-        <h3 class="box-title">Crear nuevo usuario <div class="box-tools pull-right">
+        <h3 class="box-title">
+            Crear nuevo usuario
+             @if(session('si_existe'))
+                  <h4><span class="label label-danger">{{session('si_existe')}}</span></h4>
+            @endif
+            <div class="box-tools pull-right">
             <button class="btn btn-box-tool text text-success btn-success" onclick="abre();" ><i class="fa fa-plus" ></i></button>
             <button class="btn btn-box-tool text text-danger" onclick="cierra();"><i class="fa fa-minus"></i></button>
             </div></h3>

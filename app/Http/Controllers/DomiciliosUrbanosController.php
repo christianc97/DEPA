@@ -76,9 +76,18 @@ class DomiciliosUrbanosController extends Controller {
         $empresa_id = $request->get("empresa_id");
         $mu_ref = $request->get("mu_ref");
 
-        DB::connection('mu_domicilios')->insert("insert into user(username,password_hash,password_reset_token,empresa_id, mu_ref)"
-                . "values ('$username','$password_hash','$password',$empresa_id,$mu_ref)");
-        return redirect()->back();
+        $user_validacion = DB::connection('mu_domicilios')->select('select username from user where username = "'.$username.'"');
+        if (count($user_validacion) > 0) {
+
+            return redirect()->back()->with('si_existe', 'Este nombre de usuario ya existe.');
+        }
+        else{
+            
+            DB::connection('mu_domicilios')->insert("insert into user(username,password_hash,password_reset_token,empresa_id, mu_ref)" . "values ('$username','$password_hash','$password',$empresa_id,$mu_ref)");
+            return redirect()->back();
+        }
+
+        
     }
 
     public function buscarDireccion() {

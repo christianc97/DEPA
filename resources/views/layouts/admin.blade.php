@@ -24,7 +24,6 @@
         <div class="wrapper">
 
             <header class="main-header">
-
                 <!-- Logo -->
                 <a href="/home" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -35,7 +34,6 @@
                     <span class="logo-lg"><b>DP </b><h5 class="beta"><b>(beta)</b></h5> </span>
                     @endif
                 </a>
-
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top" role="navigation">
                     <!-- Sidebar toggle button-->
@@ -46,7 +44,6 @@
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <!-- Messages: style can be found in dropdown.less-->
-
                             <!-- User Account: style can be found in dropdown.less -->
                             @if (Auth::guest())
                             @else 
@@ -57,7 +54,6 @@
                                     <i class="fa fa-male" aria-hidden="true"></i> <span class="hidden-xs">{{Auth::user()->nombre1}} {{Auth::user()->apellido1}}</span>
                                 </a>
                             @endif
-                                
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
@@ -65,7 +61,6 @@
                                             perfil
                                         </a>
                                     </li>
-
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
 
@@ -78,17 +73,11 @@
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                                         </div>
                                     </li>
-
-
                                 </ul>
                             </li>
                             @endif
-
-
                         </ul>
                     </div>
-
-
                 </nav>
             </header>
             <!-- Left side column. contains the logo and sidebar -->
