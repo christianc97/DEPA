@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use reportes\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
 use stdClass;
 use DB;
 
@@ -39,6 +40,26 @@ class GruposEliteController extends Controller
     public function show($id){
         $gruposinfo = DB::connection('reportesmensajeros')->select('select * from grupoelite_puntos gep where gep.id_grupo = '.$id);
         return view('reportes.modalEliminarPuntos', ['gruposinfo'=> $gruposinfo]);
+    }
+    public function store(){
+
+        $gruposElite = DB::connection('mensajeros')->select('select e.id as Id_Grupo, e.name as Nombre_Grupo, r.id as Id_Mensajero, r.nombres as Nombres_Mensajero, r.apellidos as Apellidos_Mensajero, r.celular as Telefono_Mensajero from recursos r
+                left join elite_groups e on r.elite_group = e.id
+                where r.elite_group is not null order by e.name;');
+
+        Excel::create('Reporte Grupos Elite', function($excel)use($gruposElite) {
+            $excel->sheet('Reporte Grupos Elite', function($sheet)use($gruposElite) {
+
+                $resultado = $gruposElite;
+
+                foreach ($resultado as &$sf) {
+                    $sf = (array) $sf;
+                }
+                $sheet->fromArray($resultado);
+            });
+        })->export('xls');
+
+        return redirect()->back();
     }
 
     public function puntosgrupos(Request $request){

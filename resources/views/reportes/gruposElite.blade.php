@@ -3,7 +3,7 @@
 @extends('layouts.admin')
 @section('titulo')
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
-    <h3 class="box-title"><i class="fa fa-users" aria-hidden="true"></i> Grupos Elite</h3>
+    
     @foreach ($permisoAsociar as $pa)
         @if ($pa->permisos_id == 28)        
             <a href="" data-target="#modal-create-{{$pa->permisos_id}}" data-toggle="modal">
@@ -12,6 +12,13 @@
         @endif
         @include('reportes.modalAsociarPuntos')
     @endforeach
+    <div class="col-sm-5"><h3 class="box-title"><i class="fa fa-users" aria-hidden="true"></i> Grupos Elite</h3></div>
+
+    {!! Form::open(array('method'=>'POST','autocomplete'=>'off') ) !!}
+    {{Form::token()}} 
+    <button id="miboton" class="btn btn-success"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Descargar Reporte</button>
+    {!! Form::close() !!}
+
 @endsection
 @section('content')
 <meta charset="utf-8">
