@@ -46,6 +46,7 @@ Route::get('/eliminar/puntosdomicilios/{id}', function ($id) {
   
 });
 
+
 Route::resource('reportes/reportesServiciosFinalizados', 'reporteServiciosFinalizadosController');
 Route::resource('reportes/reportesAdmin', 'reporteAdminController');
 Route::resource('reportes/reportesChia', 'ServActivChiaController');
@@ -87,13 +88,11 @@ Route::resource('asignardiademas', 'AsignarDiademasController');
 //Route::resource('asignardiademas/diademasAsignar', 'AsignarDiademasController');
 Route::resource('asignardiademas/diademas', 'AsignarDiademasController');
 /**/
+Route::resource('reportes/pagosDaviplata', 'PagosDaviplataController');
+
 Route::post('diademas/show', 'DiademasController@agregarDescripcion');
-
-
 Route::post('reportes/reportesServiciosFinalizados', 'reporteServiciosFinalizadosController@exportarServiciosFinalizados');
 Route::post('reportes/reportesAdmin', 'reporteAdminController@exportarAdmin');
-
-
 Route::post('reportes/reportesChia', 'ServActivChiaController@activacionChia');
 Route::post('reportes/reportesHoraJuego', 'HorasJuegoController@reporteTiemposHJ');
 Route::post('reportes/reportesMovimientosClientes', 'reportesMovimientoClienteController@exportarMovimientosCliente');

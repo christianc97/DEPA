@@ -175,6 +175,9 @@
                         @if(! empty($p->permisos_id == 31))
                         <li id='permisos-Asignados'><a href="{{asset('/lista/usuarios-permisos')}}"><i class="fa fa-long-arrow-right"></i>Permisos Asignados</a></li>
                         @endif
+                        @if(! empty($p->permisos_id == 32))
+                        <li id='pagos-daviplata'><a href="{{asset('reportes/pagosDaviplata')}}"><i class="fa fa-long-arrow-right"></i>Pagos Daviplata </a></li>
+                        @endif
                         @endforeach
                         
                          @foreach(Permisos() as $p)
