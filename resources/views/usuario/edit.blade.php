@@ -18,7 +18,7 @@ and open the template in the editor.
             <ul>
                 @foreach ($errors->all() as $error)
                 <li>{{$error}}</li>
-                @endforeach 
+                @endforeach
             </ul>
         </div>
         @endif
@@ -52,7 +52,7 @@ and open the template in the editor.
                 <option value="operaciones">Operaciones</option>
                 <option value="tecnologia">Tecnologia</option>
                 <option value="comercial">Comercial</option>
-                <option value="recursos humanos" >Recursos Humanos</option> 
+                <option value="recursos humanos" >Recursos Humanos</option>
                 <option value="marketing">Marketing</option>
                 <option value="data science">data science</option>
                 <option value="administrativa">Administrativa</option>
@@ -79,7 +79,7 @@ and open the template in the editor.
 
         <div class='form-group'>
             <label for='contrasena'>contraseña</label>
-            <input type="text" value="" name="contrasena" class="form-control">
+            <input type="text" value="{{$usuario->cedula}}" name="contrasena" class="form-control">
         </div>
 
     </div>
@@ -121,7 +121,7 @@ and open the template in the editor.
                 <option value="bogota">Bogotá</option>
                 <option value="cali">Cali</option>
                 <option value="barranquilla">Barranquilla</option>
-                <option value="cartagena">Cartagena</option> 
+                <option value="cartagena">Cartagena</option>
                 <option value="santa marta">Santa marta</option>
                 <option value="bucaramanga">Bucaramanga</option>
             </select>
