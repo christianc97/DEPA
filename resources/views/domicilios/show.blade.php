@@ -128,11 +128,11 @@ and open the template in the editor.
                     @foreach($users_domicilios as $ud)
                     <tr>
                         <td>{{$ud->id}}</td>
-                        <td>{{$ud->username}}</td> 
-                        <td>{{$ud->password_reset_token}} 
+                        <td>{{$ud->username}}</td>
+                        <td>{{$ud->password_reset_token}}
                             <a href="" data-target="#modal-delete-{{$ud->id}}" data-toggle="modal">
                                 <button class="btn btn-success" title="Editar contraseña">
-                                    <span class="glyphicon glyphicon-pencil"></span> 
+                                    <span class="glyphicon glyphicon-pencil"></span>
                                 </button>
                             </a>
                         </td>
@@ -229,21 +229,21 @@ and open the template in the editor.
                 </tbody>
             </table>
         </div>
-        
+
         <hr/>
     </div>
 </div>
-    @foreach($puntos_domicilios as $pd)
+@foreach($puntos_domicilios as $pd)
      @include('domicilios.ModalView')
      @include('domicilios.ModalEditNombrePuntos')
-    @endforeach
-@endsection
+@endforeach
+
 <script>
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
+    $('[data-toggle="tooltip"]').tooltip();
 });
 function eliminarPuntos(id){
-  
+
     $.ajax({
       url: "/eliminar/puntosdomicilios/" + id,
       context: document.body
@@ -361,7 +361,7 @@ function eliminarPuntos(id){
                         var markers = [];
                         $('#crear_punto').click(function () {
                             crearPunto();
-                            
+
                         });
                     }
                     function crearPunto() {
@@ -401,17 +401,17 @@ function eliminarPuntos(id){
                         comprueba = document.getElementById("desaparece").style.display;
                         if (comprueba == 'none')
                             document.getElementById("desaparece").style.display = "block";
-                       
+
                     }
                     function cierra() {
                         comprueba = document.getElementById("desaparece").style.display;
                         if (comprueba == 'block')
                             document.getElementById("desaparece").style.display = "none";
-                        
+
                     }
 
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDONz_SC-y9biqWqhtxpLvzmChJnDobm5E&callback=initMap">
 </script>
-
+@endsection
