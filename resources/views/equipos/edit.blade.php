@@ -18,7 +18,7 @@ and open the template in the editor.
             <ul>
                 @foreach ($errors->all() as $error)
                 <li>{{$error}}</li>
-                @endforeach 
+                @endforeach
             </ul>
         </div>
         @endif
@@ -50,6 +50,10 @@ and open the template in the editor.
         <div class='form-group'>
             <label for='serial'>Serial</label>
             <input type="text" name="serial" value="{{$equipos->serial}}" class="form-control" placeholder="Serial">
+        </div>
+        <div class='form-group'>
+            <label for='serial'>Fecha Compra</label>
+            <input type="date" name="fecha_compra" value="{{$equipos->fecha_compra}}" class="form-control">
         </div>
         <hr/>
         <label for='os_original'>Sistema Operativo</label>

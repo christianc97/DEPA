@@ -28,6 +28,7 @@ and open the template in the editor.
                 <th>Marca</th>
                 <th>Modelo</th>
                 <th>Serial</th>
+                <th>Fecha Compra</th>
                 <th>OS original</th>
                 <th>OS instalado</th>
                 <th>OS licenciado</th>
@@ -65,6 +66,7 @@ and open the template in the editor.
                         <td>{{$e->marca}}</td>
                         <td>{{$e->modelo}}</td>
                         <td>{{$e->serial}}</td>
+                        <td>{{$e->fecha_compra}}</td>
                         <td>{{$e->os_original}}</td>
                         <td>{{$e->os_instalado}}</td>
                         <td>{{$e->os_licenciado}}</td>
@@ -105,4 +107,3 @@ and open the template in the editor.
     </div>
 </div>
 @endsection
-
