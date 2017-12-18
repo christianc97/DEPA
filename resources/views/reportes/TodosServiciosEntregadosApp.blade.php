@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('titulo')
-	<h4><i class="fa fa-bars" aria-hidden="true"></i> Todos los Servicios que se han entregado en la App de los mensajeros</h4>
+	<h4><i class="fa fa-bars" aria-hidden="true"></i> Todos los servicios en espera que se han entregado en la App de los mensajeros</h4>
 @endsection
 @section('content')
 <div class="col-xs-2">
@@ -67,6 +67,7 @@
       }  else {
       	$('#tabla-puntos').empty();
       	$('#view-ciudad').empty();
+      	$('#elige-ciudad').empty();
       	document.getElementById("not-found").innerHTML = "No se encontraron Servicios, intentalo de nuevo";
       }       
     });
@@ -86,6 +87,7 @@
       if (res.length > 1) {
       	$('#tabla-puntos').empty();
       	$('#view-ciudad').empty();
+      	$('#elige-ciudad').empty();
       var tr = '<tr>';
       for(var i = 0; i < res.length; i++){
         tr += '<td>' + res[i].id + '</td>';
@@ -95,6 +97,7 @@
         tr += '</tr>'
       }
       $('#tabla-puntos').append(tr);
+      $('#view-ciudad').append('Todas las ciudades');
       } 
     });
 	}
