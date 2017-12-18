@@ -167,6 +167,9 @@
                         @if(! empty($p->permisos_id == 32))
                         <li id='pagos-daviplata'><a href="{{asset('reportes/pagosDaviplata')}}"><i class="fa fa-long-arrow-right"></i>Pagos Daviplata </a></li>
                         @endif
+                         @if(! empty($p->permisos_id == 33))
+                        <li id='todos-servicios-app'><a href="{{asset('reportes/Todos-Servicios-Entregados-App')}}"><i class="fa fa-long-arrow-right"></i>Servicios Entregados App Grupal</a></li>
+                        @endif
                         @endforeach
                         
                          @foreach(Permisos() as $p)

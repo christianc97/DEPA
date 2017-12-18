@@ -17,7 +17,9 @@ class ServiciosSinFinalizarController extends Controller
     }
 
     public function index(){
-    	
+    	$user = Auth::user()->id;
+        $tienePermiso = $this->validarPermisos($this->id, $user);
+        if ($tienePermiso) {
     	$servicios_sin_finalizar = DB::connection('mensajeros')->select("SELECT t.id, t.uuid, (SELECT tp.order_id FROM task_places tp WHERE task_id = t.id AND tipo_task_places = 1 LIMIT 1) AS num_orden, t.date_created, t.fecha_inicio, t.hora_inicio, ts.nombre AS estado, t.solicitante AS id_solicitante, p.nombre AS nombre_solicitante,
                                                 t.id_company, t.name_company, tt.nombre AS tipo_servicio, t.valor_total, pa.nombre AS tipo_de_pago, c.nombre AS ciudad FROM task t
                                                 INNER JOIN tbl_users sol ON sol.id = t.solicitante
@@ -35,6 +37,9 @@ class ServiciosSinFinalizarController extends Controller
 															group by t.estado asc");
         
     	return view('reportes.serviciosSinFinalizar', ["sinFinalizar"=>$servicios_sin_finalizar, "typetask" => $type_task]);
+    }else {
+            return view('home');
+        }
     }
     
 }

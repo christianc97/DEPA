@@ -46,6 +46,18 @@ Route::get('/eliminar/puntosdomicilios/{id}', function ($id) {
   
 });
 
+Route::get('/TodosServiciosEntregadosAppciudad/{id}', function($id){
+    $por_ciudad = DB::connection('mensajeros')->select('select t.id, t.fecha_inicio, t.hora_inicio, (select count(*) from dispacher_process_task d where d.task_id = t.id) llegaron_al_app, c.nombre from task t 
+      left join ciudad c on c.id = t.ciudad_id
+      where t.estado = 2 and t.ciudad_id = '.$id);
+    return $por_ciudad;
+});
+
+Route::get('/Todos-Servicios-Entregados-App', function(){
+    $todas_ciudades = DB::connection('mensajeros')->select('select t.id, t.fecha_inicio, t.hora_inicio, (select count(*) from dispacher_process_task d where d.task_id = t.id) llegaron_al_app from task t where t.estado = 2');
+    return $todas_ciudades;
+});
+
 
 Route::resource('reportes/reportesServiciosFinalizados', 'reporteServiciosFinalizadosController');
 Route::resource('reportes/reportesAdmin', 'reporteAdminController');
@@ -89,6 +101,7 @@ Route::resource('asignardiademas', 'AsignarDiademasController');
 Route::resource('asignardiademas/diademas', 'AsignarDiademasController');
 /**/
 Route::resource('reportes/pagosDaviplata', 'PagosDaviplataController');
+Route::resource('reportes/Todos-Servicios-Entregados-App', 'TodosServiciosEntregadosApp');
 
 Route::post('diademas/show', 'DiademasController@agregarDescripcion');
 Route::post('reportes/reportesServiciosFinalizados', 'reporteServiciosFinalizadosController@exportarServiciosFinalizados');
