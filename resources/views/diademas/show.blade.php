@@ -88,7 +88,7 @@ and open the template in the editor.
     </div>
    <br>
     <button class="btn btn-primary">Agregar</button>
-	<a href="{{asset('diademased')}}"><button type="button" class="btn btn-danger">Volver</button></a>
+	<a href="{{asset('diademasList')}}"><button type="button" class="btn btn-danger">Volver</button></a>
     {!! Form::close() !!}
 </div>
 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">

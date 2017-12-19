@@ -45,7 +45,7 @@ class DiademasController extends Controller
         $diadema->codigo_d = Str::lower($request->get('codigo'));
         $diadema->fecha_compra = $request->get('fecha_compra');
         $diadema->save();
-        return Redirect::to('diademased');
+        return Redirect::to('diademasList');
     }
     public function show($id_diadema) {
 

@@ -17,7 +17,7 @@
         </div>
         @endif
 
-        {!! Form::open(array('url'=>'diademased','method'=>'POST','autocomplete'=>'off'))!!}
+        {!! Form::open(array('url'=>'diademasList','method'=>'POST','autocomplete'=>'off'))!!}
         {{Form::token()}}
         <div class='form-group'>
             <label for='codigo'>Codigo</label>
@@ -29,7 +29,7 @@
         </div>
         <div class="form-group">
             <a href=""><button  class="btn btn-primary" type="submit">Guardar</button></a>
-            <a href="{{asset('diademased')}}"><button type="button" class="btn btn-danger" type="button">Cancelar</button></a>
+            <a href="{{asset('diademasList')}}"><button type="button" class="btn btn-danger" type="button">Cancelar</button></a>
         </div>
         
         {{Form::close()}}

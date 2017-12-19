@@ -124,6 +124,7 @@ and open the template in the editor.
                 <option value="cartagena">Cartagena</option>
                 <option value="santa marta">Santa marta</option>
                 <option value="bucaramanga">Bucaramanga</option>
+                <option value="bucaramanga">Medellin</option>
             </select>
         </div>
         <div class='form-group'>
