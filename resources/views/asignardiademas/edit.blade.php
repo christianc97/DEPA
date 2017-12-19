@@ -93,7 +93,7 @@ and open the template in the editor.
                 @endif
 
             </span>
-            <a href="{{asset('diademased')}}"><button  class="btn btn-danger" type="submit">volver</button></a>
+            <a href="{{asset('diademasList')}}"><button  class="btn btn-danger" type="submit">volver</button></a>
         </div>
     </div>
 </div>
