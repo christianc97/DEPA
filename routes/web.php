@@ -149,7 +149,7 @@ Route::get('formulario', 'StorageController@index');
 //descargar programas
 Route::get('/programas/{programa}', function ($programa) {
 
-     $file = './'.$programa;
+     $file = './programas/'.$programa;
 
       return Response::download($file);
 
