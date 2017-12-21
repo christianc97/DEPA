@@ -93,7 +93,7 @@ Route::resource('domicilios/empresa', 'verEmpresasController');
 Route::resource('domiciliosUsuarios', 'DomiciliosUsuariosController');
 Route::resource('domiciliosPuntos', 'DomiciliosPuntosController');
 Route::resource('puntosdomicilios/mapa', 'MapaPuntosDomiciliosController');
-Route::resource('/d', 'DescargarJitsiController');
+Route::resource('/descargar-programas ', 'DescargarJitsiController');
 /*diademas*/
 Route::resource('diademasList', 'DiademasController');
 Route::resource('asignardiademas', 'AsignarDiademasController');
@@ -146,17 +146,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('formulario', 'StorageController@index');
 
+//descargar programas
+Route::get('/programas/{programa}', function ($programa) {
 
-Route::get('storage/{archivo}', function ($archivo) {
-     $public_path = public_path();
-     $url = $public_path.'/storage/'.$archivo;
-     //verificamos si el archivo existe y lo retornamos
-     if (Storage::exists($archivo))
-     {
-       return response()->download($url);
-     }
-     //si no se encuentra lanzamos un error 404.
-     abort(404);
+     $file = './storage/'.$programa;
+
+      return Response::download($file);
 
 });
 
