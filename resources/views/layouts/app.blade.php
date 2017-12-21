@@ -52,7 +52,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right" >
                         <!-- Authentication Links -->
-                         <a class="navbar-brand" href="{{ url('/d') }}">
+                         <a class="navbar-brand" href="{{ url('/descargar-programas') }}">
                         {{ config('Programas', 'Programas') }} <i style="font-size:20px" class="fa">&#xf0ab;</i> 
                     </a>
 

@@ -48,7 +48,7 @@ $(document).ready(function(){
                      <a class="navbar-brand" href="{{ url('/login') }}">
                         {{ config('DP', 'DP') }} <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                     </a>
-                    <a class="navbar-brand" href="{{ url('/d') }}">
+                    <a class="navbar-brand" href="{{ url('/descargar-programas') }}">
                         <b>{{ config('Programas', 'Programas') }}</b>
                     </a>
                    
