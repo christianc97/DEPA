@@ -19,20 +19,43 @@
         <link rel="apple-touch-icon" href="{{asset('img/apple-touch-icon.png')}}">
         <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
         <link rel="stylesheet" href="{{asset('css/estilos.css')}}">
+        <link rel="stylesheet" href="{{asset('css/coverStyles.css')}}">
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
+        @if (!(empty(Auth::user()->fecha_finalizacion_contrato)))
+            <div class="site-wrapper">
+              <div class="site-wrapper-inner">
+                <div class="cover-container">
+                  <main role="main" class="inner cover">
+                    <h1 class="cover-heading">Ops! Ya no tienes acceso</h1>
+                    <p class="lead">
+                        Al parecer ya no tienes acceso al sistema de reportes debido a que ya no trabajas con nosotros, si esto no es correcto comunicate con nosotros.
+                        <p></p>
+                        <a href="mailto:j.contreras@mensajerosurbanos.com" target="_blank" style="font-size: 15px">Escribenos <i class="fa fa-comment-o" aria-hidden="true"></i></a>
+                    </p>
+                    <p class="lead">
+                      <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-lg btn-secondary">Salir</a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+                    </p>
+                  </main>
+                  <footer class="mastfoot">
+                    <div class="inner">
+                      <strong>Copyright &copy; 2017 <a href="https://mensajerosurbanos.com/">Mensajeros urbanos</a>.</strong> All rights reserved.
+                    </div>
+                  </footer>
+                </div>
+              </div>
+            </div>
+        @else             
+                    
         <div class="wrapper">
-
             <header class="main-header">
                 <!-- Logo -->
                 <a href="/home" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini"><b>R</b>ep</span>
                     <!-- logo for regular state and mobile devices -->
-                    @if (!(empty(Auth::user()->fecha_finalizacion_contrato)))
-                    @else
                     <span class="logo-lg"><b>DP </b><h5 class="beta"><b>(beta)</b></h5> </span>
-                    @endif
                 </a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top" role="navigation">
@@ -213,9 +236,6 @@
                         <li id='reportes-reportesTotalServiciosChia'><a href="{{asset('reportes/reportesTotalServiciosChia')}}"><i class="fa fa-long-arrow-right"></i>Total servicios chía </a></li>
                         @endif
                         @endforeach
-
-                         
-
                     </ul>
                 </section>
                 <!-- /.sidebar -->
@@ -248,33 +268,31 @@
                             </div><!-- /.row -->
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
+                </section>
             </div><!-- /.col -->
-        </div><!-- /.row -->
-
-    </section><!-- /.content -->
-</div><!-- /.content-wrapper -->
-<!--Fin-Contenido-->
-<footer class="main-footer">
-    <div class="pull-right hidden-xs">
-        <b>Versión</b> 0.1.0
-    </div>
-    <strong>Copyright &copy; 2017 <a href="https://mensajerosurbanos.com/">Mensajeros urbanos</a>.</strong> All rights reserved.
-</footer>
-
-
-<!-- jQuery 2.1.4 -->
-<script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
-<!-- Bootstrap 3.3.5 -->
-<script src="{{asset('js/bootstrap.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('js/app.min.js')}}"></script>
-<script>
-           var r = location.pathname;
-           var splitted = r.split('/');
-           var liId = splitted[1] + '-' + splitted[2];
-           var liId2 = splitted[1];
-           $('#' + liId).addClass('active');
-           $('#' + liId2).addClass('active');
-</script>
+            <!-- /.content -->
+        </div><!-- /.content-wrapper -->
+        <!--Fin-Contenido-->
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Versión</b> 0.1.0
+            </div>
+            <strong>Copyright &copy; 2017 <a href="https://mensajerosurbanos.com/">Mensajeros urbanos</a>.</strong> All rights reserved.
+        </footer>
+        <!-- jQuery 2.1.4 -->
+        <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="{{asset('js/bootstrap.min.js')}}"></script>
+        <!-- AdminLTE App -->
+        <script src="{{asset('js/app.min.js')}}"></script>
+        <script>
+                   var r = location.pathname;
+                   var splitted = r.split('/');
+                   var liId = splitted[1] + '-' + splitted[2];
+                   var liId2 = splitted[1];
+                   $('#' + liId).addClass('active');
+                   $('#' + liId2).addClass('active');
+        </script>
+        @endif
 </body>
 </html>
