@@ -58,10 +58,6 @@ Route::get('/Todos-Servicios-Entregados-App', function(){
     return $todas_ciudades;
 });
 
-Route::get('/prueba', function(){
-    return 'si se subio';
-});
-
 
 Route::resource('reportes/reportesServiciosFinalizados', 'reporteServiciosFinalizadosController');
 Route::resource('reportes/reportesAdmin', 'reporteAdminController');

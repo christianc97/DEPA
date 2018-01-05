@@ -82,7 +82,7 @@ body {
 }
 
 .nav-masthead .active {
-  color: #fff;
+  
   border-bottom-color: #fff;
 }
 
@@ -111,9 +111,7 @@ body {
 /*
  * Footer
  */
-.mastfoot {
-  color: rgba(255, 255, 255, .5);
-}
+
 
 
 /*
