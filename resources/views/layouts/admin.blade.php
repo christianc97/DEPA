@@ -31,7 +31,7 @@
                     <p class="lead">
                         Al parecer ya no tienes acceso al sistema de reportes debido a que ya no trabajas con nosotros, si esto no es correcto comunicate con nosotros.
                         <p></p>
-                        <a href="mailto:j.contreras@mensajerosurbanos.com" target="_blank" style="font-size: 15px">Escribenos <i class="fa fa-comment-o" aria-hidden="true"></i></a>
+                        <a href="mailto:j.contreras@mensajerosurbanos.com" target="_blank" style="font-size: 15px" class="escribenos">Escribenos <i class="fa fa-comment-o" aria-hidden="true"></i></a>
                     </p>
                     <p class="lead">
                       <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-lg btn-secondary">Salir</a>
