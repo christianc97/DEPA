@@ -15,6 +15,7 @@ and open the template in the editor.
 <div class="row1">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <h4>Crear Equipo <a href="equipos/create"><i class="fa fa-plus"></i></a></h4>
+        
     </div>
 </div>
 <div class="row1">
@@ -52,6 +53,10 @@ and open the template in the editor.
                 <th>Parlantes</th>
                 <th>Unidad_cd</th>
                 <th>Microfono</th>
+                <th>MAC LAN</th>
+                <th>MAC WIFI</th>
+                <th>Ext Jitsi</th>
+                <th>Area</th>
                 <th>Contraseña</th>
                 <th colspan="2">Opciones</th>
 
@@ -88,8 +93,12 @@ and open the template in the editor.
                         <td>{{$e->tactil}}</td>
                         <td>{{$e->camara}}</td>
                         <td>{{$e->parlantes}}</td>
-                        <td>{{$e->microfono}}</td>
                         <td>{{$e->unidad_cd}}</td>
+                        <td>{{$e->microfono}}</td>
+                        <td>{{$e->mac_lan}}</td>
+                        <td>{{$e->mac_wifi}}</td>
+                        <td>{{$e->ext_jitsi}}</td>
+                        <td>{{$e->area}}</td>
                         <td>{{$e->password}}</td>
                         <td><a href="{{URL::action('EquiposController@show',$e->id_equipos)}}"><button class="btn btn-info"> Ver</button></a></td>
                         <td>

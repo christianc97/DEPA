@@ -193,6 +193,9 @@
                          @if(! empty($p->permisos_id == 33))
                         <li id='todos-servicios-app'><a href="{{asset('reportes/Todos-Servicios-Entregados-App')}}"><i class="fa fa-long-arrow-right"></i>Servicios Entregados App Grupal</a></li>
                         @endif
+                        @if(! empty($p->permisos_id == 34))
+                        <li id='jitsi-equipos'><a href="{{asset('reporteEquipos/jitsiEquipos')}}"><i class="fa fa-long-arrow-right"></i>Jitsi Equipos</a></li>
+                        @endif
                         @endforeach
                         
                          @foreach(Permisos() as $p)

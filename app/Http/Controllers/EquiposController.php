@@ -69,13 +69,17 @@ class EquiposController extends Controller {
         $equipo->microfono = Str::lower($request->get('microfono'));
         $equipo->unidad_cd = Str::lower($request->get('unidad_cd'));
         $equipo->password = Str::lower($request->get('password'));
+        $equipo->mac_lan = Str::lower($request->get('mac_lan'));
+        $equipo->mac_wifi = Str::lower($request->get('mac_wifi'));
+        $equipo->ext_jitsi = Str::lower($request->get('ext_jitsi'));
+        $equipo->area = Str::lower($request->get('area'));
         $equipo->save();
         return Redirect::to('equipos');
     }
 
     public function show($id) {
         $equipos_asignados = DB::connection('reportesmensajeros')
-        ->select("select nombre1, nombre2, apellido1, apellido2, area, codigo,tipo, modelo,serial,os_instalado, fecha_asignacion, fecha_desasignacion from users_equipos ue
+        ->select("select u.nombre1, u.nombre2, u.apellido1, u.apellido2, u.area, codigo,tipo, modelo,serial,os_instalado, fecha_asignacion, fecha_desasignacion from users_equipos ue
             inner join users u on ue.users_id=u.id
             inner join equipos e on ue.equipos_id=e.id_equipos
             where id_equipos = $id and fecha_asignacion is not null and fecha_desasignacion is null");
@@ -120,6 +124,10 @@ inner join users u on he.users_id=u.id  where equipos_id=$id order by created_at
         $equipo->parlantes = Str::lower($request->get('parlantes'));
         $equipo->microfono = Str::lower($request->get('microfono'));
         $equipo->unidad_cd = Str::lower($request->get('unidad_cd'));
+        $equipo->mac_lan = Str::lower($request->get('mac_lan'));
+        $equipo->mac_wifi = Str::lower($request->get('mac_wifi'));
+        $equipo->ext_jitsi = Str::lower($request->get('ext_jitsi'));
+        $equipo->area = Str::lower($request->get('area'));
         $equipo->password = Str::lower($request->get('password'));
         $equipo->update();
         return Redirect::to('equipos');

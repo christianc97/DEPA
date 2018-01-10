@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 @extends('layouts.admin')
 
 @section('titulo')
@@ -27,20 +23,21 @@ and open the template in the editor.
         {{Form::token()}}
         <div class='form-group'>
             <label for='codigo'>Codigo</label>
-            <center><input type="text" name="codigo" class="form-control" placeholder="Codigo"></center>
+            <center><input type="text" name="codigo"  class="form-control" placeholder="Codigo" required=""></center>
         </div>
         <div class='form-group'>
             <label for='tipo'>Tipo</label>
             <select class="form-control" name="tipo" value="">
+                
                 <option value="portatil">Portatil</option>
                 <option value="all in one">All in One</option>
-                <option value="escritorio">escritorio</option>
+                <option value="escritorio">Escritorio</option>
             </select>
         </div>
         <hr/>
         <div class='form-group'>
             <label for='marca'>Marca</label>
-            <input type="text" name="marca" class="form-control" placeholder="Marca">
+            <input type="text" name="marca" class="form-control" placeholder="Marca" required="">
         </div>
         <div class='form-group'>
             <label for='modelo'>modelo</label>
@@ -48,18 +45,18 @@ and open the template in the editor.
         </div>
         <div class='form-group'>
             <label for='serial'>Serial</label>
-            <input type="text" name="serial" class="form-control" placeholder="Serial">
+            <input type="text" name="serial"  class="form-control" placeholder="Serial" required="">
         </div>
         <div class='form-group'>
-            <label for='serial'>Fecha de Compra</label>
-            <input type="date" name="fecha_compra" class="form-control">
+            <label for='serial'>Fecha Compra</label>
+            <input type="date" name="fecha_compra"  class="form-control">
         </div>
         <hr/>
         <label for='os_original'>Sistema Operativo</label>
-        <hr/>
         <div class='form-group'>
             <label for='os_original'>Original</label>
             <select class="form-control" name="os_original" value="">
+                
                 <option value="os x">OS X</option>
                 <option value="windows 8 pro">Windows 8 PRO</option>
                 <option value="windows 8.1 home">Windows 8.1 HOME</option>
@@ -71,6 +68,7 @@ and open the template in the editor.
         <div class='form-group'>
             <label for='os_instalado'>Instalado</label>
             <select class="form-control" name="os_instalado" value="">
+                
                 <option value="os x">OS X</option>
                 <option value="windows 8 pro">Windows 8 PRO</option>
                 <option value="windows 8.1 home">Windows 8.1 HOME</option>
@@ -83,6 +81,7 @@ and open the template in the editor.
         <div class='form-group'>
             <label for='os_licenciado'>Licenciado</label>
             <select class="form-control" name="os_licenciado" value="">
+                
                 <option value="os x">OS X</option>
                 <option value="windows 8 pro">Windows 8 PRO</option>
                 <option value="windows 8.1 home">Windows 8.1 HOME</option>
@@ -94,19 +93,18 @@ and open the template in the editor.
         </div>
         <hr/>
         <div class='form-group'>
-            <label for='procesador'>Procesador</label>
-            <input type="text" name="procesador" class="form-control" placeholder="Procesador">
+            <label for='apellido1'>Procesador</label>
+            <input type="text" name="procesador"  class="form-control" placeholder="Procesador">
         </div>
         <div class='form-group'>
-            <label for='arquitectura'>Arquitectura</label>
-            <input type="text" name="arquitectura" class="form-control" placeholder="Arquitectura">
+            <label for='apellido2'>Arquitectura</label>
+            <input type="text" name="arquitectura"  class="form-control" placeholder="Arquitectura">
         </div>
         <hr/>
-        <label for='os_original'>RAM </label>
-            <br/>
+        <label for='capacidad_ram'>RAM</label>
         <div class='form-group'>
             <label for='capacidad_ram'>Capacidad(GB)</label>
-            <center><input type="text" name="capacidad_ram" class="form-control" placeholder="Capacidad ram"></center>
+            <center><input type="text" name="capacidad_ram"  class="form-control" placeholder="Capacidad ram"></center>
         </div>
         <div class='form-group'>
             <label for='tipo_ram'>Tipo</label>
@@ -114,14 +112,14 @@ and open the template in the editor.
         </div>
         <div class='form-group'>
             <label for='tamaño_ram'>Tamaño</label>
-            <input type="text" name="tamaño_ram" class="form-control" placeholder="Tamaño ram">
+            <input type="text" name="tamaño_ram"  class="form-control" placeholder="Tamaño ram">
         </div>
-        <hr/>
-        <label for='os_original'>HDD</label>
-            <br/>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <label for='capacidad_ram'>HDD</label>
         <div class='form-group'>
             <label for='capacidad_hdd'>Capacidad(GB)</label>
-            <input type="text" name="capacidad_hdd" class="form-control" placeholder="Capacidad hdd">
+            <input type="text" name="capacidad_hdd"  class="form-control" placeholder="Capacidad hdd">
         </div>
         <div class='form-group'>
             <label for='tipo_hdd'>Tipo</label>
@@ -135,9 +133,7 @@ and open the template in the editor.
             <label for='conector_hdd'>Conector</label>
             <input type="text" name="conector_hdd" class="form-control" placeholder="Conector hdd">
         </div>
-        <hr/>
-        <label for='os_original'>Video</label>
-            <br/>
+        <label for='capacidad_ram'>Video</label>
         <div class='form-group'>
             <label for='video_integrada'>Integrada</label>
             <input type="text" name="video_integrada" class="form-control" placeholder="Video integrada">
@@ -147,11 +143,11 @@ and open the template in the editor.
             <input type="text" name="video_externa" class="form-control" placeholder="Video externa">
         </div>
         <hr/>
-        <label for='os_original'>Conectividad</label>
-            <br/>
+        <label for='capacidad_ram'>Conectividad</label>
         <div class='form-group'>
             <label for='red_fisica'>Red fisica</label>
             <select class="form-control" name="red_fisica" value="">
+                
                 <option value="si">Si</option>
                 <option value="no">No</option>
                 <option value=""></option>
@@ -159,81 +155,73 @@ and open the template in the editor.
         </div>
         <div class='form-group'>
             <label for='red_wireless'>Red wireless</label>
-            <select class="form-control" name="red_wireless" value="">
-                <option value="si">Si</option>
-                <option value="no">No</option>
-                <option value=""></option>
-            </select>
+            <input type="text" name="red_wireless" class="form-control" placeholder="Red wireless">
         </div>
         <div class='form-group'>
             <label for='bluetooth'>Bluetooth</label>
-            <select class="form-control" name="bluetooth" value="">
-                <option value="si">Si</option>
-                <option value="no">No</option>
-                <option value=""></option>
-            </select>
+            <input type="text" name="bluetooth" class="form-control" placeholder="Bluetooth">
         </div>
         <hr/>
-        <label for='os_original'>Pantalla</label>
-            <br/>
         <div class='form-group'>
             <label for='pantalla_pulgadas'>Pantalla (pulgadas)</label>
-            <input type="text" name="pantalla_pulgadas" class="form-control" placeholder="Pantalla (pulgadas)">
+            <input type="text" name="pantalla_pulgadas" class="form-control" placeholder="Pantalla (pulgadas">
         </div>
-        <hr/>
-        <label for='os_original'>Perifericos</label>
-            <br/>
+        
+        <label for='capacidad_ram'>Perifericos</label>
         <div class='form-group'>
             <label for='tactil'>Tactil</label>
-            <select class="form-control" name="tactil" value="">
-                <option value="si">Si</option>
-                <option value="no">No</option>
-                <option value=""></option>
-            </select>
+            <input type="text" name="tactil" class="form-control" placeholder="tactil">
         </div>
         <div class='form-group'>
             <label for='camara'>Camara</label>
-            <select class="form-control" name="camara" value="">
-                <option value="si">Si</option>
-                <option value="no">No</option>
-                <option value=""></option>
-            </select>
+            <input type="text" name="camara" class="form-control" placeholder="Camara">
         </div>
         <div class='form-group'>
             <label for='parlantes'>Parlantes</label>
-            <select class="form-control" name="parlantes" value="">
-                <option value="si">Si</option>
-                <option value="no">No</option>
-                <option value=""></option>
-            </select>
+            <input type="text" name="parlantes" class="form-control" placeholder="Parlantes">
         </div>
         <div class='form-group'>
             <label for='microfono'>Microfono</label>
-            <select class="form-control" name="microfono" value="">
-                <option value="si">Si</option>
-                <option value="no">No</option>
-                <option value=""></option>
-            </select>
+            <input type="text" name="microfono" class="form-control" placeholder="Microfono">
         </div>
         <div class='form-group'>
             <label for='unidad_cd'>Unidad cd</label>
-            <select class="form-control" name="unidad_cd" value="">
-                <option value="si">Si</option>
-                <option value="no">No</option>
-                <option value=""></option>
-            </select>
+            <input type="text" name="unidad_cd" class="form-control" placeholder="Unidad cd">
         </div>
-            <hr/>
+        <hr/>
+        
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <label for='capacidad_ram'>MAC LAN</label>
         <div class='form-group'>
-            <label for='password'>Contraseña pc</label>
-            <input type="text" name="password" class="form-control" placeholder="Contraseña pc">
+            <label for='capacidad_hdd'>(Internet cable)</label>
+            <input type="text" name="mac_lan"  class="form-control" placeholder="Ethernet direccion(IPv4)" >
+        </div>
+        <label for='capacidad_ram'>MAC WIFI</label>
+        <div class='form-group'>
+            <input type="text" name="mac_wifi" class="form-control" placeholder="WIFI (wireless) direccion(IPv4)" >
+        </div>
+        <label for='capacidad_ram'>Extension Jitsi</label>
+        <div class='form-group'>
+            <input type="number" name="ext_jitsi" class="form-control" placeholder="WIFI (wireless) direccion(IPv4)" >
+        </div>
+        <label for='capacidad_ram'>Area</label>
+        <div class='form-group'>
+            <input type="text" name="area" class="form-control" placeholder="Area" >
+        </div>
+        <div class='form-group'>
+            <label for='password'>Contraseña</label>
+            <input type="text" name="password" class="form-control" placeholder="Contraseña">
         </div>
         <div class="form-group">
-            <a href=""><button  class="btn btn-primary" type="submit">Guardar</button></a>
-            <a href="{{asset('equipos')}}"><button class="btn btn-danger" type="button">Cancelar</button></a>
+            <a href=""><button  class="btn btn-primary btn-block" type="submit">Guardar</button></a>
+            <br>
+            <a href="{{asset('equipos')}}"><button class="btn btn-danger btn-block" type="button">Cancelar</button></a>
         </div>
+    </div>
 
         {{Form::close()}}
-    </div>
+    
+
 </div>
 @endsection

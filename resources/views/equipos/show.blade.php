@@ -132,6 +132,22 @@ and open the template in the editor.
                 <td>{{$equipos->unidad_cd}}</td>
             </tr>
             <tr>
+                <td><b>MAC LAN: </b></td>
+                <td>{{$equipos->mac_lan}}</td>
+            </tr>
+            <tr>
+                <td><b>MAC WIFI: </b></td>
+                <td>{{$equipos->mac_wifi}}</td>
+            </tr>
+            <tr>
+                <td><b>Extencion Jitsi: </b></td>
+                <td>{{$equipos->ext_jitsi}}</td>
+            </tr>
+            <tr>
+                <td><b>Area: </b></td>
+                <td>{{$equipos->area}}</td>
+            </tr>
+            <tr>
                 <td><b>Password: </b></td>
                 <td>{{$equipos->password}}</td>
             </tr>
@@ -169,7 +185,7 @@ and open the template in the editor.
     {{Form::token()}}
     <input type="hidden" name="id_equipos" value="{{$equipos->id_equipos}}"/>
     <div class="table-responsive">
-        <textarea class="form-control" name="descripcion" rows="3"></textarea>
+        <textarea class="form-control" name="descripcion" rows="3" required=""></textarea>
     </div>
     <button class="btn btn-primary">Agregar</button>
     {!! Form::close() !!}

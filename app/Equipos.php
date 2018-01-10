@@ -40,5 +40,9 @@ class Equipos extends Model
         'microfono',
         'unidad_cd',
         'password',
+        'mac_lan',
+        'mac_wifi',
+        'ext_jitsi',
+        'area',
     ];
 }

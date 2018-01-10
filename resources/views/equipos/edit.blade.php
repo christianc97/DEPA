@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 @extends('layouts.admin')
 
 @section('titulo')
@@ -118,7 +114,8 @@ and open the template in the editor.
             <label for='tamaño_ram'>Tamaño</label>
             <input type="text" name="tamaño_ram" value="{{$equipos->tamaño_ram}}" class="form-control" placeholder="Tamaño ram">
         </div>
-        <hr/>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <label for='capacidad_ram'>HDD</label>
         <div class='form-group'>
             <label for='capacidad_hdd'>Capacidad(GB)</label>
@@ -136,7 +133,6 @@ and open the template in the editor.
             <label for='conector_hdd'>Conector</label>
             <input type="text" name="conector_hdd" value="{{$equipos->conector_hdd}}" class="form-control" placeholder="Conector hdd">
         </div>
-        <hr/>
         <label for='capacidad_ram'>Video</label>
         <div class='form-group'>
             <label for='video_integrada'>Integrada</label>
@@ -170,7 +166,7 @@ and open the template in the editor.
             <label for='pantalla_pulgadas'>Pantalla (pulgadas)</label>
             <input type="text" name="pantalla_pulgadas" value="{{$equipos->pantalla_pulgadas}}" class="form-control" placeholder="Pantalla (pulgadas">
         </div>
-        <hr/>
+        
         <label for='capacidad_ram'>Perifericos</label>
         <div class='form-group'>
             <label for='tactil'>Tactil</label>
@@ -193,15 +189,36 @@ and open the template in the editor.
             <input type="text" name="unidad_cd" value="{{$equipos->unidad_cd}}" class="form-control" placeholder="Unidad cd">
         </div>
         <hr/>
+        
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <label for='capacidad_ram'>MAC LAN</label>
+        <div class='form-group'>
+            <label for='capacidad_hdd'>(Internet cable)</label>
+            <input type="text" name="mac_lan" value="{{$equipos->mac_lan}}" class="form-control" placeholder="Ethernet direccion(IPv4)" >
+        </div>
+        <label for='capacidad_ram'>MAC WIFI</label>
+        <div class='form-group'>
+            <input type="text" name="mac_wifi" value="{{$equipos->mac_wifi}}" class="form-control" placeholder="WIFI (wireless) direccion(IPv4)" >
+        </div>
+        <label for='capacidad_ram'>Extension Jitsi</label>
+        <div class='form-group'>
+            <input type="number" name="ext_jitsi" value="{{$equipos->ext_jitsi}}" class="form-control" placeholder="WIFI (wireless) direccion(IPv4)" >
+        </div>
+        <label for='capacidad_ram'>Area</label>
+        <div class='form-group'>
+            <input type="text" name="area" value="{{$equipos->area}}" class="form-control" placeholder="Area" >
+        </div>
         <div class='form-group'>
             <label for='password'>Contraseña</label>
             <input type="text" name="password" value="{{$equipos->password}}" class="form-control" placeholder="Contraseña">
         </div>
         <div class="form-group">
-            <a href=""><button  class="btn btn-primary" type="submit">Guardar</button></a>
-            <a href="{{asset('equipos')}}"><button class="btn btn-danger" type="button">Cancelar</button></a>
+            <a href=""><button  class="btn btn-primary btn-block" type="submit">Guardar</button></a>
+            <br>
+            <a href="{{asset('equipos')}}"><button class="btn btn-danger btn-block" type="button">Cancelar</button></a>
         </div>
-        {{Form::close()}}
     </div>
+    {{Form::close()}}
 </div>
 @endsection
