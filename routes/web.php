@@ -102,7 +102,7 @@ Route::resource('asignardiademas/diademas', 'AsignarDiademasController');
 /**/
 Route::resource('reportes/pagosDaviplata', 'PagosDaviplataController');
 Route::resource('reportes/Todos-Servicios-Entregados-App', 'TodosServiciosEntregadosApp');
-Route::resource('reporteEquipos/jitsiEquipos', 'JitsiEquiposUsuariosController');
+Route::resource('reporteEquipos/extensionesEquipos', 'JitsiEquiposUsuariosController');
 
 Route::post('diademas/show', 'DiademasController@agregarDescripcion');
 Route::post('reportes/reportesServiciosFinalizados', 'reporteServiciosFinalizadosController@exportarServiciosFinalizados');
