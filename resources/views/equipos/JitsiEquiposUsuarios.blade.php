@@ -46,7 +46,7 @@
 				</td>
 				<td>
 					<a href="{{URL::action('EquiposController@edit',$je->id_equipos)}}" target="_blank" class="btn btn-primary">
-						<span class="glyphicon glyphicon-paperclip"></span> Extension
+						<span class="glyphicon glyphicon-pencil"></span> Extension y aréa
 					</a>
 				</td>
 			</tr>
