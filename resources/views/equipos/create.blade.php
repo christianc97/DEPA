@@ -203,7 +203,7 @@
         </div>
         <label for='capacidad_ram'>Extension Jitsi</label>
         <div class='form-group'>
-            <input type="number" name="ext_jitsi" class="form-control" placeholder="WIFI (wireless) direccion(IPv4)" >
+            <input type="number" name="ext_jitsi" class="form-control" placeholder="Extension Jitsi" >
         </div>
         <div class='form-group'>
             <label for='os_licenciado'>Area</label>
