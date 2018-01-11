@@ -10,9 +10,9 @@
 		<thead>
 			<tr>
 				<th>N°</th>
-				<th>Codigo Pc</th>
+				<th>Usuario PC</th>
 				<th>Extension Jitsi</th>
-				<th>Usuario Asignado</th>
+				<th>Codigo PC</th>
 				<th>Area</th>
 				<th>Acciones</th>
 			</tr>
@@ -22,7 +22,7 @@
 			@foreach($jitsi_equipos as $je)
 			<tr>
 				<td>{{++$var}}</td>
-				<td><a href="{{URL::action('EquiposController@show',$je->id_equipos)}}" target="_blank">{{$je->codigo}}</a></td>
+				<td><a href="{{URL::action('UserController@edit',$je->users_id)}}" target="_blank">{{$je->nombre1}} {{$je->apellido1}}</a></td>
 				<td>
 					@if($je->ext_jitsi == 0)
 						<a href="{{URL::action('EquiposController@edit',$je->id_equipos)}}" class="text text-danger" target="_blank">Asignar extension</a>
@@ -34,7 +34,7 @@
 					@if($je->nombres == "")
 						<a href="{{asset('usuario')}}" class="text text-danger" target="_blank">Asignar Usuario</a>
 					@else
-						<a href="{{URL::action('UserController@edit',$je->users_id)}}" target="_blank">{{$je->nombres}}</a>
+						<a href="{{URL::action('EquiposController@show',$je->id_equipos)}}" target="_blank">{{$je->nombres}}</a>
 					@endif
 				</td>
 				<td>

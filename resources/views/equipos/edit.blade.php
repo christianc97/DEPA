@@ -205,9 +205,20 @@
         <div class='form-group'>
             <input type="number" name="ext_jitsi" value="{{$equipos->ext_jitsi}}" class="form-control" placeholder="WIFI (wireless) direccion(IPv4)" >
         </div>
-        <label for='capacidad_ram'>Area</label>
         <div class='form-group'>
-            <input type="text" name="area" value="{{$equipos->area}}" class="form-control" placeholder="Area" >
+            <label for='os_licenciado'>Area</label>
+            <select class="form-control" name="area" value="">
+                <option selected="disabled" value="{{$equipos->area}}">{{$equipos->area}}</option>
+                <option value="2">Operaciones</option>
+                <option value="3">SAC</option>
+                <option value="4">DataScience</option>
+                <option value="5">Tecnologia</option>
+                <option value="6">Comercial</option>
+                <option value="7">Financiera</option>
+                <option value="8">Recursos Humanos</option>
+                <option value="9">Vinculacion</option>
+                <option value="1">Ninguno</option>
+            </select>
         </div>
         <div class='form-group'>
             <label for='password'>Contraseña</label>
