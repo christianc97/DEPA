@@ -19,10 +19,11 @@
         <link rel="apple-touch-icon" href="{{asset('img/apple-touch-icon.png')}}">
         <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
         <link rel="stylesheet" href="{{asset('css/estilos.css')}}">
-        <link rel="stylesheet" href="{{asset('css/coverStyles.css')}}">
+        
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         @if (!(empty(Auth::user()->fecha_finalizacion_contrato)))
+        <link rel="stylesheet" href="{{asset('css/coverStyles.css')}}">
             <div class="site-wrapper">
               <div class="site-wrapper-inner">
                 <div class="cover-container">
