@@ -18,6 +18,19 @@
         ]) !!};
     </script>
 </head>
+<style type="text/css">
+.image-login{
+    margin-left: 40%;
+    margin-bottom: 10%; 
+    margin-top: 2%; 
+}
+.btn{
+    width: 30%;
+    margin-left: 40%;
+    margin-bottom: 10%; 
+    margin-top: 2%; 
+}
+</style>
 <body>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
