@@ -58,6 +58,7 @@ and open the template in the editor.
                 <option value="administrativa">Administrativa</option>
                 <option value="financiera">Financiera</option>
                 <option value="vinculacion">Vinculacion</option>
+                <option value="sac">SAC</option>
             </select>
         </div>
         <div class='form-group'>
