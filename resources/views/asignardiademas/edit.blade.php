@@ -59,40 +59,27 @@ and open the template in the editor.
         </div>
     </div>
 </div>
+
 <div class='row1 align-right'>
     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-        {!! Form::open(array('url' => 'asignardiademas/store','method'=>'POST','autocomplete'=>'off') ) !!}
-        {{Form::token()}}
         <div class="form-group">
+            <p>Asigar equipo &ensp; <small id="msj-asignacion"></small></p>
             <div class="input-group">
-                <input type='text'  class="form-control" id="codigo" name='codigo' placeholder="Buscar..." value="" autofocus="">
-                <span class="input-group-btn">
-                    <button type="button" id='miboton' class='btn btn-primary'>Buscar</button>
-                </span>
-                <input type="hidden" id='id' name='id' value="{{$diadema->id_diadema}}"/>
+                <select class="form-control" style="width: 100px" id="equipoid">
+                    @foreach($codigos as $c)
+                     <option value="{{$c->id_equipos}}">{{$c->codigo}}</option>
+                    @endforeach
+                </select>
+                &ensp;
+                <button class="btn btn-primary" onclick="asignarDiadema({{$diadema->id_diadema}}, parseInt(document.getElementById('equipoid').value));">Asignar</button>
             </div>
         </div>
-        {!! Form::close() !!}
     </div>
 </div>
+
 <div class='row1 align-left'>
     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
         <div class="table-responsive ">
-            <span id="resultado">
-                @if(session('computador_ya_asignado'))
-                <h5 style='color:red'>{{session('computador_ya_asignado')}}</h5>
-
-                @endif
-                @if(session('computador_asignado'))
-                <h5 style='color:#179b2b'>{{session('computador_asignado')}}</h5>
-                
-                @endif
-                @if(session('computador_desasignado'))
-                <h5 style='color:#179b2b'>{{session('computador_desasignado')}}</h5>
-
-                @endif
-
-            </span>
             <a href="{{asset('diademasList')}}"><button  class="btn btn-danger" type="submit">volver</button></a>
         </div>
     </div>
@@ -102,29 +89,18 @@ and open the template in the editor.
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 
 <script>
-$(document).ready(function () {
-    $('#miboton').click(function () {
-            if ($("#codigo").val() == '') {
-            alert('llene los campos');
-        } else {
-            var parametros = {
-                "codigo": $("#codigo").val(),
-                "id": $("#id").val()
-            };
-            $.ajax({
-                data: parametros,
-                 url: '/asignardiademas/diademas',
-                type: 'post',
-                beforeSend: function () {
-                    $("#resultado").html("Procesando, espere por favor...");
-                },
-                success: function (response) {
-                    $("#resultado").html(response);
-                }
-            });
-        }
+     function asignarDiadema(diademaid, equipoid){
+
+    $.ajax({
+      url: "/asignar/diademas/" + diademaid + "/" + equipoid,
+      context: document.body
+    }).done(function(res) {
+      // Limpiar tabla
+      var msj = $( "<strong class='text text-primary'>Asignando.....</strong>" );
+      $('#msj-asignacion').append(msj);
+      location.reload();
     });
-});
+}
 </script>
 @endsection
 

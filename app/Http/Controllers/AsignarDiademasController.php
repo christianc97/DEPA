@@ -13,33 +13,15 @@ use DB;
 
 class AsignarDiademasController extends Controller
 {
-    public function index(){
-        
-    }
-    //funcion que hace consulta a las diademas en base de datos->tabla diademas
-     public function store(EquiposFormRequest $request) {
-        $codigo = $request->get('codigo');
-        $id = $request->get('id');
-        //consulta del equipos por el codigo desde cuadro de busqueda
-        $equipos = DB::connection('reportesmensajeros')->select("select id_equipos, codigo,tipo, marca, modelo,serial, os_instalado from equipos "
-                . "where codigo = '$codigo'");
-        //consulta de a cuales equipos a sido asignada cada diadema
-        $equipos_asignados = DB::connection('reportesmensajeros')->select("select nombre1, nombre2, apellido1, apellido2, area, fecha_asignacion, fecha_desasignacion from users_equipos ue
-            inner join users u on ue.users_id=u.id
-            inner join equipos e on ue.equipos_id=e.id_equipos
-            where codigo = '$codigo' and fecha_asignacion is not null and fecha_desasignacion is null");
-        //retorno a la vista de diademas -diademasList-
-        return view('asignardiademas.diademas', ["usuario" => User::findOrFail($id), "equipos" => $equipos, "equipos_asignados" => $equipos_asignados]);
-    }
     //funcion editar informacion diademas
     public function edit($id_diadema) {
         //Hace consulta de las diademas asignadas a un equipo
         $equipos = DB::connection('reportesmensajeros')->select("select id_equipos, codigo,tipo, marca, modelo,serial, os_instalado, diademas_id, fecha_asignacion, fecha_desasignacion from equipos e inner
             join equipos_diademas ed on e.id_equipos=ed.equipos_id where diademas_id=$id_diadema and fecha_desasignacion is null");
-        return view('asignardiademas.edit', ["diadema" => Diademas::findOrFail($id_diadema), "equipos" => $equipos]);
-    }
-    public function show($id_diadema) {
-        return view("asignardiademas.show", ["diademas" => Diademas::findOrFail($id_diadema)]);
+
+        $codigos = DB::connection('reportesmensajeros')->select('select id_equipos, codigo from equipos');
+
+        return view('asignardiademas.edit', ["diadema" => Diademas::findOrFail($id_diadema), "equipos" => $equipos, 'codigos' => $codigos]);
     }
 
     public function update(DiademasFormRequest $request, $id_diadema) {

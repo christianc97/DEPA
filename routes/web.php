@@ -58,6 +58,22 @@ Route::get('/Todos-Servicios-Entregados-App', function(){
     return $todas_ciudades;
 });
 
+Route::get('/asignar/equipos/{userid}/{equipoid}', function($userid, $equipoid){
+
+  $fecha_asignacion = date('Y-m-d H:i:s');
+  $asignador = Auth::id();
+
+  $asignar = DB::connection('reportesmensajeros')->insert("insert into users_equipos(users_id, equipos_id, fecha_asignacion, asignador)values ($userid, $equipoid,'$fecha_asignacion',$asignador)");
+});
+
+
+Route::get('/asignar/diademas/{diademaid}/{equipoid}', function($diademaid, $equipoid){
+
+  $fecha_asignacion = date('Y-m-d H:i:s');
+  $asignador = Auth::id();
+
+  $asignar = DB::connection('reportesmensajeros')->insert("insert into equipos_diademas(diademas_id, equipos_id, fecha_asignacion, asignador)values ($diademaid , $equipoid, '$fecha_asignacion', $asignador)");
+});
 
 Route::resource('reportes/reportesServiciosFinalizados', 'reporteServiciosFinalizadosController');
 Route::resource('reportes/reportesAdmin', 'reporteAdminController');
