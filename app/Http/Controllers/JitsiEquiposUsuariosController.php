@@ -22,7 +22,6 @@ class JitsiEquiposUsuariosController extends Controller
 				left join users_equipos ue on e.id_equipos = ue.equipos_id
 				left join users u on ue.users_id = u.id
 				where u.activo = 1 and ue.fecha_desasignacion is null
-				group by e.codigo
 				order by e.codigo asc;');
             return view('equipos.JitsiEquiposUsuarios', ['jitsi_equipos' => $jitsi_equipos]);
         } else {
