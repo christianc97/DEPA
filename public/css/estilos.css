@@ -20,3 +20,14 @@ li.active{
 .mensaje{
     color:red;
 }
+.image-login{
+	margin-left: 40%;
+	margin-bottom: 10%; 
+	margin-top: 2%; 
+}
+.btn{
+	width: 30%;
+	margin-left: 40%;
+	margin-bottom: 10%; 
+	margin-top: 2%; 
+}
