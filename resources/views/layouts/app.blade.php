@@ -19,17 +19,20 @@
     </script>
 </head>
 <style type="text/css">
-.image-login{
-    margin-left: 40%;
-    margin-bottom: 10%; 
-    margin-top: 2%; 
-}
-.btn{
-    width: 30%;
-    margin-left: 40%;
-    margin-bottom: 10%; 
-    margin-top: 2%; 
-}
+    .image-login{
+        margin-left: 40%;
+        margin-bottom: 10%; 
+        margin-top: 2%; 
+    }
+    .btn{
+        width: 30%;
+        margin-left: 40%;
+        margin-bottom: 10%; 
+        margin-top: 2%; 
+    }
+    .login-form{
+        margin-top: 5%;
+    }
 </style>
 <body>
     <div id="app">

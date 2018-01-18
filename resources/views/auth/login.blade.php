@@ -2,8 +2,7 @@
 
 @section('content')
 
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
+    <div class="login-form container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
@@ -12,7 +11,7 @@
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                             {{ csrf_field() }}
                             <div class="image-login">
-                                <img src="{{ asset('img/motorizado.svg') }}" width="40%" class="img-resposive" 
+                                <img src="{{ asset('img/motorizado.svg') }}" width="45%" class="img-resposive" 
                                                   srcset="{{ asset('img/motorizado.svg') }} 2x, 
                                              {{ asset('img/motorizado.svg') }} 1000w, 
                                              {{ asset('img/motorizado.svg') }} 768w 2x, 
@@ -53,5 +52,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection
